@@ -481,17 +481,38 @@ function renderOverlayReverse(){
 
 function waveIn(){
   return new Promise(done=>{
+    // Reset to 0 (invisible), animate to 100 (covers screen)
     for(let i=0;i<numPaths;i++)for(let j=0;j<numPoints;j++)ovAllPoints[i][j]=0;
-    const pointsDelay=[];for(let i=0;i<numPoints;i++)pointsDelay[i]=Math.random()*delayPointsMax;
+    const pd=[];for(let i=0;i<numPoints;i++)pd[i]=Math.random()*delayPointsMax;
     const tl=gsap.timeline({onUpdate:renderOverlay,onComplete:done,defaults:{ease:'power2.inOut',duration:.7}});
-    for(let i=0;i<numPaths;i++){const pts=ovAllPoints[i],pd=delayPerPath*i;for(let j=0;j<numPoints;j++)tl.to(pts,{[j]:100},pointsDelay[j]+pd)}
+    for(let i=0;i<numPaths;i++){const pts=ovAllPoints[i],d=delayPerPath*i;for(let j=0;j<numPoints;j++)tl.to(pts,{[j]:100},pd[j]+d)}
   });
 }
 function waveOut(){
   return new Promise(done=>{
-    const pointsDelay=[];for(let i=0;i<numPoints;i++)pointsDelay[i]=Math.random()*delayPointsMax;
+    // Reset to 0 (covers screen in reverse mode), animate to 100 (reveals)
+    for(let i=0;i<numPaths;i++)for(let j=0;j<numPoints;j++)ovAllPoints[i][j]=0;
+    const pd=[];for(let i=0;i<numPoints;i++)pd[i]=Math.random()*delayPointsMax;
     const tl=gsap.timeline({onUpdate:renderOverlayReverse,onComplete:done,defaults:{ease:'power2.inOut',duration:.7}});
-    for(let i=0;i<numPaths;i++){const pts=ovAllPoints[i],pd=delayPerPath*(numPaths-i-1);for(let j=0;j<numPoints;j++)tl.to(pts,{[j]:0},pointsDelay[j]+pd)}
+    for(let i=0;i<numPaths;i++){const pts=ovAllPoints[i],d=delayPerPath*(numPaths-i-1);for(let j=0;j<numPoints;j++)tl.to(pts,{[j]:100},pd[j]+d)}
+  });
+}
+
+/* ═══ SIMPLE TRANSITION (fade + scale, for most slides) ═══ */
+function simpleFadeOut(s){
+  return new Promise(done=>{
+    gsap.killTweensOf(s);
+    gsap.to(s,{opacity:0,scale:.95,duration:.4,ease:'power2.in',onComplete(){hideSlide(s);done()}});
+  });
+}
+function simpleFadeIn(s){
+  return new Promise(done=>{
+    gsap.killTweensOf(s);
+    freezeContents(s);
+    s.style.opacity='0';
+    gsap.set(s,{scale:.95});
+    s.style.visibility='visible';s.classList.add('on');
+    gsap.to(s,{opacity:1,scale:1,duration:.5,ease:'power2.out',onComplete(){s.style.transform='';done()}});
   });
 }
 
@@ -603,20 +624,31 @@ function animateIn(s){
   }
 }
 
-/* ═══ NAVIGATION with WAVE OVERLAY ═══ */
+/* ═══ NAVIGATION ═══ */
+// Wave overlay only on these key slide ARRIVALS (0-indexed)
+const waveSlides=new Set([3,6,12]); // slide 4 (Demo), slide 7 (Marché), slide 13 (Closing)
+
 async function goTo(idx){
   if(busy||idx===cur||idx<0||idx>=total)return;
   busy=true;hint.style.opacity='0';
   stopAllRolling();
-  // Wave covers screen
-  await waveIn();
-  // Swap slides behind the wave
-  hideSlide(slides[cur]);
-  cur=idx;updateUI();
-  showSlide(slides[idx]);
-  // Wave reveals new slide
-  await waveOut();
-  // Animate content
+
+  const useWave=waveSlides.has(idx);
+
+  if(useWave){
+    // WAVE transition
+    await waveIn();
+    hideSlide(slides[cur]);
+    cur=idx;updateUI();
+    showSlide(slides[idx]);
+    await waveOut();
+  } else {
+    // SIMPLE transition
+    await simpleFadeOut(slides[cur]);
+    cur=idx;updateUI();
+    await simpleFadeIn(slides[idx]);
+  }
+
   animateIn(slides[idx]);
   busy=false;
 }
