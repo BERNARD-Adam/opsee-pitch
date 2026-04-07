@@ -99,9 +99,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .demo-stat strong{color:var(--purple);font-weight:700}
 
 /* ══ SLIDE 5 : IA ══ */
-#s5 .ai-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;width:100%;max-width:1000px;align-items:center;margin-top:24px}
-#s5 .ai-text{display:flex;flex-direction:column;gap:16px}
-#s5 .ai-quote{font-size:18px;font-style:italic;color:var(--text-muted);line-height:1.7;border-left:3px solid var(--purple);padding-left:20px}
+#s5 .ai-wrap{display:flex;flex-direction:column;align-items:center;gap:24px;width:100%;max-width:1000px;margin-top:24px}
+#s5 .ai-text{display:flex;gap:24px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
+#s5 .ai-quote{font-size:17px;font-style:italic;color:var(--text-muted);line-height:1.7;border-left:3px solid var(--purple);padding-left:20px;max-width:420px}
+#s5 .ai-desc{font-size:14px;color:var(--text-muted);line-height:1.7;max-width:420px}
+#s5 .ai-screen{width:100%;max-width:860px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.1)}
 
 /* ══ SLIDE 6 : ARCHITECTURE ══ */
 .arch-layers{display:flex;flex-direction:column;gap:10px;width:100%;max-width:700px;margin-top:28px}
@@ -173,8 +175,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s13 .brand{font-size:72px;font-weight:900;letter-spacing:-2px;color:var(--text)}
 #s13 .brand em{color:var(--purple);font-style:normal}
 #s13 .tagline-final{font-size:20px;color:var(--text-muted);font-weight:300;margin-top:8px;letter-spacing:1px}
-.contact-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
-.chip{padding:10px 20px;border:1px solid var(--border-light);border-radius:100px;font-size:13px;font-weight:500;color:var(--text);background:var(--white);display:flex;align-items:center;gap:8px;transition:all .3s}
+.contact-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.chip{padding:14px 28px;border:1px solid var(--border-light);border-radius:100px;font-size:17px;font-weight:500;color:var(--text);background:var(--white);display:flex;align-items:center;gap:10px;transition:all .3s}
 .chip:hover{border-color:var(--purple);transform:translateY(-2px)}
 .final-tag{margin-top:40px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:rgba(26,26,46,0.15)}
 
@@ -218,13 +220,13 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 <div class="slide" id="s2">
   <div class="tag" data-a="fade">Le problème</div>
   <h2 class="sec-title" style="text-align:center;margin-top:20px" data-a="lines">Le MES est réservé<br><em>aux grands</em></h2>
-  <p class="subtitle" style="text-align:center" data-a="fade">Les PME représentent 90% du tissu industriel européen. Pourtant, elles n'ont pas accès aux outils de pilotage de production.</p>
+  <p class="subtitle" style="text-align:center" data-a="fade">Les PME n'ont pas accès aux outils de pilotage de production.</p>
   <div class="stat-row" data-a="stagger">
     <div class="card stat-card"><div class="num" data-a="counter" data-count="500" data-suffix="k€+">0</div><div class="label">Coût moyen d'un MES<br>propriétaire</div></div>
     <div class="card stat-card"><div class="num" data-a="counter" data-count="18" data-suffix=" mois">0</div><div class="label">Durée d'intégration<br>moyenne</div></div>
     <div class="card stat-card"><div class="num" style="font-size:36px" data-a="fade">🔒</div><div class="label">Vendor lock-in<br>solutions monolithiques</div></div>
   </div>
-  <p class="subtitle" style="text-align:center;margin-top:20px;font-size:15px" data-a="fade"><strong style="color:var(--text)">Conséquence :</strong> perte de productivité, zéro traçabilité, décisions à l'aveugle.</p>
+  <p class="subtitle" style="text-align:center;margin-top:20px;font-size:20px" data-a="fade"><strong style="color:var(--text)">Conséquence :</strong> perte de productivité, zéro traçabilité, décisions à l'aveugle.</p>
 </div>
 
 <!-- ══ 3. SOLUTION ══ -->
@@ -254,7 +256,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
     <div class="demo-item"><img src="img/cockpit.png" alt="Cockpit"><div class="demo-label">Cockpit personnalisable — 39 widgets</div></div>
     <div class="demo-item"><img src="img/OEE.png" alt="OEE"><div class="demo-label">Dashboard OEE temps réel</div></div>
     <div class="demo-item"><img src="img/timeline.png" alt="Timeline"><div class="demo-label">Timeline des downtimes</div></div>
-    <div class="demo-item"><img src="img/Arbre_equipment.png" alt="Équipements"><div class="demo-label">Gestion équipements ISA-88</div></div>
+    <div class="demo-item"><img src="img/Arbre_equipment.png" alt="Équipements"><div class="demo-label">Gestion équipements ISA-95/ISA-88</div></div>
   </div>
   <div class="demo-stats" data-a="stagger">
     <div class="demo-stat"><strong>80</strong> tables</div>
@@ -271,13 +273,14 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
   <div class="ai-wrap">
     <div class="ai-text" data-a="stagger">
       <p class="ai-quote">"Quel équipement a eu le plus de downtime cette semaine ?"<br><br>→ Réponse instantanée, avec données temps réel.</p>
-      <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Chatbot IA intégré (Claude/Anthropic) capable d'interroger les données de production en <strong style="color:var(--text)">langage naturel</strong>. Respect des permissions utilisateur.</p>
+      <p class="ai-desc">Chatbot IA intégré (Claude/Anthropic) capable d'interroger les données de production en <strong style="color:var(--text)">langage naturel</strong>. Respect des permissions utilisateur.</p>
     </div>
-    <div data-a="scale"><img src="img/chatbot.jpeg" alt="Chatbot IA" class="screenshot" style="max-height:400px"></div>
+    <div data-a="scale"><img src="img/chatbot.jpeg" alt="Chatbot IA" class="ai-screen"></div>
   </div>
 </div>
 
-<!-- ══ 6. ARCHITECTURE ══ -->
+<!-- ══ 6. ARCHITECTURE ══ (commentée) -->
+<!--
 <div class="slide" id="s6">
   <div class="tag" data-a="fade">Architecture</div>
   <h2 class="sec-title" style="text-align:center;margin-top:16px" data-a="lines">Simple à déployer.<br><em>Impossible à casser.</em></h2>
@@ -291,6 +294,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
   </div>
   <div class="arch-cmd" data-a="fade"><span class="prompt">$</span> docker compose up<span style="opacity:0.4;margin-left:8px">— c'est tout.</span></div>
 </div>
+-->
 
 <!-- ══ 7. MARCHÉ ══ -->
 <div class="slide" id="s7">
@@ -325,7 +329,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
       <div class="tl-item"><div class="tl-dot done">✓</div><div class="tl-content"><div class="tl-date">Oct–Déc 2025</div><div class="tl-text">OEE complet, cockpit, ingestion MQTT/OPC-UA</div></div></div>
       <div class="tl-item"><div class="tl-dot done">✓</div><div class="tl-content"><div class="tl-date">Jan–Avr 2026</div><div class="tl-text">39 widgets, timeline downtimes, chatbot IA, 7 langues UI</div></div></div>
       <div class="tl-item"><div class="tl-dot" style="border-color:var(--amber);color:var(--amber)">→</div><div class="tl-content"><div class="tl-date">Juin 2026</div><div class="tl-text"><strong>Version commercialisable</strong> — premiers clients pilotes</div></div></div>
-      <div class="tl-item"><div class="tl-dot">Q4</div><div class="tl-content"><div class="tl-date">Q3–Q4 2026</div><div class="tl-text">Partenaires intégrateurs, go-to-market Belgique</div></div></div>
+      <div class="tl-item"><div class="tl-dot">Q4</div><div class="tl-content"><div class="tl-date">Q3–Q4 2026</div><div class="tl-text">Batch management, partenaires intégrateurs, go-to-market Belgique</div></div></div>
       <div class="tl-item"><div class="tl-dot">27</div><div class="tl-content"><div class="tl-date">2027</div><div class="tl-text">Expansion DACH + France, levée Seed</div></div></div>
     </div>
     <div data-a="scale" style="margin-top:16px"><img src="img/commits.png" alt="633 commits" class="screenshot" style="max-width:300px;border-radius:12px"><p style="font-family:'Space Mono',monospace;font-size:11px;color:var(--text-muted);margin-top:8px;text-align:center"><strong style="color:var(--purple)">633</strong> commits · <strong style="color:var(--purple)">100</strong> branches · <strong style="color:var(--purple)">400+</strong> issues</p></div>
