@@ -410,7 +410,7 @@ function updateUI(){dots.forEach((d,i)=>d.classList.toggle('active',i===cur));pr
 
 // 3D transitions
 function tOut(s,dir){return new Promise(r=>{gsap.to(s,{duration:.65,rotateY:dir>0?-40:40,x:dir>0?'-25%':'25%',opacity:0,scale:.88,ease:'power3.inOut',transformOrigin:dir>0?'left center':'right center',onComplete:()=>{s.classList.remove('active');gsap.set(s,{clearProps:'all'});s.style.opacity='0';s.style.visibility='hidden';r()}})})}
-function tIn(s,dir){return new Promise(r=>{s.style.visibility='visible';s.classList.add('active');gsap.set(s,{rotateY:dir>0?40:-40,x:dir>0?'25%':'-25%',opacity:0,scale:.88});gsap.to(s,{duration:.75,rotateY:0,x:'0%',opacity:1,scale:1,ease:'power3.out',onComplete:()=>{gsap.set(s,{clearProps:'all'});s.style.opacity='1';s.style.visibility='visible';r()}})})}
+function tIn(s,dir){return new Promise(r=>{gsap.set(s,{rotateY:dir>0?40:-40,x:dir>0?'25%':'-25%',opacity:0,scale:.88});s.style.visibility='visible';s.classList.add('active');gsap.to(s,{duration:.75,rotateY:0,x:'0%',opacity:1,scale:1,ease:'power3.out',onComplete:()=>{gsap.set(s,{clearProps:'all'});s.style.opacity='1';s.style.visibility='visible';r()}})})}
 
 // Intra-slide animations
 function animSlide(s){
