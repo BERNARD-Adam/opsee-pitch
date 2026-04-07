@@ -116,9 +116,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .demo-stat strong{color:var(--purple-light);font-weight:700}
 
 /* ═══ S5 IA ═══ */
-#s5 .ai-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;width:100%;max-width:1000px;align-items:center;margin-top:28px}
-#s5 .ai-text{display:flex;flex-direction:column;gap:20px}
-#s5 .ai-quote{font-size:18px;font-style:italic;color:var(--text-muted);line-height:1.7;border-left:2px solid var(--purple);padding-left:20px}
+#s5 .ai-wrap{display:flex;flex-direction:column;align-items:center;gap:24px;width:100%;max-width:1000px;margin-top:28px}
+#s5 .ai-text{display:flex;gap:24px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
+#s5 .ai-quote{font-size:17px;font-style:italic;color:var(--text-muted);line-height:1.7;border-left:2px solid var(--purple);padding-left:20px;max-width:420px}
+#s5 .ai-desc{font-size:14px;color:var(--text-muted);line-height:1.7;max-width:420px}
+#s5 .ai-screen{width:100%;max-width:860px;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.4)}
 
 /* ═══ S6 ARCHITECTURE ═══ */
 .arch-layers{display:flex;flex-direction:column;gap:8px;width:100%;max-width:720px;margin-top:32px}
@@ -199,7 +201,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .rolling-wrap{display:inline-block;height:1.3em;overflow:hidden;vertical-align:bottom;position:relative;min-width:2ch}
 .rolling-track{display:flex;flex-direction:column}.rolling-track span{display:block;height:1.3em;line-height:1.3em}
 .contact-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px}
-.chip{padding:10px 22px;border:1px solid var(--border-light);border-radius:100px;font-size:13px;font-weight:400;color:var(--text-muted);background:var(--surface);display:flex;align-items:center;gap:8px;transition:all .3s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.chip{padding:14px 28px;border:1px solid var(--border-light);border-radius:100px;font-size:17px;font-weight:400;color:var(--text-muted);background:var(--surface);display:flex;align-items:center;gap:8px;transition:all .3s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .chip:hover{border-color:var(--purple);color:var(--purple-light);transform:translateY(-2px)}
 .chip .ico{width:14px;height:14px}
 .final-tag{margin-top:44px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:rgba(241,241,246,.08)}
@@ -235,7 +237,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 
 <!-- CHROME -->
 <div id="progress-wrap"><div id="progress"></div></div>
-<div id="slide-num"><span id="sn-cur">01</span> — <span id="sn-tot">13</span></div>
+<div id="slide-num"><span id="sn-cur">01</span> — <span id="sn-tot">12</span></div>
 <div id="fixed-logo"><img src="img/logo_texte.svg" alt="OpSee"></div>
 <button class="nav-arrow" id="arr-prev"><svg class="ico" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
 <button class="nav-arrow" id="arr-next"><svg class="ico" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
@@ -260,13 +262,13 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 <div class="slide" id="s2">
   <div class="tag" data-a="scramble" data-text="Le probleme">&nbsp;</div>
   <h2 class="sec-title" style="text-align:center;margin-top:24px" data-a="lines">Le MES est reserve<br><em>aux grands</em></h2>
-  <p class="subtitle" style="text-align:center" data-a="fade">Les PME representent 90% du tissu industriel europeen.<br>Pourtant, elles n'ont pas acces aux outils de pilotage de production.</p>
+  <p class="subtitle" style="text-align:center" data-a="fade">Les PME n'ont pas acces aux outils de pilotage de production.</p>
   <div class="stat-row" data-a="stagger">
     <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="500" data-suffix="k€+">0</div><div class="label">Cout moyen d'un MES<br>proprietaire</div></div>
     <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="18" data-suffix=" mois">0</div><div class="label">Duree d'integration<br>moyenne</div></div>
     <div class="glow-card stat-card"><svg class="lock-icon" data-a="draw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><div class="label">Vendor lock-in<br>solutions monolithiques</div></div>
   </div>
-  <p class="subtitle" style="text-align:center;margin-top:24px;font-size:15px" data-a="fade"><strong style="color:var(--text)">Consequence :</strong> perte de productivite, zero tracabilite, decisions a l'aveugle.</p>
+  <p class="subtitle" style="text-align:center;margin-top:24px;font-size:20px" data-a="fade"><strong style="color:var(--text)">Consequence :</strong> perte de productivite, zero tracabilite, decisions a l'aveugle.</p>
 </div>
 
 <!-- ═══ 3. SOLUTION ═══ -->
@@ -296,7 +298,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
     <div class="demo-item"><img src="img/cockpit.png" alt="Cockpit"><div class="demo-label">Cockpit personnalisable — 39 widgets</div></div>
     <div class="demo-item"><img src="img/OEE.png" alt="OEE"><div class="demo-label">Dashboard OEE temps reel</div></div>
     <div class="demo-item"><img src="img/timeline.png" alt="Timeline"><div class="demo-label">Timeline des downtimes</div></div>
-    <div class="demo-item"><img src="img/Arbre_equipment.png" alt="Equipements"><div class="demo-label">Gestion equipements ISA-88</div></div>
+    <div class="demo-item"><img src="img/Arbre_equipment.png" alt="Equipements"><div class="demo-label">Gestion equipements ISA-95/ISA-88</div></div>
   </div>
   <div class="demo-stats" data-a="stagger">
     <div class="demo-stat"><strong>80</strong> tables</div>
@@ -313,31 +315,13 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
   <div class="ai-wrap">
     <div class="ai-text" data-a="stagger">
       <p class="ai-quote">"Quel equipement a eu le plus de downtime cette semaine ?"<br><br>→ Reponse instantanee, avec donnees temps reel.</p>
-      <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Chatbot IA integre (Claude / Anthropic) capable d'interroger les donnees de production en <strong style="color:var(--text)">langage naturel</strong>. Respect des permissions utilisateur.</p>
+      <p class="ai-desc">Chatbot IA integre (Claude / Anthropic) capable d'interroger les donnees de production en <strong style="color:var(--text)">langage naturel</strong>. Respect des permissions utilisateur.</p>
     </div>
-    <div data-a="scale"><img src="img/chatbot.jpeg" alt="Chatbot IA" class="screenshot" style="max-height:400px"></div>
+    <div data-a="scale"><img src="img/chatbot.jpeg" alt="Chatbot IA" class="ai-screen"></div>
   </div>
 </div>
 
-<!-- ═══ 6. ARCHITECTURE ═══ -->
-<div class="slide" id="s6">
-  <div class="tag" data-a="scramble" data-text="Architecture">&nbsp;</div>
-  <h2 class="sec-title" style="text-align:center;margin-top:20px" data-a="lines">Simple a deployer.<br><em>Impossible a casser.</em></h2>
-  <div class="arch-flow-wrap">
-    <div class="arch-flow-dot" id="flow-dot"></div>
-    <div class="arch-layers" data-a="stagger">
-      <div class="arch-layer card"><div class="arch-icon" style="background:linear-gradient(135deg,#61DAFB,#3178C6)"><svg class="ico" data-a="draw" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div><div class="arch-name">Frontend — React / Vite</div><div class="arch-desc">Interface multilingue (10 langues), responsive</div></div></div>
-      <div class="arch-layer card"><div class="arch-icon" style="background:linear-gradient(135deg,#059669,#047857)"><svg class="ico" data-a="draw" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><div class="arch-name">Backend — FastAPI (Python)</div><div class="arch-desc">API REST, conformite ISA-95 / ISA-88</div></div></div>
-      <div class="arch-layer card"><div class="arch-icon" style="background:linear-gradient(135deg,#336791,#1E3A5F)"><svg class="ico" data-a="draw" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><div><div class="arch-name">Data — PostgreSQL + TimescaleDB</div><div class="arch-desc">Time-series haute performance + relationnel</div></div></div>
-      <div class="arch-layer card"><div class="arch-icon" style="background:linear-gradient(135deg,#22C55E,#15803D)"><svg class="ico" data-a="draw" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><circle cx="12" cy="20" r="1"/></svg></div><div><div class="arch-name">IoT — MQTT + OPC-UA + Node-RED</div><div class="arch-desc">Ingestion industrielle temps reel</div></div></div>
-      <div class="arch-layer card"><div class="arch-icon" style="background:linear-gradient(135deg,#F59E0B,#D97706)"><svg class="ico" data-a="draw" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="arch-name">Auth — Keycloak + OAuth2-Proxy</div><div class="arch-desc">SSO, OIDC, gestion des roles</div></div></div>
-      <div class="arch-layer card"><div class="arch-icon" style="background:linear-gradient(135deg,var(--purple),var(--purple-dark))"><svg class="ico" data-a="draw" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M9 16s1.5 1 3 1 3-1 3-1"/></svg></div><div><div class="arch-name">IA — Streamlit + Claude API</div><div class="arch-desc">Chatbot en langage naturel</div></div></div>
-    </div>
-  </div>
-  <div class="arch-cmd" data-a="fade"><span class="prompt">$</span> <span data-a="scramble" data-text="docker compose up" data-delay="800">&nbsp;</span><span style="opacity:.3;margin-left:8px">— c'est tout.</span></div>
-</div>
-
-<!-- ═══ 7. MARCHE ═══ -->
+<!-- ═══ 6. MARCHE (was 7) ═══ -->
 <div class="slide" id="s7">
   <div class="tag" data-a="scramble" data-text="Opportunite">&nbsp;</div>
   <h2 class="sec-title" style="text-align:center;margin-top:20px" data-a="lines">Un marche de <em>$16 Mds</em><br>domine par des acteurs trop chers</h2>
@@ -370,7 +354,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
       <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Oct – Dec 2025</div><div class="tl-text">OEE complet, cockpit, ingestion MQTT / OPC-UA</div></div></div>
       <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Jan – Avr 2026</div><div class="tl-text">39 widgets, timeline downtimes, chatbot IA, 7 langues UI</div></div></div>
       <div class="tl-item"><div class="tl-dot" style="border-color:var(--amber);color:var(--amber)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div><div class="tl-content"><div class="tl-date">Juin 2026</div><div class="tl-text"><strong style="color:var(--text)">Version commercialisable</strong> — premiers clients pilotes</div></div></div>
-      <div class="tl-item"><div class="tl-dot">Q4</div><div class="tl-content"><div class="tl-date">Q3 – Q4 2026</div><div class="tl-text">Partenaires integrateurs, go-to-market Belgique</div></div></div>
+      <div class="tl-item"><div class="tl-dot">Q4</div><div class="tl-content"><div class="tl-date">Q3 – Q4 2026</div><div class="tl-text">Batch management, partenaires integrateurs, go-to-market Belgique</div></div></div>
       <div class="tl-item"><div class="tl-dot">27</div><div class="tl-content"><div class="tl-date">2027</div><div class="tl-text">Expansion DACH + France, levee Seed</div></div></div>
     </div>
     <div data-a="scale" style="margin-top:20px"><img src="img/commits.png" alt="633 commits" class="screenshot" style="max-width:280px;border-radius:12px"><p style="font-family:'Space Mono',monospace;font-size:11px;color:var(--text-muted);margin-top:10px;text-align:center"><strong style="color:var(--purple-light)">633</strong> commits · <strong style="color:var(--purple-light)">100</strong> branches · <strong style="color:var(--purple-light)">400+</strong> issues</p></div>
@@ -626,7 +610,7 @@ function animateIn(s){
 
 /* ═══ NAVIGATION ═══ */
 // Wave overlay only on these key slide ARRIVALS (0-indexed)
-const waveSlides=new Set([3,6,12]); // slide 4 (Demo), slide 7 (Marché), slide 13 (Closing)
+const waveSlides=new Set([3,5,11]); // slide 4 (Demo), slide 6 (Marché), slide 12 (Closing)
 
 async function goTo(idx){
   if(busy||idx===cur||idx<0||idx>=total)return;
