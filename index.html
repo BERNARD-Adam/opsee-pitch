@@ -19,6 +19,64 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:'Outfit',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
 
+/* ═══════════════════════════════════════════════════════
+   🎛  TUNING PANEL — All per-slide positioning here
+   To adjust any element: change its value, save, reload.
+   ═══════════════════════════════════════════════════════ */
+
+/* S2 — Problème */
+#s2 .sec-title              { margin-top: 24px; }
+
+/* S3 — Solution */
+#s3 .sec-title              { margin-top: 0px; }
+#s3 > .subtitle             { margin-top: 8px; }
+
+/* S4 — Produit */
+#s4 .tag                    { top: 4%; }
+#s4 .sec-title              { margin-top: 10px; }
+#s4 .demo-grid              { gap: 10px; margin-top: 18px; max-width: 1000px; }
+#s4 .demo-item img          { max-height: 28vh; object-fit: cover; }
+#s4 .demo-stats             { margin-top: 12px; }
+
+/* S5 — IA */
+#s5 .sec-title              { margin-top: 20px; }
+
+/* S7 — Marché */
+#s7 .sec-title              { margin-top: 20px; }
+#s7 > .subtitle             { margin-top: 12px; }
+
+/* S8 — Business Model */
+#s8 .sec-title              { margin-top: 20px; }
+#s8 > .subtitle             { margin-top: 12px; }
+
+/* S9 — Traction */
+#s9 .sec-title              { margin-top: 24px; }
+#s9 .traction-wrap          { margin-top: 24px; }
+#s9 .s2-consequence         { margin-top: 16px; }
+#s9 .traction-right .screenshot { max-width: 260px; border-radius: 12px; }
+#s9 .commit-stats           { margin-top: 10px; }
+
+/* S10 — Équipe */
+#s10 .sec-title             { margin-top: 20px; }
+#s10 > .subtitle            { margin-top: 12px; }
+
+/* S11 — Avantage */
+#s11 .sec-title             { margin-top: 20px; }
+#s11 > .subtitle            { margin-top: 12px; }
+
+/* S12 — Ask */
+#s12 .sec-title             { margin-top: 20px; }
+#s12 > .subtitle            { margin-top: 12px; }
+
+/* S13 — Closing */
+#s13                        { justify-content: center; padding-top: 20vh; }
+#s13 .logo-big img          { height: 400px; }
+#s13 .logo-big              { margin-bottom: -10vh; }
+#s13 .tagline-final         { margin-top: 0px; }
+#s13 .closing-text          { margin-top: 8px; max-width: 560px; }
+#s13 .contact-row           { margin-top: 12px; }
+#s13 .final-tag             { margin-top: 14px; }
+
 /* ═══ SVG ICONS ═══ */
 .ico{width:22px;height:22px;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;fill:none;flex-shrink:0}
 .ico-lg{width:28px;height:28px}.ico-xl{width:36px;height:36px}
@@ -57,14 +115,14 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #fixed-logo img{height:100%;width:auto}
 
 /* ═══ TAG ═══ */
-.tag{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--purple);padding:6px 16px;border:1px solid var(--border);border-radius:100px;background:var(--surface2)}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--purple);padding:8px 22px;border:1px solid var(--border);border-radius:100px;background:var(--surface2);position:absolute;top:7%;left:50%;transform:translateX(-50%)}
 .tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--purple);box-shadow:0 0 10px var(--purple-glow);animation:pulse 2.5s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:.6}50%{opacity:1;box-shadow:0 0 18px rgba(112,83,254,.5)}}
 
 /* ═══ TYPOGRAPHY ═══ */
-.sec-title{font-size:clamp(42px,6vw,72px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;color:var(--text)}
+.sec-title{font-size:clamp(42px,6vw,72px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;color:var(--text);text-align:center}
 .sec-title em{background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
-.subtitle{font-size:18px;font-weight:300;color:var(--text-muted);max-width:620px;line-height:1.7}
+.subtitle{font-size:18px;font-weight:300;color:var(--text-muted);max-width:620px;line-height:1.7;text-align:center}
 .reveal-text{overflow:hidden}.reveal-text .line{display:block;transform:translateY(110%)}
 
 /* ═══ CARDS ═══ */
@@ -98,10 +156,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .stat-card .label{font-size:15px;color:var(--text-muted);margin-top:10px;line-height:1.5}
 .lock-icon{width:48px;height:48px;margin:0 auto;color:var(--purple);opacity:1}
 .s2-consequence{margin-top:24px;padding:14px 28px;border-radius:14px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08)}
+.s2-consequence .subtitle{font-size:20px;margin:0}
 
 /* ═══ S3 SOLUTION ═══ */
 #s3::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 50% 58%,rgba(142,51,255,.06),transparent);pointer-events:none}
-.pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;justify-content:center}
 .pill{padding:10px 20px;border:1.5px solid rgba(142,51,255,.18);border-radius:100px;font-size:14px;font-weight:600;color:var(--purple);background:rgba(142,51,255,.04);transition:all .4s cubic-bezier(.22,1,.36,1);cursor:default;display:flex;align-items:center;gap:8px}
 .pill:hover{background:var(--purple);color:#fff;border-color:var(--purple);transform:translateY(-3px);box-shadow:0 10px 30px var(--purple-glow)}
 .pill .ico{width:16px;height:16px}
@@ -116,6 +175,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .see-card .word{font-weight:700;font-size:13px;color:var(--text);margin-top:8px;letter-spacing:2px;text-transform:uppercase;position:relative;z-index:1}
 .see-card .desc{font-size:12px;color:var(--text-muted);margin-top:5px;line-height:1.5;position:relative;z-index:1}
 .s3-quote{position:relative;margin-top:18px;padding:12px 24px;border-radius:14px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08)}
+.s3-quote p{font-size:15px;color:var(--text-muted);text-align:center;margin:0}
 
 /* ═══ S4 DEMO ═══ */
 .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:1100px;margin-top:28px}
@@ -230,16 +290,18 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 /* ═══ S13 CLOSING ═══ */
 #s13{text-align:center;position:relative}
 #s13::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(112,83,254,.08),transparent);pointer-events:none}
-#s13 .logo-big{margin-bottom:16px}
-#s13 .logo-big img{height:140px;width:auto;filter:drop-shadow(0 0 50px rgba(112,83,254,.25))}
-#s13 .tagline-final{font-size:28px;color:var(--text-muted);font-weight:200;margin-top:8px;letter-spacing:3px}
+/* s13 logo-big: sizing in tuning panel */
+#s13 .logo-big img{width:auto;filter:drop-shadow(0 0 50px rgba(112,83,254,.25))}
+#s13 .tagline-final{font-size:28px;color:var(--text-muted);font-weight:200;letter-spacing:3px}
 .rolling-wrap{display:inline-block;height:1.3em;overflow:hidden;vertical-align:bottom;position:relative;min-width:2ch}
 .rolling-track{display:flex;flex-direction:column}.rolling-track span{display:block;height:1.3em;line-height:1.3em}
-.contact-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.contact-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .chip{padding:14px 28px;border:1px solid var(--border-light);border-radius:100px;font-size:17px;font-weight:400;color:var(--text-muted);background:var(--surface);display:flex;align-items:center;gap:8px;transition:all .3s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .chip:hover{border-color:var(--purple);color:var(--purple-light);transform:translateY(-2px)}
 .chip .ico{width:14px;height:14px}
-.final-tag{margin-top:44px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:rgba(28,37,46,.15)}
+.commit-stats{font-family:'Space Mono',monospace;font-size:11px;color:var(--text-muted);text-align:center}
+.closing-text{font-size:20px;color:var(--text-muted);line-height:1.7;font-weight:300}
+.final-tag{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:rgba(28,37,46,.15)}
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:768px){
@@ -255,6 +317,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s0{background:#050208;z-index:1}
 #s0 video{width:100vw;height:100vh;object-fit:contain}
 .standby-on #fixed-logo,.standby-on #slide-num,.standby-on #nav,.standby-on #hint,.standby-on #progress-wrap,.standby-on .nav-arrow{opacity:0!important;pointer-events:none}
+.closing-on #fixed-logo{opacity:0!important;pointer-events:none}
 </style>
 </head>
 <body>
@@ -306,23 +369,22 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 <!-- ═══ 2. PROBLEME ═══ -->
 <div class="slide" id="s2">
   <div class="tag" data-a="scramble" data-text="Le probleme">&nbsp;</div>
-  <h2 class="sec-title" style="text-align:center;margin-top:24px" data-a="lines">Le MES est reserve<br><em>aux grands</em></h2>
-  <p class="subtitle" style="text-align:center" data-a="fade">Les PME n'ont pas acces aux outils de pilotage de production.</p>
+  <h2 class="sec-title" data-a="lines">Le MES est reserve<br><em>aux grands</em></h2>
+  <p class="subtitle" data-a="fade">Les PME n'ont pas acces aux outils de pilotage de production.</p>
   <div class="stat-row" data-a="stagger">
     <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="500" data-suffix="k€+">0</div><div class="label">Cout moyen d'un MES<br>proprietaire</div></div>
     <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="18" data-suffix=" mois">0</div><div class="label">Duree d'integration<br>moyenne</div></div>
     <div class="glow-card stat-card"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><div class="label">Vendor lock-in<br>solutions monolithiques</div></div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle" style="text-align:center;font-size:20px;margin:0"><strong style="color:var(--text)">Consequence :</strong> perte de productivite, zero tracabilite, decisions a l'aveugle.</p></div>
+  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--text)">Consequence :</strong> perte de productivite, zero tracabilite, decisions a l'aveugle.</p></div>
 </div>
 
 <!-- ═══ 3. SOLUTION ═══ -->
 <div class="slide" id="s3">
   <div class="tag" data-a="scramble" data-text="Notre solution">&nbsp;</div>
-  <div style="margin-top:16px" data-a="scale"><img src="img/logo_texte.svg" alt="OpSee" style="height:60px;width:auto;filter:drop-shadow(0 0 50px rgba(142,51,255,.2))"></div>
-  <h2 class="sec-title" style="text-align:center;margin-top:16px" data-a="lines">Le premier MES<br><em>open source et accessible</em></h2>
-  <p class="subtitle" style="text-align:center;margin-top:8px" data-a="fade">Concu pour les PME industrielles.</p>
-  <div class="pill-row" data-a="stagger" style="justify-content:center">
+  <h2 class="sec-title" data-a="lines">Le premier MES<br><em>open source et accessible</em></h2>
+  <p class="subtitle" data-a="fade">Concu pour les PME industrielles.</p>
+  <div class="pill-row" data-a="stagger">
     <div class="pill"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><line x1="8" y1="11" x2="8" y2="7"/></svg> Open Source</div>
     <div class="pill"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Modulaire</div>
     <div class="pill"><svg class="ico" viewBox="0 0 24 24"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><circle cx="12" cy="20" r="1"/></svg> Offline-first</div>
@@ -332,13 +394,13 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
     <div class="glow-card see-card"><div class="letter">E</div><div class="word">Execution</div><div class="desc">Controle en temps reel de la production</div></div>
     <div class="glow-card see-card"><div class="letter">E</div><div class="word">Efficiency</div><div class="desc">Ressources et performance optimisees</div></div>
   </div>
-  <div class="s3-quote" data-a="fade"><p style="font-size:15px;color:var(--text-muted);text-align:center;margin:0"><em>"On rend le MES aussi accessible qu'un CRM l'est devenu grace a <strong style="color:var(--purple-light)">Odoo</strong>."</em></p></div>
+  <div class="s3-quote" data-a="fade"><p><em>"On rend le MES aussi accessible qu'un CRM l'est devenu grace a <strong style="color:var(--purple-light)">Odoo</strong>."</em></p></div>
 </div>
 
 <!-- ═══ 4. DEMO ═══ -->
 <div class="slide" id="s4">
   <div class="tag" data-a="scramble" data-text="Le produit">&nbsp;</div>
-  <h2 class="sec-title" style="text-align:center;margin-top:20px" data-a="lines">Ce n'est pas un prototype.<br><em>C'est un produit.</em></h2>
+  <h2 class="sec-title" data-a="lines">Ce n'est pas un prototype.<br><em>C'est un produit.</em></h2>
   <div class="demo-grid" data-a="grid">
     <div class="demo-item"><img src="img/cockpit.png" alt="Cockpit"><div class="demo-label">Cockpit personnalisable — 39 widgets</div></div>
     <div class="demo-item"><img src="img/OEE.png" alt="OEE"><div class="demo-label">Dashboard OEE temps reel</div></div>
@@ -356,7 +418,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 <!-- ═══ 5. IA ═══ -->
 <div class="slide" id="s5">
   <div class="tag" data-a="scramble" data-text="IA integree">&nbsp;</div>
-  <h2 class="sec-title" style="text-align:center;margin-top:20px" data-a="lines">L'industrie 4.0<br>rencontre <em>l'IA</em></h2>
+  <h2 class="sec-title" data-a="lines">L'industrie 4.0<br>rencontre <em>l'IA</em></h2>
   <div class="ai-wrap">
     <div class="ai-text" data-a="stagger">
       <p class="ai-quote">"Quel equipement a eu le plus de downtime cette semaine ?"<br><br>→ Reponse instantanee, avec donnees temps reel.</p>
@@ -369,34 +431,34 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 <!-- ═══ 6. MARCHE (was 7) ═══ -->
 <div class="slide" id="s7">
   <div class="tag" data-a="scramble" data-text="Opportunite">&nbsp;</div>
-  <h2 class="sec-title" style="text-align:center;margin-top:36px" data-a="lines">Un marche de <em>$16 Mds</em><br>domine par des acteurs trop chers</h2>
-  <p class="subtitle" style="text-align:center" data-a="fade">Le MES est le prochain domaine B2B a etre disrupte par l'open source.</p>
+  <h2 class="sec-title" data-a="lines">Un marche de <em>$16 Mds</em><br>domine par des acteurs trop chers</h2>
+  <p class="subtitle" data-a="fade">Le MES est le prochain domaine B2B a etre disrupte par l'open source.</p>
   <div class="stat-row" data-a="stagger">
     <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="16" data-suffix=" Mds$">0</div><div class="label">Marche mondial<br>du MES en 2024</div></div>
     <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="12" data-suffix="%/an">0</div><div class="label">Croissance<br>annuelle</div></div>
     <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="160" data-suffix="k+">0</div><div class="label">PME industrielles cibles<br>BE + FR + DACH</div></div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle" style="text-align:center;font-size:20px;margin:0"><strong style="color:var(--text)">Reference :</strong> <strong style="color:var(--purple-light)">Odoo</strong> = 12M utilisateurs, valorisation $3.5 Mds.</p></div>
+  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--text)">Reference :</strong> <strong style="color:var(--purple-light)">Odoo</strong> = 12M utilisateurs, valorisation $3.5 Mds.</p></div>
 </div>
 
 <!-- ═══ 8. BUSINESS MODEL ═══ -->
 <div class="slide" id="s8">
   <div class="tag" data-a="scramble" data-text="Business Model">&nbsp;</div>
-  <h2 class="sec-title" style="text-align:center;margin-top:36px" data-a="lines">Gratuit pour entrer.<br><em>Payant pour scaler.</em></h2>
-  <p class="subtitle" style="text-align:center" data-a="fade">Modele open-core : le coeur est gratuit, les modules avances sont payants.</p>
+  <h2 class="sec-title" data-a="lines">Gratuit pour entrer.<br><em>Payant pour scaler.</em></h2>
+  <p class="subtitle" data-a="fade">Modele open-core : le coeur est gratuit, les modules avances sont payants.</p>
   <div class="bm-grid" data-a="stagger">
     <div class="glow-card bm-card"><div class="bm-tier">Free</div><div class="bm-name">Open Source</div><div class="bm-price">Gratuit · Toujours</div><ul class="bm-list"><li>OEE de base</li><li>Auto-hebergeable</li><li>Communaute active</li><li>Code source complet</li></ul></div>
     <div class="glow-card bm-card featured"><div class="bm-tier">Tarif A</div><div class="bm-name">Premium</div><div class="bm-price">600 €/an/ligne</div><ul class="bm-list"><li>Modules avances (IA, ERP, maintenance)</li><li>Connecteurs industriels</li><li>Integrations ERP / IoT</li></ul></div>
     <div class="glow-card bm-card"><div class="bm-tier">Tarif B</div><div class="bm-name">Enterprise</div><div class="bm-price">1 200 €/an/ligne</div><ul class="bm-list"><li>Tout Tarif A inclus</li><li>Support prioritaire</li><li>Installation cle en main</li><li>Formation sur mesure</li></ul></div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle" style="text-align:center;font-size:20px;margin:0"><strong style="color:var(--text)">Cible :</strong> 10 clients pilotes a <strong style="color:var(--purple-light)">600 €/an</strong> = 72k€ ARR des la premiere annee.</p></div>
+  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--text)">Cible :</strong> 10 clients pilotes a <strong style="color:var(--purple-light)">600 €/an</strong> = 72k€ ARR des la premiere annee.</p></div>
 </div>
 
 <!-- ═══ 9. TRACTION ═══ -->
 <div class="slide" id="s9">
   <div class="tag" data-a="scramble" data-text="Traction & Roadmap">&nbsp;</div>
-  <h2 class="sec-title" style="text-align:center;margin-top:36px" data-a="lines">De zero a un produit<br><em>en 1 an</em></h2>
-  <p class="subtitle" style="text-align:center" data-a="fade">8 mois de developpement intense, un produit deja fonctionnel.</p>
+  <h2 class="sec-title" data-a="lines">De zero a un produit<br><em>en 1 an</em></h2>
+  <p class="subtitle" data-a="fade">8 mois de developpement intense, un produit deja fonctionnel.</p>
   <div class="traction-wrap" data-a="stagger">
     <div class="traction-left">
       <div class="timeline">
@@ -408,16 +470,16 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
         <div class="tl-item"><div class="tl-dot">27</div><div class="tl-content"><div class="tl-date">2027</div><div class="tl-text">Expansion DACH + France, levee Seed</div></div></div>
       </div>
     </div>
-    <div class="traction-right" data-a="scale"><img src="img/commits.png" alt="633 commits" class="screenshot" style="max-width:260px;border-radius:12px"><p style="font-family:'Space Mono',monospace;font-size:11px;color:var(--text-muted);margin-top:10px;text-align:center"><strong style="color:var(--purple-light)">633</strong> commits · <strong style="color:var(--purple-light)">100</strong> branches · <strong style="color:var(--purple-light)">400+</strong> issues</p></div>
+    <div class="traction-right" data-a="scale"><img src="img/commits.png" alt="633 commits" class="screenshot"><p class="commit-stats"><strong style="color:var(--purple-light)">633</strong> commits · <strong style="color:var(--purple-light)">100</strong> branches · <strong style="color:var(--purple-light)">400+</strong> issues</p></div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle" style="text-align:center;font-size:20px;margin:0"><strong style="color:var(--text)">Prochaine etape :</strong> version commercialisable en <strong style="color:var(--purple-light)">juin 2026</strong>, premiers clients pilotes.</p></div>
+  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--text)">Prochaine etape :</strong> version commercialisable en <strong style="color:var(--purple-light)">juin 2026</strong>, premiers clients pilotes.</p></div>
 </div>
 
 <!-- ═══ 10. EQUIPE ═══ -->
 <div class="slide" id="s10">
   <div class="tag" data-a="scramble" data-text="L'equipe">&nbsp;</div>
-  <h2 class="sec-title" style="text-align:center;margin-top:36px" data-a="lines">Expertise <em>industrielle</em><br>+ energie academique</h2>
-  <p class="subtitle" style="text-align:center" data-a="fade">4 cofondateurs complementaires, accompagnes par des experts du terrain.</p>
+  <h2 class="sec-title" data-a="lines">Expertise <em>industrielle</em><br>+ energie academique</h2>
+  <p class="subtitle" data-a="fade">4 cofondateurs complementaires, accompagnes par des experts du terrain.</p>
   <div class="team-row" data-a="stagger">
     <div class="card team-member"><img src="img/member.jpg" alt="Adam"><div class="name">Adam Bernard</div><div class="role">Ing. mecatronique · Frontend & UX</div></div>
     <div class="card team-member"><img src="img/member.jpg" alt="Nathan"><div class="name">Nathan Moreau</div><div class="role">Ing. informatique · Backend & Archi</div></div>
@@ -428,14 +490,14 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
     <div class="card mentor-card"><div class="mentor-avatar"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg></div><div><div class="name">Christophe Camerlynck</div><div class="role">CEO AgiNtech · Co-fondateur · 20+ ans industrie</div></div></div>
     <div class="card mentor-card"><div class="mentor-avatar"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div><div class="name">Peter Mees</div><div class="role">Ingenieur MES · Expert ISA · AgiNtech</div></div></div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle" style="text-align:center;font-size:20px;margin:0"><strong style="color:var(--text)">Incube par</strong> <strong style="color:var(--purple-light)">AgiNtech</strong> — acces direct au terrain industriel et aux premiers clients.</p></div>
+  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--text)">Incube par</strong> <strong style="color:var(--purple-light)">AgiNtech</strong> — acces direct au terrain industriel et aux premiers clients.</p></div>
 </div>
 
 <!-- ═══ 11. AVANTAGE ═══ -->
 <div class="slide" id="s11">
   <div class="tag" data-a="scramble" data-text="Avantage concurrentiel">&nbsp;</div>
-  <h2 class="sec-title" style="text-align:center;margin-top:36px" data-a="lines">Pourquoi <em>OpSee</em><br>et pas un autre ?</h2>
-  <p class="subtitle" style="text-align:center" data-a="fade">6 differenciateurs cles face aux MES proprietaires.</p>
+  <h2 class="sec-title" data-a="lines">Pourquoi <em>OpSee</em><br>et pas un autre ?</h2>
+  <p class="subtitle" data-a="fade">6 differenciateurs cles face aux MES proprietaires.</p>
   <div class="adv-grid" data-a="grid">
     <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><line x1="8" y1="11" x2="8" y2="7"/></svg></div><div class="adv-title">Open Source</div><div class="adv-desc">Pas de vendor lock-in. Code auditable, transparent.</div></div>
     <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="adv-title">Modulaire</div><div class="adv-desc">Payez uniquement ce dont vous avez besoin.</div></div>
@@ -444,27 +506,27 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
     <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M9 16s1.5 1 3 1 3-1 3-1"/></svg></div><div class="adv-title">IA integree</div><div class="adv-desc">Seul MES open source avec chatbot IA.</div></div>
     <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg></div><div class="adv-title">Made in Belgium</div><div class="adv-desc">Proximite, reseau AgiNtech, RGPD natif.</div></div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle" style="text-align:center;font-size:20px;margin:0"><strong style="color:var(--text)">Aucun MES open source</strong> ne combine ces 6 avantages aujourd'hui.</p></div>
+  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--text)">Aucun MES open source</strong> ne combine ces 6 avantages aujourd'hui.</p></div>
 </div>
 
 <!-- ═══ 12. ASK ═══ -->
 <div class="slide" id="s12">
   <div class="tag" data-a="scramble" data-text="Ce qu'on cherche">&nbsp;</div>
-  <h2 class="sec-title" style="text-align:center;margin-top:36px" data-a="lines">On ne cherche pas<br><em>des applaudissements</em></h2>
-  <p class="subtitle" style="text-align:center" data-a="fade">Mais des connexions concretes pour passer a l'echelle.</p>
+  <h2 class="sec-title" data-a="lines">On ne cherche pas<br><em>des applaudissements</em></h2>
+  <p class="subtitle" data-a="fade">Mais des connexions concretes pour passer a l'echelle.</p>
   <div class="ask-row" data-a="stagger">
     <div class="glow-card ask-card"><div class="ask-icon"><svg class="ico-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg></div><div class="ask-title">Clients pilotes</div><div class="ask-desc">PME industrielles belges pour valider en conditions reelles. Deploiement gratuit.</div></div>
     <div class="glow-card ask-card"><div class="ask-icon"><svg class="ico-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><div class="ask-title">Partenaires integrateurs</div><div class="ask-desc">Societes d'automatisation industrielle pour distribuer OpSee.</div></div>
     <div class="glow-card ask-card"><div class="ask-icon"><svg class="ico-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div class="ask-title">Visibilite & reseau</div><div class="ask-desc">Connexions dans l'ecosysteme industriel belge et europeen.</div></div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle" style="text-align:center;font-size:20px;margin:0"><strong style="color:var(--purple-light)">Vous connaissez une PME industrielle ?</strong> Presentez-nous. On fait le reste.</p></div>
+  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--purple-light)">Vous connaissez une PME industrielle ?</strong> Presentez-nous. On fait le reste.</p></div>
 </div>
 
 <!-- ═══ 13. CLOSING ═══ -->
 <div class="slide" id="s13">
   <div class="logo-big" data-a="scale"><img src="img/logo_texte.svg" alt="OpSee"></div>
   <div class="tagline-final" data-a="fade"><span class="rolling-wrap"><span class="rolling-track" data-a="rolling"><span>Open</span><span>Smart</span><span>Scalable</span></span></span> · <span class="rolling-wrap"><span class="rolling-track" data-a="rolling" data-offset="1"><span>Smart</span><span>Scalable</span><span>Open</span></span></span> · <span class="rolling-wrap"><span class="rolling-track" data-a="rolling" data-offset="2"><span>Scalable</span><span>Open</span><span>Smart</span></span></span></div>
-  <p style="font-size:20px;color:var(--text-muted);margin-top:20px;max-width:560px;line-height:1.7;font-weight:300" data-a="fade">Le MES open source qui rend l'industrie 4.0<br>accessible a <strong style="color:var(--text)">toutes les PME</strong>.</p>
+  <p class="closing-text" data-a="fade">Le MES open source qui rend l'industrie 4.0<br>accessible a <strong style="color:var(--text)">toutes les PME</strong>.</p>
   <div class="contact-row" data-a="stagger">
     <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg> www.opsee.io</div>
     <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> performance@opsee.io</div>
@@ -694,6 +756,7 @@ async function goTo(idx){
 
   // Toggle standby chrome
   document.body.classList.toggle('standby-on',idx===0);
+    document.body.classList.toggle('closing-on',slides[idx].id==='s13');
 
   animateIn(slides[idx]);
   busy=false;
