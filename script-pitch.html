@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpSee — Script Pitch 5 min (v2)</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #8E33FF;
+    --purple-light: #A855F7;
+    --purple-dark: #7928CA;
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #1C252E;
+    --text-muted: rgba(28,37,46,.55);
+    --adam: #3B82F6;
+    --juliette: #EC4899;
+    --nathan: #10B981;
+    --louis: #F59E0B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- HEADER ---- */
+  .header {
+    background: linear-gradient(135deg, #1C252E 0%, #2D1B69 50%, #1C252E 100%);
+    color: white;
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(142,51,255,.2), transparent);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    position: relative;
+  }
+  .header h1 em {
+    background: linear-gradient(135deg, var(--purple-light), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: normal;
+  }
+  .header .meta {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 300;
+    opacity: .7;
+    position: relative;
+  }
+  .header .version {
+    margin-top: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    opacity: .35;
+    position: relative;
+  }
+
+  /* ---- LEGEND ---- */
+  .legend {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 24px 32px;
+    background: var(--surface);
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  .legend-comfort {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: 2px;
+  }
+
+  /* ---- CONTAINER ---- */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+
+  /* ---- OVERVIEW ---- */
+  .overview {
+    background: var(--surface);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 40px;
+  }
+  .overview h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--purple);
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .speaker-card {
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(0,0,0,.06);
+    position: relative;
+    overflow: hidden;
+  }
+  .speaker-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+  }
+  .speaker-card.adam::before { background: var(--adam); }
+  .speaker-card.juliette::before { background: var(--juliette); }
+  .speaker-card.nathan::before { background: var(--nathan); }
+  .speaker-card.louis::before { background: var(--louis); }
+
+  .speaker-card .sp-name {
+    font-weight: 700;
+    font-size: 17px;
+  }
+  .speaker-card .sp-role {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .speaker-card .sp-slides {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    margin-top: 10px;
+    color: var(--text-muted);
+  }
+  .speaker-card .sp-time {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 6px;
+    color: var(--text);
+  }
+  .speaker-card .sp-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* ---- FLOW DIAGRAM ---- */
+  .flow {
+    background: var(--surface);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    overflow-x: auto;
+  }
+  .flow h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--purple);
+  }
+  .flow-row {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .flow-chip {
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+  }
+  .flow-chip.adam { background: var(--adam); }
+  .flow-chip.juliette { background: var(--juliette); }
+  .flow-chip.nathan { background: var(--nathan); }
+  .flow-chip.louis { background: var(--louis); }
+  .flow-arrow {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin: 0 2px;
+  }
+
+  /* ---- SLIDE SECTION ---- */
+  .slide-section {
+    margin-bottom: 32px;
+    background: var(--surface);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 20px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+
+  .slide-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 28px;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    position: relative;
+  }
+  .slide-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--purple-light));
+  }
+  .slide-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--purple);
+    background: rgba(142,51,255,.06);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .slide-title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .slide-timer {
+    margin-left: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    background: rgba(0,0,0,.03);
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+
+  .slide-body {
+    padding: 24px 28px;
+  }
+
+  /* Speaker block */
+  .speaker-block {
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    position: relative;
+    border: 1px solid rgba(0,0,0,.04);
+  }
+  .speaker-block:last-child { margin-bottom: 0; }
+
+  .speaker-block.adam    { background: rgba(59,130,246,.04);  border-color: rgba(59,130,246,.12); }
+  .speaker-block.juliette{ background: rgba(236,72,153,.04); border-color: rgba(236,72,153,.12); }
+  .speaker-block.nathan  { background: rgba(16,185,129,.04); border-color: rgba(16,185,129,.12); }
+  .speaker-block.louis   { background: rgba(245,158,11,.04); border-color: rgba(245,158,11,.12); }
+
+  .speaker-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+  .speaker-block.adam .speaker-label    { color: var(--adam);    background: rgba(59,130,246,.1); }
+  .speaker-block.juliette .speaker-label{ color: var(--juliette);background: rgba(236,72,153,.1); }
+  .speaker-block.nathan .speaker-label  { color: var(--nathan); background: rgba(16,185,129,.1); }
+  .speaker-block.louis .speaker-label   { color: var(--louis);  background: rgba(245,158,11,.1); }
+
+  .speech {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+  .speech em {
+    color: var(--purple);
+    font-style: normal;
+    font-weight: 600;
+  }
+  .speech .pause {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    background: rgba(0,0,0,.04);
+    padding: 2px 10px;
+    border-radius: 6px;
+    margin: 4px 2px;
+    vertical-align: middle;
+    letter-spacing: 1px;
+  }
+  .speech .gesture {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 8px 0;
+    padding-left: 16px;
+    border-left: 2px solid rgba(0,0,0,.08);
+    font-style: italic;
+  }
+
+  /* Transition note */
+  .transition {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    margin: 0 28px 16px;
+    border-radius: 10px;
+    background: rgba(142,51,255,.03);
+    border: 1px dashed rgba(142,51,255,.15);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .transition-arrow {
+    font-size: 18px;
+    color: var(--purple-light);
+  }
+
+  /* Tips */
+  .tips {
+    background: var(--surface);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 20px;
+    padding: 32px;
+    margin-top: 40px;
+  }
+  .tips h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--purple);
+  }
+  .tips ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .tips li {
+    font-size: 15px;
+    line-height: 1.6;
+    padding-left: 24px;
+    position: relative;
+    color: var(--text-muted);
+  }
+  .tips li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--purple);
+    opacity: .3;
+  }
+  .tips li strong { color: var(--text); }
+
+  /* Print */
+  @media print {
+    .legend { position: static; }
+    .slide-section { break-inside: avoid; }
+    body { background: #fff; }
+  }
+
+  @media (max-width: 640px) {
+    .overview-grid { grid-template-columns: 1fr; }
+    .slide-header { flex-wrap: wrap; }
+    .slide-timer { margin-left: 0; margin-top: 8px; }
+    .header h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====================== HEADER ====================== -->
+<div class="header">
+  <h1>Script Pitch <em>OpSee</em></h1>
+  <div class="meta">Mind & Market 2026 &mdash; 5 minutes &mdash; 4 speakers</div>
+  <div class="version">V2 &mdash; ADAPTE AU CONFORT DE CHACUN</div>
+</div>
+
+<!-- ====================== LEGEND ====================== -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--nathan)"></div> Nathan <span class="legend-comfort">&middot; ouvre le pitch</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--juliette)"></div> Juliette</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--adam)"></div> Adam <span class="legend-comfort">&middot; slides visuelles</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--louis)"></div> Louis <span class="legend-comfort">&middot; ferme le pitch</span></div>
+</div>
+
+<div class="container">
+
+<!-- ====================== FLOW ====================== -->
+<div class="flow">
+  <h2>Enchainement des speakers</h2>
+  <div class="flow-row">
+    <div class="flow-chip nathan">S1 Nathan</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip juliette">S2 Juliette</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip nathan">S3 Nathan</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip adam">S4 Adam</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip nathan">S5 Nathan</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip louis">S6 Louis</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip louis">S7 Louis</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip adam">S8 Adam</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip juliette">S9 Juliette</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip nathan">S10 Nathan</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip louis">S11 Louis</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip louis">S12 Louis</div>
+  </div>
+</div>
+
+<!-- ====================== OVERVIEW ====================== -->
+<div class="overview">
+  <h2>Repartition par speaker</h2>
+  <div class="overview-grid">
+    <div class="speaker-card nathan">
+      <div class="sp-name">Nathan Moreau</div>
+      <div class="sp-role">Ing. informatique &middot; Backend & Architecture</div>
+      <div class="sp-slides">S1 Accroche &middot; S3 Solution &middot; S5 IA &middot; S10 Avantage</div>
+      <div class="sp-time">~1min50 de parole</div>
+      <div class="sp-note">Ouvre le pitch, porte la vision tech et la solution</div>
+    </div>
+    <div class="speaker-card louis">
+      <div class="sp-name">Louis Verbeeren</div>
+      <div class="sp-role">Master gestion &middot; Finance & Juridique</div>
+      <div class="sp-slides">S6 Marche &middot; S7 Business Model &middot; S11 Ask &middot; S12 Closing</div>
+      <div class="sp-time">~1min45 de parole</div>
+      <div class="sp-note">Porte le business case + ferme le pitch avec l'ask</div>
+    </div>
+    <div class="speaker-card juliette">
+      <div class="sp-name">Juliette Marchand</div>
+      <div class="sp-role">Master gestion &middot; Commercial & Strategie</div>
+      <div class="sp-slides">S2 Probleme &middot; S9 Equipe</div>
+      <div class="sp-time">~55s de parole</div>
+      <div class="sp-note">Deux passages courts et bien cadres</div>
+    </div>
+    <div class="speaker-card adam">
+      <div class="sp-name">Adam Bernard</div>
+      <div class="sp-role">Ing. mecatronique &middot; Frontend & UX</div>
+      <div class="sp-slides">S4 Produit &middot; S8 Traction</div>
+      <div class="sp-time">~1min10 de parole</div>
+      <div class="sp-note">Slides tres visuelles &mdash; tu montres l'ecran, ca parle tout seul</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================
+     SLIDE 1 — ACCROCHE — NATHAN
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 01</div>
+    <div class="slide-title">Accroche &mdash; Le chiffre choc</div>
+    <div class="slide-timer">~30s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block nathan">
+      <div class="speaker-label">Nathan</div>
+      <div class="speech">
+        Bonjour a tous. <span class="pause">PAUSE</span>
+        <br><br>
+        <em>72%</em>. C'est la proportion de PME industrielles qui n'ont aujourd'hui <em>aucun outil digital</em> pour suivre leur production.
+        <br><br>
+        Concretement ? Elles gerent leur usine avec <em>Excel, du papier, ou tout simplement rien</em>.
+        <br><br>
+        On est quatre etudiants-entrepreneurs, et on a decide de changer ca. <span class="pause">PAUSE</span> Juliette va vous expliquer pourquoi c'est un vrai probleme.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Nathan &rarr; Juliette &mdash; du constat general au probleme concret</div>
+
+<!-- ========================================================
+     SLIDE 2 — PROBLEME — JULIETTE
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 02</div>
+    <div class="slide-title">Le Probleme</div>
+    <div class="slide-timer">~35s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block juliette">
+      <div class="speaker-label">Juliette</div>
+      <div class="speech">
+        Les outils pour piloter une usine existent &mdash; ca s'appelle un MES, Manufacturing Execution System. Mais ils sont <em>reserves aux grands groupes</em>.
+        <br><br>
+        Un MES proprietaire, c'est en moyenne <em>500 000 euros</em>, <em>18 mois</em> d'integration, et du <em>vendor lock-in</em> total.
+        <span class="gesture">Pointer les 3 chiffres a l'ecran</span>
+        <br><br>
+        Consequence pour les PME : perte de productivite, zero tracabilite, decisions a l'aveugle.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette &rarr; Nathan &mdash; du probleme a la solution. Nathan enchaine direct.</div>
+
+<!-- ========================================================
+     SLIDE 3 — SOLUTION — NATHAN
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 03</div>
+    <div class="slide-title">Notre Solution</div>
+    <div class="slide-timer">~30s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block nathan">
+      <div class="speaker-label">Nathan</div>
+      <div class="speech">
+        C'est exactement pour ca qu'on a cree <em>OpSee</em> : le premier MES <em>open source et accessible</em>, concu pour les PME industrielles.
+        <br><br>
+        Trois piliers. <em>Open source</em> &mdash; pas de lock-in, le code est a vous. <em>Modulaire</em> &mdash; vous prenez que ce dont vous avez besoin. <em>Offline-first</em> &mdash; ca tourne dans l'usine, meme sans internet.
+        <span class="gesture">Pointer chaque pill a l'ecran</span>
+        <br><br>
+        Notre ambition : rendre le MES aussi accessible qu'un CRM l'est devenu grace a <em>Odoo</em>. <span class="pause">PAUSE</span> Adam va vous montrer concretement a quoi ca ressemble.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Nathan &rarr; Adam &mdash; de la promesse a la preuve. Adam montre l'ecran.</div>
+
+<!-- ========================================================
+     SLIDE 4 — PRODUIT — ADAM
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 04</div>
+    <div class="slide-title">Le Produit</div>
+    <div class="slide-timer">~40s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block adam">
+      <div class="speaker-label">Adam</div>
+      <div class="speech">
+        <span class="gesture">TIP : tu montres l'ecran en parlant. Pas besoin de regarder le public tout le temps &mdash; c'est une slide visuelle, laisse les images parler.</span>
+        Ce n'est pas un prototype &mdash; <em>c'est un produit</em>.
+        <br><br>
+        Ici, notre <em>cockpit personnalisable</em> : 39 widgets en drag-and-drop. L'operateur compose son propre tableau de bord.
+        <span class="gesture">Pointer cockpit en haut a gauche</span>
+        <br><br>
+        A cote, le <em>dashboard OEE temps reel</em> &mdash; c'est l'indicateur roi de l'industrie. En dessous, la <em>timeline des arrets machines</em> et la <em>gestion d'equipements</em> conforme ISA-95 et ISA-88.
+        <span class="gesture">Pointer rapidement chaque screenshot</span>
+        <br><br>
+        Pour vous donner une idee de la profondeur : <em>80 tables</em> en base, <em>167 fonctions SQL</em>, <em>12 services Docker</em>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Adam &rarr; Nathan &mdash; du produit a l'IA. Nathan reprend naturellement.</div>
+
+<!-- ========================================================
+     SLIDE 5 — IA — NATHAN
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 05</div>
+    <div class="slide-title">IA Integree</div>
+    <div class="slide-timer">~30s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block nathan">
+      <div class="speaker-label">Nathan</div>
+      <div class="speech">
+        Et on a integre un <em>chatbot IA</em> directement dans OpSee, base sur Claude d'Anthropic.
+        <br><br>
+        Un chef d'atelier peut demander en langage naturel : <em>"Quel equipement a eu le plus de downtime cette semaine ?"</em> &mdash; et il obtient une reponse instantanee, basee sur les donnees reelles de production.
+        <span class="gesture">Pointer le screenshot du chatbot</span>
+        <br><br>
+        Avec un respect strict des <em>permissions utilisateur</em>. C'est le seul MES open source qui offre ca. Louis va vous parler du marche.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Nathan &rarr; Louis &mdash; de la tech au business. Louis prend la main.</div>
+
+<!-- ========================================================
+     SLIDE 6 — MARCHE — LOUIS
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 06</div>
+    <div class="slide-title">Opportunite de Marche</div>
+    <div class="slide-timer">~30s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block louis">
+      <div class="speaker-label">Louis</div>
+      <div class="speech">
+        Le marche mondial du MES, c'est <em>16 milliards de dollars</em>, avec une croissance de <em>12% par an</em>.
+        <br><br>
+        Et surtout : <em>plus de 160 000 PME industrielles</em> rien qu'en Belgique, France et DACH n'ont toujours pas acces a ces outils.
+        <span class="gesture">Pointer les trois chiffres</span>
+        <br><br>
+        Notre reference : <em>Odoo</em>. 12 millions d'utilisateurs, valorise 3,5 milliards. Ils ont fait pour le CRM ce qu'on veut faire pour le MES.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================
+     SLIDE 7 — BUSINESS MODEL — LOUIS
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 07</div>
+    <div class="slide-title">Business Model</div>
+    <div class="slide-timer">~35s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block louis">
+      <div class="speaker-label">Louis</div>
+      <div class="speech">
+        Notre modele, c'est de l'<em>open-core</em>. Le coeur d'OpSee est gratuit, pour toujours. C'est comme ca qu'on cree de l'adoption.
+        <br><br>
+        La monetisation vient des modules avances. Deux offres :
+        <br>
+        &mdash; <em>Premium a 59 euros par mois par equipement</em> : modules IA, connecteurs ERP, batch management.
+        <br>
+        &mdash; <em>Enterprise a 95 euros</em> : tout Premium plus support prioritaire, installation cle en main, formation.
+        <span class="gesture">Pointer chaque colonne</span>
+        <br><br>
+        Gratuit pour entrer, <em>payant pour scaler</em>. C'est le meme modele qui a fait le succes de GitLab et Odoo. Adam, ou en est-on concretement ?
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Louis &rarr; Adam &mdash; du modele a la traction. Adam montre la timeline.</div>
+
+<!-- ========================================================
+     SLIDE 8 — TRACTION — ADAM
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 08</div>
+    <div class="slide-title">Traction & Roadmap</div>
+    <div class="slide-timer">~30s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block adam">
+      <div class="speaker-label">Adam</div>
+      <div class="speech">
+        <span class="gesture">TIP : meme principe que la slide produit &mdash; tu suis la timeline du doigt, tu montres l'ecran. C'est tres visuel.</span>
+        En 8 mois, on est passes de zero a un produit fonctionnel.
+        <br><br>
+        <em>Septembre 2025</em> : premier MVP. Fin 2025 : OEE complet, cockpit, ingestion MQTT et OPC-UA. Debut 2026 : 39 widgets, chatbot IA, interface en <em>10 langues</em>.
+        <span class="gesture">Suivre la timeline du doigt, de haut en bas</span>
+        <br><br>
+        A droite, nos stats : <em>633 commits, 100 branches, 400+ issues</em>. Ce n'est pas un side-project.
+        <br><br>
+        Prochaine etape : <em>version commercialisable en juin 2026</em>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Adam &rarr; Juliette &mdash; de la roadmap a l'equipe</div>
+
+<!-- ========================================================
+     SLIDE 9 — EQUIPE — JULIETTE
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 09</div>
+    <div class="slide-title">L'Equipe</div>
+    <div class="slide-timer">~20s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block juliette">
+      <div class="speaker-label">Juliette</div>
+      <div class="speech">
+        On est quatre cofondateurs complementaires : <em>Adam et Nathan</em>, ingenieurs &mdash; l'un en mecatronique, l'autre en informatique &mdash; et <em>Louis et moi</em> en gestion, finances et strategie commerciale.
+        <span class="gesture">Geste vers chaque personne physiquement presente</span>
+        <br><br>
+        Et on est accompagnes par <em>AgiNtech</em> : Christophe Camerlynck, 20 ans d'industrie, et Peter Mees, expert MES. Grace a eux, on a un acces direct au terrain et a nos futurs clients.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette &rarr; Nathan &mdash; de l'equipe aux avantages concurrentiels</div>
+
+<!-- ========================================================
+     SLIDE 10 — AVANTAGE — NATHAN
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 10</div>
+    <div class="slide-title">Avantage Concurrentiel</div>
+    <div class="slide-timer">~25s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block nathan">
+      <div class="speaker-label">Nathan</div>
+      <div class="speech">
+        Pourquoi <em>OpSee</em> et pas un autre ?
+        <br><br>
+        <em>Open source</em>, pas de lock-in. <em>Modulaire</em>, payez que ce dont vous avez besoin. <em>Offline-first</em>. <em>Conforme ISA-95/88</em>. <em>IA integree</em> &mdash; le seul MES open source avec chatbot. Et <em>Made in Belgium</em>, RGPD natif.
+        <span class="gesture">Enumerer en rythme, pointer chaque case rapidement</span>
+        <br><br>
+        <em>Aucun MES</em> ne combine ces six avantages aujourd'hui. Louis.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Nathan &rarr; Louis &mdash; des avantages a l'ask. Dernier bloc.</div>
+
+<!-- ========================================================
+     SLIDE 11 — ASK — LOUIS
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 11</div>
+    <div class="slide-title">Ce qu'on cherche</div>
+    <div class="slide-timer">~25s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block louis">
+      <div class="speaker-label">Louis</div>
+      <div class="speech">
+        On ne cherche pas des applaudissements. <span class="pause">PAUSE</span> On cherche des <em>connexions concretes</em>.
+        <br><br>
+        <em>Un</em> : des <em>clients pilotes</em> &mdash; des PME industrielles belges pretes a tester. On deploie gratuitement.
+        <br>
+        <em>Deux</em> : des <em>partenaires integrateurs</em> &mdash; des societes d'automatisation qui veulent distribuer OpSee.
+        <br>
+        <em>Trois</em> : de la <em>visibilite</em> dans l'ecosysteme industriel belge et europeen.
+        <span class="gesture">Pointer chaque carte</span>
+        <br><br>
+        Vous connaissez une PME industrielle ? <em>Presentez-nous. On fait le reste.</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================
+     SLIDE 12 — CLOSING — LOUIS
+     ======================================================== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 12</div>
+    <div class="slide-title">Closing</div>
+    <div class="slide-timer">~15s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block louis">
+      <div class="speaker-label">Louis</div>
+      <div class="speech">
+        <em>OpSee</em>. Open, Smart, Scalable. <span class="pause">PAUSE</span>
+        <br><br>
+        Le MES open source qui rend l'industrie 4.0 accessible a <em>toutes les PME</em>.
+        <br><br>
+        Merci.
+        <span class="gesture">Sourire. Silence 2 secondes. Laisser venir les questions.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====================== TIPS ====================== -->
+<div class="tips">
+  <h2>Conseils pour le jour J</h2>
+  <ul>
+    <li><strong>Repetez avec un chrono.</strong> 5 minutes c'est court. Si vous depassez, coupez dans la slide 10 (Avantage) : 3 points au lieu de 6.</li>
+    <li><strong>Adam, appuie-toi sur l'ecran.</strong> Tes deux slides (Produit + Traction) sont ultra-visuelles. Pointe les screenshots, suis la timeline du doigt. Tu n'as pas besoin de tout reciter &mdash; montre et commente.</li>
+    <li><strong>Pas de "je passe la parole a...".</strong> Les transitions sont ecrites pour etre naturelles. Terminez votre phrase, le suivant enchaine.</li>
+    <li><strong>Le coeur du pitch = slides 2-3-4.</strong> Probleme &rarr; Solution &rarr; Produit. Soyez les plus percutants la-dessus.</li>
+    <li><strong>Nathan ouvre et donne le rythme.</strong> Les 30 premieres secondes definissent l'energie du pitch. Posture droite, voix posee, contact visuel avec le jury.</li>
+    <li><strong>Louis ferme avec conviction.</strong> Le closing et l'ask sont les derniers mots que le jury entend. Finir fort.</li>
+    <li><strong>Chaque chiffre doit etre dit a voix haute</strong> : 72%, 500k, 18 mois, 16 Mds, 633 commits... Les chiffres marquent les esprits.</li>
+    <li><strong>Les PAUSE dans le script</strong> sont la pour respirer. Ne les supprimez pas &mdash; le silence rend le propos plus impactant.</li>
+    <li><strong>Positionnement physique</strong> (suggestion) : Nathan a gauche (il commence), Juliette centre-gauche, Adam centre-droit, Louis a droite (il finit).</li>
+    <li><strong>Questions du jury</strong> &mdash; Tech : Nathan. Business/Marche : Juliette ou Louis. Produit/UX : Adam. Finance/Pricing : Louis.</li>
+  </ul>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

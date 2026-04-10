@@ -318,6 +318,14 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s0 video{width:100vw;height:100vh;object-fit:contain}
 .standby-on #fixed-logo,.standby-on #slide-num,.standby-on #nav,.standby-on #hint,.standby-on #progress-wrap,.standby-on .nav-arrow{opacity:0!important;pointer-events:none}
 .closing-on #fixed-logo{opacity:0!important;pointer-events:none}
+
+/* ═══ SOURCES SLIDE ═══ */
+#s-sources .src-tag{position:absolute;top:7%;left:50%;transform:translateX(-50%);font-size:13px;letter-spacing:4px;padding:8px 22px}
+#s-sources .src-content{position:absolute;top:28%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:flex-start;width:100%;max-width:800px}
+#s-sources .sec-title{text-align:left}
+#s-sources .src-list{display:flex;flex-direction:column;gap:12px;width:100%;max-width:800px;margin-top:28px}
+#s-sources .src-item{font-size:12px;color:var(--text-muted);line-height:1.6;display:flex;gap:8px}
+#s-sources .src-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--purple-light);font-weight:700;flex-shrink:0;min-width:20px}
 </style>
 </head>
 <body>
@@ -532,6 +540,22 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
     <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg> +32 71 256 280</div>
   </div>
   <div class="final-tag" data-a="scramble" data-text="Turn complexity into clarity">&nbsp;</div>
+</div>
+
+<!-- ═══ 14. SOURCES ═══ -->
+<div class="slide" id="s-sources">
+  <div class="tag src-tag" data-a="scramble" data-text="Sources">&nbsp;</div>
+  <div class="src-content">
+    <h2 class="sec-title" data-a="lines">Nos<br><em>sources</em></h2>
+    <div class="src-list" data-a="stagger">
+      <div class="src-item"><span class="src-num">[1]</span><span>Eurostat, <em>Digital Intensity Index — How digitalised have the EU's enterprises become?</em>, Aug. 2024. 67% des PME a un DII bas ou tres bas.</span></div>
+      <div class="src-item"><span class="src-num">[2]</span><span>Eurostat, <em>Structural Business Statistics</em>, Oct. 2024. 99.8% des entreprises EU sont des PME (33M d'entreprises).</span></div>
+      <div class="src-item"><span class="src-num">[3]</span><span>Fortune Business Insights, <em>Manufacturing Execution Systems Market</em>, 2024. Marche MES : ~$16.3 Mds en 2024, CAGR 14.9%.</span></div>
+      <div class="src-item"><span class="src-num">[4]</span><span>MarketsandMarkets, <em>MES Market Report</em>, 2025. $15.95 Mds en 2025, croissance 10.1% CAGR.</span></div>
+      <div class="src-item"><span class="src-num">[5]</span><span>TechCrunch, <em>Odoo raises $527M via secondaries, lifting valuation to $5.26B</em>, Nov. 2024. 13M+ utilisateurs, 40% croissance annuelle.</span></div>
+      <div class="src-item"><span class="src-num">[6]</span><span>Odoo S.A., <em>Communique de presse</em>, Nov. 2024. Levee €500M, investisseurs : CapitalG (Alphabet) & Sequoia.</span></div>
+    </div>
+  </div>
 </div>
 
 </div></div>
