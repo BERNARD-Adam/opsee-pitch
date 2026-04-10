@@ -439,13 +439,13 @@
   <h2>Enchainement des speakers</h2>
   <div class="flow-row">
     <div class="flow-chip nathan">S1 Nathan</div><span class="flow-arrow">&rarr;</span>
-    <div class="flow-chip juliette">S2 Juliette</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip adam">S2 Adam</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip nathan">S3 Nathan</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip adam">S4 Adam</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip nathan">S5 Nathan</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip louis">S6 Louis</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip louis">S7 Louis</div><span class="flow-arrow">&rarr;</span>
-    <div class="flow-chip adam">S8 Adam</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip juliette">S8 Juliette</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip juliette">S9 Juliette</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip nathan">S10 Nathan</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip louis">S11 Louis</div><span class="flow-arrow">&rarr;</span>
@@ -474,16 +474,16 @@
     <div class="speaker-card juliette">
       <div class="sp-name">Juliette Marchand</div>
       <div class="sp-role">Master gestion &middot; Commercial & Strategie</div>
-      <div class="sp-slides">S2 Probleme &middot; S9 Equipe</div>
-      <div class="sp-time">~55s de parole</div>
-      <div class="sp-note">Deux passages courts et bien cadres</div>
+      <div class="sp-slides">S8 Traction &middot; S9 Equipe</div>
+      <div class="sp-time">~50s de parole</div>
+      <div class="sp-note">Deux slides qui s'enchainent &mdash; roadmap puis equipe</div>
     </div>
     <div class="speaker-card adam">
       <div class="sp-name">Adam Bernard</div>
       <div class="sp-role">Ing. mecatronique &middot; Frontend & UX</div>
-      <div class="sp-slides">S4 Produit &middot; S8 Traction</div>
-      <div class="sp-time">~1min10 de parole</div>
-      <div class="sp-note">Slides tres visuelles &mdash; tu montres l'ecran, ca parle tout seul</div>
+      <div class="sp-slides">S2 Probleme &middot; S4 Produit</div>
+      <div class="sp-time">~1min15 de parole</div>
+      <div class="sp-note">Probleme + Produit &mdash; slides avec chiffres visuels a pointer</div>
     </div>
   </div>
 </div>
@@ -507,16 +507,16 @@
         <br><br>
         Concretement ? Elles gerent leur usine avec <em>Excel, du papier, ou tout simplement rien</em>.
         <br><br>
-        On est quatre etudiants-entrepreneurs, et on a decide de changer ca. <span class="pause">PAUSE</span> Juliette va vous expliquer pourquoi c'est un vrai probleme.
+        On est quatre etudiants-entrepreneurs, et on a decide de changer ca. <span class="pause">PAUSE</span> Adam va vous expliquer pourquoi.
       </div>
     </div>
   </div>
 </div>
 
-<div class="transition"><span class="transition-arrow">&rarr;</span> Nathan &rarr; Juliette &mdash; du constat general au probleme concret</div>
+<div class="transition"><span class="transition-arrow">&rarr;</span> Nathan &rarr; Adam &mdash; du constat general au probleme concret</div>
 
 <!-- ========================================================
-     SLIDE 2 — PROBLEME — JULIETTE
+     SLIDE 2 — PROBLEME — ADAM
      ======================================================== -->
 <div class="slide-section">
   <div class="slide-header">
@@ -525,13 +525,18 @@
     <div class="slide-timer">~35s</div>
   </div>
   <div class="slide-body">
-    <div class="speaker-block juliette">
-      <div class="speaker-label">Juliette</div>
+    <div class="speaker-block adam">
+      <div class="speaker-label">Adam</div>
       <div class="speech">
+        <span class="gesture">TIP : cette slide a 3 gros chiffres a l'ecran. Tu les pointes un par un &mdash; ca structure ton propos et ca te donne un appui visuel.</span>
         Les outils pour piloter une usine existent &mdash; ca s'appelle un MES, Manufacturing Execution System. Mais ils sont <em>reserves aux grands groupes</em>.
         <br><br>
-        Un MES proprietaire, c'est en moyenne <em>500 000 euros</em>, <em>18 mois</em> d'integration, et du <em>vendor lock-in</em> total.
-        <span class="gesture">Pointer les 3 chiffres a l'ecran</span>
+        Un MES proprietaire, c'est en moyenne <em>500 000 euros</em>.
+        <span class="gesture">Pointer le premier chiffre</span>
+        C'est <em>18 mois</em> d'integration.
+        <span class="gesture">Pointer le deuxieme</span>
+        Et une fois dedans, c'est du <em>vendor lock-in</em> total.
+        <span class="gesture">Pointer le cadenas</span>
         <br><br>
         Consequence pour les PME : perte de productivite, zero tracabilite, decisions a l'aveugle.
       </div>
@@ -539,7 +544,7 @@
   </div>
 </div>
 
-<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette &rarr; Nathan &mdash; du probleme a la solution. Nathan enchaine direct.</div>
+<div class="transition"><span class="transition-arrow">&rarr;</span> Adam &rarr; Nathan &mdash; du probleme a la solution. Nathan enchaine direct.</div>
 
 <!-- ========================================================
      SLIDE 3 — SOLUTION — NATHAN
@@ -559,7 +564,7 @@
         Trois piliers. <em>Open source</em> &mdash; pas de lock-in, le code est a vous. <em>Modulaire</em> &mdash; vous prenez que ce dont vous avez besoin. <em>Offline-first</em> &mdash; ca tourne dans l'usine, meme sans internet.
         <span class="gesture">Pointer chaque pill a l'ecran</span>
         <br><br>
-        Notre ambition : rendre le MES aussi accessible qu'un CRM l'est devenu grace a <em>Odoo</em>. <span class="pause">PAUSE</span> Adam va vous montrer concretement a quoi ca ressemble.
+        Notre ambition : rendre le MES aussi accessible qu'un CRM l'est devenu grace a <em>Odoo</em>. <span class="pause">PAUSE</span> Et Adam va vous montrer concretement a quoi ca ressemble.
       </div>
     </div>
   </div>
@@ -669,16 +674,16 @@
         &mdash; <em>Enterprise a 95 euros</em> : tout Premium plus support prioritaire, installation cle en main, formation.
         <span class="gesture">Pointer chaque colonne</span>
         <br><br>
-        Gratuit pour entrer, <em>payant pour scaler</em>. C'est le meme modele qui a fait le succes de GitLab et Odoo. Adam, ou en est-on concretement ?
+        Gratuit pour entrer, <em>payant pour scaler</em>. C'est le meme modele qui a fait le succes de GitLab et Odoo. Juliette, ou en est-on concretement ?
       </div>
     </div>
   </div>
 </div>
 
-<div class="transition"><span class="transition-arrow">&rarr;</span> Louis &rarr; Adam &mdash; du modele a la traction. Adam montre la timeline.</div>
+<div class="transition"><span class="transition-arrow">&rarr;</span> Louis &rarr; Juliette &mdash; du modele a la traction</div>
 
 <!-- ========================================================
-     SLIDE 8 — TRACTION — ADAM
+     SLIDE 8 — TRACTION — JULIETTE
      ======================================================== -->
 <div class="slide-section">
   <div class="slide-header">
@@ -687,24 +692,23 @@
     <div class="slide-timer">~30s</div>
   </div>
   <div class="slide-body">
-    <div class="speaker-block adam">
-      <div class="speaker-label">Adam</div>
+    <div class="speaker-block juliette">
+      <div class="speaker-label">Juliette</div>
       <div class="speech">
-        <span class="gesture">TIP : meme principe que la slide produit &mdash; tu suis la timeline du doigt, tu montres l'ecran. C'est tres visuel.</span>
         En 8 mois, on est passes de zero a un produit fonctionnel.
         <br><br>
-        <em>Septembre 2025</em> : premier MVP. Fin 2025 : OEE complet, cockpit, ingestion MQTT et OPC-UA. Debut 2026 : 39 widgets, chatbot IA, interface en <em>10 langues</em>.
+        <em>Septembre 2025</em> : premier MVP. Fin 2025 : OEE complet, cockpit, ingestion de donnees industrielles. Debut 2026 : 39 widgets, chatbot IA, interface en <em>10 langues</em>.
         <span class="gesture">Suivre la timeline du doigt, de haut en bas</span>
         <br><br>
         A droite, nos stats : <em>633 commits, 100 branches, 400+ issues</em>. Ce n'est pas un side-project.
         <br><br>
-        Prochaine etape : <em>version commercialisable en juin 2026</em>.
+        Prochaine etape : <em>version commercialisable en juin 2026</em>, avec nos premiers clients pilotes.
       </div>
     </div>
   </div>
 </div>
 
-<div class="transition"><span class="transition-arrow">&rarr;</span> Adam &rarr; Juliette &mdash; de la roadmap a l'equipe</div>
+<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette enchaine directement sur l'equipe &mdash; pas de changement de speaker</div>
 
 <!-- ========================================================
      SLIDE 9 — EQUIPE — JULIETTE
@@ -728,7 +732,7 @@
   </div>
 </div>
 
-<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette &rarr; Nathan &mdash; de l'equipe aux avantages concurrentiels</div>
+<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette &rarr; Nathan &mdash; de l'equipe aux avantages. Nathan reprend.</div>
 
 <!-- ========================================================
      SLIDE 10 — AVANTAGE — NATHAN
@@ -813,7 +817,7 @@
   <h2>Conseils pour le jour J</h2>
   <ul>
     <li><strong>Repetez avec un chrono.</strong> 5 minutes c'est court. Si vous depassez, coupez dans la slide 10 (Avantage) : 3 points au lieu de 6.</li>
-    <li><strong>Adam, appuie-toi sur l'ecran.</strong> Tes deux slides (Produit + Traction) sont ultra-visuelles. Pointe les screenshots, suis la timeline du doigt. Tu n'as pas besoin de tout reciter &mdash; montre et commente.</li>
+    <li><strong>Adam, appuie-toi sur l'ecran.</strong> Tes deux slides (Probleme + Produit) ont des gros chiffres et des screenshots a pointer. Ca structure ton propos et ca te donne un support visuel &mdash; pas besoin de tout reciter de memoire.</li>
     <li><strong>Pas de "je passe la parole a...".</strong> Les transitions sont ecrites pour etre naturelles. Terminez votre phrase, le suivant enchaine.</li>
     <li><strong>Le coeur du pitch = slides 2-3-4.</strong> Probleme &rarr; Solution &rarr; Produit. Soyez les plus percutants la-dessus.</li>
     <li><strong>Nathan ouvre et donne le rythme.</strong> Les 30 premieres secondes definissent l'energie du pitch. Posture droite, voix posee, contact visuel avec le jury.</li>
