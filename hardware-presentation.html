@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpSee — Edge Hardware Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #8E33FF;
+    --purple-light: #A855F7;
+    --purple-dark: #7928CA;
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #1C252E;
+    --text-muted: rgba(28,37,46,.55);
+    --starter: #10B981;
+    --standard: #3B82F6;
+    --premium: #EC4899;
+    --accent-gold: #F59E0B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- HEADER ---- */
+  .header {
+    background: linear-gradient(135deg, #1C252E 0%, #2D1B69 50%, #1C252E 100%);
+    color: white;
+    padding: 64px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(142,51,255,.25), transparent);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    position: relative;
+  }
+  .header h1 em {
+    background: linear-gradient(135deg, var(--purple-light), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: normal;
+  }
+  .header .subtitle {
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: 300;
+    opacity: .85;
+    position: relative;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .header .version {
+    margin-top: 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    opacity: .35;
+    position: relative;
+  }
+
+  /* ---- NAV ---- */
+  .nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 32px;
+    background: var(--surface);
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 100px;
+    cursor: default;
+    border: 1px solid rgba(0,0,0,.06);
+    transition: transform .15s;
+  }
+  .nav-item:hover { transform: translateY(-1px); }
+  .nav-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .nav-sub {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  /* ---- CONTAINER ---- */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ---- INTRO CARD ---- */
+  .intro {
+    background: var(--surface);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 20px;
+    padding: 36px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .intro::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--purple-light));
+  }
+  .intro h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--purple);
+  }
+  .intro p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+  .intro p em {
+    color: var(--purple);
+    font-style: normal;
+    font-weight: 600;
+  }
+  .intro .open-source-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Space Mono', monospace;
+  }
+  .badge.apache { background: rgba(16,185,129,.08); color: #059669; border: 1px solid rgba(16,185,129,.2); }
+  .badge.oshw { background: rgba(59,130,246,.08); color: #2563EB; border: 1px solid rgba(59,130,246,.2); }
+  .badge.free { background: rgba(142,51,255,.06); color: var(--purple); border: 1px solid rgba(142,51,255,.15); }
+
+  /* ---- STACK OVERVIEW ---- */
+  .stack-overview {
+    background: var(--surface);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 40px;
+  }
+  .stack-overview h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--purple);
+  }
+  .stack-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .stack-table th, .stack-table td {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+  }
+  .stack-table th {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: rgba(0,0,0,.02);
+  }
+  .stack-table td:nth-child(3) {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: #059669;
+    font-weight: 700;
+  }
+
+  /* ---- SECTION (TIER) ---- */
+  .tier-section {
+    margin-bottom: 40px;
+    background: var(--surface);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 20px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .tier-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 28px;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    position: relative;
+  }
+  .tier-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .tier-section.starter .tier-header::before { background: var(--starter); }
+  .tier-section.standard .tier-header::before { background: var(--standard); }
+  .tier-section.premium .tier-header::before { background: linear-gradient(90deg, var(--premium), var(--purple)); }
+
+  .tier-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .tier-section.starter .tier-badge { color: var(--starter); background: rgba(16,185,129,.08); }
+  .tier-section.standard .tier-badge { color: var(--standard); background: rgba(59,130,246,.08); }
+  .tier-section.premium .tier-badge { color: var(--premium); background: rgba(236,72,153,.08); }
+
+  .tier-title {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .tier-price {
+    margin-left: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: rgba(0,0,0,.03);
+  }
+  .tier-body {
+    padding: 28px;
+  }
+  .tier-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  /* ---- SPEC TABLE ---- */
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+  }
+  .spec-table th, .spec-table td {
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+  }
+  .spec-table th {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 13px;
+    width: 35%;
+    background: rgba(0,0,0,.015);
+  }
+  .spec-table td { font-weight: 500; }
+  .spec-table td strong { color: var(--purple); font-weight: 700; }
+
+  /* ---- MULTI-COL SPEC TABLE ---- */
+  .variant-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 13px;
+  }
+  .variant-table th, .variant-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+  }
+  .variant-table th {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: rgba(0,0,0,.02);
+  }
+  .variant-table th.col-header {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text);
+  }
+  .variant-table td { font-weight: 500; }
+  .variant-table td strong { color: var(--purple); font-weight: 700; }
+  .variant-table td.center { text-align: center; }
+  .variant-table td.highlight {
+    background: rgba(142,51,255,.03);
+    font-weight: 600;
+  }
+  .variant-table tr.separator td {
+    border-bottom: 2px solid rgba(142,51,255,.15);
+    padding-top: 14px;
+  }
+
+  /* ---- SOFTWARE STACK DIAGRAM ---- */
+  .stack-diagram {
+    background: rgba(0,0,0,.02);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: pre;
+    overflow-x: auto;
+  }
+
+  /* ---- CAPABILITY LIST ---- */
+  .capabilities {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .capabilities li {
+    font-size: 14px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .capabilities li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: .5;
+  }
+  .starter .capabilities li::before { background: var(--starter); }
+  .standard .capabilities li::before { background: var(--standard); }
+  .premium .capabilities li::before { background: var(--premium); }
+
+  .capabilities li strong { color: var(--text); font-weight: 600; }
+  .capabilities li em { color: var(--purple); font-style: normal; font-weight: 600; }
+
+  /* ---- LIMITATION LIST ---- */
+  .limitations {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 20px;
+    background: rgba(0,0,0,.02);
+    border-radius: 12px;
+    margin-bottom: 24px;
+  }
+  .limitations li {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding-left: 18px;
+    position: relative;
+  }
+  .limitations li::before {
+    content: '\2013';
+    position: absolute;
+    left: 0;
+  }
+
+  /* ---- SUB-SECTION ---- */
+  .sub-section {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,.06);
+  }
+  .sub-section h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .sub-section h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 18px;
+    color: var(--purple);
+  }
+
+  /* ---- NOTE BOX ---- */
+  .note-box {
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .note-box.info {
+    background: rgba(59,130,246,.05);
+    border: 1px solid rgba(59,130,246,.12);
+    color: var(--text);
+  }
+  .note-box.tip {
+    background: rgba(16,185,129,.05);
+    border: 1px solid rgba(16,185,129,.12);
+  }
+  .note-box.warning {
+    background: rgba(245,158,11,.05);
+    border: 1px solid rgba(245,158,11,.15);
+  }
+  .note-box strong { font-weight: 700; }
+  .note-box em { color: var(--purple); font-style: normal; font-weight: 600; }
+
+  /* ---- COMPARISON TABLE (FINAL) ---- */
+  .comparison-section {
+    background: var(--surface);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 40px;
+    overflow-x: auto;
+  }
+  .comparison-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--purple);
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .comparison-table th, .comparison-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+  }
+  .comparison-table th {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: rgba(0,0,0,.02);
+  }
+  .comparison-table th.col-starter { color: var(--starter); }
+  .comparison-table th.col-standard { color: var(--standard); }
+  .comparison-table th.col-premium { color: var(--premium); }
+  .comparison-table td { font-weight: 500; }
+  .comparison-table td strong { color: var(--purple); font-weight: 700; }
+  .comparison-table td.yes { color: #059669; font-weight: 600; }
+  .comparison-table td.no { color: var(--text-muted); }
+
+  /* ---- SOURCING TABLE ---- */
+  .sourcing-section {
+    background: var(--surface);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 40px;
+  }
+  .sourcing-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--purple);
+  }
+  .sourcing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .sourcing-table th, .sourcing-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+  }
+  .sourcing-table th {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: rgba(0,0,0,.02);
+  }
+  .sourcing-table a {
+    color: var(--purple);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .sourcing-table a:hover { text-decoration: underline; }
+
+  /* ---- LICENSE TABLE ---- */
+  .license-section {
+    background: var(--surface);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 40px;
+  }
+  .license-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--purple);
+  }
+
+  /* ---- PRINT ---- */
+  @media print {
+    .nav { position: static; }
+    .tier-section { break-inside: avoid; }
+    body { background: #fff; }
+  }
+
+  @media (max-width: 700px) {
+    .tier-header { flex-wrap: wrap; }
+    .tier-price { margin-left: 0; margin-top: 8px; }
+    .header h1 { font-size: 28px; }
+    .variant-table { font-size: 11px; }
+    .variant-table th, .variant-table td { padding: 6px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====================== HEADER ====================== -->
+<div class="header">
+  <h1>Edge Hardware &mdash; <em>OpSee</em></h1>
+  <div class="subtitle">Open-source edge infrastructure for industrial data collection &amp; on-device AI</div>
+  <div class="version">INTERNAL &mdash; HARDWARE PROPOSAL &mdash; APRIL 2026</div>
+</div>
+
+<!-- ====================== NAV ====================== -->
+<div class="nav">
+  <div class="nav-item"><div class="nav-dot" style="background:var(--starter)"></div> Tier 1 &mdash; Starter <span class="nav-sub">~$100</span></div>
+  <div class="nav-item"><div class="nav-dot" style="background:var(--standard)"></div> Tier 2 &mdash; Standard <span class="nav-sub">~$209</span></div>
+  <div class="nav-item"><div class="nav-dot" style="background:var(--premium)"></div> Tier 3 &mdash; Premium <span class="nav-sub">$1.4k&ndash;$2.5k+</span></div>
+</div>
+
+<div class="container">
+
+<!-- ====================== INTRODUCTION ====================== -->
+<div class="intro">
+  <h2>Why This Presentation</h2>
+  <p>
+    OpSee is built entirely on <em>open-source foundations</em>. Our MES software is open-core, our architecture avoids vendor lock-in, and our users own their data.
+  </p>
+  <p style="margin-top:12px;">
+    It follows that the <em>edge hardware and software</em> running OpSee in the factory should follow the same philosophy. No proprietary gateways. No closed firmware. No annual subscription just to collect your own machine data.
+  </p>
+  <p style="margin-top:12px;">
+    This presentation proposes a complete hardware strategy &mdash; from a free starter kit to a premium AI-powered edge device &mdash; where every layer of the stack is <em>open-source permissive</em>. We replace the current Belden OpEdge + BHDO proprietary stack with an open, flexible, and scalable alternative.
+  </p>
+  <div class="open-source-badges">
+    <span class="badge apache">Apache 2.0 &mdash; EdgeX Foundry</span>
+    <span class="badge oshw">Apache 2.0 &mdash; Seeed Hardware</span>
+    <span class="badge free">No vendor lock-in</span>
+  </div>
+</div>
+
+<!-- ====================== OPEN-SOURCE STACK ====================== -->
+<div class="stack-overview">
+  <h2>The Open-Source Stack</h2>
+  <table class="stack-table">
+    <thead>
+      <tr><th>Layer</th><th>Technology</th><th>License</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Edge Platform</td><td>EdgeX Foundry (Linux Foundation)</td><td>Apache 2.0</td></tr>
+      <tr><td>Carrier Boards</td><td>Seeed Studio OSHW-Jetson-Series</td><td>Apache 2.0</td></tr>
+      <tr><td>Compute Module</td><td>NVIDIA Jetson AGX Orin / Raspberry Pi</td><td>Commercial (module) &mdash; open ecosystem</td></tr>
+      <tr><td>Application</td><td>OpSee MES</td><td>Open-core (AGPL / Commercial)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ========================================================
+     TIER 1 — STARTER
+     ======================================================== -->
+<div class="tier-section starter">
+  <div class="tier-header">
+    <div class="tier-badge">TIER 01</div>
+    <div class="tier-title">Starter</div>
+    <div class="tier-price">~$100&ndash;$140</div>
+  </div>
+  <div class="tier-body">
+    <div class="tier-desc">Basic OT data collection. No AI/LLM. Ideal for small deployments, evaluation, or cost-sensitive sites.</div>
+
+    <h3 style="font-size:17px; font-weight:700; margin-bottom:14px;">Hardware: Raspberry Pi 5 (4GB or 8GB)</h3>
+
+    <table class="spec-table">
+      <tr><th>CPU</th><td>Quad-core ARM Cortex-A76 @ 2.4 GHz</td></tr>
+      <tr><th>RAM</th><td>4 GB or 8 GB LPDDR4X</td></tr>
+      <tr><th>GPU</th><td>VideoCore VII (no AI acceleration)</td></tr>
+      <tr><th>Storage</th><td>microSD or NVMe via PCIe HAT</td></tr>
+      <tr><th>Networking</th><td>Gigabit Ethernet, Wi-Fi 5, BLE 5.0</td></tr>
+      <tr><th>USB</th><td>2x USB 3.0, 2x USB 2.0</td></tr>
+      <tr><th>Power</th><td>5V / 5A USB-C (~4W idle)</td></tr>
+      <tr><th>Price</th><td><strong>~$60 (4GB) / ~$95 (8GB)</strong></td></tr>
+    </table>
+
+    <h4 style="font-size:14px; font-weight:700; color:var(--purple); margin-bottom:10px;">Industrial Add-ons</h4>
+    <table class="spec-table">
+      <tr><th>DIN rail metal case</th><td>Waveshare PI5-CASE-D &mdash; ~$15&ndash;25</td></tr>
+      <tr><th>RS485 / CAN HAT</th><td>Modbus RTU, industrial bus &mdash; ~$15&ndash;30</td></tr>
+      <tr><th>NVMe HAT + SSD</th><td>Expanded storage via PCIe &mdash; ~$30&ndash;50</td></tr>
+    </table>
+
+    <div class="stack-diagram">&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;  OpSee Application           &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474;  EdgeX Foundry               &#9474;
+&#9474;  (OT data, rules, export)    &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474;  Raspberry Pi OS (Linux)     &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474;  Raspberry Pi 5              &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</div>
+
+    <ul class="capabilities">
+      <li><strong>Protocol connectivity</strong> &mdash; Modbus RTU/TCP, OPC-UA, MQTT, BACnet via EdgeX device services</li>
+      <li><strong>Edge rules engine</strong> (eKuiper) for local alerting &mdash; no cloud round-trip</li>
+      <li><strong>Data export</strong> to cloud / enterprise systems (AWS, Azure, MQTT, Kafka)</li>
+      <li><strong>Device command &amp; control</strong> &mdash; bidirectional communication with actuators</li>
+      <li><strong>REST API gateway</strong> with built-in security (secret store, access control)</li>
+    </ul>
+
+    <ul class="limitations">
+      <li>No AI/LLM inference on-device</li>
+      <li>Not industrial-grade out of the box (requires add-ons for RS485, DIN rail)</li>
+      <li>Single M.2 slot shared between storage and peripherals</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========================================================
+     TIER 2 — STANDARD
+     ======================================================== -->
+<div class="tier-section standard">
+  <div class="tier-header">
+    <div class="tier-badge">TIER 02</div>
+    <div class="tier-title">Standard</div>
+    <div class="tier-price">~$209</div>
+  </div>
+  <div class="tier-body">
+    <div class="tier-desc">Turnkey industrial gateway. Built-in RS485, DIN rail, NVMe. No AI/LLM. Ready for production deployment.</div>
+
+    <h3 style="font-size:17px; font-weight:700; margin-bottom:14px;">Hardware: Seeed reComputer R1000</h3>
+
+    <table class="spec-table">
+      <tr><th>CPU</th><td>Quad-core ARM Cortex-A72 @ 1.5 GHz (Raspberry Pi CM4)</td></tr>
+      <tr><th>RAM</th><td>4 GB or 8 GB</td></tr>
+      <tr><th>Storage</th><td>32 GB eMMC + <strong>M.2 NVMe slot</strong> (128GB&ndash;1TB)</td></tr>
+      <tr><th>Industrial I/O</th><td><strong>3x RS485</strong>, 2x Ethernet (GbE), 1x HDMI, 3x USB 2.0</td></tr>
+      <tr><th>Wireless</th><td>Wi-Fi, BLE, optional LoRaWAN / Zigbee / 4G LTE</td></tr>
+      <tr><th>Enclosure</th><td><strong>DIN-rail mountable, industrial-grade housing (included)</strong></td></tr>
+      <tr><th>Temp Range</th><td>Industrial operating range</td></tr>
+      <tr><th>Price</th><td><strong>~$209</strong></td></tr>
+    </table>
+
+    <div class="note-box info">
+      <strong>NVMe note:</strong> The reComputer R1000 has a single M.2 M-Key slot. You must choose between an <em>NVMe SSD</em> (storage) or an <em>AI accelerator</em> (e.g. Hailo-8, Coral M.2) &mdash; not both. For Tier 2 (no AI), use it for storage.
+    </div>
+
+    <div class="stack-diagram">&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;  OpSee Application           &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474;  EdgeX Foundry               &#9474;
+&#9474;  (OT data, rules, export)    &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474;  Raspberry Pi OS (Linux)     &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474;  Seeed reComputer R1000      &#9474;
+&#9474;  (CM4, DIN rail, RS485 x3)   &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</div>
+
+    <ul class="capabilities">
+      <li>Everything in Tier 1, plus:</li>
+      <li><strong>Native RS485 x3</strong> &mdash; direct Modbus RTU to PLCs/sensors without HATs</li>
+      <li><strong>Dual Ethernet</strong> &mdash; separate OT and IT networks</li>
+      <li><strong>Industrial enclosure included</strong> &mdash; DIN rail, no assembly required</li>
+      <li><strong>Optional wireless</strong> (LoRaWAN, Zigbee, 4G LTE) for remote sites</li>
+      <li><strong>Plug-and-play</strong> production deployment</li>
+    </ul>
+
+    <ul class="limitations">
+      <li>No AI/LLM inference on-device</li>
+      <li>CM4 is slightly slower than Raspberry Pi 5</li>
+      <li>Single M.2 slot (choose between NVMe SSD or AI accelerator)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========================================================
+     TIER 3 — PREMIUM
+     ======================================================== -->
+<div class="tier-section premium">
+  <div class="tier-header">
+    <div class="tier-badge">TIER 03</div>
+    <div class="tier-title">Premium &mdash; Edge AI + LLM</div>
+    <div class="tier-price">$1,378&ndash;$2,500+</div>
+  </div>
+  <div class="tier-body">
+    <div class="tier-desc">Full EdgeX platform with on-device LLM inference. For advanced analytics, natural language queries on OT data, and autonomous edge intelligence.</div>
+
+    <!-- ORIN VARIANTS -->
+    <div class="sub-section" style="margin-top:0; padding-top:0; border-top:none;">
+      <h3>Compute Module &mdash; NVIDIA Jetson AGX Orin</h3>
+      <div class="note-box tip">
+        <strong>Choose your module freely.</strong> The Seeed J501 carrier board is <em>pin-compatible with all Jetson AGX Orin variants</em> (32GB, 64GB, Industrial). Source whichever module fits your performance and budget requirements from any supplier.
+      </div>
+
+      <table class="variant-table">
+        <thead>
+          <tr>
+            <th>Spec</th>
+            <th class="col-header">AGX Orin 32GB</th>
+            <th class="col-header">AGX Orin 64GB</th>
+            <th class="col-header">AGX Orin Industrial 64GB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GPU</strong></td>
+            <td>1792-core Ampere + 56 tensor cores</td>
+            <td>2048-core Ampere + 64 tensor cores</td>
+            <td>2048-core Ampere + 64 tensor cores</td>
+          </tr>
+          <tr>
+            <td><strong>CPU</strong></td>
+            <td>8-core ARM Cortex-A78AE</td>
+            <td>12-core ARM Cortex-A78AE</td>
+            <td>12-core ARM Cortex-A78AE (lower freq.)</td>
+          </tr>
+          <tr>
+            <td><strong>AI Performance</strong></td>
+            <td class="center"><strong>200 TOPS</strong></td>
+            <td class="center highlight"><strong>275 TOPS</strong></td>
+            <td class="center"><strong>248 TOPS</strong></td>
+          </tr>
+          <tr>
+            <td><strong>RAM</strong></td>
+            <td>32 GB LPDDR5</td>
+            <td class="highlight"><strong>64 GB LPDDR5</strong></td>
+            <td class="highlight"><strong>64 GB LPDDR5 ECC</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Memory Bandwidth</strong></td>
+            <td class="center">205 GB/s</td>
+            <td class="center">205 GB/s</td>
+            <td class="center">205 GB/s</td>
+          </tr>
+          <tr>
+            <td><strong>Storage</strong></td>
+            <td>64 GB eMMC 5.1</td>
+            <td>64 GB eMMC 5.1</td>
+            <td>64 GB eMMC 5.1</td>
+          </tr>
+          <tr>
+            <td><strong>Power</strong></td>
+            <td>15&ndash;40W</td>
+            <td>15&ndash;60W</td>
+            <td>15&ndash;75W</td>
+          </tr>
+          <tr>
+            <td><strong>Temp Range</strong></td>
+            <td>-25&deg;C to +80&deg;C</td>
+            <td>-25&deg;C to +80&deg;C</td>
+            <td class="highlight"><strong>-40&deg;C to +85&deg;C</strong></td>
+          </tr>
+          <tr>
+            <td><strong>ECC Memory</strong></td>
+            <td class="center no">No</td>
+            <td class="center no">No</td>
+            <td class="center yes"><strong>Yes</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Form Factor</strong></td>
+            <td>100 x 87 mm</td>
+            <td>100 x 87 mm</td>
+            <td>100 x 87 mm (pin-compatible)</td>
+          </tr>
+          <tr class="separator">
+            <td><strong>Module Price</strong></td>
+            <td class="center"><strong>~$999</strong></td>
+            <td class="center"><strong>~$1,599</strong></td>
+            <td class="center"><strong>Contact distributor</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- WHICH ORIN -->
+    <div class="sub-section">
+      <h3>Which Orin To Choose?</h3>
+      <table class="variant-table">
+        <thead>
+          <tr><th>Use Case</th><th class="col-header">Recommended</th><th class="col-header">Why</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Small LLMs (3B&ndash;7B), single user, basic edge AI</td>
+            <td><strong>AGX Orin 32GB</strong></td>
+            <td>Sufficient memory for quantized 7B models, lowest cost</td>
+          </tr>
+          <tr>
+            <td>Medium LLMs (7B&ndash;13B), multi-request, vision AI</td>
+            <td><strong>AGX Orin 64GB</strong></td>
+            <td>64GB fits 13B unquantized, headroom for concurrent requests</td>
+          </tr>
+          <tr>
+            <td>Large LLMs (13B&ndash;70B), mission-critical, harsh env.</td>
+            <td><strong>AGX Orin Industrial 64GB</strong></td>
+            <td>ECC memory, -40&deg;C to +85&deg;C, longer lifetime</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- LLM PERFORMANCE -->
+    <div class="sub-section">
+      <h3>LLM Performance &mdash; Single Request</h3>
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">MAXN power mode, jetson_clocks enabled</p>
+      <table class="variant-table">
+        <thead>
+          <tr><th>Model</th><th>Quantization</th><th class="col-header">AGX Orin 32GB</th><th class="col-header">AGX Orin 64GB</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>3B</strong> (Llama 3.2, Phi-2)</td>
+            <td>Q4_K_M</td>
+            <td class="center">~30&ndash;40 tok/s</td>
+            <td class="center">~35&ndash;45 tok/s</td>
+            <td>Both handle easily</td>
+          </tr>
+          <tr>
+            <td><strong>7B</strong> (Mistral, Llama 2)</td>
+            <td>Q4_K_M</td>
+            <td class="center">~15&ndash;20 tok/s</td>
+            <td class="center highlight">~18&ndash;25 tok/s</td>
+            <td>Sweet spot for 32GB</td>
+          </tr>
+          <tr>
+            <td><strong>13B</strong> (Llama 2-13B)</td>
+            <td>Q4</td>
+            <td class="center">~8&ndash;12 tok/s</td>
+            <td class="center">~12&ndash;16 tok/s</td>
+            <td>64GB can run FP16</td>
+          </tr>
+          <tr>
+            <td><strong>13B</strong> (Llama 2-13B)</td>
+            <td>FP16</td>
+            <td class="center no">Memory limited</td>
+            <td class="center highlight">~8&ndash;10 tok/s</td>
+            <td><strong>64GB only</strong> (~26GB VRAM)</td>
+          </tr>
+          <tr>
+            <td><strong>70B</strong> (Llama 2-70B)</td>
+            <td>Q4</td>
+            <td class="center no">Not feasible</td>
+            <td class="center">~3&ndash;5 tok/s</td>
+            <td>Requires ~35GB &mdash; 64GB only</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MULTI-REQUEST -->
+    <div class="sub-section">
+      <h3>LLM Performance &mdash; Multi-Request / Concurrent Inference</h3>
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Where the memory difference becomes critical. Each concurrent user requires a separate KV-cache context in memory.</p>
+      <table class="variant-table">
+        <thead>
+          <tr><th>Scenario</th><th class="col-header">AGX Orin 32GB</th><th class="col-header">AGX Orin 64GB</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>7B model, 1 concurrent request</strong></td>
+            <td>~18 tok/s, ~14GB used</td>
+            <td>~22 tok/s, ~14GB used</td>
+          </tr>
+          <tr>
+            <td><strong>7B model, 2&ndash;3 concurrent requests</strong></td>
+            <td>Feasible (~10&ndash;12 tok/s each), memory tight</td>
+            <td class="highlight">Comfortable (~15&ndash;18 tok/s each)</td>
+          </tr>
+          <tr>
+            <td><strong>7B model, 5+ concurrent requests</strong></td>
+            <td class="no"><strong>OOM risk</strong> &mdash; KV-cache exhausts 32GB</td>
+            <td class="highlight">Feasible (~10&ndash;12 tok/s each)</td>
+          </tr>
+          <tr>
+            <td><strong>13B model, 1 concurrent request</strong></td>
+            <td>Quantized only, ~10 tok/s</td>
+            <td>FP16 possible, ~10 tok/s</td>
+          </tr>
+          <tr>
+            <td><strong>13B model, 2+ concurrent requests</strong></td>
+            <td class="no"><strong>Not feasible</strong></td>
+            <td class="highlight">Feasible with Q4 (~8 tok/s each)</td>
+          </tr>
+          <tr>
+            <td><strong>7B + EdgeX + OpSee simultaneously</strong></td>
+            <td>~15GB free for LLM (EdgeX uses ~2&ndash;3GB)</td>
+            <td class="highlight">~47GB free for LLM</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note-box warning" style="margin-top:16px;">
+        <strong>Rule of thumb:</strong> The 32GB variant works for <em>single-user / single-request</em> scenarios. The 64GB variant is needed for <em>multi-request serving</em>, larger models, or running LLM alongside other memory-hungry services (vision AI, EdgeX with many device services).
+      </div>
+    </div>
+
+    <!-- CARRIER BOARD -->
+    <div class="sub-section">
+      <h3>Carrier Board &mdash; Seeed reServer Industrial J501</h3>
+      <table class="spec-table">
+        <tr><th>Form Factor</th><td>110 x 110 mm (ultra-compact)</td></tr>
+        <tr><th>Networking</th><td><strong>10G SFP+ Ethernet</strong>, Gigabit Ethernet (RJ45)</td></tr>
+        <tr><th>Industrial I/O</th><td><strong>RS-485</strong>, <strong>CAN bus</strong>, USB 3.2, HDMI 2.1</td></tr>
+        <tr><th>Expansion</th><td>Multiple M.2 slots, GMSL camera support (optional)</td></tr>
+        <tr><th>Camera</th><td>Up to 8x GMSL2 cameras via extension board</td></tr>
+        <tr><th>Video</th><td>8K decode support</td></tr>
+        <tr><th>Compatibility</th><td><strong>All Jetson AGX Orin variants</strong> &mdash; same 699-pin connector</td></tr>
+        <tr><th>License</th><td><strong>Apache 2.0</strong> (open-source hardware)</td></tr>
+        <tr><th>Price</th><td><strong>~$379</strong> (carrier board only)</td></tr>
+      </table>
+    </div>
+
+    <!-- ENCLOSURE -->
+    <div class="sub-section">
+      <h3>Enclosure Options</h3>
+      <table class="variant-table">
+        <thead>
+          <tr><th>Approach</th><th class="col-header">Description</th><th class="col-header">Price</th><th class="col-header">Best For</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Seeed Dev Kit bundle</strong></td>
+            <td>Carrier + heatsink/fan + Orin + NVMe + PSU</td>
+            <td>~$1,444 (32GB) / ~$2,144 (64GB)</td>
+            <td>Prototyping, first 10 units</td>
+          </tr>
+          <tr>
+            <td><strong>Seeed custom config</strong></td>
+            <td>Chassis + carrier without Orin module. Contact: order@seeedstudio.com</td>
+            <td>TBD</td>
+            <td>Pilot / small batch</td>
+          </tr>
+          <tr>
+            <td><strong>Custom CNC aluminum</strong></td>
+            <td>Fanless design using open-source 3D files. Chassis acts as heatsink.</td>
+            <td>~$150&ndash;400/unit</td>
+            <td>10&ndash;100 units</td>
+          </tr>
+          <tr>
+            <td><strong>Custom die-cast</strong></td>
+            <td>Tooled aluminum enclosure for volume production.</td>
+            <td>~$5&ndash;20/unit (after $3&ndash;5K tooling)</td>
+            <td>100+ units</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TOTAL PRICING -->
+    <div class="sub-section">
+      <h3>Total Tier 3 Pricing (module + carrier, excl. enclosure)</h3>
+      <table class="variant-table">
+        <thead>
+          <tr><th>Configuration</th><th class="col-header">Module</th><th class="col-header">Carrier</th><th class="col-header">Total</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AGX Orin 32GB + J501</td>
+            <td class="center">~$999</td>
+            <td class="center">~$379</td>
+            <td class="center"><strong>~$1,378</strong></td>
+          </tr>
+          <tr>
+            <td>AGX Orin 64GB + J501</td>
+            <td class="center">~$1,599</td>
+            <td class="center">~$379</td>
+            <td class="center highlight"><strong>~$1,978</strong></td>
+          </tr>
+          <tr>
+            <td>AGX Orin Industrial 64GB + J501</td>
+            <td class="center">Contact distributor</td>
+            <td class="center">~$379</td>
+            <td class="center"><strong>~$2,500+</strong> (est.)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SOFTWARE STACK -->
+    <div class="sub-section">
+      <h3>Software Stack</h3>
+      <div class="stack-diagram">&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;  OpSee Application           &#9474;
+&#9474;  + NLP Interface to OT Data  &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474;  LLM Runtime                 &#9474;
+&#9474;  (llama.cpp / TensorRT-LLM   &#9474;
+&#9474;   / Ollama)                  &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474;  EdgeX Foundry               &#9474;
+&#9474;  (OT data, rules, export)    &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474;  JetPack SDK (Linux / L4T)   &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474;  Jetson AGX Orin (32/64/Ind) &#9474;
+&#9474;  + Seeed J501 Carrier        &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</div>
+    </div>
+
+    <!-- CAPABILITIES -->
+    <div class="sub-section">
+      <h3>Capabilities</h3>
+      <ul class="capabilities">
+        <li>Everything in Tier 1 &amp; 2, plus:</li>
+        <li><strong>On-device LLM</strong> &mdash; natural language queries on OT data, anomaly explanation, report generation</li>
+        <li><strong>Up to 275 TOPS AI</strong> &mdash; computer vision, predictive maintenance, multi-sensor fusion</li>
+        <li><strong>Multi-request LLM serving</strong> (64GB variants) &mdash; multiple users/agents querying simultaneously</li>
+        <li><strong>10G Ethernet</strong> &mdash; high-bandwidth data ingest (cameras, high-frequency sensors)</li>
+        <li><strong>CAN bus</strong> &mdash; automotive, robotics, machine-to-machine</li>
+        <li><strong>ECC memory</strong> (Industrial variant) &mdash; data integrity for safety-critical applications</li>
+        <li><strong>Extended temp range</strong> (Industrial) &mdash; -40&deg;C to +85&deg;C for extreme environments</li>
+        <li><strong>Open-source hardware</strong> &mdash; full schematics and 3D files for custom enclosure design</li>
+        <li><strong>Module flexibility</strong> &mdash; choose and source the Orin variant independently</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========================================================
+     TIER COMPARISON
+     ======================================================== -->
+<div class="comparison-section">
+  <h2>Tier Comparison</h2>
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="col-starter">Tier 1 &mdash; Starter</th>
+        <th class="col-standard">Tier 2 &mdash; Standard</th>
+        <th class="col-premium">Tier 3 &mdash; Premium</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Device</strong></td>
+        <td>Raspberry Pi 5</td>
+        <td>Seeed reComputer R1000</td>
+        <td>Jetson AGX Orin + Seeed J501</td>
+      </tr>
+      <tr>
+        <td><strong>Price</strong></td>
+        <td>~$100&ndash;140</td>
+        <td>~$209</td>
+        <td>~$1,378&ndash;$2,500+</td>
+      </tr>
+      <tr>
+        <td><strong>CPU</strong></td>
+        <td>4x A76 @ 2.4 GHz</td>
+        <td>4x A72 @ 1.5 GHz</td>
+        <td>8&ndash;12x A78AE @ 2.2 GHz</td>
+      </tr>
+      <tr>
+        <td><strong>RAM</strong></td>
+        <td>4&ndash;8 GB</td>
+        <td>4&ndash;8 GB</td>
+        <td>32&ndash;64 GB (unified, opt. ECC)</td>
+      </tr>
+      <tr>
+        <td><strong>AI Performance</strong></td>
+        <td class="no">None</td>
+        <td class="no">None</td>
+        <td class="yes"><strong>200&ndash;275 TOPS</strong></td>
+      </tr>
+      <tr>
+        <td><strong>LLM Capable</strong></td>
+        <td class="no">No</td>
+        <td class="no">No</td>
+        <td class="yes">Yes (3B&ndash;70B)</td>
+      </tr>
+      <tr>
+        <td><strong>Multi-Request LLM</strong></td>
+        <td class="no">No</td>
+        <td class="no">No</td>
+        <td>32GB: single / 64GB: multi</td>
+      </tr>
+      <tr>
+        <td><strong>Industrial I/O</strong></td>
+        <td>Via HATs (add-on)</td>
+        <td class="yes">Native (3x RS485, 2x GbE)</td>
+        <td class="yes">Native (RS485, CAN, 10GbE)</td>
+      </tr>
+      <tr>
+        <td><strong>Enclosure</strong></td>
+        <td>DIN rail case (add-on)</td>
+        <td class="yes"><strong>Included</strong> (DIN rail)</td>
+        <td>Separate (buy or custom)</td>
+      </tr>
+      <tr>
+        <td><strong>Industrial Ready</strong></td>
+        <td>With add-ons</td>
+        <td class="yes"><strong>Out of the box</strong></td>
+        <td>With enclosure solution</td>
+      </tr>
+      <tr>
+        <td><strong>Extreme Temp (-40&deg;C)</strong></td>
+        <td class="no">No</td>
+        <td class="no">No</td>
+        <td>Industrial variant only</td>
+      </tr>
+      <tr>
+        <td><strong>Open Source HW</strong></td>
+        <td>Partial</td>
+        <td class="yes">Seeed designs</td>
+        <td class="yes"><strong>Apache 2.0</strong> (Seeed J501)</td>
+      </tr>
+      <tr>
+        <td><strong>EdgeX Foundry</strong></td>
+        <td class="yes">Yes</td>
+        <td class="yes">Yes</td>
+        <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td><strong>Target</strong></td>
+        <td>Eval, small sites</td>
+        <td>Production OT gateway</td>
+        <td>Edge AI + LLM</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ========================================================
+     SOURCING
+     ======================================================== -->
+<div class="sourcing-section">
+  <h2>Sourcing</h2>
+  <table class="sourcing-table">
+    <thead>
+      <tr><th>Component</th><th>Supplier</th><th>Link</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Raspberry Pi 5 (8GB)</td><td>Raspberry Pi Foundation</td><td><a href="https://www.raspberrypi.com/products/raspberry-pi-5/" target="_blank">raspberrypi.com</a></td></tr>
+      <tr><td>DIN rail case for Pi 5</td><td>Waveshare</td><td><a href="https://www.waveshare.com/pi5-case-d.htm" target="_blank">PI5-CASE-D</a></td></tr>
+      <tr><td>Seeed reComputer R1000</td><td>Seeed Studio</td><td><a href="https://www.seeedstudio.com/reComputer-R1025-10-p-5895.html" target="_blank">seeedstudio.com</a></td></tr>
+      <tr><td>Jetson AGX Orin 64GB (module)</td><td>Silicon Highway Direct</td><td><a href="https://www.siliconhighwaydirect.com/product-p/900-13701-0050-000.htm" target="_blank">siliconhighwaydirect.com</a></td></tr>
+      <tr><td>Seeed J501 carrier board</td><td>Seeed Studio</td><td><a href="https://www.seeedstudio.com/reServer-Industrial-J501-Carrier-board-for-Jetson-AGX-Orin-p-5950.html" target="_blank">seeedstudio.com</a></td></tr>
+      <tr><td>J501 open-source hardware files</td><td>GitHub</td><td><a href="https://github.com/Seeed-Studio/OSHW-Jetson-Series" target="_blank">OSHW-Jetson-Series</a></td></tr>
+      <tr><td>EdgeX Foundry</td><td>Linux Foundation</td><td><a href="https://www.edgexfoundry.org/" target="_blank">edgexfoundry.org</a></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ========================================================
+     LICENSING
+     ======================================================== -->
+<div class="license-section">
+  <h2>Licensing</h2>
+  <table class="sourcing-table">
+    <thead>
+      <tr><th>Component</th><th>License</th><th>Commercial Use</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>EdgeX Foundry</td><td>Apache 2.0</td><td style="color:#059669; font-weight:600;">Yes &mdash; free, no royalties</td></tr>
+      <tr><td>Seeed J501 hardware design</td><td>Apache 2.0</td><td style="color:#059669; font-weight:600;">Yes &mdash; can manufacture derivatives</td></tr>
+      <tr><td>NVIDIA JetPack SDK</td><td>NVIDIA EULA</td><td style="color:#059669; font-weight:600;">Yes &mdash; free for Jetson hardware</td></tr>
+      <tr><td>BHDO (Belden &mdash; current)</td><td>Proprietary subscription</td><td style="color:var(--text-muted);">Annual fee, closed source</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>
