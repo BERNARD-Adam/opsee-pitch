@@ -15,6 +15,34 @@
     "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp@latest"]
+    },
+    "semanticscholar": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@xbghc/semanticscholar-mcp"
+      ],
+      "env": {
+        "SEMANTIC_SCHOLAR_API_KEY": "1ZMUwiXzcX1cDmyemndxpuE1iqpNtme1l8IPsd9h"
+      }
+    },
+    "zotero": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@xbghc/zotero-mcp"
+      ],
+      "env": {
+        "ZOTERO_USER_ID": "20134213",
+        "ZOTERO_API_KEY": "1Xn6AD8yPmX5E96fu6OHvldn",
+        "ZOTERO_GROUP_ID": "6495609"
+      }
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
     }
   }
 }
