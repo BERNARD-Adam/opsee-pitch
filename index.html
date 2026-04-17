@@ -49,13 +49,6 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s8 .sec-title              { margin-top: 20px; }
 #s8 > .subtitle             { margin-top: 12px; }
 
-/* S9 — Traction */
-#s9 .sec-title              { margin-top: 24px; }
-#s9 .traction-wrap          { margin-top: 24px; }
-#s9 .s2-consequence         { margin-top: 16px; }
-#s9 .traction-right .screenshot { max-width: 260px; border-radius: 12px; }
-#s9 .commit-stats           { margin-top: 10px; }
-
 /* S10 — Équipe */
 #s10 .sec-title             { margin-top: 20px; }
 #s10 > .subtitle            { margin-top: 12px; }
@@ -172,6 +165,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .see-card:hover{background:rgba(142,51,255,.04)}
 .see-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;width:100%;transform:none;background:linear-gradient(90deg,transparent,var(--purple-light) 30%,var(--purple) 50%,var(--purple-light) 70%,transparent);border-radius:0;opacity:.5}
 .see-card .letter{font-size:56px;font-weight:900;background:linear-gradient(160deg,var(--purple-light) 0%,var(--purple) 60%,var(--purple-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;filter:drop-shadow(0 4px 20px rgba(142,51,255,.18));position:relative;z-index:1}
+.see-card .see-icon{width:52px;height:52px;margin:0 auto;display:flex;align-items:center;justify-content:center;color:var(--purple);filter:drop-shadow(0 4px 20px rgba(142,51,255,.22));position:relative;z-index:1;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.see-card .see-icon svg{width:100%;height:100%}
+.see-card:hover .see-icon{transform:scale(1.08)}
 .see-card .word{font-weight:700;font-size:13px;color:var(--text);margin-top:8px;letter-spacing:2px;text-transform:uppercase;position:relative;z-index:1}
 .see-card .desc{font-size:12px;color:var(--text-muted);margin-top:5px;line-height:1.5;position:relative;z-index:1}
 .s3-quote{position:relative;margin-top:18px;padding:12px 24px;border-radius:14px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08)}
@@ -392,23 +388,19 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
   <div class="tag" data-a="scramble" data-text="Notre solution">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Le premier MES<br><em>open source et accessible</em></h2>
   <p class="subtitle" data-a="fade">Concu pour les PME industrielles.</p>
-  <div class="pill-row" data-a="stagger">
-    <div class="pill"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><line x1="8" y1="11" x2="8" y2="7"/></svg> Open Source</div>
-    <div class="pill"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Modulaire</div>
-    <div class="pill"><svg class="ico" viewBox="0 0 24 24"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><circle cx="12" cy="20" r="1"/></svg> Offline-first</div>
-  </div>
   <div class="see-row" data-a="stagger">
-    <div class="glow-card see-card"><div class="letter">S</div><div class="word">Scalable</div><div class="desc">Grandit avec vous, de 1 a 100 lignes</div></div>
-    <div class="glow-card see-card"><div class="letter">E</div><div class="word">Execution</div><div class="desc">Controle en temps reel de la production</div></div>
-    <div class="glow-card see-card"><div class="letter">E</div><div class="word">Efficiency</div><div class="desc">Ressources et performance optimisees</div></div>
+    <div class="glow-card see-card"><div class="see-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><line x1="8" y1="11" x2="8" y2="7"/></svg></div><div class="word">Open-source</div><div class="desc">Pas de vendor lock-in, code auditable</div></div>
+    <div class="glow-card see-card"><div class="see-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="word">Modulaire</div><div class="desc">Payez uniquement ce dont vous avez besoin</div></div>
+    <div class="glow-card see-card"><div class="see-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><circle cx="12" cy="20" r="1"/></svg></div><div class="word">Offline-first</div><div class="desc">Fonctionne sans internet, sur mini-PC usine</div></div>
   </div>
-  <div class="s3-quote" data-a="fade"><p><em>"On rend le MES aussi accessible qu'un CRM l'est devenu grace a <strong style="color:var(--purple-light)">Odoo</strong>."</em></p></div>
+  <div class="s3-quote" data-a="fade"><p><em>"On rend le MES aussi accessible qu'un ERP l'est devenu grace a <strong style="color:var(--purple-light)">Odoo</strong>."</em></p></div>
 </div>
 
 <!-- ═══ 4. DEMO ═══ -->
 <div class="slide" id="s4">
   <div class="tag" data-a="scramble" data-text="Le produit">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Ce n'est pas un prototype.<br><em>C'est un produit.</em></h2>
+  <p class="subtitle" data-a="fade">8 mois de developpement. Les principales fonctionnalites d'un MES deja livrees.</p>
   <div class="demo-grid" data-a="grid">
     <div class="demo-item"><img src="img/cockpit.png" alt="Cockpit"><div class="demo-label">Cockpit personnalisable — 39 widgets</div></div>
     <div class="demo-item"><img src="img/OEE.png" alt="OEE"><div class="demo-label">Dashboard OEE temps reel</div></div>
@@ -420,6 +412,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
     <div class="demo-stat"><strong>167+</strong> fonctions SQL</div>
     <div class="demo-stat"><strong>39</strong> widgets cockpit</div>
     <div class="demo-stat"><strong>12</strong> services Docker</div>
+    <div class="demo-stat"><strong>633</strong> commits</div>
+    <div class="demo-stat"><strong>400+</strong> issues</div>
   </div>
 </div>
 
@@ -455,31 +449,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
   <h2 class="sec-title" data-a="lines">Gratuit pour entrer.<br><em>Payant pour scaler.</em></h2>
   <p class="subtitle" data-a="fade">Modele open-core : le coeur est gratuit, les modules avances sont payants.</p>
   <div class="bm-grid" data-a="stagger">
-    <div class="glow-card bm-card"><div class="bm-tier">Free</div><div class="bm-name">Open Source</div><div class="bm-price">Gratuit · Toujours</div><ul class="bm-list"><li>OEE de base</li><li>Auto-hebergeable</li><li>Code source complet</li></ul></div>
-    <div class="glow-card bm-card featured"><div class="bm-tier">Tarif A</div><div class="bm-name">Premium</div><div class="bm-price">59 €/mois/equipement</div><ul class="bm-list"><li>Modules avances (IA, ERP, batch management)</li><li>Connecteurs industriels</li><li>Integrations ERP / IoT</li></ul></div>
-    <div class="glow-card bm-card"><div class="bm-tier">Tarif B</div><div class="bm-name">Enterprise</div><div class="bm-price">95 €/mois/equipement</div><ul class="bm-list"><li>Tout Tarif A inclus</li><li>Support prioritaire</li><li>Installation cle en main</li><li>Formation sur mesure</li></ul></div>
+    <div class="glow-card bm-card"><div class="bm-tier">Free</div><div class="bm-name">Gratuit</div><div class="bm-price">Gratuit · Toujours</div><ul class="bm-list"><li>Data logging</li><li>Trending</li></ul></div>
+    <div class="glow-card bm-card featured"><div class="bm-tier">Tarif A</div><div class="bm-name">Premium</div><div class="bm-price">59 €/mois/equipement</div><ul class="bm-list"><li>OEE temps reel</li><li>Modules avances (ERP, batch management)</li><li>Connecteurs industriels</li><li>Integrations ERP / IoT</li></ul></div>
+    <div class="glow-card bm-card"><div class="bm-tier">Tarif B</div><div class="bm-name">Enterprise</div><div class="bm-price">95 €/mois/equipement</div><ul class="bm-list"><li>Tout Tarif A inclus</li><li>IA integree (chatbot, analyse)</li><li>Support prioritaire</li><li>Installation cle en main</li><li>Formation sur mesure</li></ul></div>
   </div>
-</div>
-
-<!-- ═══ 9. TRACTION ═══ -->
-<div class="slide" id="s9">
-  <div class="tag" data-a="scramble" data-text="Traction & Roadmap">&nbsp;</div>
-  <h2 class="sec-title" data-a="lines">De zero a un produit<br><em>en 1 an</em></h2>
-  <p class="subtitle" data-a="fade">8 mois de developpement intense, un produit deja fonctionnel.</p>
-  <div class="traction-wrap" data-a="stagger">
-    <div class="traction-left">
-      <div class="timeline">
-        <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Sept 2025</div><div class="tl-text">Premier MVP operationnel</div></div></div>
-        <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Oct – Dec 2025</div><div class="tl-text">OEE complet, cockpit, ingestion MQTT / OPC-UA</div></div></div>
-        <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Jan – Avr 2026</div><div class="tl-text">39 widgets, timeline downtimes, chatbot IA, 10 langues UI</div></div></div>
-        <div class="tl-item"><div class="tl-dot" style="border-color:var(--amber);color:var(--amber)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div><div class="tl-content"><div class="tl-date">Juin 2026</div><div class="tl-text"><strong style="color:var(--text)">Version commercialisable</strong> — premiers clients pilotes</div></div></div>
-        <div class="tl-item"><div class="tl-dot">Q4</div><div class="tl-content"><div class="tl-date">Q3 – Q4 2026</div><div class="tl-text">Batch management, partenaires integrateurs, go-to-market Belgique</div></div></div>
-        <div class="tl-item"><div class="tl-dot">27</div><div class="tl-content"><div class="tl-date">2027</div><div class="tl-text">Expansion DACH + France, levee Seed</div></div></div>
-      </div>
-    </div>
-    <div class="traction-right" data-a="scale"><img src="img/commits.png" alt="633 commits" class="screenshot"><p class="commit-stats"><strong style="color:var(--purple-light)">633</strong> commits · <strong style="color:var(--purple-light)">100</strong> branches · <strong style="color:var(--purple-light)">400+</strong> issues</p></div>
-  </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--text)">Prochaine etape :</strong> version commercialisable en <strong style="color:var(--purple-light)">juin 2026</strong>, premiers clients pilotes.</p></div>
 </div>
 
 <!-- ═══ 10. EQUIPE ═══ -->
@@ -754,7 +727,7 @@ function animateIn(s){
 
 /* ═══ NAVIGATION ═══ */
 // Wave overlay only on these key slide ARRIVALS (0-indexed)
-const waveSlides=new Set([4,6,12]); // slide 4 (Demo), slide 6 (Marché), slide 12 (Closing)
+const waveSlides=new Set([4,6,11]); // slide 4 (Demo), slide 6 (Marché), slide 11 (Closing)
 
 async function goTo(idx){
   if(busy||idx===cur||idx<0||idx>=total)return;
