@@ -26,10 +26,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
    ═══════════════════════════════════════════════════════ */
 
 /* S1B — MES Explainer (pause pédago) */
-#s1b .sec-title             { margin-top: 8px; }
+#s1b .sec-title             { margin-top: -10px; }
 #s1b > .subtitle            { margin-top: 6px; margin-bottom: 22px; }
 #s1b .mes-stack             { margin-top: 4px; }
-#s1b .mes-punch             { margin-top: 22px; }
+#s1b .mes-punch             { margin-top: 40px; }
 
 /* S2 — Problème */
 #s2 .sec-title              { margin-top: 24px; }
@@ -192,12 +192,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .mes-tier.tier-mes::after{content:'TEMPS RÉEL';position:absolute;top:-9px;right:18px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2.5px;font-weight:700;background:var(--purple);color:#fff;padding:3px 10px;border-radius:100px;box-shadow:0 0 14px var(--purple-glow)}
 .mes-tier-star{display:inline-block;color:var(--purple);font-size:14px;margin-right:6px;animation:starPulse 2.4s ease-in-out infinite}
 @keyframes starPulse{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
-.mes-flow{position:absolute;left:50%;width:2px;height:18px;background:linear-gradient(180deg,rgba(142,51,255,.05),rgba(142,51,255,.4),rgba(142,51,255,.05));transform:translateX(-50%);pointer-events:none;overflow:visible}
-.mes-flow.flow-top{top:calc(((16px + 18px + 12px) * 1) + 2px);}
-.mes-flow.flow-bot{top:calc(100% - 36px - 18px);}
-/* simpler positioning: place flows between tiers absolutely via flex order — handled by spacers */
 .mes-stack .mes-gap{width:2px;height:18px;background:linear-gradient(180deg,rgba(142,51,255,.08),rgba(142,51,255,.35),rgba(142,51,255,.08));position:relative;flex-shrink:0;border-radius:2px}
-.mes-flow-dot{position:absolute;left:50%;top:-4px;width:8px;height:8px;border-radius:50%;background:var(--purple-light);box-shadow:0 0 12px var(--purple-glow),0 0 22px rgba(142,51,255,.5);transform:translateX(-50%);opacity:0;pointer-events:none;will-change:transform,opacity}
+.mes-flow-dot{position:absolute;left:50%;top:-4px;border-radius:50%;transform:translateX(-50%);opacity:0;pointer-events:none;will-change:transform,opacity}
+.mes-flow-dot.dir-down{width:7px;height:7px;background:#B47BFF;box-shadow:0 0 10px rgba(180,123,255,.55),0 0 18px rgba(142,51,255,.35)}
+.mes-flow-dot.dir-up{width:8px;height:8px;background:var(--purple);box-shadow:0 0 12px rgba(142,51,255,.7),0 0 24px rgba(142,51,255,.5)}
 .mes-punch{padding:12px 26px;border-radius:14px;background:rgba(142,51,255,.04);border:1px solid rgba(142,51,255,.1)}
 .mes-punch p{font-size:18px;color:var(--text-muted);text-align:center;margin:0;font-weight:300}
 .mes-punch p strong{color:var(--text);font-weight:600}
@@ -491,24 +489,24 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s1b">
   <div class="tag" data-a="scramble" data-text="30 secondes pour comprendre">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">C'est quoi <em>un MES</em> ?</h2>
-  <p class="subtitle" data-a="fade">La tour de controle de l'usine.</p>
+  <p class="subtitle" data-a="fade" style="font-weight: 600; color: rgb(51, 51, 51)">La tour de controle de l'usine.</p>
   <div class="mes-stack" data-a="mes-stack">
     <div class="mes-tier tier-edge tier-erp">
       <div class="mes-tier-name">ERP</div>
-      <div class="mes-tier-verbs">Vend & planifie</div>
+      <div class="mes-tier-verbs" style="font-weight: 600">Vend & planifie</div>
     </div>
-    <div class="mes-gap"><div class="mes-flow-dot" data-flow="top"></div></div>
+    <div class="mes-gap" data-bus="top"><div class="mes-flow-dot dir-down"></div><div class="mes-flow-dot dir-down"></div><div class="mes-flow-dot dir-down"></div><div class="mes-flow-dot dir-up"></div><div class="mes-flow-dot dir-up"></div><div class="mes-flow-dot dir-up"></div></div>
     <div class="mes-tier tier-mes">
       <div class="mes-tier-name"><span class="mes-tier-star">★</span>MES</div>
       <div class="mes-tier-verbs">Pilote</div>
     </div>
-    <div class="mes-gap"><div class="mes-flow-dot" data-flow="bot"></div></div>
+    <div class="mes-gap" data-bus="bot"><div class="mes-flow-dot dir-down"></div><div class="mes-flow-dot dir-down"></div><div class="mes-flow-dot dir-down"></div><div class="mes-flow-dot dir-up"></div><div class="mes-flow-dot dir-up"></div><div class="mes-flow-dot dir-up"></div></div>
     <div class="mes-tier tier-edge tier-machines">
       <div class="mes-tier-name">MACHINES</div>
-      <div class="mes-tier-verbs">Produisent</div>
+      <div class="mes-tier-verbs" style="font-weight: 600">Produisent</div>
     </div>
   </div>
-  <div class="mes-punch" data-a="fade"><p>Sans MES, l'usine vole <strong>a l'aveugle</strong>.</p></div>
+  <div class="mes-punch" data-a="fade" style="border-width: 1px 3px 3px 1px"><p style="color: #333333; font-weight: 500">Sans MES, l'usine vole <strong style="color: #9944fa; font-weight: 700">a l'aveugle</strong>.</p></div>
 </div>
 
 <!-- ═══ 2. PROBLEME ═══ -->
@@ -647,7 +645,7 @@ a.data-source-card{cursor:pointer}
   <p class="closing-text" data-a="fade">Le seul MES <strong style="color:var(--text)">open source, modulaire, avec IA integree</strong>.<br><strong style="color:var(--text)">Plus jamais une PME laissee a l'aveugle.</strong></p>
   <div class="contact-row" data-a="stagger">
     <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg> www.opsee.io</div>
-    <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a4d4c1d6c2cbd6c9c5cac7c1e4cbd4d7c1c18acdcb">[email&#160;protected]</a></div>
+    <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="18687d6a7e776a7579767b7d5877686b7d7d367177">[email&#160;protected]</a></div>
     <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg> +32 71 256 280</div>
   </div>
   <div class="final-tag" data-a="scramble" data-text="Turn complexity into clarity">&nbsp;</div>
@@ -861,11 +859,11 @@ function animateS1(s){
   // 7. Subtitle "des PME européennes" — apparait EN MÊME TEMPS que le remplissage de la jauge
   gsap.to(suffix,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:1.6});
 
-  // 8. Hook box reveals — en meme temps que le suffix et le debut du fill
-  gsap.delayedCall(1.6,()=>{
+  // 8. Hook box reveals — pendant le remplissage aussi
+  gsap.delayedCall(1.9,()=>{
     if(window.OPSEE_SOUND) window.OPSEE_SOUND.play('reveal');
   });
-  gsap.to(hook,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:1.6});
+  gsap.to(hook,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:1.9});
 }
 const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
 let W,H;function rz(){W=canvas.width=innerWidth;H=canvas.height=innerHeight}rz();addEventListener('resize',rz);
@@ -992,7 +990,11 @@ function freezeContents(s){
     if(hook){gsap.set(hook,{opacity:0,y:24})}
   }
   s.querySelectorAll('[data-a]').forEach(el=>{
-    gsap.set(el,{clearProps:'all'});el.style.opacity='0';
+    // preserve user-authored inline style; clear only GSAP-injected properties
+    const savedStyle=el.getAttribute('style');
+    gsap.set(el,{clearProps:'all'});
+    if(savedStyle!==null) el.setAttribute('style',savedStyle);
+    el.style.opacity='0';
     if(el.dataset.a==='stagger'||el.dataset.a==='grid')Array.from(el.children).forEach(c=>{c.style.opacity='0'});
     if(el.dataset.a==='lines'&&el._origHTML){el.innerHTML=el._origHTML;el.style.opacity='0'}
     if(el.dataset.a==='scramble'){el.textContent='\u00A0';el.style.opacity='0'}
@@ -1022,25 +1024,90 @@ function stopAllRolling(){rollingIds.forEach(id=>clearInterval(id));rollingIds.l
 /* ═══ MES FLOW DOTS (S1B) ═══ */
 const mesAnimIds=[];
 function stopAllMesAnims(){
-  mesAnimIds.forEach(id=>clearInterval(id));mesAnimIds.length=0;
-  document.querySelectorAll('.mes-flow-dot').forEach(d=>{gsap.killTweensOf(d);gsap.set(d,{opacity:0,y:0})});
+  mesAnimIds.forEach(item=>{
+    if(typeof item==='number') clearInterval(item);
+    else if(item && item.kill) item.kill();
+  });
+  mesAnimIds.length=0;
+  document.querySelectorAll('.mes-flow-dot').forEach(d=>{gsap.killTweensOf(d);gsap.set(d,{opacity:0,y:0,scaleY:1})});
+  document.querySelectorAll('.tier-mes').forEach(m=>{gsap.killTweensOf(m);m.style.boxShadow='';m.style.filter=''});
 }
 function startMesFlow(stack){
-  const dots=stack.querySelectorAll('.mes-flow-dot');
-  dots.forEach((dot,i)=>{
-    const gap=dot.parentElement;const travel=gap.offsetHeight+8;
-    const run=()=>{
-      gsap.fromTo(dot,
-        {y:0,opacity:0},
-        {y:travel,opacity:1,duration:.95,ease:'sine.inOut',
-         onComplete(){gsap.to(dot,{opacity:0,duration:.25})}});
-    };
-    setTimeout(()=>{
-      run();
-      const id=setInterval(run,1700);
-      mesAnimIds.push(id);
-    },i*420);
-  });
+  const mes=stack.querySelector('.tier-mes');
+  const erp=stack.querySelector('.tier-erp');
+  const machines=stack.querySelector('.tier-machines');
+  const star=stack.querySelector('.mes-tier-star');
+  const gaps=stack.querySelectorAll('.mes-gap');
+  const topGap=gaps[0], botGap=gaps[1];
+  const ease='cubic-bezier(0.4, 0, 0.2, 1)';
+
+  // Receptions: MES gets the strong treatment (drop-shadow swell + star flash + scale).
+  // ERP/MACHINES get the elegant treatment (border flash + light shadow swell + scale).
+  const pulseMes=(intense)=>{
+    if(!mes)return;
+    const peak=intense?48:38;
+    gsap.fromTo(mes,
+      {filter:'drop-shadow(0 0 12px rgba(142,51,255,.35))'},
+      {filter:`drop-shadow(0 0 ${peak}px rgba(142,51,255,.95))`,duration:.7,yoyo:true,repeat:1,ease:'sine.inOut'});
+    if(star){
+      gsap.fromTo(star,{opacity:.85,scale:1},{opacity:1,scale:1.12,duration:.7,yoyo:true,repeat:1,ease:'sine.inOut'});
+    }
+  };
+  const pulseEdge=(el)=>{
+    if(!el)return;
+    gsap.fromTo(el,
+      {borderColor:'rgba(142,51,255,.18)',backgroundColor:'rgba(142,51,255,0)',boxShadow:'0 0 0 rgba(142,51,255,0)'},
+      {borderColor:'rgba(142,51,255,.85)',backgroundColor:'rgba(142,51,255,.12)',boxShadow:'0 0 28px rgba(142,51,255,.35)',duration:.75,yoyo:true,repeat:1,ease:'sine.inOut'});
+  };
+
+  // animate a train of 3 dots in a given direction in a given gap.
+  // returns the total duration of the train (so we can chain acts).
+  const runTrain=(gap,direction,onLastArrive)=>{
+    const travel=gap.offsetHeight+8;
+    const dots=gap.querySelectorAll(direction==='down'?'.dir-down':'.dir-up');
+    const startY=direction==='down'?0:travel;
+    const endY  =direction==='down'?travel:0;
+    const stagger=.18, dur=1.05;
+    dots.forEach((dot,i)=>{
+      gsap.killTweensOf(dot);
+      gsap.set(dot,{y:startY,opacity:0,scale:1});
+      gsap.to(dot,{
+        y:endY,duration:dur,ease,delay:i*stagger,
+        onStart(){gsap.to(dot,{opacity:1,duration:.22,ease:'power1.out'})},
+        onComplete(){
+          gsap.to(dot,{opacity:0,scale:.6,duration:.2,ease:'power1.in'});
+          if(i===dots.length-1 && onLastArrive) onLastArrive();
+        }
+      });
+    });
+    return dur + stagger*(dots.length-1) + .2; // total time
+  };
+
+  let t=0; // running time cursor
+  const cycle=()=>{
+    t=0;
+    // ACT 1 — ERP -> MES (instructions descend top bus)
+    gsap.delayedCall(t,()=>runTrain(topGap,'down',()=>pulseMes(false)));
+    t += 1.45 + .85;
+
+    // ACT 2 — MES -> MACHINES (commands descend bottom bus)
+    gsap.delayedCall(t,()=>runTrain(botGap,'down',()=>pulseEdge(machines)));
+    t += 1.45 + .95;
+
+    // ACT 3 — MACHINES -> MES (sensor data ascends bottom bus) -- the key moment
+    gsap.delayedCall(t,()=>runTrain(botGap,'up',()=>pulseMes(true)));
+    t += 1.45 + .85;
+
+    // ACT 4 — MES -> ERP (synthesis ascends top bus)
+    gsap.delayedCall(t,()=>runTrain(topGap,'up',()=>pulseEdge(erp)));
+    t += 1.45 + 1.00;
+  };
+  cycle();
+  const cycleMs=Math.round(t*1000); // ~6500ms
+  const id=setInterval(cycle,cycleMs);
+  mesAnimIds.push(id);
+
+  // MES stays visually calm between receptions — only the act of receiving lights it up.
 }
 
 /* ═══ ANIMATE CHILDREN ═══ */
