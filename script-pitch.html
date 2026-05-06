@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OpSee — Script Pitch 5 min (v3 — 3 speakers)</title>
+<title>OpSee — Script Pitch CBC 2026 (V7.2 — pitch champion)</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -17,6 +17,7 @@
     --juliette: #EC4899;
     --nathan: #10B981;
     --louis: #F59E0B;
+    --adam: #06B6D4;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -24,10 +25,11 @@
   .header { background: linear-gradient(135deg, #1C252E 0%, #2D1B69 50%, #1C252E 100%); color: white; padding: 48px 32px; text-align: center; position: relative; overflow: hidden; }
   .header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(142,51,255,.2), transparent); pointer-events: none; }
   .header h1 { font-size: 42px; font-weight: 800; letter-spacing: -1px; position: relative; }
-  .header h1 em { background: linear-gradient(135deg, var(--purple-light), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-style: normal; }
+  .header h1 em { background: linear-gradient(135deg, var(--purple-light), var(--purple)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-style: normal; }
   .header .meta { margin-top: 12px; font-size: 16px; font-weight: 300; opacity: .7; position: relative; }
   .header .version { margin-top: 6px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 3px; opacity: .35; position: relative; }
   .header .alert { margin-top: 14px; font-size: 14px; color: #FCA5A5; font-weight: 600; position: relative; }
+  .header .badge { display: inline-block; margin-top: 10px; padding: 4px 14px; background: rgba(168,85,247,.2); border: 1px solid rgba(168,85,247,.4); border-radius: 100px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--purple-light); position: relative; }
 
   .legend { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; padding: 24px 32px; background: var(--surface); border-bottom: 1px solid rgba(0,0,0,.06); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
   .legend-item { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
@@ -38,12 +40,13 @@
 
   .overview { background: var(--surface); border: 1px solid rgba(0,0,0,.06); border-radius: 20px; padding: 32px; margin-bottom: 40px; }
   .overview h2 { font-size: 22px; font-weight: 700; margin-bottom: 20px; color: var(--purple); }
-  .overview-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .speaker-card { padding: 20px; border-radius: 14px; border: 1px solid rgba(0,0,0,.06); position: relative; overflow: hidden; }
   .speaker-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
   .speaker-card.juliette::before { background: var(--juliette); }
   .speaker-card.nathan::before { background: var(--nathan); }
   .speaker-card.louis::before { background: var(--louis); }
+  .speaker-card.adam::before { background: var(--adam); }
   .speaker-card .sp-name { font-weight: 700; font-size: 17px; }
   .speaker-card .sp-role { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
   .speaker-card .sp-slides { font-family: 'Space Mono', monospace; font-size: 12px; margin-top: 10px; color: var(--text-muted); }
@@ -57,13 +60,17 @@
   .flow-chip.juliette { background: var(--juliette); }
   .flow-chip.nathan { background: var(--nathan); }
   .flow-chip.louis { background: var(--louis); }
+  .flow-chip.adam { background: var(--adam); }
+  .flow-chip.theatrical { box-shadow: 0 0 0 2px var(--purple), 0 0 12px rgba(142,51,255,.4); }
   .flow-arrow { color: var(--text-muted); font-size: 16px; margin: 0 2px; }
 
   .slide-section { margin-bottom: 32px; background: var(--surface); border: 1px solid rgba(0,0,0,.06); border-radius: 20px; overflow: hidden; page-break-inside: avoid; }
+  .slide-section.theatrical { border: 2px solid var(--purple); box-shadow: 0 0 30px rgba(142,51,255,.12); }
   .slide-header { display: flex; align-items: center; gap: 16px; padding: 20px 28px; border-bottom: 1px solid rgba(0,0,0,.06); position: relative; }
   .slide-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--purple), var(--purple-light)); }
   .slide-num { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 3px; color: var(--purple); background: rgba(142,51,255,.06); padding: 6px 14px; border-radius: 100px; font-weight: 700; flex-shrink: 0; }
   .slide-title { font-size: 20px; font-weight: 700; }
+  .slide-flag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; padding: 4px 10px; border-radius: 100px; background: var(--purple); color: white; font-weight: 700; flex-shrink: 0; }
   .slide-timer { margin-left: auto; font-family: 'Space Mono', monospace; font-size: 13px; color: var(--text-muted); flex-shrink: 0; background: rgba(0,0,0,.03); padding: 6px 14px; border-radius: 100px; }
   .slide-body { padding: 24px 28px; }
 
@@ -72,17 +79,21 @@
   .speaker-block.juliette{ background: rgba(236,72,153,.04); border-color: rgba(236,72,153,.12); }
   .speaker-block.nathan  { background: rgba(16,185,129,.04); border-color: rgba(16,185,129,.12); }
   .speaker-block.louis   { background: rgba(245,158,11,.04); border-color: rgba(245,158,11,.12); }
+  .speaker-block.adam    { background: rgba(6,182,212,.04);  border-color: rgba(6,182,212,.12); }
   .speaker-label { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; padding: 4px 12px; border-radius: 100px; }
   .speaker-block.juliette .speaker-label{ color: var(--juliette);background: rgba(236,72,153,.1); }
   .speaker-block.nathan .speaker-label  { color: var(--nathan); background: rgba(16,185,129,.1); }
   .speaker-block.louis .speaker-label   { color: var(--louis);  background: rgba(245,158,11,.1); }
+  .speaker-block.adam .speaker-label    { color: var(--adam);   background: rgba(6,182,212,.1); }
 
   .speech { font-size: 16px; line-height: 1.8; color: var(--text); }
   .speech em { color: var(--purple); font-style: normal; font-weight: 600; }
   .speech .pause { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-muted); background: rgba(0,0,0,.04); padding: 2px 10px; border-radius: 6px; margin: 4px 2px; vertical-align: middle; letter-spacing: 1px; }
   .speech .gesture { display: block; font-family: 'Space Mono', monospace; font-size: 12px; color: var(--text-muted); margin: 8px 0; padding-left: 16px; border-left: 2px solid rgba(0,0,0,.08); font-style: italic; }
+  .speech .interrupt { display: inline-block; background: var(--purple); color: white; padding: 2px 10px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; margin: 0 4px; vertical-align: middle; }
 
   .transition { display: flex; align-items: center; gap: 10px; padding: 12px 20px; margin: 0 28px 16px; border-radius: 10px; background: rgba(142,51,255,.03); border: 1px dashed rgba(142,51,255,.15); font-size: 13px; color: var(--text-muted); }
+  .transition.theatrical { background: rgba(142,51,255,.08); border: 1px dashed rgba(142,51,255,.4); color: var(--purple); font-weight: 600; }
   .transition-arrow { font-size: 18px; color: var(--purple-light); }
 
   .tips { background: var(--surface); border: 1px solid rgba(0,0,0,.06); border-radius: 20px; padding: 32px; margin-top: 40px; }
@@ -92,6 +103,33 @@
   .tips li::before { content: ''; position: absolute; left: 0; top: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--purple); opacity: .3; }
   .tips li strong { color: var(--text); }
 
+  .timing-summary { background: linear-gradient(135deg, rgba(142,51,255,.05), rgba(142,51,255,.02)); border: 1px solid rgba(142,51,255,.15); border-radius: 14px; padding: 20px 24px; margin-bottom: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .timing-summary .ts-label { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 2px; color: var(--purple); font-weight: 700; }
+  .timing-summary .ts-total { font-size: 28px; font-weight: 800; color: var(--text); }
+  .timing-summary .ts-detail { font-size: 13px; color: var(--text-muted); }
+
+  /* Transcript continu */
+  .transcript { background: var(--surface); border: 1px solid rgba(142,51,255,.18); border-radius: 20px; padding: 32px; margin-bottom: 40px; box-shadow: 0 4px 30px rgba(142,51,255,.04); }
+  .transcript h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; color: var(--purple); }
+  .transcript .tr-hint { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; font-style: italic; }
+  .tr-block { padding: 18px 22px; margin-bottom: 14px; border-left: 3px solid; border-radius: 0 12px 12px 0; }
+  .tr-block.nathan { border-color: var(--nathan); background: rgba(16,185,129,.04); }
+  .tr-block.juliette { border-color: var(--juliette); background: rgba(236,72,153,.04); }
+  .tr-block.adam { border-color: var(--adam); background: rgba(6,182,212,.04); }
+  .tr-block.louis { border-color: var(--louis); background: rgba(245,158,11,.04); }
+  .tr-block.theatrical { background: linear-gradient(135deg, rgba(236,72,153,.08), rgba(142,51,255,.06)); border-color: var(--purple); border-left-width: 4px; }
+  .tr-speaker { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+  .tr-block.nathan .tr-speaker { color: var(--nathan); }
+  .tr-block.juliette .tr-speaker { color: var(--juliette); }
+  .tr-block.adam .tr-speaker { color: var(--adam); }
+  .tr-block.louis .tr-speaker { color: var(--louis); }
+  .tr-time { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-muted); font-weight: 400; letter-spacing: 1px; }
+  .tr-text { font-size: 17px; line-height: 1.75; color: var(--text); }
+  .tr-text strong { color: var(--purple); font-weight: 600; }
+  .tr-text .tr-pause { display: inline-block; background: rgba(142,51,255,.08); color: var(--purple); padding: 1px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; letter-spacing: 1px; margin: 0 3px; vertical-align: middle; }
+  .tr-text .tr-stage { display: inline-block; color: var(--text-muted); font-style: italic; font-size: 14px; }
+  .tr-bolt { color: var(--purple); }
+
   @media print { .legend { position: static; } .slide-section { break-inside: avoid; } body { background: #fff; } }
   @media (max-width: 640px) { .overview-grid { grid-template-columns: 1fr; } .slide-header { flex-wrap: wrap; } .slide-timer { margin-left: 0; margin-top: 8px; } .header h1 { font-size: 28px; } }
 </style>
@@ -100,34 +138,192 @@
 
 <div class="header">
   <h1>Script Pitch <em>OpSee</em></h1>
-  <div class="meta">Mind & Market 2026 &mdash; 5 minutes &mdash; 3 speakers</div>
-  <div class="version">V3 &mdash; SANS ADAM (MALADE) &mdash; 3 SPEAKERS</div>
-  <div class="alert">Adam est absent &mdash; ses slides sont redistribuees entre Nathan, Juliette et Louis</div>
+  <div class="meta">CBC Pitch Challenge 2026 &mdash; 5 minutes &mdash; 4 speakers</div>
+  <div class="version">V7.2 &mdash; PITCH CHAMPION &mdash; INTERRUPT REACTIVE + ARC EMOTIONNEL</div>
+  <div class="badge">12 slides &middot; 5 min 00 &middot; pile</div>
 </div>
 
 <div class="legend">
-  <div class="legend-item"><div class="legend-dot" style="background:var(--nathan)"></div> Nathan <span class="legend-comfort">&middot; ouvre + tech + IA</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--nathan)"></div> Nathan <span class="legend-comfort">&middot; ouvre + IA</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--adam)"></div> Adam <span class="legend-comfort">&middot; solution + produit + equipe</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--juliette)"></div> Juliette <span class="legend-comfort">&middot; pedago MES + traction + ask</span></div>
   <div class="legend-item"><div class="legend-dot" style="background:var(--louis)"></div> Louis <span class="legend-comfort">&middot; probleme + business + ferme</span></div>
-  <div class="legend-item"><div class="legend-dot" style="background:var(--juliette)"></div> Juliette <span class="legend-comfort">&middot; produit + traction + equipe</span></div>
 </div>
 
 <div class="container">
 
+<div class="timing-summary">
+  <div>
+    <div class="ts-label">TEMPS TOTAL</div>
+    <div class="ts-total">5 min 00</div>
+  </div>
+  <div class="ts-detail">
+    Nathan : 50s &middot; Adam : 73s &middot; Juliette : 80s &middot; Louis : 97s &middot; <strong>Total : 300s pile</strong>
+  </div>
+</div>
+
+<div class="transcript">
+  <h2>Transcript continu &mdash; pour memorisation</h2>
+  <p class="tr-hint">Le pitch en lecture lineaire. Chaque bloc = un speaker, dans l'ordre. <strong>Memorisez le flow, pas les mots</strong>. Les phrases en violet sont les <em>killer lines</em> a ralentir.</p>
+
+  <div class="tr-block nathan">
+    <div class="tr-speaker">Nathan &mdash; S1 Hook <span class="tr-time">~25s</span></div>
+    <p class="tr-text">
+      <strong>67%.</strong> <span class="tr-pause">PAUSE</span><br>
+      67% des PME europeennes pilotent leur usine sans savoir ce qui s'y passe.<br>
+      <strong>Excel. Du papier. Ou rien.</strong><br>
+      <strong>Aucun MES.</strong> <span class="tr-pause">PAUSE</span><br>
+      <strong>Encore aujourd'hui.</strong>
+    </p>
+  </div>
+
+  <div class="tr-block juliette theatrical">
+    <div class="tr-speaker"><span class="tr-bolt">&#9889;</span> Juliette interrompt &mdash; S1B Pedago <span class="tr-time">~25s</span></div>
+    <p class="tr-text">
+      <span class="tr-stage">[Juliette coupe Nathan, sourire pose, regard jury]</span><br>
+      Nathan, juste un instant. <span class="tr-stage">[au jury]</span><br>
+      <strong>Un MES &mdash; c'est quoi ?</strong> <span class="tr-pause">MICRO-PAUSE</span><br>
+      Allez, 30 secondes.<br><br>
+      Un MES &mdash; Manufacturing Execution System &mdash; c'est <strong>la tour de controle de l'usine</strong>.<br>
+      En haut, l'ERP vend et planifie. C'est le commercial.<br>
+      En bas, les machines produisent.<br>
+      Au milieu, le MES pilote la production, en temps reel.<br>
+      <strong>Sans MES, l'usine vole a l'aveugle.</strong>
+    </p>
+  </div>
+
+  <div class="tr-block louis">
+    <div class="tr-speaker">Louis &mdash; S2 Probleme <span class="tr-time">~30s</span></div>
+    <p class="tr-text">
+      Cette tour de controle, elle est <strong>reservee aux grands</strong>.<br>
+      Les PME representent 99,8% des entreprises europeennes. Aucune n'a acces au MES.<br>
+      <strong>Trois barrieres.</strong><br>
+      500 000 euros &mdash; l'investissement initial pour un MES Siemens ou SAP.<br>
+      18 mois &mdash; la duree d'integration.<br>
+      Et une fois dedans : verrouillage total chez un seul editeur.<br>
+      <strong>Adam.</strong>
+    </p>
+  </div>
+
+  <div class="tr-block adam">
+    <div class="tr-speaker">Adam &mdash; S3 Solution <span class="tr-time">~25s</span></div>
+    <p class="tr-text">
+      Notre reponse : <strong>OpSee</strong>. Le premier MES open source et accessible.<br>
+      <strong>MES de grand compte. Prix de PME.</strong><br>
+      Trois piliers. Open source &mdash; pas de lock-in, le code est a vous. Modulaire &mdash; vous payez ce dont vous avez besoin. Sans internet &mdash; ca tourne meme deconnecte.<br>
+      <strong>La preuve.</strong>
+    </p>
+  </div>
+
+  <div class="tr-block adam">
+    <div class="tr-speaker">Adam &mdash; S4 Produit <span class="tr-time">~30s</span></div>
+    <p class="tr-text">
+      <strong>Ce n'est pas un prototype. C'est un produit.</strong><br>
+      Cockpit personnalisable &mdash; 39 widgets en drag-and-drop.<br>
+      Productivite temps reel &mdash; l'OEE, l'indicateur cle de l'industrie.<br>
+      Historique des arrets machines. Gestion equipements aux normes ISA-95 et 88.<br>
+      Pas une demo : <strong>ce que nos clients utilisent dans 1 mois.</strong>
+    </p>
+  </div>
+
+  <div class="tr-block nathan">
+    <div class="tr-speaker">Nathan &mdash; S5 IA <span class="tr-time">~25s</span></div>
+    <p class="tr-text">
+      Au coeur du produit &mdash; l'IA.<br>
+      <strong>Parlez a votre usine.</strong> <span class="tr-pause">PAUSE</span><br>
+      Un exemple. Un chef d'atelier demande : <em>"Quel equipement a eu le plus d'arrets cette semaine ?"</em><br>
+      Reponse instantanee. Donnees reelles. Langage naturel.<br>
+      <strong>Seul MES open source qui offre ca aujourd'hui.</strong><br>
+      Louis.
+    </p>
+  </div>
+
+  <div class="tr-block louis">
+    <div class="tr-speaker">Louis &mdash; S7 Marche <span class="tr-time">~25s</span></div>
+    <p class="tr-text">
+      Parlons marche.<br>
+      <strong>Mondial</strong> : 16 milliards de dollars en 2025. Croissance 12% par an.<br>
+      <strong>Europeen</strong> : 160 000 PME industrielles rien qu'en Belgique, France et pays germanophones &mdash; sans acces aux outils de pilotage.<br>
+      Le MES est le prochain domaine B2B disrupte par l'open source. <strong>Comme Odoo dans l'ERP.</strong>
+    </p>
+  </div>
+
+  <div class="tr-block louis">
+    <div class="tr-speaker">Louis &mdash; S8 BM <span class="tr-time">~30s</span></div>
+    <p class="tr-text">
+      Notre modele : le meme qu'Odoo. Applique au MES.<br>
+      <strong>Gratuit pour entrer. Payant pour scaler.</strong><br>
+      <strong>Trois offres.</strong><br>
+      Open Source &mdash; gratuit, toujours. Auto-hebergeable, code complet.<br>
+      Premium, 59 euros par mois par equipement &mdash; IA, integration ERP, production par lots.<br>
+      Enterprise, 95 euros &mdash; Premium, plus support et installation cle en main.<br>
+      Juliette.
+    </p>
+  </div>
+
+  <div class="tr-block juliette">
+    <div class="tr-speaker">Juliette &mdash; S9 Traction <span class="tr-time">~30s</span></div>
+    <p class="tr-text">
+      De zero a un produit en <strong>1 an</strong>. 8 mois de developpement intense.<br>
+      Septembre 2025 : premier MVP. Fin 2025 : OEE complet. Debut 2026 : 39 widgets, chatbot IA, interface en 10 langues.<br>
+      Et surtout : <span class="tr-pause">PAUSE 1 SEC PLEINE</span><br>
+      <strong>5 early adopters ont signe.</strong><br>
+      Premier deploiement : juin. Dans 1 mois.<br>
+      Q3-Q4 2026 : production par lots, partenaires integrateurs, lancement Belgique.
+    </p>
+  </div>
+
+  <div class="tr-block adam">
+    <div class="tr-speaker">Adam &mdash; S10 Equipe <span class="tr-time">~18s</span></div>
+    <p class="tr-text">
+      Quatre cofondateurs complementaires.<br>
+      Moi, Adam &mdash; mecatronique et UX.<br>
+      Nathan &mdash; architecture.<br>
+      Juliette &mdash; commercial.<br>
+      Louis &mdash; finance.<br>
+      <strong>Incubes par AgiNtech</strong> : Christophe Camerlynck, 20 ans d'industrie. Peter Mees, expert MES.<br>
+      Acces direct au terrain. Et a nos premiers clients.
+    </p>
+  </div>
+
+  <div class="tr-block juliette">
+    <div class="tr-speaker">Juliette &mdash; S12 Ask <span class="tr-time">~25s</span></div>
+    <p class="tr-text">
+      <strong>On ne cherche pas des applaudissements.</strong> <span class="tr-pause">PAUSE</span><br>
+      On cherche des <strong>connexions concretes</strong>.<br>
+      Un : des clients pilotes. PMEs industrielles belges pretes a tester. Deploiement gratuit.<br>
+      Deux : des partenaires integrateurs. Societes d'automatisation qui veulent distribuer OpSee.<br>
+      Trois : de la visibilite dans l'ecosysteme industriel europeen.<br>
+      Vous connaissez une PME industrielle ? <strong>Presentez-nous. On fait le reste.</strong>
+    </p>
+  </div>
+
+  <div class="tr-block louis">
+    <div class="tr-speaker">Louis &mdash; S13 Closing <span class="tr-time">~12s</span></div>
+    <p class="tr-text">
+      OpSee. Open. Smart. Scalable. <span class="tr-pause">PAUSE</span><br>
+      Le seul MES open source, modulaire, avec IA integree.<br>
+      <strong>Plus jamais une PME laissee a l'aveugle.</strong> <span class="tr-pause">SILENCE 2 SEC</span><br>
+      Merci.
+    </p>
+  </div>
+</div>
+
 <div class="flow">
-  <h2>Enchainement des speakers</h2>
+  <h2>Enchainement des speakers (12 slides)</h2>
   <div class="flow-row">
     <div class="flow-chip nathan">S1 Nathan</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip juliette theatrical" title="Moment theatral : Juliette interrompt Nathan">S1B Juliette &#9889;</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip louis">S2 Louis</div><span class="flow-arrow">&rarr;</span>
-    <div class="flow-chip nathan">S3 Nathan</div><span class="flow-arrow">&rarr;</span>
-    <div class="flow-chip juliette">S4 Juliette</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip adam">S3 Adam</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip adam">S4 Adam</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip nathan">S5 Nathan</div><span class="flow-arrow">&rarr;</span>
-    <div class="flow-chip louis">S6 Louis</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip louis">S7 Louis</div><span class="flow-arrow">&rarr;</span>
-    <div class="flow-chip juliette">S8 Juliette</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip louis">S8 Louis</div><span class="flow-arrow">&rarr;</span>
     <div class="flow-chip juliette">S9 Juliette</div><span class="flow-arrow">&rarr;</span>
-    <div class="flow-chip nathan">S10 Nathan</div><span class="flow-arrow">&rarr;</span>
-    <div class="flow-chip louis">S11 Louis</div><span class="flow-arrow">&rarr;</span>
-    <div class="flow-chip louis">S12 Louis</div>
+    <div class="flow-chip adam">S10 Adam</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip juliette">S12 Juliette</div><span class="flow-arrow">&rarr;</span>
+    <div class="flow-chip louis">S13 Louis</div>
   </div>
 </div>
 
@@ -136,320 +332,395 @@
   <div class="overview-grid">
     <div class="speaker-card nathan">
       <div class="sp-name">Nathan Moreau</div>
-      <div class="sp-role">Ing. informatique &middot; Backend & Architecture</div>
-      <div class="sp-slides">S1 Accroche &middot; S3 Solution &middot; S5 IA &middot; S10 Avantage</div>
-      <div class="sp-time">~1min55 de parole</div>
-      <div class="sp-note">Ouvre le pitch, porte la vision tech, solution et IA</div>
+      <div class="sp-role">Backend &amp; Architecture</div>
+      <div class="sp-slides">S1 Hook &middot; S5 IA</div>
+      <div class="sp-time">~50s de parole</div>
+      <div class="sp-note">Ouvre le pitch (l'energie initiale est cle). Revient pour l'IA &mdash; sa specialite tech.</div>
     </div>
-    <div class="speaker-card louis">
-      <div class="sp-name">Louis Verbeeren</div>
-      <div class="sp-role">Master gestion &middot; Finance & Juridique</div>
-      <div class="sp-slides">S2 Probleme &middot; S6 Marche &middot; S7 Business Model &middot; S11 Ask &middot; S12 Closing</div>
-      <div class="sp-time">~2min15 de parole</div>
-      <div class="sp-note">Probleme (reprend Adam) + business case + ferme le pitch. Plus a l'aise a l'oral, il prend 5 slides.</div>
+    <div class="speaker-card adam">
+      <div class="sp-name">Adam Bernard</div>
+      <div class="sp-role">Mecatronique &middot; Frontend &amp; UX</div>
+      <div class="sp-slides">S3 Solution &middot; S4 Produit &middot; S10 Equipe</div>
+      <div class="sp-time">~1 min 13 de parole</div>
+      <div class="sp-note">Position le produit (S3) puis montre la demo (S4) &mdash; il a concu l'UX. Conclut sur l'equipe (S10).</div>
     </div>
     <div class="speaker-card juliette">
       <div class="sp-name">Juliette Marchand</div>
-      <div class="sp-role">Master gestion &middot; Commercial & Strategie</div>
-      <div class="sp-slides">S4 Produit &middot; S8 Traction &middot; S9 Equipe</div>
-      <div class="sp-time">~1min30 de parole</div>
-      <div class="sp-note">Demo produit (reprend Adam) + traction + equipe. 3 slides visuelles avec appui ecran.</div>
+      <div class="sp-role">Commercial &amp; Strategie</div>
+      <div class="sp-slides">S1B Pedago &middot; S9 Traction &middot; S12 Ask</div>
+      <div class="sp-time">~1 min 20 de parole</div>
+      <div class="sp-note"><strong>Interrompt Nathan en S1B</strong> pour expliquer le MES (moment theatral). Puis annonce les 5 early adopters et formule l'ask.</div>
+    </div>
+    <div class="speaker-card louis">
+      <div class="sp-name">Louis Verbeeren</div>
+      <div class="sp-role">Finance &amp; Juridique</div>
+      <div class="sp-slides">S2 Probleme &middot; S7 Marche &middot; S8 BM &middot; S13 Closing</div>
+      <div class="sp-time">~1 min 37 de parole</div>
+      <div class="sp-note">Probleme + business case + ferme. Voix la plus posee &mdash; il porte les chiffres et la promesse finale.</div>
     </div>
   </div>
 </div>
 
-<!-- ═══ SLIDE 1 — ACCROCHE — NATHAN ═══ -->
+<!-- ═══ SLIDE 1 — HOOK 67% — NATHAN ═══ -->
 <div class="slide-section">
   <div class="slide-header">
     <div class="slide-num">SLIDE 01</div>
-    <div class="slide-title">Accroche &mdash; Le chiffre choc</div>
-    <div class="slide-timer">~30s</div>
+    <div class="slide-title">Hook &mdash; Le chiffre choc</div>
+    <div class="slide-timer">~25s</div>
   </div>
   <div class="slide-body">
     <div class="speaker-block nathan">
       <div class="speaker-label">Nathan</div>
       <div class="speech">
-        Bonjour a tous. <span class="pause">PAUSE</span>
+        <span class="gesture">OUVERTURE FROIDE. Pas de "bonjour". Nathan se plante, demi-seconde de silence, regard jury, puis attaque. Voix POSEE, presque grave. Pas excitee. Le 67% tombe comme un verdict.</span>
+        <em>67%</em>.
+        <span class="pause">PAUSE 1 SEC PLEINE</span>
         <br><br>
-        <em>67%</em>. C'est la proportion de PME europeennes qui ont un niveau <em>bas ou tres bas</em> de digitalisation.
+        67% des PME europeennes <em>pilotent leur usine sans savoir ce qui s'y passe</em>.
         <br><br>
-        Concretement ? Elles gerent leur usine avec <em>Excel, du papier, ou tout simplement rien</em>.
+        Excel. Du papier. Ou rien.
         <br><br>
-        On est trois etudiants-entrepreneurs presents aujourd'hui, et on a decide de changer ca. <span class="pause">PAUSE</span> Louis va vous expliquer pourquoi.
+        <em>Aucun MES</em>.
+        <span class="gesture">Nathan PLANTE le terme MES ici. Petit, presque jete. Ce mot va declencher l'interruption de Juliette. C'est volontaire.</span>
+        <span class="pause">PAUSE</span>
+        <br><br>
+        <em>Encore aujourd'hui.</em>
+        <span class="gesture">FIN. Nathan se tait, regarde le jury. <strong>Pas de promesse de solution</strong> &mdash; le silence et le verdict creent l'attente. Juliette interrompt apres 1-2 sec en reagissant au mot "MES" qui vient d'etre prononce.</span>
       </div>
     </div>
   </div>
 </div>
 
-<div class="transition"><span class="transition-arrow">&rarr;</span> Nathan &rarr; Louis &mdash; du constat general au probleme concret</div>
+<div class="transition theatrical"><span class="transition-arrow">&#9889;</span> <strong>MOMENT THEATRAL</strong> &mdash; Juliette interrompt Nathan, sourit au jury</div>
 
-<!-- ═══ SLIDE 2 — PROBLEME — LOUIS (ex-Adam) ═══ -->
-<div class="slide-section">
+<!-- ═══ SLIDE 1B — MES EXPLAINER — JULIETTE (theatrical) ═══ -->
+<div class="slide-section theatrical">
   <div class="slide-header">
     <div class="slide-num">SLIDE 02</div>
-    <div class="slide-title">Le Probleme</div>
-    <div class="slide-timer">~35s</div>
+    <div class="slide-title">Pedago &mdash; C'est quoi un MES ?</div>
+    <div class="slide-flag">THEATRAL</div>
+    <div class="slide-timer">~25s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block juliette">
+      <div class="speaker-label">Juliette &mdash; INTERRUPT</div>
+      <div class="speech">
+        <span class="gesture">JULIETTE REAGIT au mot "MES" que Nathan vient de prononcer. Elle coupe, se tourne vers le jury, sourire pose. Pas excite &mdash; curieux, complice.</span>
+        <span class="interrupt">A NATHAN</span> Nathan, juste un instant.
+        <span class="interrupt">AU JURY</span> Un <em>MES</em> &mdash; <em>c'est quoi</em> ?
+        <span class="pause">MICRO-PAUSE, REGARD</span>
+        <br><br>
+        Allez, <em>30 secondes</em>.
+        <span class="gesture">Juliette pose la question que le jury se pose interieurement. Elle est leur porte-parole. La question est courte, directe &mdash; punch theatral. CLIC vers slide S1B.</span>
+        <br><br>
+        Un MES &mdash; Manufacturing Execution System &mdash; c'est <em>la tour de controle de l'usine</em>.
+        <br><br>
+        En haut, l'<em>ERP</em> vend et planifie. C'est le commercial.
+        En bas, les <em>machines</em> produisent.
+        Au milieu, le <em>MES</em> pilote la production, en temps reel.
+        <span class="gesture">Pointer chaque tier : ERP en haut, MES au centre (gros), MACHINES en bas.</span>
+        <br><br>
+        Sans MES, l'usine vole <em>a l'aveugle</em>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette &rarr; Louis &mdash; le terme est plante, Louis enchaine sur le probleme</div>
+
+<!-- ═══ SLIDE 2 — PROBLEME — LOUIS ═══ -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 03</div>
+    <div class="slide-title">Le Probleme &mdash; Reserve aux grands</div>
+    <div class="slide-timer">~30s</div>
   </div>
   <div class="slide-body">
     <div class="speaker-block louis">
       <div class="speaker-label">Louis</div>
       <div class="speech">
-        <span class="gesture">TIP : cette slide a 3 gros chiffres a l'ecran. Pointe-les un par un.</span>
-        Les outils pour piloter une usine existent &mdash; ca s'appelle un MES, Manufacturing Execution System. Mais ils sont <em>reserves aux grands groupes</em>.
+        Cette <em>tour de controle</em>, elle est <em>reservee aux grands</em>.
         <br><br>
-        Les PME representent <em>99,8%</em> des entreprises en Europe. Pourtant, un MES proprietaire, c'est en moyenne <em>500 000 euros</em>.
-        <span class="gesture">Pointer le premier chiffre</span>
-        C'est <em>18 mois</em> d'integration.
-        <span class="gesture">Pointer le deuxieme</span>
-        Et une fois dedans, c'est du <em>vendor lock-in</em> total.
+        Les PME representent <em>99,8%</em> des entreprises europeennes. Aucune n'a acces au MES.
+        <br><br>
+        <em>Trois barrieres.</em>
+        <span class="gesture">"Trois barrieres" structure la suite. Le jury sait qu'il va y avoir 3 chiffres &mdash; il ecoute mieux. Pointer les 3 cards en rythme.</span>
+        <br><br>
+        <em>500 000 euros</em> &mdash; l'investissement initial pour un MES Siemens ou SAP.
+        <span class="gesture">Pointer 1er chiffre</span>
+        <em>18 mois</em> &mdash; la duree d'integration.
+        <span class="gesture">Pointer 2eme chiffre</span>
+        Et une fois dedans : <em>verrouillage total chez un seul editeur</em>.
         <span class="gesture">Pointer le cadenas</span>
         <br><br>
-        Consequence : perte de productivite, zero tracabilite, decisions a l'aveugle. Nathan, comment on resout ca ?
+        Adam.
+        <span class="gesture">Passage de relais sec, confiant. Pas de question rhetorique &mdash; juste le nom.</span>
       </div>
     </div>
   </div>
 </div>
 
-<div class="transition"><span class="transition-arrow">&rarr;</span> Louis &rarr; Nathan &mdash; du probleme a la solution</div>
+<div class="transition"><span class="transition-arrow">&rarr;</span> Louis &rarr; Adam &mdash; du probleme a la solution. Adam reprend (c'est son produit).</div>
 
-<!-- ═══ SLIDE 3 — SOLUTION — NATHAN ═══ -->
-<div class="slide-section">
-  <div class="slide-header">
-    <div class="slide-num">SLIDE 03</div>
-    <div class="slide-title">Notre Solution</div>
-    <div class="slide-timer">~30s</div>
-  </div>
-  <div class="slide-body">
-    <div class="speaker-block nathan">
-      <div class="speaker-label">Nathan</div>
-      <div class="speech">
-        C'est exactement pour ca qu'on a cree <em>OpSee</em> : le premier MES <em>open source et accessible</em>, concu pour les PME industrielles.
-        <br><br>
-        Trois piliers. <em>Open source</em> &mdash; pas de lock-in, le code est a vous. <em>Modulaire</em> &mdash; vous prenez que ce dont vous avez besoin. <em>Offline-first</em> &mdash; ca tourne dans l'usine, meme sans internet.
-        <span class="gesture">Pointer chaque pill a l'ecran</span>
-        <br><br>
-        Notre ambition : rendre le MES aussi accessible qu'un CRM l'est devenu grace a <em>Odoo</em>. <span class="pause">PAUSE</span> Juliette va vous montrer concretement a quoi ca ressemble.
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="transition"><span class="transition-arrow">&rarr;</span> Nathan &rarr; Juliette &mdash; de la promesse a la preuve. Juliette montre l'ecran.</div>
-
-<!-- ═══ SLIDE 4 — PRODUIT — JULIETTE (ex-Adam) ═══ -->
+<!-- ═══ SLIDE 3 — SOLUTION — ADAM ═══ -->
 <div class="slide-section">
   <div class="slide-header">
     <div class="slide-num">SLIDE 04</div>
-    <div class="slide-title">Le Produit</div>
-    <div class="slide-timer">~40s</div>
+    <div class="slide-title">Notre Solution</div>
+    <div class="slide-timer">~25s</div>
   </div>
   <div class="slide-body">
-    <div class="speaker-block juliette">
-      <div class="speaker-label">Juliette</div>
+    <div class="speaker-block adam">
+      <div class="speaker-label">Adam</div>
       <div class="speech">
-        <span class="gesture">TIP : montre l'ecran en parlant. C'est une slide visuelle, laisse les images parler.</span>
-        Ce n'est pas un prototype &mdash; <em>c'est un produit</em>.
+        Notre reponse : <em>OpSee</em>. Le <em>premier MES open source et accessible</em>.
         <br><br>
-        Ici, notre <em>cockpit personnalisable</em> : 39 widgets en drag-and-drop. L'operateur compose son propre tableau de bord.
-        <span class="gesture">Pointer cockpit en haut a gauche</span>
+        <em>MES de grand compte. Prix de PME.</em>
+        <span class="gesture">Pointer le sous-titre &mdash; punch fort, marque la phrase.</span>
         <br><br>
-        A cote, le <em>dashboard OEE temps reel</em> &mdash; c'est l'indicateur roi de l'industrie. En dessous, la <em>timeline des arrets machines</em> et la <em>gestion d'equipements</em> conforme ISA-95 et ISA-88.
-        <span class="gesture">Pointer rapidement chaque screenshot</span>
+        Trois piliers. <em>Open source</em> &mdash; pas de lock-in, le code est a vous. <em>Modulaire</em> &mdash; vous payez ce dont vous avez besoin. <em>Sans internet</em> &mdash; ca tourne meme deconnecte.
+        <span class="gesture">Pointer chaque pill rapidement</span>
         <br><br>
-        Pour vous donner une idee de la profondeur : <em>80 tables</em> en base, <em>167 fonctions SQL</em>, <em>12 services Docker</em>.
+        La preuve.
+        <span class="gesture">Deux mots. Foreshadow le "C'est un produit" de S4. Adam enchaine direct.</span>
       </div>
     </div>
   </div>
 </div>
 
-<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette &rarr; Nathan &mdash; du produit a l'IA. Nathan reprend.</div>
+<div class="transition"><span class="transition-arrow">&rarr;</span> Adam continue &mdash; pas de changement de speaker. De la promesse a la preuve.</div>
+
+<!-- ═══ SLIDE 4 — PRODUIT — ADAM ═══ -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 05</div>
+    <div class="slide-title">Le Produit &mdash; C'est un produit</div>
+    <div class="slide-timer">~30s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block adam">
+      <div class="speaker-label">Adam</div>
+      <div class="speech">
+        <span class="gesture">TIP : 4 screenshots a l'ecran. Adam les a designes &mdash; c'est SA carte. Pointe avec aisance, voix de fierte.</span>
+        Ce n'est pas un prototype. <em>C'est un produit.</em>
+        <br><br>
+        <em>Cockpit personnalisable</em> &mdash; 39 widgets en drag-and-drop.
+        <span class="gesture">Pointer cockpit</span>
+        <em>Productivite temps reel</em> &mdash; l'OEE, l'indicateur cle de l'industrie.
+        <span class="gesture">Pointer OEE</span>
+        <em>Historique des arrets machines</em>. <em>Gestion equipements aux normes ISA-95 et 88</em>.
+        <span class="gesture">Pointer rapidement timeline + equipements</span>
+        <br><br>
+        Pas une demo : <em>ce que nos clients utilisent dans 1 mois.</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Adam &rarr; Nathan &mdash; du produit a l'IA. Nathan reprend.</div>
 
 <!-- ═══ SLIDE 5 — IA — NATHAN ═══ -->
 <div class="slide-section">
   <div class="slide-header">
-    <div class="slide-num">SLIDE 05</div>
-    <div class="slide-title">IA Integree</div>
-    <div class="slide-timer">~30s</div>
+    <div class="slide-num">SLIDE 06</div>
+    <div class="slide-title">IA Integree &mdash; Parlez a votre usine</div>
+    <div class="slide-timer">~25s</div>
   </div>
   <div class="slide-body">
     <div class="speaker-block nathan">
       <div class="speaker-label">Nathan</div>
       <div class="speech">
-        Et on a integre un <em>chatbot IA</em> directement dans OpSee, base sur Claude d'Anthropic.
+        Au coeur du produit &mdash; <em>l'IA</em>.
         <br><br>
-        Un chef d'atelier peut demander en langage naturel : <em>"Quel equipement a eu le plus de downtime cette semaine ?"</em> &mdash; et il obtient une reponse instantanee, basee sur les donnees reelles de production.
+        <em>Parlez a votre usine.</em>
+        <span class="gesture">Punch fort. Pause 1 sec apres "votre usine". Laisser tomber.</span>
+        <br><br>
+        Un exemple. Un chef d'atelier demande : <em>"Quel equipement a eu le plus d'arrets cette semaine ?"</em>
         <span class="gesture">Pointer le screenshot du chatbot</span>
+        Reponse instantanee. Donnees reelles. Langage naturel.
         <br><br>
-        Avec un respect strict des <em>permissions utilisateur</em>. C'est le seul MES open source qui offre ca. Louis va vous parler du marche.
+        <em>Seul MES open source</em> qui offre ca aujourd'hui.
+        <br><br>
+        Louis.
+        <span class="gesture">Passage de relais ferme, pas de question.</span>
       </div>
     </div>
   </div>
 </div>
 
-<div class="transition"><span class="transition-arrow">&rarr;</span> Nathan &rarr; Louis &mdash; de la tech au business. Louis prend la main.</div>
+<div class="transition"><span class="transition-arrow">&rarr;</span> Nathan &rarr; Louis &mdash; de la tech au business</div>
 
-<!-- ═══ SLIDE 6 — MARCHE — LOUIS ═══ -->
-<div class="slide-section">
-  <div class="slide-header">
-    <div class="slide-num">SLIDE 06</div>
-    <div class="slide-title">Opportunite de Marche</div>
-    <div class="slide-timer">~30s</div>
-  </div>
-  <div class="slide-body">
-    <div class="speaker-block louis">
-      <div class="speaker-label">Louis</div>
-      <div class="speech">
-        Le marche mondial du MES, c'est <em>16 milliards de dollars</em>, avec une croissance de <em>12% par an</em>.
-        <br><br>
-        Et surtout : <em>plus de 160 000 PME industrielles</em> rien qu'en Belgique, France et DACH n'ont toujours pas acces a ces outils.
-        <span class="gesture">Pointer les trois chiffres</span>
-        <br><br>
-        Notre reference : <em>Odoo</em>. 13 millions d'utilisateurs, valorise 5,3 milliards. Ils ont fait pour l'ERP ce qu'on veut faire pour le MES.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ SLIDE 7 — BUSINESS MODEL — LOUIS ═══ -->
+<!-- ═══ SLIDE 7 — MARCHE — LOUIS ═══ -->
 <div class="slide-section">
   <div class="slide-header">
     <div class="slide-num">SLIDE 07</div>
-    <div class="slide-title">Business Model</div>
-    <div class="slide-timer">~35s</div>
+    <div class="slide-title">Marche &mdash; 16 milliards</div>
+    <div class="slide-timer">~25s</div>
   </div>
   <div class="slide-body">
     <div class="speaker-block louis">
       <div class="speaker-label">Louis</div>
       <div class="speech">
-        Notre modele, c'est de l'<em>open-core</em>. Le coeur d'OpSee est gratuit, pour toujours. C'est comme ca qu'on cree de l'adoption.
+        Parlons marche.
         <br><br>
-        La monetisation vient des modules avances. Deux offres :
-        <br>
-        &mdash; <em>Premium a 600 euros par an par ligne de production</em> : modules IA, connecteurs ERP, batch management.
-        <br>
-        &mdash; <em>Enterprise a 1 200 euros</em> : tout Premium plus support prioritaire, installation cle en main, formation.
-        <span class="gesture">Pointer chaque colonne</span>
+        Mondial : <em>16 milliards de dollars</em> en 2025. Croissance <em>12% par an</em>.
+        <span class="gesture">Pointer 1er et 2eme chiffres</span>
         <br><br>
-        Gratuit pour entrer, <em>payant pour scaler</em>. C'est le meme modele qui a fait le succes de GitLab et Odoo. Juliette, ou en est-on concretement ?
+        Europeen : <em>160 000 PME industrielles</em> rien qu'en Belgique, France et pays germanophones &mdash; sans acces aux outils de pilotage.
+        <span class="gesture">Pointer le 3eme chiffre</span>
+        <br><br>
+        Le MES est le <em>prochain domaine B2B</em> disrupte par l'open source. Comme <em>Odoo</em> dans l'ERP.
       </div>
     </div>
   </div>
 </div>
 
-<div class="transition"><span class="transition-arrow">&rarr;</span> Louis &rarr; Juliette &mdash; du modele a la traction</div>
+<div class="transition"><span class="transition-arrow">&rarr;</span> Louis continue &mdash; pas de changement. Du marche au business model.</div>
 
-<!-- ═══ SLIDE 8 — TRACTION — JULIETTE ═══ -->
+<!-- ═══ SLIDE 8 — BUSINESS MODEL — LOUIS ═══ -->
 <div class="slide-section">
   <div class="slide-header">
     <div class="slide-num">SLIDE 08</div>
-    <div class="slide-title">Traction & Roadmap</div>
+    <div class="slide-title">Business Model &mdash; Gratuit pour entrer</div>
+    <div class="slide-timer">~30s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block louis">
+      <div class="speaker-label">Louis</div>
+      <div class="speech">
+        Notre modele : le meme qu'<em>Odoo</em>. Applique au MES.
+        <br><br>
+        <em>Gratuit pour entrer. Payant pour scaler.</em>
+        <span class="gesture">Punch fort. La phrase est sur l'ecran &mdash; on la dit.</span>
+        <br><br>
+        <em>Trois offres.</em>
+        <span class="gesture">Structure mentale du jury. Il sait qu'il va y avoir 3 colonnes.</span>
+        <br><br>
+        <em>Open Source</em> &mdash; gratuit, toujours. Auto-hebergeable, code complet.
+        <span class="gesture">Pointer 1ere colonne</span>
+        <em>Premium</em>, 59 euros par mois par equipement &mdash; IA, integration ERP, production par lots.
+        <span class="gesture">Pointer 2eme colonne (featured)</span>
+        <em>Enterprise</em>, 95 euros &mdash; Premium, plus support et installation cle en main.
+        <span class="gesture">Pointer 3eme colonne</span>
+        <br><br>
+        Juliette.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Louis &rarr; Juliette &mdash; <strong>le coup de grace de la traction.</strong></div>
+
+<!-- ═══ SLIDE 9 — TRACTION — JULIETTE ═══ -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 09</div>
+    <div class="slide-title">Traction &mdash; 5 early adopters signes</div>
     <div class="slide-timer">~30s</div>
   </div>
   <div class="slide-body">
     <div class="speaker-block juliette">
       <div class="speaker-label">Juliette</div>
       <div class="speech">
-        En 8 mois, on est passes de zero a un produit fonctionnel.
+        De zero a un produit en <em>1 an</em>. <em>8 mois</em> de developpement intense.
+        <span class="gesture">Pointer la timeline. "1 an" matche le titre slide ; "8 mois" matche le sous-titre.</span>
         <br><br>
-        <em>Septembre 2025</em> : premier MVP. Fin 2025 : OEE complet, cockpit, ingestion de donnees industrielles. Debut 2026 : 39 widgets, chatbot IA, interface en <em>10 langues</em>.
-        <span class="gesture">Suivre la timeline du doigt, de haut en bas</span>
+        Septembre 2025 : premier MVP. Fin 2025 : OEE complet. Debut 2026 : 39 widgets, chatbot IA, interface en 10 langues.
+        <span class="gesture">Suivre la timeline du doigt rapidement</span>
         <br><br>
-        A droite, nos stats : <em>633 commits, 100 branches, 400+ issues</em>. Ce n'est pas un side-project.
+        Et surtout :
+        <span class="pause">PAUSE 1 SEC PLEINE</span>
+        <em>5 early adopters ont signe</em>.
+        <span class="gesture">POINTER le gros "5" a droite. C'EST LE MOMENT. Voix qui appuie.</span>
         <br><br>
-        Prochaine etape : <em>version commercialisable en juin 2026</em>, avec nos premiers clients pilotes.
+        Premier deploiement : <em>juin</em>. Dans 1 mois.
+        <br><br>
+        Q3-Q4 2026 : production par lots, partenaires integrateurs, lancement Belgique.
       </div>
     </div>
   </div>
 </div>
 
-<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette enchaine directement sur l'equipe &mdash; pas de changement de speaker</div>
+<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette &rarr; Adam &mdash; de la traction a l'equipe. Adam introduit l'equipe (il en fait partie).</div>
 
-<!-- ═══ SLIDE 9 — EQUIPE — JULIETTE ═══ -->
+<!-- ═══ SLIDE 10 — EQUIPE — ADAM ═══ -->
 <div class="slide-section">
   <div class="slide-header">
-    <div class="slide-num">SLIDE 09</div>
-    <div class="slide-title">L'Equipe</div>
-    <div class="slide-timer">~20s</div>
+    <div class="slide-num">SLIDE 10</div>
+    <div class="slide-title">L'Equipe &mdash; Incubes par AgiNtech</div>
+    <div class="slide-timer">~18s</div>
+  </div>
+  <div class="slide-body">
+    <div class="speaker-block adam">
+      <div class="speaker-label">Adam</div>
+      <div class="speech">
+        Quatre cofondateurs complementaires.
+        <em>Moi, Adam</em> &mdash; mecatronique et UX.
+        <em>Nathan</em> &mdash; architecture.
+        <em>Juliette</em> &mdash; commercial.
+        <em>Louis</em> &mdash; finance.
+        <span class="gesture">Geste rapide vers chaque cofondateur. Format stat, pas narratif.</span>
+        <br><br>
+        <em>Incubes par AgiNtech</em>. Christophe Camerlynck, 20 ans d'industrie. Peter Mees, expert MES.
+        <span class="gesture">Pointer les 2 mentor cards</span>
+        <br><br>
+        Acces direct au terrain. Et a nos premiers clients.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transition"><span class="transition-arrow">&rarr;</span> Adam &rarr; Juliette &mdash; de l'equipe a l'ask. Juliette porte la demande.</div>
+
+<!-- ═══ SLIDE 12 — ASK — JULIETTE ═══ -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-num">SLIDE 11</div>
+    <div class="slide-title">Ask &mdash; Pas des applaudissements</div>
+    <div class="slide-timer">~25s</div>
   </div>
   <div class="slide-body">
     <div class="speaker-block juliette">
       <div class="speaker-label">Juliette</div>
       <div class="speech">
-        On est quatre cofondateurs complementaires &mdash; <em>Adam</em>, qui n'a malheureusement pas pu etre la aujourd'hui, est notre ingenieur mecatronique en charge du frontend. <em>Nathan</em>, ingenieur informatique, porte le backend et l'architecture. Et <em>Louis et moi</em> en gestion, finances et strategie commerciale.
-        <span class="gesture">Geste vers chaque personne presente</span>
+        On ne cherche pas <em>des applaudissements</em>.
+        <span class="pause">PAUSE</span>
+        On cherche des <em>connexions concretes</em>.
         <br><br>
-        Et on est accompagnes par <em>AgiNtech</em> : Christophe Camerlynck, 20 ans d'industrie, et Peter Mees, expert MES. Grace a eux, on a un acces direct au terrain et a nos futurs clients.
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette &rarr; Nathan &mdash; de l'equipe aux avantages. Nathan reprend.</div>
-
-<!-- ═══ SLIDE 10 — AVANTAGE — NATHAN ═══ -->
-<div class="slide-section">
-  <div class="slide-header">
-    <div class="slide-num">SLIDE 10</div>
-    <div class="slide-title">Avantage Concurrentiel</div>
-    <div class="slide-timer">~25s</div>
-  </div>
-  <div class="slide-body">
-    <div class="speaker-block nathan">
-      <div class="speaker-label">Nathan</div>
-      <div class="speech">
-        Pourquoi <em>OpSee</em> et pas un autre ?
-        <br><br>
-        <em>Open source</em>, pas de lock-in. <em>Modulaire</em>, payez que ce dont vous avez besoin. <em>Offline-first</em>. <em>Conforme ISA-95/88</em>. <em>IA integree</em> &mdash; le seul MES open source avec chatbot. Et <em>Made in Belgium</em>, RGPD natif.
-        <span class="gesture">Enumerer en rythme, pointer chaque case rapidement</span>
-        <br><br>
-        <em>Aucun MES</em> ne combine ces six avantages aujourd'hui. Louis.
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="transition"><span class="transition-arrow">&rarr;</span> Nathan &rarr; Louis &mdash; des avantages a l'ask. Dernier bloc.</div>
-
-<!-- ═══ SLIDE 11 — ASK — LOUIS ═══ -->
-<div class="slide-section">
-  <div class="slide-header">
-    <div class="slide-num">SLIDE 11</div>
-    <div class="slide-title">Ce qu'on cherche</div>
-    <div class="slide-timer">~25s</div>
-  </div>
-  <div class="slide-body">
-    <div class="speaker-block louis">
-      <div class="speaker-label">Louis</div>
-      <div class="speech">
-        On ne cherche pas des applaudissements. <span class="pause">PAUSE</span> On cherche des <em>connexions concretes</em>.
-        <br><br>
-        <em>Un</em> : des <em>clients pilotes</em> &mdash; des PME industrielles belges pretes a tester. On deploie gratuitement.
-        <br>
-        <em>Deux</em> : des <em>partenaires integrateurs</em> &mdash; des societes d'automatisation qui veulent distribuer OpSee.
-        <br>
-        <em>Trois</em> : de la <em>visibilite</em> dans l'ecosysteme industriel belge et europeen.
-        <span class="gesture">Pointer chaque carte</span>
+        <em>Un</em> : des <em>clients pilotes</em>. PMEs industrielles belges pretes a tester. Deploiement gratuit.
+        <span class="gesture">Pointer 1ere card</span>
+        <em>Deux</em> : des <em>partenaires integrateurs</em>. Societes d'automatisation qui veulent distribuer OpSee.
+        <span class="gesture">Pointer 2eme card</span>
+        <em>Trois</em> : de la <em>visibilite</em> dans l'ecosysteme industriel europeen.
+        <span class="gesture">Pointer 3eme card</span>
         <br><br>
         Vous connaissez une PME industrielle ? <em>Presentez-nous. On fait le reste.</em>
+        <span class="gesture">REGARD DIRECT au jury sur la derniere phrase. Pas un sourire fragile &mdash; un regard ferme.</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══ SLIDE 12 — CLOSING — LOUIS ═══ -->
+<div class="transition"><span class="transition-arrow">&rarr;</span> Juliette &rarr; Louis &mdash; Louis ferme le pitch.</div>
+
+<!-- ═══ SLIDE 13 — CLOSING — LOUIS ═══ -->
 <div class="slide-section">
   <div class="slide-header">
     <div class="slide-num">SLIDE 12</div>
-    <div class="slide-title">Closing</div>
-    <div class="slide-timer">~15s</div>
+    <div class="slide-title">Closing &mdash; Plus jamais a l'aveugle</div>
+    <div class="slide-timer">~12s</div>
   </div>
   <div class="slide-body">
     <div class="speaker-block louis">
       <div class="speaker-label">Louis</div>
       <div class="speech">
-        <em>OpSee</em>. Open, Smart, Scalable. <span class="pause">PAUSE</span>
+        <em>OpSee</em>. Open. Smart. Scalable.
+        <span class="pause">PAUSE</span>
         <br><br>
-        Le MES open source qui rend l'industrie 4.0 accessible a <em>toutes les PME</em>.
+        Le seul MES <em>open source, modulaire, avec IA integree</em>.
+        <br><br>
+        <em>Plus jamais une PME laissee a l'aveugle.</em>
+        <span class="gesture">RALENTIR sur la derniere phrase. C'est l'echo a S1B "vole a l'aveugle". Boucle narrative fermee.</span>
         <br><br>
         Merci.
         <span class="gesture">Sourire. Silence 2 secondes. Laisser venir les questions.</span>
@@ -460,20 +731,84 @@
 
 <!-- ====================== TIPS ====================== -->
 <div class="tips">
-  <h2>Conseils pour le jour J (version 3 speakers)</h2>
+  <h2>Posture pitch professionnel</h2>
   <ul>
-    <li><strong>Repetez avec un chrono.</strong> 5 minutes c'est court. Si vous depassez, coupez dans la slide 10 (Avantage) : 3 points au lieu de 6.</li>
-    <li><strong>Louis a le plus de slides (5) car il est plus a l'aise a l'oral.</strong> Il porte le probleme (S2), le marche (S6), le business model (S7), l'ask (S11) et le closing (S12). C'est logique : il ouvre le probleme business et ferme le pitch.</li>
-    <li><strong>Juliette a 3 slides visuelles.</strong> S4 Produit (screenshots a pointer) + S8 Traction + S9 Equipe. Ce sont des slides avec un fort appui ecran &mdash; pas besoin de tout reciter, les images parlent.</li>
-    <li><strong>Nathan fait 4 slides tech.</strong> S1 Accroche + S3 Solution + S5 IA + S10 Avantage. Il est le seul technicien, il porte la vision produit et la credibilite technique.</li>
-    <li><strong>Pour l'equipe (S9) :</strong> Juliette mentionne qu'Adam est absent mais fait partie integrante du projet. Une phrase suffit, ne pas s'attarder.</li>
-    <li><strong>Pas de "je passe la parole a...".</strong> Les transitions sont ecrites pour etre naturelles. Terminez votre phrase, le suivant enchaine.</li>
-    <li><strong>Nathan ouvre et donne le rythme.</strong> Les 30 premieres secondes definissent l'energie du pitch. Posture droite, voix posee, contact visuel avec le jury.</li>
-    <li><strong>Louis ferme avec conviction.</strong> Le closing et l'ask sont les derniers mots que le jury entend. Finir fort.</li>
-    <li><strong>Chaque chiffre doit etre dit a voix haute</strong> : 67%, 99,8%, 500k, 18 mois, 16 Mds, 5,3 Mds, 633 commits... Les chiffres marquent les esprits.</li>
-    <li><strong>Les PAUSE dans le script</strong> sont la pour respirer. Ne les supprimez pas &mdash; le silence rend le propos plus impactant.</li>
-    <li><strong>Positionnement physique</strong> (suggestion) : Nathan a gauche (il commence), Juliette au centre, Louis a droite (il finit).</li>
-    <li><strong>Questions du jury</strong> &mdash; Tech/Produit/IA : Nathan. Equipe/Traction : Juliette. Finance/Marche/Pricing : Louis.</li>
+    <li><strong>JAMAIS de "Bonjour".</strong> Nathan attaque <em>direct</em> sur "67%". Ouverture froide = posture d'expert. Le silence d'une demi-seconde avant de parler installe l'autorite plus que n'importe quel "bonjour a tous".</li>
+    <li><strong>JAMAIS de conditionnel.</strong> Pas de "notre solution permettrait", pas de "on pourrait envisager". Vous presentez une <em>realite</em>, pas une hypothese. Toutes les phrases sont au present ou au passe : "OpSee est le premier MES open source." "5 early adopters ont signe." "Premier deploiement en juin."</li>
+    <li><strong>Posture d'expert, pas d'etudiant.</strong> Vous etes les experts MES PMEs dans la salle. Personne d'autre ne connait mieux ce probleme et cette solution que vous. Adoptez cette posture. Pas de "on est juste des etudiants qui pensons que..." &mdash; ca vous tue.</li>
+    <li><strong>Pas de mention "etudiants" ou "presents aujourd'hui".</strong> Le pitch <em>est</em> ce que vous etes. La presentation de l'equipe se fait en S10 (par Adam), pas en intro.</li>
+    <li><strong>Transitions sechees.</strong> Pas de "Adam, comment on resout ca ?" &rarr; juste "Adam." Pas de "Louis, le marche ?" &rarr; juste "Louis." Pas de "Juliette, ou en est-on ?" &rarr; juste "Juliette." Le passage de relais d'expert a expert est confiant, court.</li>
+    <li><strong>Le moment theatral S1B est CRITIQUE.</strong> Juliette interrompt Nathan, ton pose, regard complice au jury. <strong>Nathan plante le mot "MES" volontairement</strong> dans son S1 ("Aucun MES.") &mdash; c'est ce mot qui declenche l'interruption naturelle de Juliette : <em>"Nathan, juste un instant. Un MES &mdash; c'est quoi ? Allez, 30 secondes."</em> Juliette pose la question que le jury se pose interieurement &mdash; elle est leur porte-parole. Repetez ce moment au moins 5 fois en mode jeu de role.</li>
+    <li><strong>Boucle narrative S1B &harr; S13.</strong> Juliette dit "vole a l'aveugle" en S1B. Louis dit "plus jamais a l'aveugle" en S13. Signature winning &mdash; ne la cassez pas.</li>
+    <li><strong>Le coup de grace : "5 early adopters ont signe" en S9.</strong> Pause pleine d'1 seconde avant la phrase. Pointer le gros "5". Voix qui appuie. C'est le moment qui transforme le pitch en preuve.</li>
+    <li><strong>Repetez avec un chrono.</strong> Cible : 5 minutes pile. Si vous depassez, raccourcir S4 ou S8. <strong>Pas de premiere repetition sans chrono.</strong></li>
+    <li><strong>Chaque chiffre dit a voix haute</strong> : 67%, 99,8%, 500 000 euros, 18 mois, 16 Mds, 12%, 160 000, <em>5 early adopters</em>, 59/95 euros. Les chiffres marquent les esprits.</li>
+    <li><strong>Les PAUSE sont la pour respirer.</strong> Surtout : pause apres "67%", pause apres "5 early adopters", pause apres "Plus jamais a l'aveugle".</li>
+    <li><strong>Positionnement physique</strong> (suggestion) : Nathan a gauche, Juliette au centre-gauche, Adam au centre-droite, Louis a droite.</li>
+    <li><strong>Adam enchaine S3 &rarr; S4 sans transition speaker.</strong> "Concretement." (un seul mot) puis demo. Louis enchaine S7 &rarr; S8 idem. Logique business directe.</li>
+    <li><strong>Louis ferme avec conviction.</strong> Ralentir sur "Plus jamais une PME laissee a l'aveugle". Silence 2 sec apres "Merci". Pas de precipitation vers les questions.</li>
+  </ul>
+</div>
+
+<div class="tips">
+  <h2>Killer lines &mdash; les phrases a RALENTIR</h2>
+  <p style="font-size:14px;color:var(--text-muted);margin-bottom:14px;font-style:italic;">Ces phrases sont les <strong style="color:var(--text)">moments-quote</strong> du pitch &mdash; ce que le jury retiendra apres la presentation. <strong style="color:var(--text)">Dites-les plus lentement</strong> que le reste, avec une pause apres. C'est la difference entre "bon pitch" et "pitch champion".</p>
+  <ul>
+    <li><strong>"67%."</strong> &middot; S1, Nathan &mdash; ouverture froide. 1 sec de pause apres.</li>
+    <li><strong>"Excel. Du papier. Ou rien."</strong> &middot; S1, Nathan &mdash; punch problem.</li>
+    <li><strong>"Aucun MES."</strong> &middot; S1, Nathan &mdash; <em>seed</em> qui declenche l'interruption de Juliette.</li>
+    <li><strong>"Encore aujourd'hui."</strong> &middot; S1, Nathan &mdash; verdict final qui suspend.</li>
+    <li><strong>"Sans MES, l'usine vole a l'aveugle."</strong> &middot; S1B, Juliette &mdash; image mentale, foreshadow S13.</li>
+    <li><strong>"Reservee aux grands."</strong> &middot; S2, Louis &mdash; verdict de barriere.</li>
+    <li><strong>"MES de grand compte. Prix de PME."</strong> &middot; S3, Adam &mdash; positioning. <em>Le punch.</em></li>
+    <li><strong>"Ce n'est pas un prototype. C'est un produit."</strong> &middot; S4, Adam &mdash; preuve.</li>
+    <li><strong>"Parlez a votre usine."</strong> &middot; S5, Nathan &mdash; magic moment. 1 sec de pause apres.</li>
+    <li><strong>"Gratuit pour entrer. Payant pour scaler."</strong> &middot; S8, Louis &mdash; BM en 6 mots.</li>
+    <li><strong>"5 early adopters ont signe."</strong> &middot; S9, Juliette &mdash; <em>coup de grace</em>. Pause 1 sec PLEINE avant.</li>
+    <li><strong>"Presentez-nous. On fait le reste."</strong> &middot; S12, Juliette &mdash; CTA.</li>
+    <li><strong>"Plus jamais une PME laissee a l'aveugle."</strong> &middot; S13, Louis &mdash; <em>final echo</em>. Lent, lourd, 4 secondes pour la phrase.</li>
+  </ul>
+</div>
+
+<div class="tips">
+  <h2>Arc emotionnel &mdash; voix et energie par slide</h2>
+  <p style="font-size:14px;color:var(--text-muted);margin-bottom:14px;font-style:italic;">Un pitch champion a un <strong style="color:var(--text)">arc emotionnel</strong> : il monte, redescend, monte plus haut, descend pour la chute. Pas une voix monocorde du debut a la fin.</p>
+  <ul>
+    <li><strong>S1 Hook (Nathan)</strong> &mdash; Voix <em>posee</em>, presque grave. <strong>Pas excitee.</strong> Le 67% doit tomber comme un constat. Volume medium-bas.</li>
+    <li><strong>S1B Pedago (Juliette)</strong> &mdash; Volume monte. Sourire pose. Energie <em>complice</em>, plus chaude. C'est le moment qui reveille la salle.</li>
+    <li><strong>S2 Probleme (Louis)</strong> &mdash; Voix <em>factuelle</em>, methodique. Pas dramatique &mdash; les 3 chiffres font le boulot tout seuls.</li>
+    <li><strong>S3 Solution (Adam)</strong> &mdash; <em>Premier uplift</em>. Energie monte d'un cran. Posture ouverte, regard jury.</li>
+    <li><strong>S4 Produit (Adam)</strong> &mdash; <em>Fierte</em>. C'est ton produit, c'est ton UX. Voix qui montre, pas qui demande.</li>
+    <li><strong>S5 IA (Nathan)</strong> &mdash; Touche de <em>magie</em>. "Parlez a votre usine" doit sonner comme une invitation, pas une description.</li>
+    <li><strong>S7 Marche (Louis)</strong> &mdash; Voix qui <em>pese</em>. Les chiffres sont gros, on les laisse atterrir.</li>
+    <li><strong>S8 BM (Louis)</strong> &mdash; <em>Clarte business</em>. Methodique, confiant. Pas de drame.</li>
+    <li><strong>S9 Traction (Juliette)</strong> &mdash; <em>CLIMAX du pitch</em>. Construction vers le "5". Pause 1 sec PLEINE avant. Voix qui appuie. Pointer le 5.</li>
+    <li><strong>S10 Equipe (Adam)</strong> &mdash; <em>Chaleur</em>. Personnel. Court mais habite. Sourire leger possible.</li>
+    <li><strong>S12 Ask (Juliette)</strong> &mdash; <em>Direct</em>. Presque intime. "Vous connaissez une PME ?" = regard direct au jury, pas survol.</li>
+    <li><strong>S13 Closing (Louis)</strong> &mdash; <em>LENT</em>. Lourd. Memorable. La derniere phrase ("Plus jamais une PME laissee a l'aveugle") doit prendre 4 secondes. Silence 2 sec apres "Merci".</li>
+  </ul>
+</div>
+
+<div class="tips">
+  <h2>Q&amp;A &mdash; 10 minutes a preparer</h2>
+  <ul>
+    <li><strong>Questions du jury par theme.</strong> Tech / IA / architecture : <strong>Nathan</strong>. Produit / UX / hardware : <strong>Adam</strong>. Equipe / Traction / 5 early adopters / Vente : <strong>Juliette</strong>. Finance / Marche / Pricing / Legal : <strong>Louis</strong>.</li>
+    <li><strong>Modele economique &mdash; questions probables :</strong> "Pourquoi 59 euros / equipement et pas par utilisateur ?" / "Quel est votre ARR cible an 1 ?" / "Combien de clients pour break-even ?" Louis prepare ces 3 reponses.</li>
+    <li><strong>Concurrence &mdash; questions probables :</strong> "Qu'en est-il de Wonderware / AVEVA / FactoryTalk ?" / "Pourquoi pas un MES SaaS comme Tulip ?" / "Comment vous defendez face a Siemens qui sortirait une version low-cost ?" Nathan + Louis preparent.</li>
+    <li><strong>Prochaines etapes &mdash; questions probables :</strong> "Quel financement vous cherchez ?" / "Quand levee Seed ?" / "Combien d'integrations machines couvertes ?" Juliette + Louis preparent. Note : on a volontairement <em>pas</em> mis "levee Seed 2027" sur le deck (conseil coach point 7) &mdash; mais on peut en parler en Q&amp;A.</li>
+    <li><strong>Equipe / etudiant &mdash; questions probables :</strong> "Comment vous gerez avec vos etudes ?" / "Plein-temps ?" / "Quel est votre engagement post-diplome ?" Tous preparent une reponse personnelle, courte, ferme.</li>
+    <li><strong>Tech profond &mdash; questions probables :</strong> "Comment vous gerez la securite OT/IT ?" / "Quels protocoles industriels ?" / "Comment vous scalez ?" Nathan + Adam preparent.</li>
+    <li><strong>Backup Q&amp;A : 5 slides apres S13.</strong> Intro Q&amp;A &middot; Avantages concurrentiels &middot; Sources probleme &middot; Sources marche &middot; Sources complete (10 references). <strong>Chiffres cliquables vers leurs sources.</strong> Si jure conteste un chiffre, vous y allez direct.</li>
+  </ul>
+</div>
+
+<div class="tips">
+  <h2>Connaitre les partenaires (CBC + W.E.)</h2>
+  <ul>
+    <li><strong>CBC Banque</strong> &mdash; banque belge du groupe KBC, presente principalement en Wallonie et Bruxelles. Forte sur le segment <em>PME et entreprises</em> (votre cible !). Programme entrepreneurial via "CBC Brussels". Si juge CBC, pivoter sur "votre clientele PME industrielle est notre cible exacte".</li>
+    <li><strong>W.E. (Wallonie Entreprendre)</strong> &mdash; agence wallonne d'accompagnement et financement entrepreneurial, fusion 2023 de SOWALFIN, SRIW, SOGEPA. Soutient PME, scale-ups, start-ups wallonnes. Si juge W.E., pivoter sur "scaling wallon de l'industrie 4.0".</li>
+    <li><strong>Si on vous demande "que pensez-vous de CBC pour vous accompagner ?"</strong> Reponse type : "On est exactement leur cible cliente <em>et</em> leur cible bancaire. PMEs industrielles belges qui se digitalisent &mdash; c'est leur axe strategique. Une convergence interessante."</li>
+    <li><strong>Tone formel.</strong> Evenement chez CBC LLN, partenaires presents. Tenue, ponctualite, vocabulaire soigne.</li>
   </ul>
 </div>
 

@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>OpSee — Mind & Market 2026</title>
+<title>OpSee — CBC Pitch Challenge 2026</title>
 <link rel="icon" href="img/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- sound.js removed (no audio in presentation) -->
 <style>
 :root{
   --purple:#8E33FF;--purple-light:#A855F7;--purple-dark:#7928CA;
@@ -23,6 +24,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
    🎛  TUNING PANEL — All per-slide positioning here
    To adjust any element: change its value, save, reload.
    ═══════════════════════════════════════════════════════ */
+
+/* S1B — MES Explainer (pause pédago) */
+#s1b .sec-title             { margin-top: 8px; }
+#s1b > .subtitle            { margin-top: 6px; margin-bottom: 22px; }
+#s1b .mes-stack             { margin-top: 4px; }
+#s1b .mes-punch             { margin-top: 22px; }
 
 /* S2 — Problème */
 #s2 .sec-title              { margin-top: 24px; }
@@ -50,8 +57,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s8 > .subtitle             { margin-top: 12px; }
 
 /* S9 — Traction */
-#s9 .sec-title              { margin-top: 24px; }
-#s9 .traction-wrap          { margin-top: 24px; }
+#s9                         { justify-content: flex-start; padding-top: 12vh; }
+#s9 .sec-title              { margin-top: 0; font-size: clamp(34px,4.5vw,54px); }
+#s9 > .subtitle             { margin-top: 8px; }
+#s9 .traction-wrap          { margin-top: 14px; }
 #s9 .s2-consequence         { margin-top: 16px; }
 #s9 .traction-right .screenshot { max-width: 260px; border-radius: 12px; }
 #s9 .commit-stats           { margin-top: 10px; }
@@ -73,7 +82,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s13 .logo-big img          { height: 400px; }
 #s13 .logo-big              { margin-bottom: -10vh; }
 #s13 .tagline-final         { margin-top: 0px; }
-#s13 .closing-text          { margin-top: 8px; max-width: 560px; }
+#s13 .closing-text          { margin-top: 8px; max-width: 780px; }
 #s13 .contact-row           { margin-top: 12px; }
 #s13 .final-tag             { margin-top: 14px; }
 
@@ -122,7 +131,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 /* ═══ TYPOGRAPHY ═══ */
 .sec-title{font-size:clamp(42px,6vw,72px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;color:var(--text);text-align:center}
 .sec-title em{background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
-.subtitle{font-size:18px;font-weight:300;color:var(--text-muted);max-width:620px;line-height:1.7;text-align:center}
+.subtitle{font-size:20px;font-weight:300;color:var(--text-muted);max-width:680px;line-height:1.7;text-align:center}
 .reveal-text{overflow:hidden}.reveal-text .line{display:block;transform:translateY(110%)}
 
 /* ═══ CARDS ═══ */
@@ -132,18 +141,66 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .glow-card::before{content:'';position:absolute;inset:-1px;border-radius:17px;padding:1px;background:linear-gradient(135deg,rgba(112,83,254,.3),transparent 50%,rgba(112,83,254,.1));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 .screenshot{border-radius:12px;border:1px solid var(--border-light);box-shadow:0 8px 48px rgba(0,0,0,.12);max-width:100%;height:auto;transition:transform .5s cubic-bezier(.22,1,.36,1)}
 
-/* ═══ S1 ACCROCHE ═══ */
-#s1::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(112,83,254,.1),transparent);pointer-events:none}
-#s1 .s1-tag{position:absolute;top:7%;left:50%;transform:translateX(-50%);font-size:13px;letter-spacing:4px;padding:8px 22px}
-#s1 .s1-center{position:absolute;top:58%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center}
-#s1 .s1-num{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%)}
-.hero-ring{position:absolute;width:clamp(220px,30vw,400px);height:clamp(220px,30vw,400px);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
-.hero-ring circle{fill:none;stroke:var(--purple);stroke-width:.5;opacity:.25}
-.hero-ring .arc2{stroke:var(--purple-light);stroke-width:.3;opacity:.18}
-#s1 .big-num{font-size:clamp(100px,16vw,200px);font-weight:900;background:linear-gradient(135deg,var(--purple-light) 0%,var(--purple) 50%,var(--purple-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:.85;letter-spacing:-8px;filter:drop-shadow(0 0 80px rgba(112,83,254,.25));position:relative;z-index:1}
-#s1 .big-suffix{font-size:clamp(32px,4vw,52px);font-weight:200;color:var(--text);letter-spacing:-1px;margin-top:1vh}
-#s1 .hook-text{font-size:clamp(19px,2.5vw,26px);font-weight:300;color:var(--text-muted);max-width:700px;line-height:1.7;margin-top:2vh;text-align:center;padding:20px 32px;border-radius:16px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08)}
+/* ═══ S1 ACCROCHE — KEYNOTE GAUGE ═══ */
+#s1{padding:0;overflow:hidden}
+#s1::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 42%,rgba(142,51,255,.14),transparent 70%);pointer-events:none;z-index:0}
+#s1::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 28% 22% at 50% 42%,rgba(142,51,255,.10),transparent);pointer-events:none;z-index:0;opacity:0;animation:s1Pulse 4s ease-in-out infinite 2s}
+@keyframes s1Pulse{0%,100%{opacity:0;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
+
+#s1 .s1-tag{position:absolute;top:7%;left:50%;transform:translateX(-50%);font-size:13px;letter-spacing:4px;padding:8px 22px;z-index:5}
+
+/* GAUGE — large multi-ring SVG */
+#s1 .s1-gauge-wrap{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);width:min(48vh,460px);height:min(48vh,460px);z-index:1;pointer-events:none}
+#s1 .s1-gauge{width:100%;height:100%;overflow:visible}
+
+/* Track ring (background, faint) */
+#s1 .gauge-track{fill:none;stroke:rgba(142,51,255,.10);stroke-width:1.5;opacity:0}
+/* Progress ring (the 67%) */
+#s1 .gauge-progress{fill:none;stroke:url(#s1GaugeGrad);stroke-width:6;stroke-linecap:round;filter:drop-shadow(0 0 12px rgba(142,51,255,.55));stroke-dasharray:100;stroke-dashoffset:100;opacity:0}
+/* Decorative outer ring */
+#s1 .gauge-deco-outer{fill:none;stroke:rgba(142,51,255,.18);stroke-width:.6;stroke-dasharray:2 6;opacity:0}
+/* Decorative inner ring */
+#s1 .gauge-deco-inner{fill:none;stroke:rgba(142,51,255,.12);stroke-width:.4;opacity:0}
+/* Tick marks every 10% */
+#s1 .gauge-tick{stroke:rgba(142,51,255,.3);stroke-width:1.2;stroke-linecap:round;opacity:0}
+#s1 .gauge-tick.major{stroke:rgba(142,51,255,.5);stroke-width:1.6}
+
+/* BIG NUMBER — center of gauge */
+#s1 .s1-num{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);z-index:3;display:flex;align-items:baseline;gap:0;pointer-events:none}
+#s1 .big-num{font-size:clamp(120px,16vw,220px);font-weight:900;background:linear-gradient(135deg,#A855F7 0%,#8E33FF 40%,#7928CA 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:.82;letter-spacing:-8px;filter:drop-shadow(0 4px 40px rgba(255,255,255,.85)) drop-shadow(0 0 60px rgba(142,51,255,.35));font-feature-settings:'tnum';position:relative;opacity:0}
+#s1 .big-num-pct{font-size:clamp(50px,7vw,95px);font-weight:300;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-3px;margin-left:6px;opacity:0;filter:drop-shadow(0 2px 18px rgba(255,255,255,.7))}
+
+/* SUBTITLE + HOOK — V1 style restored: stacked container under the gauge */
+#s1 .s1-subtitle{position:absolute;top:63%;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;width:100%;padding:0 40px}
+#s1 .big-suffix{display:block;font-size:clamp(34px,4.2vw,56px);font-weight:300;color:var(--text);letter-spacing:-1.5px;margin-top:0;opacity:0;line-height:1.1}
+#s1 .big-suffix strong{font-weight:500;color:var(--text)}
+
+/* HOOK — exact V1 styling */
+#s1 .hook-text{font-size:clamp(19px,2.5vw,26px);font-weight:300;color:#333333;max-width:700px;line-height:1.7;margin-top:3.5vh;text-align:center;padding:20px 32px;border-radius:16px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08);opacity:0}
 #s1 .hook-text strong{color:var(--text);font-weight:600}
+
+/* ═══ S1B MES EXPLAINER (pause pedago) ═══ */
+#s1b::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 55%,rgba(142,51,255,.07),transparent);pointer-events:none}
+.mes-stack{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:560px;position:relative}
+.mes-tier{width:100%;background:var(--surface);border:1px solid var(--border-light);border-radius:16px;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;transition:all .4s cubic-bezier(.22,1,.36,1);position:relative}
+.mes-tier .mes-tier-name{font-weight:800;font-size:18px;letter-spacing:.5px;color:var(--text);font-family:'Outfit',sans-serif}
+.mes-tier .mes-tier-verbs{font-family:'Space Mono',monospace;font-size:15px;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase}
+.mes-tier.tier-edge{opacity:.85}
+.mes-tier.tier-mes{background:linear-gradient(135deg,rgba(142,51,255,.06),rgba(142,51,255,.12));border:1.5px solid rgba(142,51,255,.35);box-shadow:0 0 40px rgba(142,51,255,.18),inset 0 0 0 1px rgba(255,255,255,.4);padding:20px 26px}
+.mes-tier.tier-mes .mes-tier-name{font-size:22px;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mes-tier.tier-mes .mes-tier-verbs{color:var(--purple);font-weight:700}
+.mes-tier.tier-mes::after{content:'TEMPS RÉEL';position:absolute;top:-9px;right:18px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2.5px;font-weight:700;background:var(--purple);color:#fff;padding:3px 10px;border-radius:100px;box-shadow:0 0 14px var(--purple-glow)}
+.mes-tier-star{display:inline-block;color:var(--purple);font-size:14px;margin-right:6px;animation:starPulse 2.4s ease-in-out infinite}
+@keyframes starPulse{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
+.mes-flow{position:absolute;left:50%;width:2px;height:18px;background:linear-gradient(180deg,rgba(142,51,255,.05),rgba(142,51,255,.4),rgba(142,51,255,.05));transform:translateX(-50%);pointer-events:none;overflow:visible}
+.mes-flow.flow-top{top:calc(((16px + 18px + 12px) * 1) + 2px);}
+.mes-flow.flow-bot{top:calc(100% - 36px - 18px);}
+/* simpler positioning: place flows between tiers absolutely via flex order — handled by spacers */
+.mes-stack .mes-gap{width:2px;height:18px;background:linear-gradient(180deg,rgba(142,51,255,.08),rgba(142,51,255,.35),rgba(142,51,255,.08));position:relative;flex-shrink:0;border-radius:2px}
+.mes-flow-dot{position:absolute;left:50%;top:-4px;width:8px;height:8px;border-radius:50%;background:var(--purple-light);box-shadow:0 0 12px var(--purple-glow),0 0 22px rgba(142,51,255,.5);transform:translateX(-50%);opacity:0;pointer-events:none;will-change:transform,opacity}
+.mes-punch{padding:12px 26px;border-radius:14px;background:rgba(142,51,255,.04);border:1px solid rgba(142,51,255,.1)}
+.mes-punch p{font-size:18px;color:var(--text-muted);text-align:center;margin:0;font-weight:300}
+.mes-punch p strong{color:var(--text);font-weight:600}
 
 /* ═══ S2 PROBLEME ═══ */
 .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1000px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
@@ -153,7 +210,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .stat-card:last-child{border-right:none}
 .stat-card:hover{background:rgba(142,51,255,.04)}
 .stat-card .num{font-size:58px;font-weight:900;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;letter-spacing:-2px}
-.stat-card .label{font-size:15px;color:var(--text-muted);margin-top:10px;line-height:1.5}
+.stat-card .label{font-size:17px;color:var(--text-muted);margin-top:10px;line-height:1.5}
 .lock-icon{width:48px;height:48px;margin:0 auto;color:var(--purple);opacity:1}
 .s2-consequence{margin-top:24px;padding:14px 28px;border-radius:14px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08)}
 .s2-consequence .subtitle{font-size:20px;margin:0}
@@ -183,7 +240,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .demo-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,10,15,.75));pointer-events:none}
 .demo-item:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(112,83,254,.12);border-color:rgba(112,83,254,.2)}
 .demo-item img{width:100%;height:auto;display:block}
-.demo-label{position:absolute;bottom:0;left:0;right:0;padding:14px 18px;color:#fff;font-size:15px;font-weight:600;z-index:1;letter-spacing:.2px}
+.demo-label{position:absolute;bottom:0;left:0;right:0;padding:14px 18px;color:#fff;font-size:18px;font-weight:600;z-index:1;letter-spacing:.2px}
 .demo-stats{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;justify-content:center}
 .demo-stat{background:var(--surface);border:1px solid var(--border-light);border-radius:100px;padding:7px 18px;font-family:'Space Mono',monospace;font-size:13px;color:var(--text-muted)}
 .demo-stat strong{color:var(--purple-light);font-weight:700}
@@ -214,7 +271,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .market-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%;max-width:1000px;margin-top:36px}
 .market-card{text-align:center;padding:32px 20px}
 .market-card .num{font-size:56px;font-weight:900;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.market-card .label{font-size:15px;color:var(--text-muted);margin-top:10px;line-height:1.5}
+.market-card .label{font-size:17px;color:var(--text-muted);margin-top:10px;line-height:1.5}
 
 /* ═══ S8 BUSINESS MODEL ═══ */
 .bm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1060px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
@@ -227,9 +284,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .bm-card.featured::before{content:'PRINCIPAL';position:absolute;top:14px;right:14px;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;font-weight:700;background:var(--purple);color:#fff;padding:4px 10px;border-radius:100px}
 .bm-tier{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted)}
 .bm-name{font-size:28px;font-weight:800;color:var(--text)}
-.bm-price{font-size:16px;color:var(--purple-light);font-weight:600}
-.bm-list{list-style:none;display:flex;flex-direction:column;gap:8px}
-.bm-list li{font-size:15px;color:var(--text-muted);display:flex;gap:8px;line-height:1.5}
+.bm-price{font-size:20px;color:var(--purple-light);font-weight:600}
+.bm-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.bm-list li{font-size:17px;color:var(--text-muted);display:flex;gap:8px;line-height:1.5}
 .bm-list li::before{content:'—';color:var(--purple-light);font-weight:400;flex-shrink:0;opacity:.6}
 
 /* ═══ S9 TRACTION ═══ */
@@ -241,8 +298,18 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .tl-item{display:flex;gap:20px;align-items:flex-start;padding:10px 0}
 .tl-dot{width:40px;height:40px;border-radius:50%;background:var(--surface);border:1.5px solid rgba(142,51,255,.3);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;z-index:1;color:var(--text-muted);font-weight:700;font-family:'Space Mono',monospace}
 .tl-dot.done{background:var(--purple);border-color:var(--purple);color:#fff;box-shadow:0 0 20px var(--purple-glow)}
-.tl-content .tl-date{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--purple-light);text-transform:uppercase;font-weight:700}
-.tl-content .tl-text{font-size:16px;color:var(--text-muted);margin-top:2px;line-height:1.5}
+.tl-content .tl-date{font-family:'Space Mono',monospace;font-size:15px;letter-spacing:2px;color:var(--purple-light);text-transform:uppercase;font-weight:700}
+.tl-content .tl-text{font-size:18px;color:var(--text-muted);margin-top:4px;line-height:1.5}
+.tl-item.tl-now{position:relative}
+.tl-item.tl-now .tl-dot{box-shadow:0 0 0 6px rgba(142,51,255,.15),0 0 24px var(--purple-glow);animation:nowPulse 2.4s ease-in-out infinite}
+.tl-item.tl-now .tl-content{position:relative;padding-top:6px}
+.tl-item.tl-now .tl-content::before{content:'NOW';position:absolute;left:0;top:-14px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;font-weight:700;background:var(--purple);color:#fff;padding:3px 9px;border-radius:100px;box-shadow:0 0 12px var(--purple-glow)}
+@keyframes nowPulse{0%,100%{box-shadow:0 0 0 6px rgba(142,51,255,.15),0 0 24px var(--purple-glow)}50%{box-shadow:0 0 0 10px rgba(142,51,255,.05),0 0 32px rgba(142,51,255,.5)}}
+.traction-highlight{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:14px 12px;text-align:center;width:100%;max-width:240px}
+.traction-highlight .big-stat{font-size:clamp(72px,9vw,110px);font-weight:900;background:linear-gradient(135deg,var(--purple-light) 0%,var(--purple) 60%,var(--purple-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;letter-spacing:-3px;filter:drop-shadow(0 0 30px rgba(142,51,255,.25))}
+.traction-highlight .stat-label{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--text);font-weight:700;margin-top:2px}
+.traction-highlight .stat-sub{font-size:14px;color:var(--text-muted);font-weight:300;margin-top:10px;padding-top:10px;border-top:1px solid var(--border-light);width:100%}
+.traction-highlight .stat-sub strong{color:var(--purple-light);font-weight:700}
 
 /* ═══ S10 TEAM ═══ */
 .team-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;width:100%;max-width:1000px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
@@ -252,15 +319,15 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .team-member{text-align:center;padding:28px 16px}
 .team-member img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid var(--border-light);margin-bottom:12px;filter:grayscale(.3);transition:all .5s}
 .team-member:hover img{border-color:var(--purple);box-shadow:0 0 24px var(--purple-glow);filter:grayscale(0)}
-.team-member .name{font-weight:700;font-size:16px;color:var(--text)}
-.team-member .role{font-size:13px;color:var(--text-muted);margin-top:3px}
+.team-member .name{font-weight:700;font-size:19px;color:var(--text)}
+.team-member .role{font-size:15px;color:var(--text-muted);margin-top:4px}
 .team-mentors{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;max-width:520px;margin-top:20px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
 .team-mentors .card{background:transparent;border:none;border-radius:0;transition:all .4s cubic-bezier(.22,1,.36,1)}
 .team-mentors .card:first-child{border-right:1px solid rgba(142,51,255,.1)}
 .team-mentors .card:hover{background:rgba(142,51,255,.04)}
 .mentor-card{padding:18px;display:flex;gap:14px;align-items:center}
-.mentor-card .name{font-weight:700;font-size:13px;color:var(--text)}
-.mentor-card .role{font-size:13px;color:var(--text-muted)}
+.mentor-card .name{font-weight:700;font-size:16px;color:var(--text)}
+.mentor-card .role{font-size:14px;color:var(--text-muted)}
 .mentor-avatar{width:44px;height:44px;border-radius:12px;background:var(--surface2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--purple-light)}
 
 /* ═══ S11 AVANTAGE ═══ */
@@ -273,8 +340,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .adv-card:hover{background:rgba(142,51,255,.04)}
 .adv-icon{width:52px;height:52px;border-radius:14px;background:var(--purple);display:flex;align-items:center;justify-content:center;margin:0 auto 4px;color:#fff;transition:all .4s}
 .adv-card:hover .adv-icon{box-shadow:0 0 24px var(--purple-glow);transform:scale(1.1)}
-.adv-card .adv-title{font-weight:700;font-size:16px;color:var(--text)}
-.adv-card .adv-desc{font-size:14px;color:var(--text-muted);line-height:1.5}
+.adv-card .adv-title{font-weight:700;font-size:19px;color:var(--text)}
+.adv-card .adv-desc{font-size:16px;color:var(--text-muted);line-height:1.5}
 
 /* ═══ S12 ASK ═══ */
 .ask-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1000px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
@@ -284,8 +351,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .ask-card:last-child{border-right:none}
 .ask-card:hover{background:rgba(142,51,255,.04)}
 .ask-card .ask-icon{margin-bottom:16px;color:var(--purple)}
-.ask-card .ask-title{font-weight:700;font-size:18px;color:var(--text)}
-.ask-card .ask-desc{font-size:15px;color:var(--text-muted);margin-top:10px;line-height:1.6}
+.ask-card .ask-title{font-weight:700;font-size:20px;color:var(--text)}
+.ask-card .ask-desc{font-size:17px;color:var(--text-muted);margin-top:10px;line-height:1.6}
 
 /* ═══ S13 CLOSING ═══ */
 #s13{text-align:center;position:relative}
@@ -300,7 +367,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .chip:hover{border-color:var(--purple);color:var(--purple-light);transform:translateY(-2px)}
 .chip .ico{width:14px;height:14px}
 .commit-stats{font-family:'Space Mono',monospace;font-size:11px;color:var(--text-muted);text-align:center}
-.closing-text{font-size:20px;color:var(--text-muted);line-height:1.7;font-weight:300}
+.closing-text{font-size:24px;color:var(--text-muted);line-height:1.6;font-weight:300}
 .final-tag{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:rgba(28,37,46,.15)}
 
 /* ═══ RESPONSIVE ═══ */
@@ -313,11 +380,36 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #hint{position:fixed;bottom:72px;left:50%;transform:translateX(-50%);font-family:'Space Mono',monospace;font-size:9px;color:rgba(28,37,46,.15);letter-spacing:3px;text-transform:uppercase;z-index:50;transition:opacity 1s}
 #particles{position:fixed;inset:0;z-index:2;pointer-events:none}
 
+/* ═══ SOUND TOGGLE ═══ */
+#sound-toggle{position:fixed;top:24px;right:120px;z-index:600;background:rgba(255,255,255,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border-light);border-radius:50%;width:36px;height:36px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;outline:none;color:var(--purple)}
+#sound-toggle:hover{background:var(--purple);color:#fff;transform:scale(1.1);box-shadow:0 0 20px var(--purple-glow)}
+.standby-on #sound-toggle{opacity:0;pointer-events:none}
+
 /* ═══ STANDBY SLIDE ═══ */
 #s0{background:#050208;z-index:1}
 #s0 video{width:100vw;height:100vh;object-fit:contain}
 .standby-on #fixed-logo,.standby-on #slide-num,.standby-on #nav,.standby-on #hint,.standby-on #progress-wrap,.standby-on .nav-arrow{opacity:0!important;pointer-events:none}
 .closing-on #fixed-logo{opacity:0!important;pointer-events:none}
+
+/* ═══ Q&A INTRO TRANSITION SLIDE ═══ */
+#s-backup-intro::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 50%,rgba(142,51,255,.10),transparent);pointer-events:none}
+.qa-frame{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;padding:0 40px;position:relative;z-index:1}
+.qa-mega{font-size:clamp(96px,16vw,200px);font-weight:900;line-height:.95;letter-spacing:-6px;color:var(--text);text-align:center;filter:drop-shadow(0 0 80px rgba(142,51,255,.18))}
+.qa-mega em{background:linear-gradient(135deg,var(--purple-light) 0%,var(--purple) 50%,var(--purple-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+
+/* ═══ DATA SOURCE BACKUP SLIDES (Q&A) ═══ */
+.data-source-grid{display:grid;gap:16px;width:100%;max-width:1100px;margin-top:28px}
+.data-source-grid.cols-2{grid-template-columns:1fr 1fr}
+.data-source-grid.cols-3{grid-template-columns:1fr 1fr 1fr}
+.data-source-card{padding:22px 22px;border:1px solid var(--border-light);border-radius:16px;background:var(--surface);display:flex;flex-direction:column;transition:all .4s cubic-bezier(.22,1,.36,1);position:relative;text-decoration:none;color:inherit}
+a.data-source-card{cursor:pointer}
+.data-source-card:hover{border-color:rgba(142,51,255,.4);box-shadow:0 8px 30px rgba(142,51,255,.12);transform:translateY(-3px)}
+.data-source-card::after{content:'↗';position:absolute;top:18px;right:20px;font-size:18px;font-weight:700;color:var(--purple-light);opacity:.4;transition:all .3s}
+.data-source-card:hover::after{opacity:1;transform:translate(2px,-2px)}
+.data-source-card .ds-stat{font-size:46px;font-weight:900;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;letter-spacing:-1.5px}
+.data-source-card .ds-claim{font-size:15px;color:var(--text);font-weight:600;margin-top:6px;line-height:1.4}
+.data-source-card .ds-source{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.2px;color:var(--purple-light);font-weight:700;text-transform:uppercase;margin-top:14px;padding-top:12px;border-top:1px solid var(--border-light)}
+.data-source-card .ds-detail{font-size:13px;color:var(--text-muted);margin-top:6px;line-height:1.5}
 
 /* ═══ SOURCES SLIDE ═══ */
 #s-sources .src-tag{position:absolute;top:7%;left:50%;transform:translateX(-50%);font-size:13px;letter-spacing:4px;padding:8px 22px}
@@ -361,48 +453,86 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
   <video src="img/OpSee_2.mp4" muted playsinline onmouseenter="this.currentTime=0;this.play()"></video>
 </div>
 
-<!-- ═══ 1. ACCROCHE ═══ -->
+<!-- ═══ 1. ACCROCHE — KEYNOTE GAUGE ═══ -->
 <div class="slide" id="s1">
-  <div class="tag s1-tag" data-a="scramble" data-text="Mind & Market 2026">&nbsp;</div>
+  <div class="tag s1-tag" data-a="scramble" data-text="CBC Pitch Challenge 2026">&nbsp;</div>
+  <div class="s1-gauge-wrap">
+    <svg class="s1-gauge" viewBox="0 0 200 200">
+      <defs>
+        <linearGradient id="s1GaugeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#A855F7"/>
+          <stop offset="60%" stop-color="#8E33FF"/>
+          <stop offset="100%" stop-color="#7928CA"/>
+        </linearGradient>
+      </defs>
+      <!-- Decorative outer ring -->
+      <circle class="gauge-deco-outer" cx="100" cy="100" r="96"/>
+      <!-- Tick marks -->
+      <g id="s1-ticks"></g>
+      <!-- Track ring -->
+      <circle class="gauge-track" cx="100" cy="100" r="84"/>
+      <!-- Decorative inner ring -->
+      <circle class="gauge-deco-inner" cx="100" cy="100" r="74"/>
+      <!-- Progress ring (rotated -90 to start at top) -->
+      <circle class="gauge-progress" cx="100" cy="100" r="84" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" transform="rotate(-90 100 100)"/>
+    </svg>
+  </div>
   <div class="s1-num">
-    <svg class="hero-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" data-a="draw"/><circle cx="100" cy="100" r="82" class="arc2" data-a="draw"/></svg>
-    <div class="big-num" data-a="count" data-count="67">0</div>
+    <span class="big-num" data-count="67">0</span>
+    <span class="big-num-pct">%</span>
   </div>
-  <div class="s1-center">
-    <span class="big-suffix" data-a="fade">% des PME europeennes</span>
-    <p class="hook-text" data-a="fade">ont un niveau <strong>bas ou tres bas</strong> de digitalisation.<br>Elles gerent leur usine avec <strong>Excel, du papier, ou rien</strong>.</p>
+  <div class="s1-subtitle">
+    <span class="big-suffix" style="color: rgb(51, 51, 51)">des <strong style="color: rgb(51, 51, 51)">PME européennes</strong></span>
+    <p class="hook-text" style="border-width: 1px 3px 3px 1px; font-weight: 400">ont un niveau <strong style="color: rgb(134, 47, 232); font-weight: 700">bas ou très bas</strong> de digitalisation.<br>Elles gèrent leur usine avec <strong style="color: rgb(135, 48, 233); font-weight: 700">Excel, du papier, ou rien</strong>.</p>
   </div>
+</div>
+
+<!-- ═══ 1B. MES EXPLAINER (pause pedago) ═══ -->
+<div class="slide" id="s1b">
+  <div class="tag" data-a="scramble" data-text="30 secondes pour comprendre">&nbsp;</div>
+  <h2 class="sec-title" data-a="lines">C'est quoi <em>un MES</em> ?</h2>
+  <p class="subtitle" data-a="fade">La tour de controle de l'usine.</p>
+  <div class="mes-stack" data-a="mes-stack">
+    <div class="mes-tier tier-edge tier-erp">
+      <div class="mes-tier-name">ERP</div>
+      <div class="mes-tier-verbs">Vend & planifie</div>
+    </div>
+    <div class="mes-gap"><div class="mes-flow-dot" data-flow="top"></div></div>
+    <div class="mes-tier tier-mes">
+      <div class="mes-tier-name"><span class="mes-tier-star">★</span>MES</div>
+      <div class="mes-tier-verbs">Pilote</div>
+    </div>
+    <div class="mes-gap"><div class="mes-flow-dot" data-flow="bot"></div></div>
+    <div class="mes-tier tier-edge tier-machines">
+      <div class="mes-tier-name">MACHINES</div>
+      <div class="mes-tier-verbs">Produisent</div>
+    </div>
+  </div>
+  <div class="mes-punch" data-a="fade"><p>Sans MES, l'usine vole <strong>a l'aveugle</strong>.</p></div>
 </div>
 
 <!-- ═══ 2. PROBLEME ═══ -->
 <div class="slide" id="s2">
   <div class="tag" data-a="scramble" data-text="Le probleme">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Le MES est reserve<br><em>aux grands</em></h2>
-  <p class="subtitle" data-a="fade">Les PME representent <strong style="color:var(--text)">99.8%</strong> des entreprises EU — mais n'ont pas acces aux outils de pilotage de production.</p>
+  <p class="subtitle" data-a="fade">Les PME representent <strong style="color:var(--text)">99.8%</strong> des entreprises EU — mais n'ont pas acces au MES.</p>
   <div class="stat-row" data-a="stagger">
-    <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="500" data-suffix="k€+">0</div><div class="label">Cout moyen d'un MES<br>proprietaire</div></div>
+    <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="500" data-suffix="k€+">0</div><div class="label">Investissement initial<br>MES Siemens / SAP</div></div>
     <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="18" data-suffix=" mois">0</div><div class="label">Duree d'integration<br>moyenne</div></div>
-    <div class="glow-card stat-card"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><div class="label">Vendor lock-in<br>solutions monolithiques</div></div>
+    <div class="glow-card stat-card"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><div class="label">Verrouillage<br>chez un seul editeur</div></div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--text)">Consequence :</strong> perte de productivite, zero tracabilite, decisions a l'aveugle.</p></div>
 </div>
 
 <!-- ═══ 3. SOLUTION ═══ -->
 <div class="slide" id="s3">
   <div class="tag" data-a="scramble" data-text="Notre solution">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Le premier MES<br><em>open source et accessible</em></h2>
-  <p class="subtitle" data-a="fade">Concu pour les PME industrielles.</p>
+  <p class="subtitle" data-a="fade"><strong style="color:var(--text)">MES de grand compte. Prix de PME.</strong></p>
   <div class="pill-row" data-a="stagger">
     <div class="pill"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><line x1="8" y1="11" x2="8" y2="7"/></svg> Open Source</div>
     <div class="pill"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Modulaire</div>
-    <div class="pill"><svg class="ico" viewBox="0 0 24 24"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><circle cx="12" cy="20" r="1"/></svg> Offline-first</div>
+    <div class="pill"><svg class="ico" viewBox="0 0 24 24"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><circle cx="12" cy="20" r="1"/></svg> Sans internet</div>
   </div>
-  <div class="see-row" data-a="stagger">
-    <div class="glow-card see-card"><div class="letter">S</div><div class="word">Scalable</div><div class="desc">Grandit avec vous, de 1 a 100 lignes</div></div>
-    <div class="glow-card see-card"><div class="letter">E</div><div class="word">Execution</div><div class="desc">Controle en temps reel de la production</div></div>
-    <div class="glow-card see-card"><div class="letter">E</div><div class="word">Efficiency</div><div class="desc">Ressources et performance optimisees</div></div>
-  </div>
-  <div class="s3-quote" data-a="fade"><p><em>"On rend le MES aussi accessible qu'un CRM l'est devenu grace a <strong style="color:var(--purple-light)">Odoo</strong>."</em></p></div>
 </div>
 
 <!-- ═══ 4. DEMO ═══ -->
@@ -411,26 +541,20 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
   <h2 class="sec-title" data-a="lines">Ce n'est pas un prototype.<br><em>C'est un produit.</em></h2>
   <div class="demo-grid" data-a="grid">
     <div class="demo-item"><img src="img/cockpit.png" alt="Cockpit"><div class="demo-label">Cockpit personnalisable — 39 widgets</div></div>
-    <div class="demo-item"><img src="img/OEE.png" alt="OEE"><div class="demo-label">Dashboard OEE temps reel</div></div>
-    <div class="demo-item"><img src="img/timeline.png" alt="Timeline"><div class="demo-label">Timeline des downtimes</div></div>
-    <div class="demo-item"><img src="img/Arbre_equipment.png" alt="Equipements"><div class="demo-label">Gestion equipements ISA-95/ISA-88</div></div>
-  </div>
-  <div class="demo-stats" data-a="stagger">
-    <div class="demo-stat"><strong>80</strong> tables</div>
-    <div class="demo-stat"><strong>167+</strong> fonctions SQL</div>
-    <div class="demo-stat"><strong>39</strong> widgets cockpit</div>
-    <div class="demo-stat"><strong>12</strong> services Docker</div>
+    <div class="demo-item"><img src="img/OEE.png" alt="OEE"><div class="demo-label">Productivite temps reel (OEE)</div></div>
+    <div class="demo-item"><img src="img/timeline.png" alt="Timeline"><div class="demo-label">Historique des arrets machines</div></div>
+    <div class="demo-item"><img src="img/Arbre_equipment.png" alt="Equipements"><div class="demo-label">Gestion equipements (normes ISA-95/88)</div></div>
   </div>
 </div>
 
 <!-- ═══ 5. IA ═══ -->
 <div class="slide" id="s5">
   <div class="tag" data-a="scramble" data-text="IA integree">&nbsp;</div>
-  <h2 class="sec-title" data-a="lines">L'industrie 4.0<br>rencontre <em>l'IA</em></h2>
+  <h2 class="sec-title" data-a="lines">Parlez<br>a <em>votre usine</em>.</h2>
   <div class="ai-wrap">
     <div class="ai-text" data-a="stagger">
-      <p class="ai-quote">"Quel equipement a eu le plus de downtime cette semaine ?"<br><br>→ Reponse instantanee, avec donnees temps reel.</p>
-      <p class="ai-desc">Chatbot IA integre (Claude / Anthropic) capable d'interroger les donnees de production en <strong style="color:var(--text)">langage naturel</strong>. Respect des permissions utilisateur.</p>
+      <p class="ai-quote">"Quel equipement a eu le plus d'arrets cette semaine ?"<br><br>→ Reponse instantanee, avec donnees temps reel.</p>
+      <p class="ai-desc">Chatbot IA integre, capable d'interroger les donnees de production en <strong style="color:var(--text)">langage naturel</strong>.</p>
     </div>
     <div data-a="scale"><img src="img/chatbot.jpeg" alt="Chatbot IA" class="ai-screen"></div>
   </div>
@@ -442,22 +566,21 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
   <h2 class="sec-title" data-a="lines">Un marche de <em>$16 Mds</em><br>domine par des acteurs trop chers</h2>
   <p class="subtitle" data-a="fade">Le MES est le prochain domaine B2B a etre disrupte par l'open source.</p>
   <div class="stat-row" data-a="stagger">
-    <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="16" data-suffix=" Mds$">0</div><div class="label">Marche mondial<br>du MES en 2024</div></div>
+    <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="16" data-suffix=" Mds$">0</div><div class="label">Marche mondial<br>du MES en 2025</div></div>
     <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="12" data-suffix="%/an">0</div><div class="label">Croissance<br>annuelle</div></div>
-    <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="160" data-suffix="k+">0</div><div class="label">PME industrielles cibles<br>BE + FR + DACH</div></div>
+    <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="160" data-suffix="k+">0</div><div class="label">PME industrielles cibles<br>BE · FR · pays germanophones</div></div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--text)">Reference :</strong> <strong style="color:var(--purple-light)">Odoo</strong> = 13M+ utilisateurs, valorisation $5.3 Mds.</p></div>
 </div>
 
 <!-- ═══ 8. BUSINESS MODEL ═══ -->
 <div class="slide" id="s8">
   <div class="tag" data-a="scramble" data-text="Business Model">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Gratuit pour entrer.<br><em>Payant pour scaler.</em></h2>
-  <p class="subtitle" data-a="fade">Modele open-core : le coeur est gratuit, les modules avances sont payants.</p>
+  <p class="subtitle" data-a="fade">Le meme modele qu'<strong style="color:var(--purple-light)">Odoo</strong>, applique au MES.</p>
   <div class="bm-grid" data-a="stagger">
-    <div class="glow-card bm-card"><div class="bm-tier">Free</div><div class="bm-name">Open Source</div><div class="bm-price">Gratuit · Toujours</div><ul class="bm-list"><li>OEE de base</li><li>Auto-hebergeable</li><li>Code source complet</li></ul></div>
-    <div class="glow-card bm-card featured"><div class="bm-tier">Tarif A</div><div class="bm-name">Premium</div><div class="bm-price">59 €/mois/equipement</div><ul class="bm-list"><li>Modules avances (IA, ERP, batch management)</li><li>Connecteurs industriels</li><li>Integrations ERP / IoT</li></ul></div>
-    <div class="glow-card bm-card"><div class="bm-tier">Tarif B</div><div class="bm-name">Enterprise</div><div class="bm-price">95 €/mois/equipement</div><ul class="bm-list"><li>Tout Tarif A inclus</li><li>Support prioritaire</li><li>Installation cle en main</li><li>Formation sur mesure</li></ul></div>
+    <div class="glow-card bm-card"><div class="bm-name">Open Source</div><div class="bm-price">Gratuit · Toujours</div><ul class="bm-list"><li>Auto-hebergeable</li><li>Code source complet</li></ul></div>
+    <div class="glow-card bm-card featured"><div class="bm-name">Premium</div><div class="bm-price">59 €/mois/equipement</div><ul class="bm-list"><li>Modules avances : IA, integration ERP, production par lots</li><li>Connecteurs industriels</li></ul></div>
+    <div class="glow-card bm-card"><div class="bm-name">Enterprise</div><div class="bm-price">95 €/mois/equipement</div><ul class="bm-list"><li>Tout Premium inclus</li><li>Support + installation cle en main</li></ul></div>
   </div>
 </div>
 
@@ -465,55 +588,43 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 <div class="slide" id="s9">
   <div class="tag" data-a="scramble" data-text="Traction & Roadmap">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">De zero a un produit<br><em>en 1 an</em></h2>
-  <p class="subtitle" data-a="fade">8 mois de developpement intense, un produit deja fonctionnel.</p>
+  <p class="subtitle" data-a="fade">8 mois de developpement. <strong style="color:var(--text)">5 early adopters signes</strong>. Premier deploiement en juin.</p>
   <div class="traction-wrap" data-a="stagger">
     <div class="traction-left">
       <div class="timeline">
         <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Sept 2025</div><div class="tl-text">Premier MVP operationnel</div></div></div>
-        <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Oct – Dec 2025</div><div class="tl-text">OEE complet, cockpit, ingestion MQTT / OPC-UA</div></div></div>
-        <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Jan – Avr 2026</div><div class="tl-text">39 widgets, timeline downtimes, chatbot IA, 10 langues UI</div></div></div>
-        <div class="tl-item"><div class="tl-dot" style="border-color:var(--amber);color:var(--amber)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div><div class="tl-content"><div class="tl-date">Juin 2026</div><div class="tl-text"><strong style="color:var(--text)">Version commercialisable</strong> — premiers clients pilotes</div></div></div>
-        <div class="tl-item"><div class="tl-dot">Q4</div><div class="tl-content"><div class="tl-date">Q3 – Q4 2026</div><div class="tl-text">Batch management, partenaires integrateurs, go-to-market Belgique</div></div></div>
-        <div class="tl-item"><div class="tl-dot">27</div><div class="tl-content"><div class="tl-date">2027</div><div class="tl-text">Expansion DACH + France, levee Seed</div></div></div>
+        <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Oct – Dec 2025</div><div class="tl-text">Productivite (OEE) complete, cockpit, connexion aux machines</div></div></div>
+        <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Jan – Avr 2026</div><div class="tl-text">39 widgets, historique des arrets, chatbot IA, interface en 10 langues</div></div></div>
+        <div class="tl-item tl-now"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Mai 2026 · maintenant</div><div class="tl-text"><strong style="color:var(--text)">5 early adopters ont signe</strong></div></div></div>
+        <div class="tl-item"><div class="tl-dot" style="border-color:var(--amber);color:var(--amber)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div><div class="tl-content"><div class="tl-date">Juin 2026</div><div class="tl-text"><strong style="color:var(--text)">Premier deploiement</strong> — version commercialisable</div></div></div>
+        <div class="tl-item"><div class="tl-dot">Q4</div><div class="tl-content"><div class="tl-date">Q3 – Q4 2026</div><div class="tl-text">Production par lots, partenaires integrateurs, lancement en Belgique</div></div></div>
       </div>
     </div>
-    <div class="traction-right" data-a="scale"><img src="img/commits.png" alt="633 commits" class="screenshot"><p class="commit-stats"><strong style="color:var(--purple-light)">633</strong> commits · <strong style="color:var(--purple-light)">100</strong> branches · <strong style="color:var(--purple-light)">400+</strong> issues</p></div>
+    <div class="traction-right" data-a="scale">
+      <div class="traction-highlight">
+        <div class="big-stat" data-a="counter" data-count="5">0</div>
+        <div class="stat-label">Early adopters signes</div>
+        <div class="stat-sub">Premier deploiement<br><strong>Juin 2026</strong></div>
+      </div>
+    </div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--text)">Prochaine etape :</strong> version commercialisable en <strong style="color:var(--purple-light)">juin 2026</strong>, premiers clients pilotes.</p></div>
 </div>
 
 <!-- ═══ 10. EQUIPE ═══ -->
 <div class="slide" id="s10">
   <div class="tag" data-a="scramble" data-text="L'equipe">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Expertise <em>industrielle</em><br>+ energie academique</h2>
-  <p class="subtitle" data-a="fade">4 cofondateurs complementaires, accompagnes par des experts du terrain.</p>
+  <p class="subtitle" data-a="fade">4 cofondateurs · <strong style="color:var(--text)">Incubes par</strong> <strong style="color:var(--purple-light)">AgiNtech</strong> (20+ ans d'industrie).</p>
   <div class="team-row" data-a="stagger">
-    <div class="card team-member"><img src="img/member_adam.jpg" alt="Adam"><div class="name">Adam Bernard</div><div class="role">Ing. mecatronique · Frontend & UX</div></div>
-    <div class="card team-member"><img src="img/member_nathan.png" alt="Nathan"><div class="name">Nathan Moreau</div><div class="role">Ing. informatique · Backend & Archi</div></div>
-    <div class="card team-member"><img src="img/member_juliette.jpg" alt="Juliette"><div class="name">Juliette Marchand</div><div class="role">Master gestion · Commercial & Strategie</div></div>
-    <div class="card team-member"><img src="img/membre_louis.jpeg" alt="Louis"><div class="name">Louis Verbeeren</div><div class="role">Master gestion · Finance & Juridique</div></div>
+    <div class="card team-member"><img src="img/member_adam.jpg" alt="Adam"><div class="name">Adam Bernard</div><div class="role">Frontend / UX</div></div>
+    <div class="card team-member"><img src="img/member_nathan.png" alt="Nathan"><div class="name">Nathan Moreau</div><div class="role">Backend / Architecture</div></div>
+    <div class="card team-member"><img src="img/member_juliette.jpg" alt="Juliette"><div class="name">Juliette Marchand</div><div class="role">Commercial / Strategie</div></div>
+    <div class="card team-member"><img src="img/membre_louis.jpeg" alt="Louis"><div class="name">Louis Verbeeren</div><div class="role">Finance / Juridique</div></div>
   </div>
   <div class="team-mentors" data-a="stagger">
-    <div class="card mentor-card"><div class="mentor-avatar"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg></div><div><div class="name">Christophe Camerlynck</div><div class="role">CEO AgiNtech · Co-fondateur · 20+ ans industrie</div></div></div>
-    <div class="card mentor-card"><div class="mentor-avatar"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div><div class="name">Peter Mees</div><div class="role">Ingenieur MES · Expert ISA · AgiNtech</div></div></div>
+    <div class="card mentor-card"><div class="mentor-avatar"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg></div><div><div class="name">Christophe Camerlynck</div><div class="role">CEO AgiNtech · 20+ ans industrie</div></div></div>
+    <div class="card mentor-card"><div class="mentor-avatar"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div><div class="name">Peter Mees</div><div class="role">Expert MES · AgiNtech</div></div></div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--text)">Incube par</strong> <strong style="color:var(--purple-light)">AgiNtech</strong> — acces direct au terrain industriel et aux premiers clients.</p></div>
-</div>
-
-<!-- ═══ 11. AVANTAGE ═══ -->
-<div class="slide" id="s11">
-  <div class="tag" data-a="scramble" data-text="Avantage concurrentiel">&nbsp;</div>
-  <h2 class="sec-title" data-a="lines">Pourquoi <em>OpSee</em><br>et pas un autre ?</h2>
-  <p class="subtitle" data-a="fade">6 differenciateurs cles face aux MES proprietaires.</p>
-  <div class="adv-grid" data-a="grid">
-    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><line x1="8" y1="11" x2="8" y2="7"/></svg></div><div class="adv-title">Open Source</div><div class="adv-desc">Pas de vendor lock-in. Code auditable, transparent.</div></div>
-    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="adv-title">Modulaire</div><div class="adv-desc">Payez uniquement ce dont vous avez besoin.</div></div>
-    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><circle cx="12" cy="20" r="1"/></svg></div><div class="adv-title">Offline-first</div><div class="adv-desc">Fonctionne sans internet, sur un mini-PC dans l'usine.</div></div>
-    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="adv-title">Conforme ISA-95 / 88</div><div class="adv-desc">Credibilite industrielle, interoperable ERP.</div></div>
-    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M9 16s1.5 1 3 1 3-1 3-1"/></svg></div><div class="adv-title">IA integree</div><div class="adv-desc">Seul MES open source avec chatbot IA.</div></div>
-    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg></div><div class="adv-title">Made in Belgium</div><div class="adv-desc">Proximite, reseau AgiNtech, RGPD natif.</div></div>
-  </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle" style="text-align:center;font-size:20px;margin:0"><strong style="color:var(--text)">Aucun MES</strong> ne combine ces 6 avantages aujourd'hui.</p></div>
 </div>
 
 <!-- ═══ 12. ASK ═══ -->
@@ -533,27 +644,115 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 <div class="slide" id="s13">
   <div class="logo-big" data-a="scale"><img src="img/logo_texte.svg" alt="OpSee"></div>
   <div class="tagline-final" data-a="fade"><span class="rolling-wrap"><span class="rolling-track" data-a="rolling"><span>Open</span><span>Smart</span><span>Scalable</span></span></span> · <span class="rolling-wrap"><span class="rolling-track" data-a="rolling" data-offset="1"><span>Smart</span><span>Scalable</span><span>Open</span></span></span> · <span class="rolling-wrap"><span class="rolling-track" data-a="rolling" data-offset="2"><span>Scalable</span><span>Open</span><span>Smart</span></span></span></div>
-  <p class="closing-text" data-a="fade">Le MES open source qui rend l'industrie 4.0<br>accessible a <strong style="color:var(--text)">toutes les PME</strong>.</p>
+  <p class="closing-text" data-a="fade">Le seul MES <strong style="color:var(--text)">open source, modulaire, avec IA integree</strong>.<br><strong style="color:var(--text)">Plus jamais une PME laissee a l'aveugle.</strong></p>
   <div class="contact-row" data-a="stagger">
     <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg> www.opsee.io</div>
-    <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> performance@opsee.io</div>
+    <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a4d4c1d6c2cbd6c9c5cac7c1e4cbd4d7c1c18acdcb">[email&#160;protected]</a></div>
     <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg> +32 71 256 280</div>
   </div>
   <div class="final-tag" data-a="scramble" data-text="Turn complexity into clarity">&nbsp;</div>
 </div>
 
-<!-- ═══ 14. SOURCES ═══ -->
-<div class="slide" id="s-sources">
+<!-- ═══ BACKUP — INTRO Q&A (Q&A jury) ═══ -->
+<div class="slide backup" id="s-backup-intro">
+  <div class="tag" data-a="scramble" data-text="Backup — pour vos questions">&nbsp;</div>
+  <div class="qa-frame">
+    <h1 class="qa-mega" data-a="lines">Q&A<br><em>Backup</em></h1>
+  </div>
+</div>
+
+<!-- ═══ BACKUP — AVANTAGE CONCURRENTIEL (Q&A jury) ═══ -->
+<div class="slide backup" id="s11">
+  <div class="tag" data-a="scramble" data-text="Avantage concurrentiel">&nbsp;</div>
+  <h2 class="sec-title" data-a="lines">Pourquoi <em>OpSee</em><br>et pas un autre ?</h2>
+  <p class="subtitle" data-a="fade">6 differenciateurs cles face aux MES proprietaires.</p>
+  <div class="adv-grid" data-a="grid">
+    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><line x1="8" y1="11" x2="8" y2="7"/></svg></div><div class="adv-title">Open Source</div><div class="adv-desc">Pas de vendor lock-in. Code auditable, transparent.</div></div>
+    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="adv-title">Modulaire</div><div class="adv-desc">Payez uniquement ce dont vous avez besoin.</div></div>
+    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><circle cx="12" cy="20" r="1"/></svg></div><div class="adv-title">Offline-first</div><div class="adv-desc">Fonctionne sans internet, sur un mini-PC dans l'usine.</div></div>
+    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="adv-title">Conforme ISA-95 / 88</div><div class="adv-desc">Credibilite industrielle, interoperable ERP.</div></div>
+    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M9 16s1.5 1 3 1 3-1 3-1"/></svg></div><div class="adv-title">IA integree</div><div class="adv-desc">Seul MES open source avec chatbot IA.</div></div>
+    <div class="glow-card adv-card"><div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg></div><div class="adv-title">Made in Belgium</div><div class="adv-desc">Proximite, reseau AgiNtech, RGPD natif.</div></div>
+  </div>
+  <div class="s2-consequence" data-a="fade"><p class="subtitle" style="text-align:center;font-size:20px;margin:0"><strong style="color:var(--text)">Aucun MES</strong> ne combine ces 6 avantages aujourd'hui.</p></div>
+</div>
+
+<!-- ═══ BACKUP — SOURCES PROBLEME (Q&A jury) ═══ -->
+<div class="slide backup" id="s-data-problem">
+  <div class="tag" data-a="scramble" data-text="Sources — Problème">&nbsp;</div>
+  <h2 class="sec-title" data-a="lines">D'ou viennent <em>ces chiffres</em> ?</h2>
+  <p class="subtitle" data-a="fade">Cliquez sur un chiffre pour voir la source.</p>
+  <div class="data-source-grid cols-2" data-a="stagger">
+    <a class="data-source-card" href="https://ec.europa.eu/eurostat/web/interactive-publications/digitalisation-2025" target="_blank" rel="noopener">
+      <div class="ds-stat">67%</div>
+      <div class="ds-claim">PME européennes peu digitalisées</div>
+      <div class="ds-source">Eurostat — Digitalisation in Europe 2025 (data 2024)</div>
+      <div class="ds-detail">40% au niveau "low" + 27% au niveau "very low" = 67% des PME EU sous le seuil "basic" du DII.</div>
+    </a>
+    <a class="data-source-card" href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Structural_business_statistics_overview" target="_blank" rel="noopener">
+      <div class="ds-stat">99.8%</div>
+      <div class="ds-claim">Des entreprises EU sont des PME</div>
+      <div class="ds-source">Eurostat — Structural Business Statistics 2023-24</div>
+      <div class="ds-detail">~25M entreprises actives en EU, dont 99.8% &lt; 250 employés. Représentent 63.5% de l'emploi.</div>
+    </a>
+    <a class="data-source-card" href="https://shoplogix.com/total-cost-of-ownership-for-mes/" target="_blank" rel="noopener">
+      <div class="ds-stat">500 k€+</div>
+      <div class="ds-claim">Investissement initial MES Siemens / SAP</div>
+      <div class="ds-source">Shoplogix · TeepTrak · f7i.ai · iBASEt</div>
+      <div class="ds-detail">Plage réelle : 375k€ – 1,2M€ initial (Shoplogix). Tier 1 (Siemens, SAP, Rockwell) : 1 à 3 M€/site. Notre 500k€+ est conservateur.</div>
+    </a>
+    <a class="data-source-card" href="https://teeptrak.com/en/mes-system-manufacturing/" target="_blank" rel="noopener">
+      <div class="ds-stat">18 mois</div>
+      <div class="ds-claim">Durée moyenne d'intégration</div>
+      <div class="ds-source">TeepTrak · Symestic · IgniteSAP · Dutta et al. 2021</div>
+      <div class="ds-detail">Citation TeepTrak : "Most manufacturers spend between 12 and 18 months deploying a full MES." Tier 1 (Siemens) : 18-36 mois.</div>
+    </a>
+  </div>
+</div>
+
+<!-- ═══ BACKUP — SOURCES MARCHE (Q&A jury) ═══ -->
+<div class="slide backup" id="s-data-market">
+  <div class="tag" data-a="scramble" data-text="Sources — Marché">&nbsp;</div>
+  <h2 class="sec-title" data-a="lines">D'ou viennent <em>ces chiffres</em> ?</h2>
+  <p class="subtitle" data-a="fade">Cliquez sur un chiffre pour voir la source.</p>
+  <div class="data-source-grid cols-3" data-a="stagger">
+    <a class="data-source-card" href="https://www.marketsandmarkets.com/Market-Reports/manufacturing-execution-systems-mes-market-536.html" target="_blank" rel="noopener">
+      <div class="ds-stat">$16 Mds</div>
+      <div class="ds-claim">Marché mondial du MES en 2025</div>
+      <div class="ds-source">MarketsandMarkets · Fortune Business Insights</div>
+      <div class="ds-detail">M&M : $15,95B en 2025 → $25,78B en 2030. Fortune : $16,57B en 2025. Notre $16 Mds = médiane.</div>
+    </a>
+    <a class="data-source-card" href="https://www.fortunebusinessinsights.com/manufacturing-execution-systems-market-110827" target="_blank" rel="noopener">
+      <div class="ds-stat">12%/an</div>
+      <div class="ds-claim">Croissance annuelle (CAGR)</div>
+      <div class="ds-source">MarketsandMarkets · Fortune · Mordor Intelligence</div>
+      <div class="ds-detail">CAGR entre 10,1% (M&M, 2025-2030) et 14,9% (Fortune, 2026-2034). Notre 12% = milieu de fourchette.</div>
+    </a>
+    <a class="data-source-card" href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Businesses_in_the_manufacturing_sector" target="_blank" rel="noopener">
+      <div class="ds-stat">160k+</div>
+      <div class="ds-claim">PME industrielles cibles BE · FR · pays germanophones</div>
+      <div class="ds-source">Eurostat — Businesses in manufacturing sector 2023</div>
+      <div class="ds-detail">EU = ~2,2M entreprises manufacturières (15,4M emplois en SMEs). <strong>Estimation OpSee</strong> pour BE+FR+DE+AT+CH = conservatrice (méthodo : extrapolation Eurostat × part nationale).</div>
+    </a>
+  </div>
+</div>
+
+<!-- ═══ BACKUP — SOURCES (Q&A jury) ═══ -->
+<div class="slide backup" id="s-sources">
   <div class="tag src-tag" data-a="scramble" data-text="Sources">&nbsp;</div>
   <div class="src-content">
     <h2 class="sec-title" data-a="lines">Nos<br><em>sources</em></h2>
     <div class="src-list" data-a="stagger">
-      <div class="src-item"><span class="src-num">[1]</span><span>Eurostat, <em>Digital Intensity Index — How digitalised have the EU's enterprises become?</em>, Aug. 2024. 67% des PME a un DII bas ou tres bas.</span></div>
-      <div class="src-item"><span class="src-num">[2]</span><span>Eurostat, <em>Structural Business Statistics</em>, Oct. 2024. 99.8% des entreprises EU sont des PME (33M d'entreprises).</span></div>
-      <div class="src-item"><span class="src-num">[3]</span><span>Fortune Business Insights, <em>Manufacturing Execution Systems Market</em>, 2024. Marche MES : ~$16.3 Mds en 2024, CAGR 14.9%.</span></div>
-      <div class="src-item"><span class="src-num">[4]</span><span>MarketsandMarkets, <em>MES Market Report</em>, 2025. $15.95 Mds en 2025, croissance 10.1% CAGR.</span></div>
-      <div class="src-item"><span class="src-num">[5]</span><span>TechCrunch, <em>Odoo raises $527M via secondaries, lifting valuation to $5.26B</em>, Nov. 2024. 13M+ utilisateurs, 40% croissance annuelle.</span></div>
-      <div class="src-item"><span class="src-num">[6]</span><span>Odoo S.A., <em>Communique de presse</em>, Nov. 2024. Levee €500M, investisseurs : CapitalG (Alphabet) & Sequoia.</span></div>
+      <div class="src-item"><span class="src-num">[1]</span><span>Eurostat, <em>Digital Intensity Index — How digitalised have the EU's enterprises become?</em>, Aug. 2024. 40% des PME EU au niveau "low" + 27% "very low" = <strong>67%</strong> sous le seuil basic.</span></div>
+      <div class="src-item"><span class="src-num">[2]</span><span>Eurostat, <em>Structural Business Statistics</em>, 2023-2024. <strong>99.8%</strong> des entreprises EU sont des PME (~25M entreprises actives).</span></div>
+      <div class="src-item"><span class="src-num">[3]</span><span>Fortune Business Insights, <em>Manufacturing Execution Systems Market 2024-2034</em>. Marché MES <strong>~$16 Mds</strong> en 2024, CAGR 14.9%.</span></div>
+      <div class="src-item"><span class="src-num">[4]</span><span>MarketsandMarkets, <em>MES Market Report 2025-2030</em>. $15.95 Mds en 2025 → $25.78 Mds en 2030, CAGR <strong>10.1%</strong> (notre 12% = milieu de fourchette).</span></div>
+      <div class="src-item"><span class="src-num">[5]</span><span>Shoplogix · TeepTrak <em>(2026 MES Buyer's Guide)</em> · f7i.ai · iBASEt. <strong>500k€+</strong> investissement initial : plage réelle 375k€-1,2M€. Tier 1 (Siemens, SAP) : 1-3 M€/site.</span></div>
+      <div class="src-item"><span class="src-num">[6]</span><span>Symestic <em>(MES FAQ)</em> · TeepTrak · IgniteSAP <em>(SAP implementation timelines)</em>. <strong>18 mois</strong> = standard MES propriétaire (12-18). Tier 1 : 18-36 mois.</span></div>
+      <div class="src-item"><span class="src-num">[7]</span><span>Eurostat, <em>Businesses in the manufacturing sector</em>, 2023. <strong>~2,2M entreprises manufacturières EU</strong> · 15,4M emplois en SMEs manufacturing. Cible OpSee BE+FR+DE+AT+CH : ~160k+.</span></div>
+      <div class="src-item"><span class="src-num">[8]</span><span>Dutta, Kumar, Sindhwani, Singh (2021), <em>Overcoming the barriers of effective implementation of MES in pursuit of smart manufacturing in SMEs</em>, Procedia Computer Science. 36 citations. Coût + complexité = barrières principales.</span></div>
+      <div class="src-item"><span class="src-num">[9]</span><span>Bianchini, Savini, Andreoni et al. (2024), <em>MES Application within Manufacturing SMEs towards KPI Development</em>, Sustainability (MDPI). 19 citations.</span></div>
+      <div class="src-item"><span class="src-num">[10]</span><span>TechCrunch / Odoo S.A. (2024). Odoo : 13M+ utilisateurs, valorisation $5,26B. Référence "même modèle qu'Odoo" en S8.</span></div>
     </div>
   </div>
 </div>
@@ -562,7 +761,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 <div id="nav"></div>
 
 <!-- GSAP + PLUGINS -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/DrawSVGPlugin.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrambleTextPlugin.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/MotionPathPlugin.min.js"></script>
@@ -571,7 +770,103 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 'use strict';
 gsap.registerPlugin(DrawSVGPlugin,ScrambleTextPlugin,MotionPathPlugin);
 
-/* ═══ PARTICLES ═══ */
+/* ═══ S1 GAUGE TICKS — generate 40 tick marks (every 9°) ═══ */
+(function buildS1Ticks(){
+  const ticks = document.getElementById('s1-ticks');
+  if(!ticks) return;
+  const cx=100, cy=100, rOut=92, rIn=88, rInMajor=86;
+  for(let i=0;i<40;i++){
+    const angle = (i*9 - 90) * Math.PI/180;
+    const major = i%4===0;
+    const x1 = cx + Math.cos(angle)*rOut;
+    const y1 = cy + Math.sin(angle)*rOut;
+    const x2 = cx + Math.cos(angle)*(major?rInMajor:rIn);
+    const y2 = cy + Math.sin(angle)*(major?rInMajor:rIn);
+    const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',x1);line.setAttribute('y1',y1);
+    line.setAttribute('x2',x2);line.setAttribute('y2',y2);
+    line.setAttribute('class','gauge-tick'+(major?' major':''));
+    ticks.appendChild(line);
+  }
+})();
+
+/* ═══ S1 KEYNOTE GAUGE ANIMATION ═══ */
+function animateS1(s){
+  const num = s.querySelector('.big-num');
+  const pct = s.querySelector('.big-num-pct');
+  const suffix = s.querySelector('.big-suffix');
+  const hook = s.querySelector('.hook-text');
+  const gaugeProgress = s.querySelector('.gauge-progress');
+  const gaugeTrack = s.querySelector('.gauge-track');
+  const gaugeOuter = s.querySelector('.gauge-deco-outer');
+  const gaugeInner = s.querySelector('.gauge-deco-inner');
+  const ticks = s.querySelectorAll('.gauge-tick');
+  const gaugeWrap = s.querySelector('.s1-gauge-wrap');
+
+  // RESET
+  gsap.set(gaugeProgress,{strokeDashoffset:100,opacity:0});
+  gsap.set([gaugeTrack,gaugeOuter,gaugeInner],{opacity:0,scale:.85,transformOrigin:'50% 50%'});
+  gsap.set(ticks,{opacity:0,scale:.6,transformOrigin:'100px 100px'});
+  gsap.set(num,{opacity:0,scale:.5,filter:'blur(20px)'});
+  gsap.set(pct,{opacity:0});
+  gsap.set(suffix,{opacity:0,y:18});
+  gsap.set(hook,{opacity:0,y:24});
+
+  // 1. Gauge frame builds up — outer/track/inner rings appear with stagger
+  gsap.to(gaugeOuter,{opacity:1,scale:1,duration:.9,ease:'power3.out',delay:.4});
+  gsap.to(gaugeTrack,{opacity:1,scale:1,duration:.7,ease:'power3.out',delay:.6});
+  gsap.to(gaugeInner,{opacity:1,scale:1,duration:.7,ease:'power3.out',delay:.75});
+
+  // 2. Tick marks appear in a sweep around the circle
+  gsap.to(ticks,{opacity:1,scale:1,duration:.4,ease:'power2.out',stagger:.015,delay:.7});
+
+  // 3. Number emerges from blur
+  gsap.to(num,{opacity:1,scale:1,filter:'blur(0px)',duration:.8,ease:'power3.out',delay:1.4});
+
+  // 4. The KEY MOMENT — gauge fills + counter ticks in perfect sync
+  const target = 67;
+  const fillDuration = 2.2;
+  // Reveal the progress ring just before fill starts
+  gsap.to(gaugeProgress,{opacity:1,duration:.3,ease:'power2.out',delay:1.5});
+  // Stroke offset goes from 100 (empty) to 33 (67% filled)
+  gsap.to(gaugeProgress,{strokeDashoffset:100-target,duration:fillDuration,ease:'power2.inOut',delay:1.6});
+
+  // Counter
+  const obj={v:0};
+  gsap.to(obj,{v:target,duration:fillDuration,ease:'power2.inOut',delay:1.6,
+    onUpdate(){ num.textContent = Math.round(obj.v); }
+  });
+
+  // Subtle ticking sound during fill (every 7%)
+  for(let i=7;i<=target;i+=7){
+    const t = 1.6 + (i/target)*fillDuration;
+    gsap.delayedCall(t,()=>{
+      if(window.OPSEE_SOUND) window.OPSEE_SOUND.play('tick');
+    });
+  }
+
+  // 5. Impact at the end — number pulses, gauge glows
+  gsap.delayedCall(1.6+fillDuration-.05,()=>{
+    if(window.OPSEE_SOUND) window.OPSEE_SOUND.play('impact');
+    gsap.fromTo(num,{scale:1},{scale:1.07,duration:.22,yoyo:true,repeat:1,ease:'power2.inOut'});
+    gsap.fromTo(gaugeProgress,
+      {filter:'drop-shadow(0 0 12px rgba(142,51,255,.55))'},
+      {filter:'drop-shadow(0 0 28px rgba(142,51,255,.95))',duration:.4,yoyo:true,repeat:1,ease:'power2.inOut'}
+    );
+  });
+
+  // 6. % sign appears (with the number)
+  gsap.to(pct,{opacity:1,duration:.5,ease:'power2.out',delay:1.4});
+
+  // 7. Subtitle "des PME européennes" — apparait EN MÊME TEMPS que le remplissage de la jauge
+  gsap.to(suffix,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:1.6});
+
+  // 8. Hook box reveals — en meme temps que le suffix et le debut du fill
+  gsap.delayedCall(1.6,()=>{
+    if(window.OPSEE_SOUND) window.OPSEE_SOUND.play('reveal');
+  });
+  gsap.to(hook,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:1.6});
+}
 const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
 let W,H;function rz(){W=canvas.width=innerWidth;H=canvas.height=innerHeight}rz();addEventListener('resize',rz);
 const pts=[];for(let i=0;i<45;i++)pts.push({x:Math.random()*2000,y:Math.random()*1200,r:Math.random()*1.2+.4,dx:(Math.random()-.5)*.2,dy:(Math.random()-.5)*.2,o:Math.random()*.15+.05});
@@ -648,12 +943,26 @@ function simpleFadeIn(s){
    SLIDE ENGINE
    ═══════════════════════════════════════ */
 const slides=document.querySelectorAll('.slide'),total=slides.length;
+const isBackup=i=>slides[i].classList.contains('backup');
+const mainTotal=Array.from(slides).filter(s=>!s.classList.contains('backup')).length-1; // exclude standby + backups
 let cur=0,busy=false;
 const navEl=document.getElementById('nav');
-for(let i=0;i<total;i++){const d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=()=>goTo(i);navEl.appendChild(d)}
+for(let i=0;i<total;i++){
+  if(isBackup(i))continue; // backup slides not in dot nav
+  const d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.dataset.idx=i;d.onclick=()=>goTo(i);navEl.appendChild(d)
+}
 const dots=navEl.querySelectorAll('.dot'),prog=document.getElementById('progress'),snCur=document.getElementById('sn-cur'),hint=document.getElementById('hint');
 const pad=n=>n<10?'0'+n:''+n;
-function updateUI(){dots.forEach((d,i)=>d.classList.toggle('active',i===cur));const real=Math.max(0,cur-1),realTotal=total-1;prog.style.width=((real+1)/realTotal*100)+'%';snCur.textContent=pad(real+1);document.getElementById('sn-tot').textContent=pad(realTotal)}
+function updateUI(){
+  dots.forEach(d=>d.classList.toggle('active',parseInt(d.dataset.idx)===cur));
+  if(isBackup(cur)){
+    snCur.textContent='—';document.getElementById('sn-tot').textContent='Q&A';prog.style.width='100%';
+  } else {
+    const real=Math.max(0,cur-1);
+    prog.style.width=((real+1)/mainTotal*100)+'%';
+    snCur.textContent=pad(real+1);document.getElementById('sn-tot').textContent=pad(mainTotal);
+  }
+}
 
 /* ═══ FREEZE / SHOW ═══ */
 function hideSlide(s){
@@ -661,6 +970,27 @@ function hideSlide(s){
   s.classList.remove('on');s.style.visibility='hidden';s.style.opacity='0';
 }
 function freezeContents(s){
+  // S1 KEYNOTE GAUGE — reset to fully hidden state synchronously to avoid flash on re-entry
+  if(s.id==='s1'){
+    const gp=s.querySelector('.gauge-progress');
+    const gt=s.querySelector('.gauge-track');
+    const go=s.querySelector('.gauge-deco-outer');
+    const gi=s.querySelector('.gauge-deco-inner');
+    const ticks=s.querySelectorAll('.gauge-tick');
+    const num=s.querySelector('.big-num');
+    const pct=s.querySelector('.big-num-pct');
+    const suffix=s.querySelector('.big-suffix');
+    const hook=s.querySelector('.hook-text');
+    if(gp){gsap.set(gp,{strokeDashoffset:100,opacity:0,clearProps:'filter'})}
+    if(gt){gsap.set(gt,{opacity:0,scale:.85,transformOrigin:'50% 50%'})}
+    if(go){gsap.set(go,{opacity:0,scale:.85,transformOrigin:'50% 50%'})}
+    if(gi){gsap.set(gi,{opacity:0,scale:.85,transformOrigin:'50% 50%'})}
+    if(ticks.length){gsap.set(ticks,{opacity:0,scale:.6,transformOrigin:'100px 100px'})}
+    if(num){num.textContent='0';gsap.set(num,{opacity:0,scale:.5,filter:'blur(20px)'})}
+    if(pct){gsap.set(pct,{opacity:0})}
+    if(suffix){gsap.set(suffix,{opacity:0,y:18})}
+    if(hook){gsap.set(hook,{opacity:0,y:24})}
+  }
   s.querySelectorAll('[data-a]').forEach(el=>{
     gsap.set(el,{clearProps:'all'});el.style.opacity='0';
     if(el.dataset.a==='stagger'||el.dataset.a==='grid')Array.from(el.children).forEach(c=>{c.style.opacity='0'});
@@ -668,8 +998,12 @@ function freezeContents(s){
     if(el.dataset.a==='scramble'){el.textContent='\u00A0';el.style.opacity='0'}
     if(el.dataset.a==='draw'){gsap.set(el,{drawSVG:'0%',opacity:0})}
     if(el.dataset.a==='rolling'){gsap.set(el,{y:0});el.style.opacity='0'}
+    if(el.dataset.a==='mes-stack'){
+      el.querySelectorAll('.mes-tier,.mes-gap').forEach(c=>{gsap.set(c,{clearProps:'all'});c.style.opacity='0'});
+      el.querySelectorAll('.mes-flow-dot').forEach(d=>{gsap.set(d,{opacity:0,y:0})});
+    }
   });
-  stopAllRolling();
+  stopAllRolling();stopAllMesAnims();
 }
 function showSlide(s){
   freezeContents(s);s.style.opacity='1';s.style.visibility='visible';s.classList.add('on');
@@ -684,6 +1018,30 @@ function startRolling(el){
   rollingIds.push(id);
 }
 function stopAllRolling(){rollingIds.forEach(id=>clearInterval(id));rollingIds.length=0}
+
+/* ═══ MES FLOW DOTS (S1B) ═══ */
+const mesAnimIds=[];
+function stopAllMesAnims(){
+  mesAnimIds.forEach(id=>clearInterval(id));mesAnimIds.length=0;
+  document.querySelectorAll('.mes-flow-dot').forEach(d=>{gsap.killTweensOf(d);gsap.set(d,{opacity:0,y:0})});
+}
+function startMesFlow(stack){
+  const dots=stack.querySelectorAll('.mes-flow-dot');
+  dots.forEach((dot,i)=>{
+    const gap=dot.parentElement;const travel=gap.offsetHeight+8;
+    const run=()=>{
+      gsap.fromTo(dot,
+        {y:0,opacity:0},
+        {y:travel,opacity:1,duration:.95,ease:'sine.inOut',
+         onComplete(){gsap.to(dot,{opacity:0,duration:.25})}});
+    };
+    setTimeout(()=>{
+      run();
+      const id=setInterval(run,1700);
+      mesAnimIds.push(id);
+    },i*420);
+  });
+}
 
 /* ═══ ANIMATE CHILDREN ═══ */
 function animateIn(s){
@@ -732,11 +1090,32 @@ function animateIn(s){
   // COUNTERS
   s.querySelectorAll('[data-a="count"],[data-a="counter"]').forEach(el=>{
     const target=parseInt(el.dataset.count),suffix=el.dataset.suffix||'';el.textContent='0'+suffix;el.style.opacity='1';
-    const obj={v:0};tl.to(obj,{v:target,duration:1.6,ease:'power2.out',onUpdate(){el.textContent=Math.round(obj.v)+suffix}},.1);
+    const obj={v:0};tl.to(obj,{v:target,duration:1.6,ease:'power2.out',onUpdate(){el.textContent=Math.round(obj.v)+suffix;if(window.OPSEE_SOUND&&Math.random()<.18)window.OPSEE_SOUND.play('tick');}},.1);
   });
+
+  // S1 KEYNOTE — custom orchestrated animation
+  if(s.id==='s1') animateS1(s);
 
   // ROLLING
   s.querySelectorAll('[data-a="rolling"]').forEach(el=>{el.style.opacity='1';gsap.set(el,{y:0});setTimeout(()=>startRolling(el),1800)});
+
+  // MES STACK (S1B — pause pedago)
+  s.querySelectorAll('[data-a="mes-stack"]').forEach(stack=>{
+    stack.style.opacity='1';
+    const erp=stack.querySelector('.tier-erp');
+    const machines=stack.querySelector('.tier-machines');
+    const mes=stack.querySelector('.tier-mes');
+    const gaps=stack.querySelectorAll('.mes-gap');
+    gsap.set(erp,{opacity:0,y:-26,scale:.96});
+    gsap.set(machines,{opacity:0,y:26,scale:.96});
+    gsap.set(mes,{opacity:0,scale:.82});
+    gaps.forEach(g=>gsap.set(g,{opacity:0,scaleY:0,transformOrigin:'top center'}));
+    tl.to(erp,{opacity:1,y:0,scale:1,duration:.55,ease:'power3.out'},.35);
+    tl.to(machines,{opacity:1,y:0,scale:1,duration:.55,ease:'power3.out'},.5);
+    tl.to(gaps,{opacity:1,scaleY:1,duration:.4,ease:'power2.out',stagger:.08},.8);
+    tl.to(mes,{opacity:1,scale:1,duration:.7,ease:'back.out(1.7)'},1.0);
+    tl.call(()=>startMesFlow(stack),null,1.7);
+  });
 
   // MOTION PATH (slide 6 flow dot)
   const flowDot=s.querySelector('#flow-dot');
@@ -754,12 +1133,12 @@ function animateIn(s){
 
 /* ═══ NAVIGATION ═══ */
 // Wave overlay only on these key slide ARRIVALS (0-indexed)
-const waveSlides=new Set([4,6,12]); // slide 4 (Demo), slide 6 (Marché), slide 12 (Closing)
+const waveSlides=new Set([5,7,12]); // slide 5 (Demo), slide 7 (Marché), slide 12 (Closing) — S11 moved to backup, S13 shifted -1
 
 async function goTo(idx){
   if(busy||idx===cur||idx<0||idx>=total)return;
   busy=true;hint.style.opacity='0';
-  stopAllRolling();
+  stopAllRolling();stopAllMesAnims();
 
   const useWave=waveSlides.has(idx)||(cur===0&&idx===1); // wave also for standby→slide1
 
@@ -799,3 +1178,6 @@ updateUI();document.body.classList.add('standby-on');showSlide(slides[0]);animat
 </script>
 </body>
 </html>
+
+<style id="__om-edit-overrides">
+</style>
