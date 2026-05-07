@@ -235,9 +235,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 
 /* ═══ S3 SOLUTION ═══ */
 #s3::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 50% 58%,rgba(142,51,255,.06),transparent);pointer-events:none}
-.s3-pill-row{gap:56px;margin-top:72px;flex-wrap:nowrap;justify-content:center}
-.s3-pill{padding:64px 96px;font-size:56px;font-weight:700;gap:40px;display:inline-flex;align-items:center;border-radius:160px;border-width:3px;will-change:transform,opacity,filter}
-.s3-pill .s3-ico{width:100px;height:100px;overflow:visible;flex-shrink:0;stroke-width:1.4}
+/* Specificity bump: .pill.s3-pill (0,2,0) wins over generic .pill (0,1,0) below */
+.pill-row.s3-pill-row{gap:16px;margin-top:32px;flex-wrap:nowrap;justify-content:center}
+.pill.s3-pill{padding:16px 22px;font-size:22px;font-weight:700;gap:14px;display:inline-flex;align-items:center;border-radius:100px;border-width:2px;background:var(--bg);box-shadow:8px 10px 24px rgba(0,0,0,.12),4px 6px 12px rgba(142,51,255,.08);will-change:transform,opacity,filter}
+.pill.s3-pill .ico.s3-ico{width:48px;height:48px;overflow:visible;flex-shrink:0;stroke-width:1.4}
 .s3-ico-lock .s3-lock-shackle{transform-box:fill-box;transform-origin:50% 100%}
 .s3-ico-mod .s3-mod-sq{transform-box:fill-box;transform-origin:50% 50%}
 .s3-ico-wifi .s3-wifi-slash{stroke:var(--purple);stroke-dasharray:1;stroke-dashoffset:1}
@@ -972,12 +973,14 @@ function stopAllS3Anims(){
 }
 function animateS3(s){
   const pills=s.querySelectorAll('.s3-pill');
-  // ENTRY — one by one
+  // Sequential reveal: each pill appears ~1.3s after the previous — snappy chain,
+  // enough to start its animation visibly without waiting for the full cycle.
+  const ENTRIES=[0.6, 1.9, 3.2]; // pill entry delays
   pills.forEach((p,i)=>{
     gsap.set(p,{opacity:0,y:24,scale:.94});
-    gsap.to(p,{opacity:1,y:0,scale:1,duration:.7,ease:'power3.out',delay:.6+i*.22});
+    gsap.to(p,{opacity:1,y:0,scale:1,duration:.7,ease:'power3.out',delay:ENTRIES[i]});
     gsap.fromTo(p,{filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
-      {filter:'drop-shadow(0 0 16px rgba(142,51,255,.45))',duration:.45,ease:'sine.out',delay:.95+i*.22,yoyo:true,repeat:1,
+      {filter:'drop-shadow(0 0 16px rgba(142,51,255,.45))',duration:.45,ease:'sine.out',delay:ENTRIES[i]+.35,yoyo:true,repeat:1,
        onComplete(){gsap.set(p,{clearProps:'filter'})}});
   });
 
@@ -985,7 +988,7 @@ function animateS3(s){
   const shackle=s.querySelector('.s3-ico-lock .s3-lock-shackle');
   if(shackle){
     gsap.set(shackle,{y:0,x:0,rotation:0,transformOrigin:'50% 100%'});
-    const tl1=gsap.timeline({repeat:-1,delay:1.55,repeatDelay:.8});
+    const tl1=gsap.timeline({repeat:-1,delay:ENTRIES[0]+.95,repeatDelay:.8});
     tl1.to({},{duration:.6})
        .to(shackle,{y:-3.2,duration:.45,ease:'power2.out'})
        .to(shackle,{rotation:-12,x:.6,duration:.35,ease:'power1.out'},'-=.15')
@@ -1003,7 +1006,7 @@ function animateS3(s){
   const br=s.querySelector('.s3-mod-sq[data-q="br"]');
   if(tl&&tr&&bl&&br){
     [tl,tr,bl,br].forEach(sq=>gsap.set(sq,{x:0,y:0}));
-    const tl2=gsap.timeline({repeat:-1,delay:1.85,repeatDelay:.9});
+    const tl2=gsap.timeline({repeat:-1,delay:ENTRIES[1]+.95,repeatDelay:.9});
     tl2.to(tl,{x:11,duration:.55,ease:'back.inOut(1.4)'},0)
        .to(tr,{x:-11,duration:.55,ease:'back.inOut(1.4)'},0)
        .to([tl,tr],{x:0,duration:.5,ease:'back.inOut(1.4)'},'+=.55')
@@ -1026,7 +1029,7 @@ function animateS3(s){
   if(arcs[0]&&slash){
     [...arcs,dot].forEach(e=>{if(e)gsap.set(e,{opacity:1})});
     gsap.set(slash,{drawSVG:'0%',opacity:1});
-    const tl3=gsap.timeline({repeat:-1,delay:2.15,repeatDelay:.6});
+    const tl3=gsap.timeline({repeat:-1,delay:ENTRIES[2]+.95,repeatDelay:.6});
     tl3.to([...arcs,dot],{opacity:0,duration:.01})
        .to(slash,{drawSVG:'0%',duration:.01})
        .to(dot,{opacity:1,duration:.18,ease:'power2.out'},'+=.2')
