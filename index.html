@@ -33,6 +33,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 
 /* S2 — Problème */
 #s2 .sec-title              { margin-top: 0; }
+#s2 > .subtitle             { margin-top: 44px; }
 
 /* S3 — Solution */
 #s3 .sec-title              { margin-top: 0px; }
@@ -234,6 +235,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 
 /* ═══ S3 SOLUTION ═══ */
 #s3::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 50% 58%,rgba(142,51,255,.06),transparent);pointer-events:none}
+.s3-pill-row{gap:56px;margin-top:72px;flex-wrap:nowrap;justify-content:center}
+.s3-pill{padding:64px 96px;font-size:56px;font-weight:700;gap:40px;display:inline-flex;align-items:center;border-radius:160px;border-width:3px;will-change:transform,opacity,filter}
+.s3-pill .s3-ico{width:100px;height:100px;overflow:visible;flex-shrink:0;stroke-width:1.4}
+.s3-ico-lock .s3-lock-shackle{transform-box:fill-box;transform-origin:50% 100%}
+.s3-ico-mod .s3-mod-sq{transform-box:fill-box;transform-origin:50% 50%}
+.s3-ico-wifi .s3-wifi-slash{stroke:var(--purple);stroke-dasharray:1;stroke-dashoffset:1}
 .pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;justify-content:center}
 .pill{padding:10px 20px;border:1.5px solid rgba(142,51,255,.18);border-radius:100px;font-size:14px;font-weight:600;color:var(--purple);background:rgba(142,51,255,.04);transition:all .4s cubic-bezier(.22,1,.36,1);cursor:default;display:flex;align-items:center;gap:8px}
 .pill:hover{background:var(--purple);color:#fff;border-color:var(--purple);transform:translateY(-3px);box-shadow:0 10px 30px var(--purple-glow)}
@@ -567,10 +574,33 @@ a.data-source-card{cursor:pointer}
   <div class="tag" data-a="scramble" data-text="Notre solution">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Le premier MES<br><em>open source et accessible</em></h2>
   <p class="subtitle" data-a="fade"><strong style="color:var(--text)">MES de grand compte. Prix de PME.</strong></p>
-  <div class="pill-row" data-a="stagger">
-    <div class="pill"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><line x1="8" y1="11" x2="8" y2="7"/></svg> Open Source</div>
-    <div class="pill"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Modulaire</div>
-    <div class="pill"><svg class="ico" viewBox="0 0 24 24"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><circle cx="12" cy="20" r="1"/></svg> Sans internet</div>
+  <div class="pill-row s3-pill-row">
+    <div class="pill s3-pill" data-s3pill="0">
+      <svg class="ico s3-ico s3-ico-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect class="s3-lock-body" x="3" y="11" width="18" height="11" rx="2"/>
+        <path class="s3-lock-shackle" d="M7 11V7a5 5 0 0110 0v4"/>
+      </svg>
+      <span>Open Source</span>
+    </div>
+    <div class="pill s3-pill" data-s3pill="1">
+      <svg class="ico s3-ico s3-ico-mod" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect class="s3-mod-sq" data-q="tl" x="3" y="3" width="7" height="7" rx="1"/>
+        <rect class="s3-mod-sq" data-q="tr" x="14" y="3" width="7" height="7" rx="1"/>
+        <rect class="s3-mod-sq" data-q="bl" x="3" y="14" width="7" height="7" rx="1"/>
+        <rect class="s3-mod-sq" data-q="br" x="14" y="14" width="7" height="7" rx="1"/>
+      </svg>
+      <span>Modulaire</span>
+    </div>
+    <div class="pill s3-pill" data-s3pill="2">
+      <svg class="ico s3-ico s3-ico-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path class="s3-wifi-arc s3-wifi-arc-3" d="M2 8.5 A 14 14 0 0 1 22 8.5"/>
+        <path class="s3-wifi-arc s3-wifi-arc-2" d="M5 12 A 10 10 0 0 1 19 12"/>
+        <path class="s3-wifi-arc s3-wifi-arc-1" d="M8.5 15.5 A 5 5 0 0 1 15.5 15.5"/>
+        <circle class="s3-wifi-dot" cx="12" cy="19.5" r="1"/>
+        <line class="s3-wifi-slash" x1="3" y1="3" x2="21" y2="21"/>
+      </svg>
+      <span>Sans internet</span>
+    </div>
   </div>
 </div>
 
@@ -932,6 +962,85 @@ function animateS2(s){
   }
 }
 
+/* ═══ S3 SOLUTION — pills entry + icon loops ═══ */
+const s3AnimIds=[];
+function stopAllS3Anims(){
+  s3AnimIds.forEach(t=>{if(t&&t.kill)t.kill();});
+  s3AnimIds.length=0;
+  document.querySelectorAll('.s3-pill').forEach(p=>{gsap.killTweensOf(p);gsap.set(p,{clearProps:'filter'})});
+  document.querySelectorAll('.s3-lock-shackle,.s3-mod-sq,.s3-wifi-arc,.s3-wifi-slash,.s3-wifi-dot').forEach(e=>{gsap.killTweensOf(e);gsap.set(e,{clearProps:'transform,opacity,strokeDashoffset'})});
+}
+function animateS3(s){
+  const pills=s.querySelectorAll('.s3-pill');
+  // ENTRY — one by one
+  pills.forEach((p,i)=>{
+    gsap.set(p,{opacity:0,y:24,scale:.94});
+    gsap.to(p,{opacity:1,y:0,scale:1,duration:.7,ease:'power3.out',delay:.6+i*.22});
+    gsap.fromTo(p,{filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+      {filter:'drop-shadow(0 0 16px rgba(142,51,255,.45))',duration:.45,ease:'sine.out',delay:.95+i*.22,yoyo:true,repeat:1,
+       onComplete(){gsap.set(p,{clearProps:'filter'})}});
+  });
+
+  // ── CARD 1 — cadenas : l'anse se soulève, hold, redescend
+  const shackle=s.querySelector('.s3-ico-lock .s3-lock-shackle');
+  if(shackle){
+    gsap.set(shackle,{y:0,x:0,rotation:0,transformOrigin:'50% 100%'});
+    const tl1=gsap.timeline({repeat:-1,delay:1.55,repeatDelay:.8});
+    tl1.to({},{duration:.6})
+       .to(shackle,{y:-3.2,duration:.45,ease:'power2.out'})
+       .to(shackle,{rotation:-12,x:.6,duration:.35,ease:'power1.out'},'-=.15')
+       .to({},{duration:1.0})
+       .to(shackle,{rotation:0,x:0,duration:.3,ease:'power1.inOut'})
+       .to(shackle,{y:0,duration:.4,ease:'power3.in'})
+       .to({},{duration:.7});
+    s3AnimIds.push(tl1);
+  }
+
+  // ── CARD 2 — modules qui se réorganisent
+  const tl=s.querySelector('.s3-mod-sq[data-q="tl"]');
+  const tr=s.querySelector('.s3-mod-sq[data-q="tr"]');
+  const bl=s.querySelector('.s3-mod-sq[data-q="bl"]');
+  const br=s.querySelector('.s3-mod-sq[data-q="br"]');
+  if(tl&&tr&&bl&&br){
+    [tl,tr,bl,br].forEach(sq=>gsap.set(sq,{x:0,y:0}));
+    const tl2=gsap.timeline({repeat:-1,delay:1.85,repeatDelay:.9});
+    tl2.to(tl,{x:11,duration:.55,ease:'back.inOut(1.4)'},0)
+       .to(tr,{x:-11,duration:.55,ease:'back.inOut(1.4)'},0)
+       .to([tl,tr],{x:0,duration:.5,ease:'back.inOut(1.4)'},'+=.55')
+       .to(tl,{y:11,duration:.55,ease:'back.inOut(1.4)'},'+=.4')
+       .to(bl,{y:-11,duration:.55,ease:'back.inOut(1.4)'},'<')
+       .to([tl,bl],{y:0,duration:.5,ease:'back.inOut(1.4)'},'+=.55')
+       .to(bl,{x:11,duration:.55,ease:'back.inOut(1.4)'},'+=.4')
+       .to(br,{x:-11,duration:.55,ease:'back.inOut(1.4)'},'<')
+       .to([bl,br],{x:0,duration:.5,ease:'back.inOut(1.4)'},'+=.55')
+       .to(tr,{y:11,duration:.55,ease:'back.inOut(1.4)'},'+=.4')
+       .to(br,{y:-11,duration:.55,ease:'back.inOut(1.4)'},'<')
+       .to([tr,br],{y:0,duration:.5,ease:'back.inOut(1.4)'},'+=.55');
+    s3AnimIds.push(tl2);
+  }
+
+  // ── CARD 3 — wifi qui s'allume puis se barre
+  const arcs=[s.querySelector('.s3-wifi-arc-1'),s.querySelector('.s3-wifi-arc-2'),s.querySelector('.s3-wifi-arc-3')];
+  const dot=s.querySelector('.s3-wifi-dot');
+  const slash=s.querySelector('.s3-wifi-slash');
+  if(arcs[0]&&slash){
+    [...arcs,dot].forEach(e=>{if(e)gsap.set(e,{opacity:1})});
+    gsap.set(slash,{drawSVG:'0%',opacity:1});
+    const tl3=gsap.timeline({repeat:-1,delay:2.15,repeatDelay:.6});
+    tl3.to([...arcs,dot],{opacity:0,duration:.01})
+       .to(slash,{drawSVG:'0%',duration:.01})
+       .to(dot,{opacity:1,duration:.18,ease:'power2.out'},'+=.2')
+       .to(arcs[0],{opacity:1,duration:.22,ease:'power2.out'},'+=.05')
+       .to(arcs[1],{opacity:1,duration:.22,ease:'power2.out'},'+=.08')
+       .to(arcs[2],{opacity:1,duration:.22,ease:'power2.out'},'+=.08')
+       .to({},{duration:.45})
+       .to(slash,{drawSVG:'100%',duration:.5,ease:'power2.inOut'})
+       .to([...arcs,dot],{opacity:.35,duration:.3,ease:'power2.out'},'<.1')
+       .to({},{duration:.9});
+    s3AnimIds.push(tl3);
+  }
+}
+
 /* ═══ S1 KEYNOTE GAUGE ANIMATION ═══ */
 function animateS1(s){
   const num = s.querySelector('.big-num');
@@ -1163,7 +1272,7 @@ function freezeContents(s){
       el.querySelectorAll('.mes-flow-dot').forEach(d=>{gsap.set(d,{opacity:0,y:0})});
     }
   });
-  stopAllRolling();stopAllMesAnims();
+  stopAllRolling();stopAllMesAnims();stopAllS3Anims();
 }
 function showSlide(s){
   freezeContents(s);s.style.opacity='1';s.style.visibility='visible';s.classList.add('on');
@@ -1351,6 +1460,7 @@ function animateIn(s){
   // S1 KEYNOTE — custom orchestrated animation
   if(s.id==='s1') animateS1(s);
   if(s.id==='s2') animateS2(s);
+  if(s.id==='s3') animateS3(s);
 
   // ROLLING
   s.querySelectorAll('[data-a="rolling"]').forEach(el=>{el.style.opacity='1';gsap.set(el,{y:0});setTimeout(()=>startRolling(el),1800)});
@@ -1394,7 +1504,7 @@ const waveSlides=new Set([5,7,12]); // slide 5 (Demo), slide 7 (Marché), slide 
 async function goTo(idx){
   if(busy||idx===cur||idx<0||idx>=total)return;
   busy=true;hint.style.opacity='0';
-  stopAllRolling();stopAllMesAnims();
+  stopAllRolling();stopAllMesAnims();stopAllS3Anims();
 
   const useWave=waveSlides.has(idx)||(cur===0&&idx===1); // wave also for standby→slide1
 
