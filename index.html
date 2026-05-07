@@ -43,7 +43,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s4 .tag                    { top: 4%; }
 #s4 .sec-title              { margin-top: 10px; }
 #s4 .demo-grid              { gap: 10px; margin-top: 18px; max-width: 1000px; }
-#s4 .demo-item img          { max-height: 28vh; object-fit: cover; }
+#s4 .demo-item              { aspect-ratio: 16/9; }
+#s4 .demo-item img          { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 #s4 .demo-stats             { margin-top: 12px; }
 
 /* S5 — IA */
@@ -260,11 +261,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .s3-quote p{font-size:15px;color:var(--text-muted);text-align:center;margin:0}
 
 /* ═══ S4 DEMO ═══ */
-.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:1100px;margin-top:28px}
-.demo-item{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--border-light);transition:all .5s cubic-bezier(.22,1,.36,1);cursor:default}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:1100px;margin-top:28px;position:relative;perspective:1400px}
+.demo-item{position:relative;border-radius:14px;overflow:hidden;border:1.5px solid rgba(142,51,255,.35);box-shadow:0 30px 80px rgba(142,51,255,.18),0 0 0 1px rgba(142,51,255,.08);cursor:default;will-change:transform,opacity,filter;transform-origin:center center}
+.demo-item.is-hero{position:absolute;inset:0;width:100%;height:100%;z-index:5}
 .demo-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,10,15,.75));pointer-events:none}
 .demo-item:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(112,83,254,.12);border-color:rgba(112,83,254,.2)}
-.demo-item img{width:100%;height:auto;display:block}
+.demo-item img{width:100%;height:100%;object-fit:cover;display:block}
 .demo-label{position:absolute;bottom:0;left:0;right:0;padding:14px 18px;color:#fff;font-size:18px;font-weight:600;z-index:1;letter-spacing:.2px}
 .demo-stats{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;justify-content:center}
 .demo-stat{background:var(--surface);border:1px solid var(--border-light);border-radius:100px;padding:7px 18px;font-family:'Space Mono',monospace;font-size:13px;color:var(--text-muted)}
@@ -609,7 +611,7 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s4">
   <div class="tag" data-a="scramble" data-text="Le produit">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Ce n'est pas un prototype.<br><em>C'est un produit.</em></h2>
-  <div class="demo-grid" data-a="grid">
+  <div class="demo-grid">
     <div class="demo-item"><img src="img/cockpit.png" alt="Cockpit"><div class="demo-label">Cockpit personnalisable — 39 widgets</div></div>
     <div class="demo-item"><img src="img/OEE.png" alt="OEE"><div class="demo-label">Productivite temps reel (OEE)</div></div>
     <div class="demo-item"><img src="img/timeline.png" alt="Timeline"><div class="demo-label">Historique des arrets machines</div></div>
@@ -1223,6 +1225,184 @@ function hideSlide(s){
   gsap.killTweensOf(s);s.querySelectorAll('*').forEach(c=>gsap.killTweensOf(c));
   s.classList.remove('on');s.style.visibility='hidden';s.style.opacity='0';
 }
+
+/* ═══ S4 DEMO — hero reveal puis assemblage en grille ═══ */
+const s4AnimIds=[];
+function stopAllS4Anims(){
+  s4AnimIds.forEach(t=>{
+    if(typeof t==='number'){ clearInterval(t); clearTimeout(t); }
+    else if(t&&t.kill) t.kill();
+  });
+  s4AnimIds.length=0;
+  document.querySelectorAll('#s4 .demo-item').forEach(it=>{
+    gsap.killTweensOf(it);
+    it.classList.remove('is-hero');
+    gsap.set(it,{clearProps:'all'});
+    const lbl=it.querySelector('.demo-label');
+    if(lbl){gsap.killTweensOf(lbl);gsap.set(lbl,{clearProps:'all'})}
+    it.querySelectorAll('.s4-sweep').forEach(sw=>sw.remove());
+  });
+  const grid=document.querySelector('#s4 .demo-grid');
+  if(grid){
+    gsap.killTweensOf(grid);
+    gsap.set(grid,{clearProps:'opacity'});
+    grid.style.minHeight='';
+    const floor=grid.querySelector('.s4-floor-glow');
+    if(floor){gsap.killTweensOf(floor);gsap.set(floor,{opacity:0})}
+  }
+}
+function animateS4(s){
+  const grid=s.querySelector('.demo-grid');
+  const items=Array.from(s.querySelectorAll('.demo-item'));
+  if(!grid||items.length<4)return;
+
+  // Mesurer la hauteur naturelle du grid (4 cartes en place) et la verrouiller
+  // pour qu'il ne s'écroule pas quand une carte passe en position absolute.
+  gsap.set(grid,{minHeight:'',opacity:1});
+  items.forEach(it=>{ it.classList.remove('is-hero'); gsap.set(it,{clearProps:'all'}); });
+  const naturalH = grid.getBoundingClientRect().height;
+  if(naturalH > 0) grid.style.minHeight = naturalH + 'px';
+
+  // RESET — toutes les cartes invisibles, aucune en hero
+  items.forEach(it=>{
+    gsap.set(it,{opacity:0,scale:.95,x:0,y:0});
+    const lbl=it.querySelector('.demo-label');
+    if(lbl) gsap.set(lbl,{y:30,opacity:0});
+  });
+
+  // Floor-glow (créé une fois, animé à la fin)
+  let floor=grid.querySelector('.s4-floor-glow');
+  if(!floor){
+    floor=document.createElement('div');
+    floor.className='s4-floor-glow';
+    floor.style.cssText='position:absolute;inset:-40px -40px -60px;background:radial-gradient(ellipse 60% 55% at 50% 60%,rgba(142,51,255,.22),transparent 70%);filter:blur(24px);opacity:0;pointer-events:none;z-index:-1';
+    grid.appendChild(floor);
+  } else {
+    gsap.set(floor,{opacity:0});
+  }
+
+  // ── Timing par hero
+  const HERO_FADE_IN  = .55;
+  const HERO_HOLD     = .55;
+  const HERO_SHRINK   = .85;
+  const HERO_GAP      = .10;
+  const STEP = HERO_FADE_IN + HERO_HOLD + HERO_SHRINK + HERO_GAP;
+  const START = 1.0;
+
+  const tl=gsap.timeline({delay:START});
+
+  // Calcule le ratio hero/slot pour compenser le radius en hero.
+  const SLOT_RADIUS = 14;
+  let heroRatio = 2;
+  if (items.length){
+    const slotR = items[0].getBoundingClientRect();
+    items[0].classList.add('is-hero');
+    const heroR = items[0].getBoundingClientRect();
+    items[0].classList.remove('is-hero');
+    if (slotR.width > 0) heroRatio = heroR.width / slotR.width;
+  }
+  const HERO_RADIUS = SLOT_RADIUS / heroRatio;
+
+  items.forEach((card, i)=>{
+    const t = i * STEP;
+    const lbl = card.querySelector('.demo-label');
+
+    // 1. Fade-in en hero (position absolue plein-format)
+    tl.call(()=>{
+      card.classList.add('is-hero');
+      card.style.borderRadius = HERO_RADIUS + 'px';
+    }, [], t)
+      .fromTo(card,
+        {opacity:0, scale:.96},
+        {opacity:1, scale:1, duration:HERO_FADE_IN, ease:'power3.out'}, t)
+      .fromTo(lbl,
+        {y:20, opacity:0},
+        {y:0, opacity:1, duration:HERO_FADE_IN*.7, ease:'power2.out',
+         onComplete(){ gsap.set(lbl, {clearProps:'y,opacity'}); lbl.style.opacity='1'; }},
+        t+.15);
+
+    // 2. FLIP : transition fluide hero → slot grid
+    tl.call(()=>{
+      gsap.killTweensOf(lbl);
+      gsap.set(lbl, {clearProps:'y,opacity,transform'});
+      lbl.style.opacity='1';
+
+      const first = card.getBoundingClientRect();
+      card.classList.remove('is-hero');
+      const last = card.getBoundingClientRect();
+
+      const dx = first.left - last.left;
+      const dy = first.top  - last.top;
+      const sx = first.width  / last.width;
+      const sy = first.height / last.height;
+
+      gsap.set(card, {
+        x: dx, y: dy,
+        scaleX: sx, scaleY: sy,
+        transformOrigin: '0 0',
+        zIndex: 4
+      });
+
+      gsap.set(lbl, {
+        scaleX: 1/sx, scaleY: 1/sy,
+        transformOrigin: '0 100%'
+      });
+
+      gsap.to(card, {
+        x: 0, y: 0,
+        scaleX: 1, scaleY: 1,
+        duration: HERO_SHRINK,
+        ease: 'expo.inOut',
+        onUpdate(){
+          const curSx = gsap.getProperty(card, 'scaleX');
+          card.style.borderRadius = (SLOT_RADIUS / curSx) + 'px';
+        },
+        onComplete(){
+          gsap.set(card, {clearProps:'x,y,scaleX,scaleY,transformOrigin,zIndex'});
+          card.style.borderRadius = '';
+        }
+      });
+      gsap.to(lbl, {
+        scaleX: 1, scaleY: 1,
+        duration: HERO_SHRINK,
+        ease: 'expo.inOut',
+        onComplete(){
+          gsap.set(lbl, {clearProps:'scaleX,scaleY,transformOrigin,transform'});
+        }
+      });
+    }, [], t+HERO_FADE_IN+HERO_HOLD);
+  });
+
+  // ── Floor glow + beat synchrone une fois les 4 cartes en place
+  const finalT = items.length * STEP;
+  tl.to(floor, {opacity:.7, duration:.9, ease:'power2.out'}, finalT - .2)
+    .to(items, {filter:'drop-shadow(0 0 18px rgba(142,51,255,.45))',
+                duration:.45, ease:'sine.inOut', yoyo:true, repeat:1,
+                onComplete(){items.forEach(it=>gsap.set(it,{clearProps:'filter'}))}},
+        finalT + .2);
+
+  s4AnimIds.push(tl);
+
+  // ── Spotlight rotatif en boucle
+  let spotIdx=0;
+  const spotStart = (START + finalT + 1.0) * 1000;
+  const spotTimeout = setTimeout(()=>{
+    const spotId=setInterval(()=>{
+      const target=items[spotIdx%items.length];
+      spotIdx++;
+      if(!target)return;
+      gsap.killTweensOf(target);
+      gsap.fromTo(target,
+        {scale:1, filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+        {scale:1.018, filter:'drop-shadow(0 0 22px rgba(142,51,255,.5))',
+         duration:.6, ease:'sine.inOut', yoyo:true, repeat:1,
+         onComplete(){gsap.set(target,{clearProps:'filter,scale'})}});
+    }, 2100);
+    s4AnimIds.push(spotId);
+  }, spotStart);
+  s4AnimIds.push(spotTimeout);
+}
+
 function freezeContents(s){
   // S1 KEYNOTE GAUGE — reset to fully hidden state synchronously to avoid flash on re-entry
   if(s.id==='s1'){
@@ -1275,7 +1455,7 @@ function freezeContents(s){
       el.querySelectorAll('.mes-flow-dot').forEach(d=>{gsap.set(d,{opacity:0,y:0})});
     }
   });
-  stopAllRolling();stopAllMesAnims();stopAllS3Anims();
+  stopAllRolling();stopAllMesAnims();stopAllS3Anims();stopAllS4Anims();
 }
 function showSlide(s){
   freezeContents(s);s.style.opacity='1';s.style.visibility='visible';s.classList.add('on');
@@ -1464,6 +1644,7 @@ function animateIn(s){
   if(s.id==='s1') animateS1(s);
   if(s.id==='s2') animateS2(s);
   if(s.id==='s3') animateS3(s);
+  if(s.id==='s4') animateS4(s);
 
   // ROLLING
   s.querySelectorAll('[data-a="rolling"]').forEach(el=>{el.style.opacity='1';gsap.set(el,{y:0});setTimeout(()=>startRolling(el),1800)});
@@ -1507,7 +1688,7 @@ const waveSlides=new Set([5,7,12]); // slide 5 (Demo), slide 7 (Marché), slide 
 async function goTo(idx){
   if(busy||idx===cur||idx<0||idx>=total)return;
   busy=true;hint.style.opacity='0';
-  stopAllRolling();stopAllMesAnims();stopAllS3Anims();
+  stopAllRolling();stopAllMesAnims();stopAllS3Anims();stopAllS4Anims();
 
   const useWave=waveSlides.has(idx)||(cur===0&&idx===1); // wave also for standby→slide1
 
