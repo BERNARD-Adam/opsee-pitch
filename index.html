@@ -182,7 +182,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 /* ═══ S1B MES EXPLAINER (pause pedago) ═══ */
 #s1b::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 55%,rgba(142,51,255,.07),transparent);pointer-events:none}
 .mes-stack{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:560px;position:relative}
-.mes-tier{width:100%;background:var(--surface);border:1px solid var(--border-light);border-radius:16px;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;transition:all .4s cubic-bezier(.22,1,.36,1);position:relative}
+.mes-tier{width:100%;background:var(--surface);border:1px solid var(--border-light);border-radius:16px;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;position:relative}
 .mes-tier .mes-tier-name{font-weight:800;font-size:18px;letter-spacing:.5px;color:var(--text);font-family:'Outfit',sans-serif}
 .mes-tier .mes-tier-verbs{font-family:'Space Mono',monospace;font-size:15px;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase}
 .mes-tier.tier-edge{opacity:.85}
@@ -1030,7 +1030,9 @@ function stopAllMesAnims(){
   });
   mesAnimIds.length=0;
   document.querySelectorAll('.mes-flow-dot').forEach(d=>{gsap.killTweensOf(d);gsap.set(d,{opacity:0,y:0,scaleY:1})});
-  document.querySelectorAll('.tier-mes').forEach(m=>{gsap.killTweensOf(m);m.style.boxShadow='';m.style.filter=''});
+  document.querySelectorAll('.tier-mes').forEach(m=>{gsap.killTweensOf(m);gsap.set(m,{clearProps:'filter,boxShadow'});m.style.boxShadow='';m.style.filter='';});
+  document.querySelectorAll('.tier-erp,.tier-machines').forEach(m=>{gsap.killTweensOf(m);gsap.set(m,{clearProps:'borderColor,backgroundColor,backgroundImage,background,boxShadow'});});
+  document.querySelectorAll('.mes-tier-star').forEach(s=>{gsap.killTweensOf(s);gsap.set(s,{clearProps:'opacity,scale,transform'});});
 }
 function startMesFlow(stack){
   const mes=stack.querySelector('.tier-mes');
@@ -1046,18 +1048,30 @@ function startMesFlow(stack){
   const pulseMes=(intense)=>{
     if(!mes)return;
     const peak=intense?48:38;
+    gsap.killTweensOf(mes);
     gsap.fromTo(mes,
       {filter:'drop-shadow(0 0 12px rgba(142,51,255,.35))'},
-      {filter:`drop-shadow(0 0 ${peak}px rgba(142,51,255,.95))`,duration:.7,yoyo:true,repeat:1,ease:'sine.inOut'});
+      {filter:`drop-shadow(0 0 ${peak}px rgba(142,51,255,.95))`,duration:.7,yoyo:true,repeat:1,ease:'sine.inOut',
+       onComplete(){ gsap.set(mes,{clearProps:'filter'}); }});
     if(star){
-      gsap.fromTo(star,{opacity:.85,scale:1},{opacity:1,scale:1.12,duration:.7,yoyo:true,repeat:1,ease:'sine.inOut'});
+      gsap.killTweensOf(star);
+      gsap.fromTo(star,{opacity:.85,scale:1},{opacity:1,scale:1.12,duration:.7,yoyo:true,repeat:1,ease:'sine.inOut',
+       onComplete(){ gsap.set(star,{clearProps:'opacity,scale,transform'}); }});
     }
   };
   const pulseEdge=(el)=>{
     if(!el)return;
+    gsap.killTweensOf(el);
+    // Mirror pulseMes exactly: animate ONLY filter:drop-shadow with yoyo+sine.inOut.
+    // Animating multiple properties (border + bg + shadow) simultaneously creates two
+    // distinct visual events: the "fill" on the way up and the "drain" on the way down,
+    // which the eye perceives as two pulses — even with a perfectly symmetric easing.
+    // A single-property glow intensification reads as one continuous event, like MES.
     gsap.fromTo(el,
-      {borderColor:'rgba(142,51,255,.18)',backgroundColor:'rgba(142,51,255,0)',boxShadow:'0 0 0 rgba(142,51,255,0)'},
-      {borderColor:'rgba(142,51,255,.85)',backgroundColor:'rgba(142,51,255,.12)',boxShadow:'0 0 28px rgba(142,51,255,.35)',duration:.75,yoyo:true,repeat:1,ease:'sine.inOut'});
+      {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+      {filter:'drop-shadow(0 0 28px rgba(142,51,255,.6))',
+       duration:.7,yoyo:true,repeat:1,ease:'sine.inOut',
+       onComplete(){ gsap.set(el,{clearProps:'filter'}); }});
   };
 
   // animate a train of 3 dots in a given direction in a given gap.
