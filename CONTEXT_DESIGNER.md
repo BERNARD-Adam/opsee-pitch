@@ -24,9 +24,8 @@ Ces règles ne sont pas négociables. Si tu hésites, **ne touche pas**.
 2. **N'ajoute AUCUN mot.** Pas de nouvelle phrase, pas de nouveau bullet, pas de nouveau label, pas de nouveau pill, pas de nouvelle citation, pas de nouvelle slide.
 3. **Ne supprime AUCUN mot.** Pas de phrase coupée, pas de stat retirée, pas de slide masquée.
 4. **L'ordre des slides est figé.** Tu ne réorganises pas la séquence narrative globale.
-5. **Ne touche pas aux slides S1 (gauge 67%) ni S1B (MES explainer).** Elles sont déjà au niveau attendu et servent de référence stylistique. Tu peux **lire** leur code pour comprendre le ton, mais pas le modifier.
-6. **N'introduis aucune nouvelle dépendance** (pas de Lottie, pas de Three.js, pas de Framer Motion, pas de bibliothèque tierce). GSAP + plugins déjà chargés = ta seule boîte à outils JS.
-7. **Pas de son.** `sound.js` a été retiré volontairement. Les `if(window.OPSEE_SOUND)` peuvent rester (no-op), mais ne réintroduis aucun audio.
+5. **Ne touche pas aux slides S1 (gauge 67%)** Elles sont déjà au niveau attendu et servent de référence stylistique. Tu peux **lire** leur code pour comprendre le ton, mais pas le modifier.
+7. **Pas de son.**
 
 ### ✅ CE QUE TU AS LE DROIT DE FAIRE
 

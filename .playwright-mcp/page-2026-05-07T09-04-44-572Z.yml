@@ -1,0 +1,48 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e8]: 03 — 12
+  - img "OpSee" [ref=e10]
+  - button [ref=e11] [cursor=pointer]:
+    - img [ref=e12]
+  - button [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+  - generic [ref=e17]: fleches · espace · molette
+  - generic [ref=e63]:
+    - generic [ref=e64]: Le probleme
+    - heading "Le MES est reserve aux grands" [level=2] [ref=e65]:
+      - generic [ref=e67]: Le MES est reserve
+      - emphasis [ref=e70]: aux grands
+    - paragraph [ref=e71]:
+      - text: Les PME representent
+      - strong [ref=e72]: 99.8%
+      - text: des entreprises EU — mais n'ont pas acces au MES.
+    - generic [ref=e73]:
+      - generic [ref=e74]:
+        - generic [ref=e75]: 500k€+
+        - generic [ref=e76]:
+          - text: Investissement initial
+          - text: MES Siemens / SAP
+      - generic [ref=e77]:
+        - generic [ref=e78]: "0"
+        - generic [ref=e79]:
+          - text: Duree d'integration
+          - text: moyenne
+      - generic [ref=e83]:
+        - img [ref=e84]
+        - generic [ref=e87]:
+          - text: Verrouillage
+          - text: chez un seul editeur
+  - generic [ref=e26]:
+    - button [ref=e27] [cursor=pointer]
+    - button [ref=e28] [cursor=pointer]
+    - button [ref=e29] [cursor=pointer]
+    - button [ref=e30] [cursor=pointer]
+    - button [ref=e31] [cursor=pointer]
+    - button [ref=e32] [cursor=pointer]
+    - button [ref=e33] [cursor=pointer]
+    - button [ref=e34] [cursor=pointer]
+    - button [ref=e35] [cursor=pointer]
+    - button [ref=e36] [cursor=pointer]
+    - button [ref=e37] [cursor=pointer]
+    - button [ref=e38] [cursor=pointer]
+    - button [ref=e39] [cursor=pointer]

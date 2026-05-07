@@ -32,7 +32,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s1b .mes-punch             { margin-top: 40px; }
 
 /* S2 — Problème */
-#s2 .sec-title              { margin-top: 24px; }
+#s2 .sec-title              { margin-top: 0; }
 
 /* S3 — Solution */
 #s3 .sec-title              { margin-top: 0px; }
@@ -210,6 +210,25 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .stat-card .num{font-size:58px;font-weight:900;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;letter-spacing:-2px}
 .stat-card .label{font-size:17px;color:var(--text-muted);margin-top:10px;line-height:1.5}
 .lock-icon{width:48px;height:48px;margin:0 auto;color:var(--purple);opacity:1}
+/* S2 — timeline 18 mois */
+.s2-timeline{display:block;width:80%;max-width:200px;height:14px;margin:14px auto 0;overflow:visible}
+.s2-tl-rail{stroke:rgba(142,51,255,.18);stroke-width:1.5;stroke-linecap:round}
+.s2-tl-tick{stroke:rgba(142,51,255,.22);stroke-width:1.2;stroke-linecap:round}
+.s2-tl-progress{stroke:url(#s2-tl-grad);stroke:var(--purple);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:188;stroke-dashoffset:188}
+.s2-tl-dot{fill:var(--purple);filter:drop-shadow(0 0 6px rgba(142,51,255,.45))}
+/* S2 — single-line subtitle */
+.s2-subtitle{white-space:nowrap}
+/* S2 — % highlight premium */
+.s2-pct{position:relative;display:inline-block;color:var(--text)!important;font-weight:800;letter-spacing:-.01em;padding:0 2px;will-change:transform,filter}
+.s2-pct .s2-pct-spark{display:inline-block;color:var(--purple);font-size:.62em;vertical-align:.35em;margin-right:.18em;opacity:0;transform:scale(.4) rotate(-90deg);transform-origin:50% 50%;filter:drop-shadow(0 0 6px rgba(142,51,255,.55))}
+.s2-pct .s2-pct-underline{position:absolute;left:-6%;right:-6%;bottom:-10px;width:112%;height:18px;pointer-events:none;overflow:visible}
+.s2-pct .s2-pct-underline path{fill:none;stroke:var(--purple);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;opacity:.95;filter:drop-shadow(0 0 8px rgba(142,51,255,.55))}
+/* S2 — card 2 : remonter le 18 mois */
+.s2-card[data-s2="card-2"] .num{margin-top:-10px}
+/* S2 — cadenas (anse + corps + serrure animables) */
+.s2-lock{overflow:visible}
+.s2-lock-shackle{transform-box:fill-box;transform-origin:50% 100%}
+.s2-lock-keyhole{opacity:0}
 .s2-consequence{margin-top:24px;padding:14px 28px;border-radius:14px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08)}
 .s2-consequence .subtitle{font-size:20px;margin:0}
 
@@ -513,11 +532,33 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s2">
   <div class="tag" data-a="scramble" data-text="Le probleme">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Le MES est reserve<br><em>aux grands</em></h2>
-  <p class="subtitle" data-a="fade">Les PME representent <strong style="color:var(--text)">99.8%</strong> des entreprises EU — mais n'ont pas acces au MES.</p>
-  <div class="stat-row" data-a="stagger">
-    <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="500" data-suffix="k€+">0</div><div class="label">Investissement initial<br>MES Siemens / SAP</div></div>
-    <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="18" data-suffix=" mois">0</div><div class="label">Duree d'integration<br>moyenne</div></div>
-    <div class="glow-card stat-card"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><div class="label">Verrouillage<br>chez un seul editeur</div></div>
+  <p class="subtitle s2-subtitle" data-a="fade" style="font-weight: 600">Les PME representent <strong class="s2-pct" style="color:var(--text)">99.8%<svg class="s2-pct-underline" viewBox="0 0 120 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3,11 C 22,8 48,6 72,7 C 92,7.8 108,9.5 117,11.5" /></svg></strong> des entreprises EU, mais n'ont pas acces au MES.</p>
+  <div class="stat-row s2-stat-row">
+    <div class="glow-card stat-card s2-card" data-s2="card-1">
+      <div class="num" data-count="500" data-suffix="k€+">0</div>
+      <div class="label" style="font-weight: 600">Investissement initial<br>MES Siemens / SAP</div>
+    </div>
+    <div class="glow-card stat-card s2-card" data-s2="card-2">
+      <div class="num" data-count="18" data-suffix=" mois">0</div>
+      <div class="label" style="font-weight: 600">Duree d'integration<br>moyenne</div>
+      <svg class="s2-timeline" viewBox="0 0 200 18" preserveAspectRatio="none" aria-hidden="true">
+        <line class="s2-tl-rail"  x1="6"   y1="9" x2="194" y2="9"/>
+        <line class="s2-tl-tick"  x1="37.3" y1="6" x2="37.3" y2="12"/>
+        <line class="s2-tl-tick"  x1="68.7" y1="5" x2="68.7" y2="13"/>
+        <line class="s2-tl-tick"  x1="100"  y1="6" x2="100"  y2="12"/>
+        <line class="s2-tl-tick"  x1="131.3" y1="5" x2="131.3" y2="13"/>
+        <line class="s2-tl-tick"  x1="162.7" y1="6" x2="162.7" y2="12"/>
+        <line class="s2-tl-progress" x1="6" y1="9" x2="194" y2="9"/>
+        <circle class="s2-tl-dot" cx="6" cy="9" r="4.5"/>
+      </svg>
+    </div>
+    <div class="glow-card stat-card s2-card" data-s2="card-3" style="border-width: 0px; border-style: solid; border-color: rgb(146, 55, 253); border-radius: 0px">
+      <svg class="lock-icon s2-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect class="s2-lock-body" x="3" y="11" width="18" height="11" rx="2"/>
+        <path class="s2-lock-shackle" d="M7 11V7a5 5 0 0110 0v4"/>
+      </svg>
+      <div class="label" style="font-weight: 600">Verrouillage<br>chez un seul editeur</div>
+    </div>
   </div>
 </div>
 
@@ -788,6 +829,109 @@ gsap.registerPlugin(DrawSVGPlugin,ScrambleTextPlugin,MotionPathPlugin);
   }
 })();
 
+/* ═══ S2 PROBLEME — 3 BARRIERES CHOREGRAPHIE ═══ */
+function animateS2(s){
+  const card1 = s.querySelector('[data-s2="card-1"]');
+  const card2 = s.querySelector('[data-s2="card-2"]');
+  const card3 = s.querySelector('[data-s2="card-3"]');
+  if(!card1||!card2||!card3) return;
+  const num1 = card1.querySelector('.num');
+  const num2 = card2.querySelector('.num');
+  const tlProgress = card2.querySelector('.s2-tl-progress');
+  const tlDot = card2.querySelector('.s2-tl-dot');
+  const lock = card3.querySelector('.s2-lock');
+  const shackle = card3.querySelector('.s2-lock-shackle');
+  const body = card3.querySelector('.s2-lock-body');
+  const pct = s.querySelector('.s2-pct');
+
+  // Helper: ensure num has the val/suf span structure (idempotent with the counter handler patch)
+  function setupNum(el){
+    let v=el.querySelector('.num-val'),sf=el.querySelector('.num-suf');
+    if(!v){el.textContent='';v=document.createElement('span');v.className='num-val';el.appendChild(v);}
+    if(!sf){sf=document.createElement('span');sf.className='num-suf';el.appendChild(sf);}
+    v.textContent='0';sf.textContent=el.dataset.suffix||'';
+    return v;
+  }
+  const val1 = setupNum(num1);
+  const val2 = setupNum(num2);
+
+  // RESET — all three cards hidden, % not yet hot
+  gsap.set([card1,card2,card3],{opacity:0,y:24,scale:.96});
+  gsap.set(tlProgress,{strokeDashoffset:188});
+  gsap.set(tlDot,{attr:{cx:6}});
+  gsap.set(shackle,{y:-9,rotate:-8,opacity:1});
+  if(pct){pct.classList.remove('is-hot');gsap.set(pct,{scale:1})}
+
+  const ENTRY_EASE = 'power3.out';
+
+  // ── Subtitle 99.8% — entrée premium : lift + glow + coup de crayon
+  const pctPath = pct && pct.querySelector('.s2-pct-underline path');
+  if(pctPath){
+    gsap.set(pctPath,{drawSVG:'0%',opacity:0});
+    gsap.to(pctPath,{opacity:.95,duration:.15,delay:1.0,ease:'none'});
+    gsap.to(pctPath,{drawSVG:'100%',duration:.85,ease:'power3.out',delay:1.0});
+  }
+  if(pct){
+    gsap.set(pct,{transformOrigin:'50% 60%',scale:1,y:0,filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'});
+    gsap.to(pct,{scale:1.18,y:-2,duration:.5,ease:'back.out(2.4)',delay:.7});
+    gsap.to(pct,{scale:1.12,y:0,duration:.45,ease:'power2.inOut',delay:1.8});
+    gsap.fromTo(pct,
+      {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+      {filter:'drop-shadow(0 0 22px rgba(142,51,255,.65))',duration:.55,ease:'sine.out',delay:1.0,yoyo:true,repeat:1});
+  }
+
+  // ── Card 1 (500k€+) — entry @ 2.2s, counter slightly slower
+  gsap.to(card1,{opacity:1,y:0,scale:1,duration:.6,ease:ENTRY_EASE,delay:2.2});
+  const o1={v:0};
+  gsap.to(o1,{v:500,duration:1.6,ease:'power2.out',delay:2.45,
+    onUpdate(){val1.textContent=Math.round(o1.v);if(window.OPSEE_SOUND&&Math.random()<.18)window.OPSEE_SOUND.play('tick');}
+  });
+  gsap.fromTo(num1,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
+    {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:4.05,yoyo:true,repeat:1});
+
+  // ── Card 2 (18 mois + timeline) — entry @ 4.6s, slower counter + dot
+  gsap.to(card2,{opacity:1,y:0,scale:1,duration:.6,ease:ENTRY_EASE,delay:4.6});
+  const o2={v:0};
+  gsap.to(o2,{v:18,duration:2.0,ease:'power2.out',delay:4.9,
+    onUpdate(){
+      val2.textContent=Math.round(o2.v);
+      const x = 6 + (o2.v/18)*188;
+      tlDot.setAttribute('cx', x.toFixed(2));
+      tlProgress.style.strokeDashoffset = (188 - (o2.v/18)*188).toFixed(2);
+      if(window.OPSEE_SOUND&&Math.random()<.14)window.OPSEE_SOUND.play('tick');
+    }
+  });
+  // Dot lands beat at end
+  gsap.delayedCall(4.9+2.0-.02,()=>{
+    gsap.fromTo(tlDot,{scale:1},{scale:1.35,duration:.13,yoyo:true,repeat:1,ease:'sine.inOut',transformOrigin:'50% 50%'});
+  });
+
+  // Card 2 — même scintillement mauve que card 1, juste après l'arrivée du dot
+  gsap.fromTo(num2,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
+    {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:6.95,yoyo:true,repeat:1});
+
+  // ── Card 3 (cadenas qui se ferme) — entry @ 7.4s, click @ 7.95s
+  gsap.to(card3,{opacity:1,y:0,scale:1,duration:.6,ease:ENTRY_EASE,delay:7.4});
+  // Shackle drops decisively
+  gsap.to(shackle,{y:0,rotate:0,duration:.45,ease:'power3.in',delay:7.95});
+  // Recoil
+  gsap.to(shackle,{y:-2,duration:.08,ease:'sine.out',delay:8.40});
+  gsap.to(shackle,{y:0,duration:.14,ease:'sine.inOut',delay:8.48});
+  // Stroke beat + glow swell at click moment
+  gsap.fromTo(lock,
+    {filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
+    {filter:'drop-shadow(0 0 18px rgba(142,51,255,.65))',duration:.24,ease:'power2.out',delay:8.38,yoyo:true,repeat:1}
+  );
+  gsap.fromTo([shackle,body],{strokeWidth:1.5},{strokeWidth:2,duration:.16,ease:'power2.out',delay:8.38,yoyo:true,repeat:1});
+
+  // Card 3 — scintillement mauve sur le label "Verrouillage" une fois le cadenas claqué
+  const lbl3 = card3.querySelector('.label');
+  if(lbl3){
+    gsap.fromTo(lbl3,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
+      {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:8.7,yoyo:true,repeat:1});
+  }
+}
+
 /* ═══ S1 KEYNOTE GAUGE ANIMATION ═══ */
 function animateS1(s){
   const num = s.querySelector('.big-num');
@@ -989,6 +1133,20 @@ function freezeContents(s){
     if(suffix){gsap.set(suffix,{opacity:0,y:18})}
     if(hook){gsap.set(hook,{opacity:0,y:24})}
   }
+  // S2 — reset symétrique pour replay propre
+  if(s.id==='s2'){
+    s.querySelectorAll('[data-s2]').forEach(c=>{
+      gsap.set(c,{opacity:0,y:24,scale:.96,clearProps:'filter'});
+    });
+    const tlP=s.querySelector('.s2-tl-progress');if(tlP){gsap.set(tlP,{strokeDashoffset:188})}
+    const tlD=s.querySelector('.s2-tl-dot');if(tlD){gsap.set(tlD,{attr:{cx:6},scale:1})}
+    const sh=s.querySelector('.s2-lock-shackle');if(sh){gsap.set(sh,{y:-9,rotate:-8,opacity:1})}
+    const lk=s.querySelector('.s2-lock');if(lk){gsap.set(lk,{clearProps:'filter'})}
+    const pctPath=s.querySelector('.s2-pct-underline path');if(pctPath){gsap.set(pctPath,{drawSVG:'0%',opacity:0})}
+    const pctEl=s.querySelector('.s2-pct');if(pctEl){gsap.killTweensOf(pctEl);gsap.set(pctEl,{scale:1,y:0,clearProps:'filter'})}
+    const v1=s.querySelector('[data-s2="card-1"] .num-val');if(v1){v1.textContent='0'}
+    const v2=s.querySelector('[data-s2="card-2"] .num-val');if(v2){v2.textContent='0'}
+  }
   s.querySelectorAll('[data-a]').forEach(el=>{
     // preserve user-authored inline style; clear only GSAP-injected properties
     const savedStyle=el.getAttribute('style');
@@ -1029,10 +1187,23 @@ function stopAllMesAnims(){
     else if(item && item.kill) item.kill();
   });
   mesAnimIds.length=0;
-  document.querySelectorAll('.mes-flow-dot').forEach(d=>{gsap.killTweensOf(d);gsap.set(d,{opacity:0,y:0,scaleY:1})});
-  document.querySelectorAll('.tier-mes').forEach(m=>{gsap.killTweensOf(m);gsap.set(m,{clearProps:'filter,boxShadow'});m.style.boxShadow='';m.style.filter='';});
-  document.querySelectorAll('.tier-erp,.tier-machines').forEach(m=>{gsap.killTweensOf(m);gsap.set(m,{clearProps:'borderColor,backgroundColor,backgroundImage,background,boxShadow'});});
-  document.querySelectorAll('.mes-tier-star').forEach(s=>{gsap.killTweensOf(s);gsap.set(s,{clearProps:'opacity,scale,transform'});});
+  document.querySelectorAll('.mes-flow-dot').forEach(d=>{
+    gsap.killTweensOf(d);
+    gsap.set(d,{opacity:0,y:0,scaleY:1});
+  });
+  document.querySelectorAll('.tier-mes').forEach(m=>{
+    gsap.killTweensOf(m);
+    gsap.set(m,{clearProps:'filter,boxShadow'});
+    m.style.boxShadow=''; m.style.filter='';
+  });
+  document.querySelectorAll('.tier-erp,.tier-machines').forEach(m=>{
+    gsap.killTweensOf(m);
+    gsap.set(m,{clearProps:'filter'});
+  });
+  document.querySelectorAll('.mes-tier-star').forEach(s=>{
+    gsap.killTweensOf(s);
+    gsap.set(s,{clearProps:'opacity,scale,transform'});
+  });
 }
 function startMesFlow(stack){
   const mes=stack.querySelector('.tier-mes');
@@ -1043,34 +1214,33 @@ function startMesFlow(stack){
   const topGap=gaps[0], botGap=gaps[1];
   const ease='cubic-bezier(0.4, 0, 0.2, 1)';
 
-  // Receptions: MES gets the strong treatment (drop-shadow swell + star flash + scale).
-  // ERP/MACHINES get the elegant treatment (border flash + light shadow swell + scale).
+  // ─── PULSE MES (réception forte avec étoile qui flash) ───
   const pulseMes=(intense)=>{
     if(!mes)return;
     const peak=intense?48:38;
     gsap.killTweensOf(mes);
     gsap.fromTo(mes,
       {filter:'drop-shadow(0 0 12px rgba(142,51,255,.35))'},
-      {filter:`drop-shadow(0 0 ${peak}px rgba(142,51,255,.95))`,duration:.7,yoyo:true,repeat:1,ease:'sine.inOut',
+      {filter:`drop-shadow(0 0 ${peak}px rgba(142,51,255,.95))`,
+       duration:.7, yoyo:true, repeat:1, ease:'sine.inOut',
        onComplete(){ gsap.set(mes,{clearProps:'filter'}); }});
     if(star){
       gsap.killTweensOf(star);
-      gsap.fromTo(star,{opacity:.85,scale:1},{opacity:1,scale:1.12,duration:.7,yoyo:true,repeat:1,ease:'sine.inOut',
-       onComplete(){ gsap.set(star,{clearProps:'opacity,scale,transform'}); }});
+      gsap.fromTo(star,
+        {opacity:.85, scale:1},
+        {opacity:1, scale:1.12, duration:.7, yoyo:true, repeat:1, ease:'sine.inOut',
+         onComplete(){ gsap.set(star,{clearProps:'opacity,scale,transform'}); }});
     }
   };
+
+  // ─── PULSE EDGE (ERP / MACHINES) — une seule propriété animée → une seule pulsation perçue
   const pulseEdge=(el)=>{
     if(!el)return;
     gsap.killTweensOf(el);
-    // Mirror pulseMes exactly: animate ONLY filter:drop-shadow with yoyo+sine.inOut.
-    // Animating multiple properties (border + bg + shadow) simultaneously creates two
-    // distinct visual events: the "fill" on the way up and the "drain" on the way down,
-    // which the eye perceives as two pulses — even with a perfectly symmetric easing.
-    // A single-property glow intensification reads as one continuous event, like MES.
     gsap.fromTo(el,
       {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
       {filter:'drop-shadow(0 0 28px rgba(142,51,255,.6))',
-       duration:.7,yoyo:true,repeat:1,ease:'sine.inOut',
+       duration:.7, yoyo:true, repeat:1, ease:'sine.inOut',
        onComplete(){ gsap.set(el,{clearProps:'filter'}); }});
   };
 
@@ -1168,14 +1338,19 @@ function animateIn(s){
     p.style.opacity='1';[...kids].sort(()=>Math.random()-.5).forEach((k,i)=>{tl.to(k,{opacity:1,y:0,rotateX:0,scale:1,duration:.5,ease:'power2.out'},.12+i*.08)});
   });
 
-  // COUNTERS
+  // COUNTERS — suffix isolated in child span so it survives any downstream textContent rewrite
   s.querySelectorAll('[data-a="count"],[data-a="counter"]').forEach(el=>{
-    const target=parseInt(el.dataset.count),suffix=el.dataset.suffix||'';el.textContent='0'+suffix;el.style.opacity='1';
-    const obj={v:0};tl.to(obj,{v:target,duration:1.6,ease:'power2.out',onUpdate(){el.textContent=Math.round(obj.v)+suffix;if(window.OPSEE_SOUND&&Math.random()<.18)window.OPSEE_SOUND.play('tick');}},.1);
+    const target=parseInt(el.dataset.count),suffix=el.dataset.suffix||'';
+    let valEl=el.querySelector('.num-val'),sufEl=el.querySelector('.num-suf');
+    if(!valEl){el.textContent='';valEl=document.createElement('span');valEl.className='num-val';el.appendChild(valEl);}
+    if(!sufEl){sufEl=document.createElement('span');sufEl.className='num-suf';el.appendChild(sufEl);}
+    valEl.textContent='0';sufEl.textContent=suffix;el.style.opacity='1';
+    const obj={v:0};tl.to(obj,{v:target,duration:1.6,ease:'power2.out',onUpdate(){valEl.textContent=Math.round(obj.v);if(window.OPSEE_SOUND&&Math.random()<.18)window.OPSEE_SOUND.play('tick');}},.1);
   });
 
   // S1 KEYNOTE — custom orchestrated animation
   if(s.id==='s1') animateS1(s);
+  if(s.id==='s2') animateS2(s);
 
   // ROLLING
   s.querySelectorAll('[data-a="rolling"]').forEach(el=>{el.style.opacity='1';gsap.set(el,{y:0});setTimeout(()=>startRolling(el),1800)});

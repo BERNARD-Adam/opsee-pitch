@@ -1,0 +1,41 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e8]: 01 — 12
+  - img "OpSee" [ref=e10]
+  - button [ref=e11] [cursor=pointer]:
+    - img [ref=e12]
+  - button [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+  - generic [ref=e17]: fleches · espace · molette
+  - generic [ref=e18]:
+    - generic [ref=e19]: CBC Pitch Challenge 2026
+    - generic:
+      - img
+    - generic:
+      - generic: "67"
+      - generic: "%"
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - text: des
+        - strong [ref=e22]: PME européennes
+      - paragraph [ref=e23]:
+        - text: ont un niveau
+        - strong [ref=e24]: bas ou très bas
+        - text: de digitalisation.
+        - text: Elles gèrent leur usine avec
+        - strong [ref=e25]: Excel, du papier, ou rien
+        - text: .
+  - generic [ref=e26]:
+    - button [ref=e27] [cursor=pointer]
+    - button [ref=e28] [cursor=pointer]
+    - button [ref=e29] [cursor=pointer]
+    - button [ref=e30] [cursor=pointer]
+    - button [ref=e31] [cursor=pointer]
+    - button [ref=e32] [cursor=pointer]
+    - button [ref=e33] [cursor=pointer]
+    - button [ref=e34] [cursor=pointer]
+    - button [ref=e35] [cursor=pointer]
+    - button [ref=e36] [cursor=pointer]
+    - button [ref=e37] [cursor=pointer]
+    - button [ref=e38] [cursor=pointer]
+    - button [ref=e39] [cursor=pointer]
