@@ -262,7 +262,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 
 /* ═══ S4 DEMO ═══ */
 .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:1100px;margin-top:28px;position:relative;perspective:1400px}
-.demo-item{position:relative;border-radius:14px;overflow:hidden;border:1.5px solid rgba(142,51,255,.35);box-shadow:0 30px 80px rgba(142,51,255,.18),0 0 0 1px rgba(142,51,255,.08);cursor:default;will-change:transform,opacity,filter;transform-origin:center center}
+.demo-item{position:relative;border-radius:14px;overflow:hidden;border:1.5px solid rgba(142,51,255,.35);box-shadow:0 30px 80px rgba(142,51,255,.18),0 0 0 1px rgba(142,51,255,.08);cursor:default;will-change:transform,opacity,filter;transform:translateZ(0);transform-origin:center center}
 .demo-item.is-hero{position:absolute;inset:0;width:100%;height:100%;z-index:5}
 .demo-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,10,15,.75));pointer-events:none}
 .demo-item:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(112,83,254,.12);border-color:rgba(112,83,254,.2)}
@@ -1236,10 +1236,14 @@ function stopAllS4Anims(){
   s4AnimIds.length=0;
   document.querySelectorAll('#s4 .demo-item').forEach(it=>{
     gsap.killTweensOf(it);
-    it.classList.remove('is-hero');
+    it.classList.remove('is-hero'); // legacy safety
+    it.style.zIndex = '';
+    it.style.borderRadius = '';
     gsap.set(it,{clearProps:'all'});
     const lbl=it.querySelector('.demo-label');
     if(lbl){gsap.killTweensOf(lbl);gsap.set(lbl,{clearProps:'all'})}
+    const img=it.querySelector('img');
+    if(img){gsap.killTweensOf(img);gsap.set(img,{clearProps:'all'})}
     it.querySelectorAll('.s4-sweep').forEach(sw=>sw.remove());
   });
   const grid=document.querySelector('#s4 .demo-grid');
@@ -1256,18 +1260,46 @@ function animateS4(s){
   const items=Array.from(s.querySelectorAll('.demo-item'));
   if(!grid||items.length<4)return;
 
-  // Mesurer la hauteur naturelle du grid (4 cartes en place) et la verrouiller
-  // pour qu'il ne s'écroule pas quand une carte passe en position absolute.
+  // ── ARCHITECTURE TRANSFORM-ONLY ──
+  // La carte reste TOUJOURS dans son slot (pas de toggle position:absolute).
+  // L'effet "hero" est obtenu purement via transform (scale + translate) pré-calculé.
+  // Avantages : aucun reflow synchrone à l'instant du FLIP, transform continu
+  // que le compositor GPU peut interpoler sans rebuild de layer → fluidité parfaite.
+
+  // Reset propre : nettoie tout state résiduel (anciens runs, classes héritées)
   gsap.set(grid,{minHeight:'',opacity:1});
-  items.forEach(it=>{ it.classList.remove('is-hero'); gsap.set(it,{clearProps:'all'}); });
+  items.forEach(it=>{
+    it.classList.remove('is-hero');
+    gsap.set(it,{clearProps:'all'});
+    const lbl=it.querySelector('.demo-label');
+    if(lbl) gsap.set(lbl,{clearProps:'all'});
+    const img=it.querySelector('img');
+    if(img) gsap.set(img,{clearProps:'all'});
+  });
+
+  // Verrouille la hauteur naturelle du grid (4 cartes en place)
   const naturalH = grid.getBoundingClientRect().height;
   if(naturalH > 0) grid.style.minHeight = naturalH + 'px';
 
-  // RESET — toutes les cartes invisibles, aucune en hero
-  items.forEach(it=>{
-    gsap.set(it,{opacity:0,scale:.95,x:0,y:0});
-    const lbl=it.querySelector('.demo-label');
-    if(lbl) gsap.set(lbl,{y:30,opacity:0});
+  // ── PRÉ-CALCUL des transforms hero PAR CARTE (une seule fois) ──
+  // Pour chaque carte : (dx, dy, sx, sy) tels que la carte naturelle
+  // (en slot, sans transform) paraisse occuper le grid entier en hero.
+  const gridRect = grid.getBoundingClientRect();
+  const heroT = items.map(card=>{
+    const slot = card.getBoundingClientRect();
+    return {
+      dx: gridRect.left - slot.left,
+      dy: gridRect.top  - slot.top,
+      sx: gridRect.width  / slot.width,
+      sy: gridRect.height / slot.height
+    };
+  });
+
+  // RESET visuel : invisible, transforms à zéro
+  items.forEach(card=>{
+    gsap.set(card,{opacity:0});
+    const lbl=card.querySelector('.demo-label');
+    if(lbl) gsap.set(lbl,{opacity:0,y:20});
   });
 
   // Floor-glow (créé une fois, animé à la fin)
@@ -1281,96 +1313,98 @@ function animateS4(s){
     gsap.set(floor,{opacity:0});
   }
 
-  // ── Timing par hero
+  // Timing par hero
   const HERO_FADE_IN  = .55;
   const HERO_HOLD     = .55;
   const HERO_SHRINK   = .85;
   const HERO_GAP      = .10;
   const STEP = HERO_FADE_IN + HERO_HOLD + HERO_SHRINK + HERO_GAP;
   const START = 1.0;
+  const SLOT_RADIUS = 14;
 
   const tl=gsap.timeline({delay:START});
-
-  // Calcule le ratio hero/slot pour compenser le radius en hero.
-  const SLOT_RADIUS = 14;
-  let heroRatio = 2;
-  if (items.length){
-    const slotR = items[0].getBoundingClientRect();
-    items[0].classList.add('is-hero');
-    const heroR = items[0].getBoundingClientRect();
-    items[0].classList.remove('is-hero');
-    if (slotR.width > 0) heroRatio = heroR.width / slotR.width;
-  }
-  const HERO_RADIUS = SLOT_RADIUS / heroRatio;
 
   items.forEach((card, i)=>{
     const t = i * STEP;
     const lbl = card.querySelector('.demo-label');
+    const img = card.querySelector('img');
+    const ht  = heroT[i];
 
-    // 1. Fade-in en hero (position absolue plein-format)
+    // ── 1. SETUP HERO ── pas de classToggle, juste un transform
+    // La carte est toujours en slot mais transformée pour paraître hero.
+    // Tout est appliqué en bloc atomique avant le fade-in.
     tl.call(()=>{
-      card.classList.add('is-hero');
-      card.style.borderRadius = HERO_RADIUS + 'px';
-    }, [], t)
-      .fromTo(card,
-        {opacity:0, scale:.96},
-        {opacity:1, scale:1, duration:HERO_FADE_IN, ease:'power3.out'}, t)
-      .fromTo(lbl,
-        {y:20, opacity:0},
-        {y:0, opacity:1, duration:HERO_FADE_IN*.7, ease:'power2.out',
-         onComplete(){ gsap.set(lbl, {clearProps:'y,opacity'}); lbl.style.opacity='1'; }},
-        t+.15);
-
-    // 2. FLIP : transition fluide hero → slot grid
-    tl.call(()=>{
-      gsap.killTweensOf(lbl);
-      gsap.set(lbl, {clearProps:'y,opacity,transform'});
-      lbl.style.opacity='1';
-
-      const first = card.getBoundingClientRect();
-      card.classList.remove('is-hero');
-      const last = card.getBoundingClientRect();
-
-      const dx = first.left - last.left;
-      const dy = first.top  - last.top;
-      const sx = first.width  / last.width;
-      const sy = first.height / last.height;
-
+      card.style.zIndex = '5';
       gsap.set(card, {
-        x: dx, y: dy,
-        scaleX: sx, scaleY: sy,
+        x: ht.dx, y: ht.dy,
+        scaleX: ht.sx, scaleY: ht.sy,
         transformOrigin: '0 0',
-        zIndex: 4
+        force3D: true                     // promote to GPU layer dès le départ
       });
-
+      // Radius compensé pour que VISIBLE = SLOT_RADIUS dès la 1re frame
+      card.style.borderRadius = (SLOT_RADIUS / ht.sx) + 'px';
+      // Label : counter-scale pour rester à sa taille de slot, pas blown-up
       gsap.set(lbl, {
-        scaleX: 1/sx, scaleY: 1/sy,
-        transformOrigin: '0 100%'
+        scaleX: 1/ht.sx, scaleY: 1/ht.sy,
+        transformOrigin: '0 100%',
+        force3D: true
       });
+      // Subtle puff sur l'<img> interne (n'affecte PAS le transform du parent
+      // → continuité parfaite du transform de la carte hero → FLIP)
+      if(img) gsap.set(img, {scale: .96, force3D: true});
+    }, [], t);
 
-      gsap.to(card, {
-        x: 0, y: 0,
-        scaleX: 1, scaleY: 1,
-        duration: HERO_SHRINK,
-        ease: 'expo.inOut',
-        onUpdate(){
-          const curSx = gsap.getProperty(card, 'scaleX');
-          card.style.borderRadius = (SLOT_RADIUS / curSx) + 'px';
-        },
-        onComplete(){
-          gsap.set(card, {clearProps:'x,y,scaleX,scaleY,transformOrigin,zIndex'});
-          card.style.borderRadius = '';
-        }
-      });
-      gsap.to(lbl, {
-        scaleX: 1, scaleY: 1,
-        duration: HERO_SHRINK,
-        ease: 'expo.inOut',
-        onComplete(){
-          gsap.set(lbl, {clearProps:'scaleX,scaleY,transformOrigin,transform'});
-        }
-      });
-    }, [], t+HERO_FADE_IN+HERO_HOLD);
+    // ── 2. FADE-IN ── opacity sur card+label, scale puff sur img
+    // Aucune modification du transform principal de la carte → stable.
+    tl.to(card, {opacity:1, duration:HERO_FADE_IN, ease:'power3.out'}, t);
+    if(img) tl.to(img, {scale:1, duration:HERO_FADE_IN, ease:'power3.out',
+      // Cleanup img inline transform à la fin du puff : sinon l'img garde son
+      // propre layer GPU (à cause du transform inline résiduel) en parallèle
+      // du layer du parent → désync sub-frame possible pendant le FLIP.
+      // En clearProps, l'img redevient un simple enfant rendu dans le layer du parent.
+      onComplete(){ gsap.set(img, {clearProps:'scale,transform,force3D'}); }
+    }, t);
+    tl.to(lbl, {y:0, opacity:1, duration:HERO_FADE_IN*.7, ease:'power2.out'}, t+.15);
+
+    // ── 3. HOLD ── rien à faire, le transform reste figé pendant HERO_HOLD
+
+    // ── 4. FLIP ── tween continu du transform hero → identité.
+    // Le scale et la translation tween de leurs valeurs courantes (ht.sx/ht.dx)
+    // vers (1/0). Aucune discontinuité : la frame N (fin du hold) a exactement
+    // les mêmes valeurs de transform que la frame N+1 (début du tween).
+    const flipT = t + HERO_FADE_IN + HERO_HOLD;
+    tl.to(card, {
+      x: 0, y: 0,
+      scaleX: 1, scaleY: 1,
+      duration: HERO_SHRINK,
+      ease: 'expo.inOut',
+      onUpdate(){
+        const curSx = gsap.getProperty(card, 'scaleX');
+        card.style.borderRadius = (SLOT_RADIUS / curSx) + 'px';
+      },
+      onComplete(){
+        // Snap atomique à l'identité EXACTE avant clearProps :
+        // élimine tout résidu sub-pixel du dernier frame (ex: scale=1.0005
+        // si l'easing n'atteint pas 1.0 mathématiquement).
+        gsap.set(card, {x:0, y:0, scaleX:1, scaleY:1});
+        // Maintenant clearProps : CSS .demo-item a `transform:translateZ(0)`
+        // → fallback sur identité 3D, le layer GPU reste alive, pas de drop.
+        gsap.set(card, {clearProps:'x,y,scaleX,scaleY,transformOrigin,force3D,zIndex'});
+        card.style.borderRadius = '';
+        card.style.zIndex = '';
+      }
+    }, flipT);
+    // Label : tween son counter-scale en parallèle vers identité
+    tl.to(lbl, {
+      scaleX: 1, scaleY: 1,
+      duration: HERO_SHRINK,
+      ease: 'expo.inOut',
+      onComplete(){
+        // Même logique de snap → clearProps pour le label
+        gsap.set(lbl, {scaleX:1, scaleY:1});
+        gsap.set(lbl, {clearProps:'scaleX,scaleY,transformOrigin,force3D,transform'});
+      }
+    }, flipT);
   });
 
   // ── Floor glow + beat synchrone une fois les 4 cartes en place
