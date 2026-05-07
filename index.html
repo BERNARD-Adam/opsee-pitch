@@ -51,8 +51,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s5 .sec-title              { margin-top: 20px; }
 
 /* S7 — Marché */
-#s7 .sec-title              { margin-top: 20px; }
-#s7 > .subtitle             { margin-top: 12px; }
+#s7 .sec-title              { margin-top: 0; position: relative; top: -50px; }
+#s7 > .subtitle             { margin-top: 22px; font-size: 28px; max-width: none; }
 /* Allow growth chart + globe icon to render below the cards without being clipped by stat-row's overflow:hidden */
 .s7-stat-row{overflow:visible}
 .s7-stat-row .s7-card{overflow:visible}
@@ -114,17 +114,17 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s11 > .subtitle            { margin-top: 12px; }
 
 /* S12 — Ask */
-#s12 .sec-title             { margin-top: 20px; }
-#s12 > .subtitle            { margin-top: 12px; }
+#s12 .sec-title             { margin-top: 0; position: relative; top: -30px; }
+#s12 > .subtitle            { margin-top: 18px; font-size: 27px; font-weight: 500; max-width: none; }
 
 /* S13 — Closing */
-#s13                        { justify-content: center; padding-top: 20vh; }
-#s13 .logo-big img          { height: 400px; }
-#s13 .logo-big              { margin-bottom: -10vh; }
-#s13 .tagline-final         { margin-top: 0px; }
-#s13 .closing-text          { margin-top: 8px; max-width: 780px; }
-#s13 .contact-row           { margin-top: 12px; }
-#s13 .final-tag             { margin-top: 14px; }
+#s13                        { justify-content: flex-start; padding-top: 6vh; }
+#s13 .logo-big img          { height: 320px; }
+#s13 .logo-big              { margin-bottom: 0; }
+#s13 .tagline-final         { margin-top: 1vh; }
+#s13 .closing-text          { margin-top: 5vh; max-width: 880px; font-size: 30px; font-weight: 500; }
+#s13 .contact-row           { margin-top: 4vh; }
+#s13 .final-tag             { margin-top: 3vh; }
 
 /* ═══ SVG ICONS ═══ */
 .ico{width:22px;height:22px;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;fill:none;flex-shrink:0}
@@ -444,19 +444,26 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .team-row .card{background:transparent;border:none;border-radius:0;border-right:1px solid rgba(142,51,255,.1);transition:all .4s cubic-bezier(.22,1,.36,1)}
 .team-row .card:last-child{border-right:none}
 .team-row .card:hover{background:rgba(142,51,255,.04)}
-.team-member{text-align:center;padding:28px 16px}
-.team-member img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid var(--border-light);margin-bottom:12px;filter:grayscale(.3);transition:all .5s}
+.team-member{text-align:center;padding:32px 18px}
+.team-member img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--border-light);margin-bottom:14px;filter:grayscale(.3);transition:all .5s}
 .team-member:hover img{border-color:var(--purple);box-shadow:0 0 24px var(--purple-glow);filter:grayscale(0)}
-.team-member .name{font-weight:700;font-size:19px;color:var(--text)}
-.team-member .role{font-size:15px;color:var(--text-muted);margin-top:4px}
-.team-mentors{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;max-width:520px;margin-top:20px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
+.team-member .name{font-weight:700;font-size:22px;color:var(--text)}
+.team-member .role{font-size:17px;font-weight:500;color:var(--text-muted);margin-top:6px}
+.team-mentors{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;max-width:660px;margin-top:20px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
 .team-mentors .card{background:transparent;border:none;border-radius:0;transition:all .4s cubic-bezier(.22,1,.36,1)}
 .team-mentors .card:first-child{border-right:1px solid rgba(142,51,255,.1)}
 .team-mentors .card:hover{background:rgba(142,51,255,.04)}
-.mentor-card{padding:18px;display:flex;gap:14px;align-items:center}
-.mentor-card .name{font-weight:700;font-size:16px;color:var(--text)}
-.mentor-card .role{font-size:14px;color:var(--text-muted)}
-.mentor-avatar{width:44px;height:44px;border-radius:12px;background:var(--surface2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--purple-light)}
+.mentor-card{padding:22px;display:flex;gap:16px;align-items:center}
+.mentor-card .name{font-weight:700;font-size:18px;color:var(--text);white-space:nowrap}
+.mentor-card .role{font-size:16px;font-weight:500;color:var(--text-muted);line-height:1.45}
+.mentor-avatar{width:60px;height:60px;border-radius:50%;background:var(--surface2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--purple-light);overflow:hidden;border:2px solid var(--border-light);transition:all .5s;will-change:transform,filter}
+.mentor-avatar img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.85);transition:filter .7s ease}
+.team-mentors .card:hover .mentor-avatar{border-color:var(--purple);box-shadow:0 0 18px var(--purple-glow)}
+.team-mentors .card:hover .mentor-avatar img{filter:grayscale(0)}
+.team-row .card,.team-mentors .card{will-change:transform,opacity}
+.team-member img,.mentor-avatar img{will-change:filter}
+.team-connector{width:2px;height:24px;margin:6px auto 0;display:block;overflow:visible}
+.team-connector path{stroke:var(--purple-light);stroke-width:1.5;stroke-dasharray:3 4;fill:none;opacity:.55}
 
 /* ═══ S11 AVANTAGE ═══ */
 .adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1000px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
@@ -479,15 +486,18 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .ask-card:last-child{border-right:none}
 .ask-card:hover{background:rgba(142,51,255,.04)}
 .ask-card .ask-icon{margin-bottom:16px;color:var(--purple)}
-.ask-card .ask-title{font-weight:700;font-size:20px;color:var(--text)}
-.ask-card .ask-desc{font-size:17px;color:var(--text-muted);margin-top:10px;line-height:1.6}
+.ask-card .ask-title{font-weight:700;font-size:24px;color:var(--text)}
+.ask-card .ask-desc{font-size:19px;font-weight:500;color:var(--text-muted);margin-top:10px;line-height:1.6}
+.s12-hl{color:var(--purple-light);font-weight:700;position:relative;display:inline-block;will-change:transform,filter}
+.ask-row,.ask-card,.ask-icon,.ask-title,.ask-desc,.s12-cta{will-change:transform,opacity,filter}
+#s12 .s12-cta .subtitle{font-size:23px;font-weight:500}
 
 /* ═══ S13 CLOSING ═══ */
 #s13{text-align:center;position:relative}
 #s13::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(112,83,254,.08),transparent);pointer-events:none}
 /* s13 logo-big: sizing in tuning panel */
-#s13 .logo-big img{width:auto;filter:drop-shadow(0 0 50px rgba(112,83,254,.25))}
-#s13 .tagline-final{font-size:28px;color:var(--text-muted);font-weight:200;letter-spacing:3px}
+#s13 .logo-big img{width:auto;display:block;filter:drop-shadow(0 0 50px rgba(112,83,254,.25))}
+#s13 .tagline-final{font-size:84px;color:var(--text-muted);font-weight:200;letter-spacing:4px;text-align:center;line-height:1.1}
 .rolling-wrap{display:inline-block;height:1.3em;overflow:hidden;vertical-align:bottom;position:relative;min-width:2ch}
 .rolling-track{display:flex;flex-direction:column}.rolling-track span{display:block;height:1.3em;line-height:1.3em}
 .contact-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -497,6 +507,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .commit-stats{font-family:'Space Mono',monospace;font-size:11px;color:var(--text-muted);text-align:center}
 .closing-text{font-size:24px;color:var(--text-muted);line-height:1.6;font-weight:300}
 .final-tag{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:rgba(28,37,46,.15)}
+#s13 .logo-big,#s13 .tagline-final,#s13 .closing-text,#s13 .contact-row,#s13 .chip,#s13 .final-tag{will-change:transform,opacity,filter}
+#s13 .rolling-wrap{will-change:transform,filter}
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:768px){
@@ -763,66 +775,19 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s7">
   <div class="tag" data-a="scramble" data-text="Opportunite">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Un marche de <em>$16 Mds</em><br>domine par des acteurs trop chers</h2>
-  <p class="subtitle s7-subtitle" data-a="fade" style="font-weight: 600">Le MES est le prochain domaine B2B a etre open source.</p>
+  <p class="subtitle s7-subtitle" data-a="fade" style="font-weight: 600">Le MES est le prochain domaine B2B a etre disrupte par l'open source.</p>
   <div class="stat-row s7-stat-row">
     <div class="glow-card stat-card s7-card" data-s7="card-1">
-      <svg class="s7-planet" viewBox="0 0 60 60" aria-hidden="true">
-        <defs>
-          <clipPath id="s7-planet-clip"><circle cx="30" cy="30" r="14"/></clipPath>
-        </defs>
-        <!-- Outer orbit ring (decorative) -->
-        <ellipse class="s7-planet-orbit" cx="30" cy="30" rx="22" ry="7" transform="rotate(-18 30 30)"/>
-        <!-- Globe sphere -->
-        <circle class="s7-planet-sphere" cx="30" cy="30" r="14"/>
-        <!-- Continents that scroll horizontally inside the sphere (illusion of rotation) -->
-        <g clip-path="url(#s7-planet-clip)">
-          <g class="s7-planet-continents">
-            <!-- group repeated x2 for seamless scroll -->
-            <path d="M18 26 q3 -3 7 -1 q4 2 6 -1 q3 -3 6 0 q2 3 -1 5 q-3 2 -7 1 q-4 -1 -6 1 q-2 3 -5 1 z"/>
-            <path d="M22 36 q4 -2 7 0 q3 2 7 -1"/>
-            <path d="M44 26 q3 -3 7 -1 q4 2 6 -1 q3 -3 6 0 q2 3 -1 5 q-3 2 -7 1 q-4 -1 -6 1 q-2 3 -5 1 z"/>
-            <path d="M48 36 q4 -2 7 0 q3 2 7 -1"/>
-          </g>
-        </g>
-        <!-- Equator highlight -->
-        <ellipse class="s7-planet-eq" cx="30" cy="30" rx="14" ry="3.4"/>
-      </svg>
       <div class="num" data-count="16" data-suffix=" Mds$">0</div>
       <div class="label" style="font-weight: 600">Marche mondial<br>du MES en 2025</div>
     </div>
     <div class="glow-card stat-card s7-card" data-s7="card-2">
-      <svg class="s7-bars" viewBox="0 0 120 50" aria-hidden="true">
-        <line class="s7-bars-axis" x1="6" y1="44" x2="114" y2="44"/>
-        <rect class="s7-bar" x="14"  y="38" width="10" height="6"/>
-        <rect class="s7-bar" x="32"  y="34" width="10" height="10"/>
-        <rect class="s7-bar" x="50"  y="28" width="10" height="16"/>
-        <rect class="s7-bar" x="68"  y="22" width="10" height="22"/>
-        <rect class="s7-bar" x="86"  y="14" width="10" height="30"/>
-        <path class="s7-bars-trend" d="M 19 38 L 37 32 L 55 25 L 73 17 L 91 9"/>
-        <polygon class="s7-bars-arrow" points="91,9 86,11 89,14"/>
-      </svg>
       <div class="num" data-count="12" data-suffix="%/an">0</div>
       <div class="label" style="font-weight: 600">Croissance<br>annuelle</div>
     </div>
     <div class="glow-card stat-card s7-card" data-s7="card-3">
-      <svg class="s7-network" viewBox="0 0 200 80" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <!-- Network links from BE outward -->
-        <line class="s7-net-link" x1="100" y1="48" x2="60" y2="20"/>
-        <line class="s7-net-link" x1="100" y1="48" x2="140" y2="20"/>
-        <line class="s7-net-link" x1="100" y1="48" x2="40" y2="60"/>
-        <line class="s7-net-link" x1="100" y1="48" x2="160" y2="60"/>
-        <!-- Belgium silhouette (simplified, centered) -->
-        <path class="s7-be-shape" d="M93 38 L98 34 L104 35 L108 38 L110 42 L108 47 L110 51 L107 55 L102 56 L97 54 L93 50 L91 45 Z"/>
-        <!-- BE anchor pulse -->
-        <circle class="s7-be-pulse" cx="100" cy="46" r="3"/>
-        <!-- Target nodes -->
-        <circle class="s7-net-node" cx="60" cy="20" r="2.4"/>
-        <circle class="s7-net-node" cx="140" cy="20" r="2.4"/>
-        <circle class="s7-net-node" cx="40" cy="60" r="2.4"/>
-        <circle class="s7-net-node" cx="160" cy="60" r="2.4"/>
-      </svg>
       <div class="num" data-count="160" data-suffix="k+">0</div>
-      <div class="label" style="font-weight: 600">PME industrielles cibles<br>BE · FR · pays germanophones</div>
+      <div class="label" style="font-weight: 600">PME industrielles cibles<br>BE · FR · DE</div>
     </div>
   </div>
 </div>
@@ -882,16 +847,16 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s10">
   <div class="tag" data-a="scramble" data-text="L'equipe">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Expertise <em>industrielle</em><br>+ energie academique</h2>
-  <p class="subtitle" data-a="fade">4 cofondateurs · <strong style="color:var(--text)">Incubes par</strong> <strong style="color:var(--purple-light)">AgiNtech</strong> (20+ ans d'industrie).</p>
-  <div class="team-row" data-a="stagger">
-    <div class="card team-member"><img src="img/member_adam.jpg" alt="Adam"><div class="name">Adam Bernard</div><div class="role">Frontend / UX</div></div>
-    <div class="card team-member"><img src="img/member_nathan.png" alt="Nathan"><div class="name">Nathan Moreau</div><div class="role">Backend / Architecture</div></div>
-    <div class="card team-member"><img src="img/member_juliette.jpg" alt="Juliette"><div class="name">Juliette Marchand</div><div class="role">Commercial / Strategie</div></div>
-    <div class="card team-member"><img src="img/membre_louis.jpeg" alt="Louis"><div class="name">Louis Verbeeren</div><div class="role">Finance / Juridique</div></div>
+  <div class="team-row">
+    <div class="card team-member" data-s10="m-1"><img src="img/member_adam.jpg" alt="Adam"><div class="name">Adam Bernard</div><div class="role">Frontend / UX</div></div>
+    <div class="card team-member" data-s10="m-2"><img src="img/member_nathan.png" alt="Nathan"><div class="name">Nathan Moreau</div><div class="role">Backend / Architecture</div></div>
+    <div class="card team-member" data-s10="m-3"><img src="img/member_juliette.jpg" alt="Juliette"><div class="name">Juliette Marchand</div><div class="role">Commercial / Strategie</div></div>
+    <div class="card team-member" data-s10="m-4"><img src="img/membre_louis.jpeg" alt="Louis"><div class="name">Louis Verbeeren</div><div class="role">Finance / Juridique</div></div>
   </div>
-  <div class="team-mentors" data-a="stagger">
-    <div class="card mentor-card"><div class="mentor-avatar"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg></div><div><div class="name">Christophe Camerlynck</div><div class="role">CEO AgiNtech · 20+ ans industrie</div></div></div>
-    <div class="card mentor-card"><div class="mentor-avatar"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div><div class="name">Peter Mees</div><div class="role">Expert MES · AgiNtech</div></div></div>
+  <svg class="team-connector" viewBox="0 0 2 24" preserveAspectRatio="none"><path d="M1 0 L1 24"/></svg>
+  <div class="team-mentors">
+    <div class="card mentor-card" data-s10="mentor-1"><div class="mentor-avatar"><img src="img/mentor_christophe.jpeg" alt="Christophe"></div><div><div class="name">Christophe Camerlynck</div><div class="role">CEO AgiNtech<br>20+ ans en industrie</div></div></div>
+    <div class="card mentor-card" data-s10="mentor-2"><div class="mentor-avatar"><img src="img/mentor_peter.jpeg" alt="Peter"></div><div><div class="name">Peter Mees</div><div class="role">Expert MES<br>AgiNtech</div></div></div>
   </div>
 </div>
 
@@ -899,23 +864,23 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s12">
   <div class="tag" data-a="scramble" data-text="Ce qu'on cherche">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">On ne cherche pas<br><em>des applaudissements</em></h2>
-  <p class="subtitle" data-a="fade">Mais des connexions concretes pour passer a l'echelle.</p>
-  <div class="ask-row" data-a="stagger">
+  <p class="subtitle" data-a="fade">Mais des <span class="s12-hl">connexions concretes</span> pour passer a l'echelle.</p>
+  <div class="ask-row">
     <div class="glow-card ask-card"><div class="ask-icon"><svg class="ico-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg></div><div class="ask-title">Clients pilotes</div><div class="ask-desc">PME industrielles belges pour valider en conditions reelles. Deploiement gratuit.</div></div>
     <div class="glow-card ask-card"><div class="ask-icon"><svg class="ico-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><div class="ask-title">Partenaires integrateurs</div><div class="ask-desc">Societes d'automatisation industrielle pour distribuer OpSee.</div></div>
     <div class="glow-card ask-card"><div class="ask-icon"><svg class="ico-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div class="ask-title">Visibilite & reseau</div><div class="ask-desc">Connexions dans l'ecosysteme industriel belge et europeen.</div></div>
   </div>
-  <div class="s2-consequence" data-a="fade"><p class="subtitle"><strong style="color:var(--purple-light)">Vous connaissez une PME industrielle ?</strong> Presentez-nous. On fait le reste.</p></div>
+  <div class="s2-consequence s12-cta"><p class="subtitle"><strong style="color:var(--purple-light)">Vous connaissez une PME industrielle ?</strong><br>Presentez-nous. On fait le reste.</p></div>
 </div>
 
 <!-- ═══ 13. CLOSING ═══ -->
 <div class="slide" id="s13">
-  <div class="logo-big" data-a="scale"><img src="img/logo_texte.svg" alt="OpSee"></div>
-  <div class="tagline-final" data-a="fade"><span class="rolling-wrap"><span class="rolling-track" data-a="rolling"><span>Open</span><span>Smart</span><span>Scalable</span></span></span> · <span class="rolling-wrap"><span class="rolling-track" data-a="rolling" data-offset="1"><span>Smart</span><span>Scalable</span><span>Open</span></span></span> · <span class="rolling-wrap"><span class="rolling-track" data-a="rolling" data-offset="2"><span>Scalable</span><span>Open</span><span>Smart</span></span></span></div>
-  <p class="closing-text" data-a="fade">Le seul MES <strong style="color:var(--text)">open source, modulaire, avec IA integree</strong>.<br><strong style="color:var(--text)">Plus jamais une PME laissee a l'aveugle.</strong></p>
-  <div class="contact-row" data-a="stagger">
+  <div class="logo-big"><img src="img/logo_texte.svg" alt="OpSee"></div>
+  <div class="tagline-final"><span class="rolling-wrap"><span class="rolling-track" data-a="rolling"><span>Open</span><span>Smart</span><span>Scalable</span></span></span> · <span class="rolling-wrap"><span class="rolling-track" data-a="rolling" data-offset="1"><span>Smart</span><span>Scalable</span><span>Open</span></span></span> · <span class="rolling-wrap"><span class="rolling-track" data-a="rolling" data-offset="2"><span>Scalable</span><span>Open</span><span>Smart</span></span></span></div>
+  <p class="closing-text">Le seul MES <strong style="color:var(--text)">open source, modulaire, avec IA integree</strong>.<br><strong style="color:var(--text)">Plus jamais une PME laissee a l'aveugle.</strong></p>
+  <div class="contact-row">
     <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg> www.opsee.io</div>
-    <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="18687d6a7e776a7579767b7d5877686b7d7d367177">[email&#160;protected]</a></div>
+    <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="mailto:performance@opsee.io" style="color:inherit;text-decoration:none">performance@opsee.io</a></div>
     <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg> +32 71 256 280</div>
   </div>
   <div class="final-tag" data-a="scramble" data-text="Turn complexity into clarity">&nbsp;</div>
@@ -1029,7 +994,7 @@ a.data-source-card{cursor:pointer}
 <div id="nav"></div>
 
 <!-- GSAP + PLUGINS -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/DrawSVGPlugin.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrambleTextPlugin.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/MotionPathPlugin.min.js"></script>
@@ -1742,16 +1707,6 @@ function freezeContents(s){
       gsap.killTweensOf(c);
       gsap.set(c,{opacity:0,y:24,scale:.96,clearProps:'filter'});
     });
-    const grP=s.querySelector('.s7-bars-trend');
-    if(grP){const L=grP.getTotalLength();gsap.set(grP,{strokeDasharray:L,strokeDashoffset:L})}
-    s.querySelectorAll('.s7-bar').forEach(b=>gsap.set(b,{scaleY:0}));
-    const ar=s.querySelector('.s7-bars-arrow');if(ar){gsap.set(ar,{opacity:0,scale:0})}
-    const cont=s.querySelector('.s7-planet-continents');if(cont){gsap.killTweensOf(cont);gsap.set(cont,{x:0})}
-    const beS=s.querySelector('.s7-be-shape');
-    if(beS){const L=beS.getTotalLength();gsap.set(beS,{strokeDasharray:L,strokeDashoffset:L,fillOpacity:0})}
-    const beP=s.querySelector('.s7-be-pulse');if(beP){gsap.killTweensOf(beP);gsap.set(beP,{scale:.6,opacity:0})}
-    s.querySelectorAll('.s7-net-link').forEach(l=>{const L=l.getTotalLength();gsap.set(l,{strokeDasharray:L,strokeDashoffset:L})});
-    s.querySelectorAll('.s7-net-node').forEach(n=>gsap.set(n,{opacity:0,scale:0}));
     const v1=s.querySelector('[data-s7="card-1"] .num-val');if(v1){v1.textContent='0'}
     const v2=s.querySelector('[data-s7="card-2"] .num-val');if(v2){v2.textContent='0'}
     const v3=s.querySelector('[data-s7="card-3"] .num-val');if(v3){v3.textContent='0'}
@@ -1796,6 +1751,67 @@ function freezeContents(s){
     if(bigStat){bigStat.textContent='0';gsap.killTweensOf(bigStat);gsap.set(bigStat,{scale:.7,opacity:0,clearProps:'filter'})}
     if(statLabel){gsap.set(statLabel,{opacity:0,y:8})}
     if(statSub){gsap.set(statSub,{opacity:0,y:8})}
+  }
+  // S10 — reset symétrique pour replay propre
+  if(s.id==='s10'){
+    const founders=s.querySelector('.team-row');
+    const mentors=s.querySelector('.team-mentors');
+    const connector=s.querySelector('.team-connector');
+    const connectorPath=s.querySelector('.team-connector path');
+    const founderCards=Array.from(s.querySelectorAll('.team-member'));
+    const mentorCards=Array.from(s.querySelectorAll('.mentor-card'));
+    if(founders){gsap.killTweensOf(founders);gsap.set(founders,{opacity:0,y:18,scale:.97})}
+    if(mentors){gsap.killTweensOf(mentors);gsap.set(mentors,{opacity:0,y:18,scale:.97})}
+    if(connector){gsap.killTweensOf(connector);gsap.set(connector,{opacity:0})}
+    if(connectorPath){const L=connectorPath.getTotalLength();gsap.killTweensOf(connectorPath);gsap.set(connectorPath,{strokeDasharray:'3 4',strokeDashoffset:L,opacity:0})}
+    founderCards.forEach(c=>{
+      gsap.killTweensOf(c);gsap.set(c,{opacity:0,y:22,scale:.9});
+      const img=c.querySelector('img');if(img){gsap.killTweensOf(img);gsap.set(img,{filter:'grayscale(.85)',clearProps:'boxShadow'})}
+      const name=c.querySelector('.name');if(name){gsap.set(name,{opacity:0,y:8})}
+      const role=c.querySelector('.role');if(role){gsap.set(role,{opacity:0,y:8})}
+    });
+    mentorCards.forEach(c=>{
+      gsap.killTweensOf(c);gsap.set(c,{opacity:0,y:18,scale:.92});
+      const av=c.querySelector('.mentor-avatar');if(av){gsap.killTweensOf(av);gsap.set(av,{clearProps:'filter'})}
+      const img=c.querySelector('.mentor-avatar img');if(img){gsap.killTweensOf(img);gsap.set(img,{filter:'grayscale(.85)'})}
+      const name=c.querySelector('.name');if(name){gsap.set(name,{opacity:0,y:8})}
+      const role=c.querySelector('.role');if(role){gsap.set(role,{opacity:0,y:8})}
+    });
+  }
+  // S12 — reset symétrique pour replay propre
+  if(s.id==='s12'){
+    const frame=s.querySelector('.ask-row');
+    const cards=Array.from(s.querySelectorAll('.ask-card'));
+    const cta=s.querySelector('.s12-cta');
+    const hl=s.querySelector('.s12-hl');
+    if(frame){gsap.killTweensOf(frame);gsap.set(frame,{opacity:0,y:18,scale:.97})}
+    cards.forEach(c=>{
+      gsap.killTweensOf(c);gsap.set(c,{opacity:0,y:24,scale:.92});
+      const ic=c.querySelector('.ask-icon');if(ic){gsap.killTweensOf(ic);gsap.set(ic,{opacity:0,scale:.5,clearProps:'filter'})}
+      const t=c.querySelector('.ask-title');if(t){gsap.set(t,{opacity:0,y:10})}
+      const d=c.querySelector('.ask-desc');if(d){gsap.set(d,{opacity:0,y:10})}
+    });
+    if(cta){gsap.killTweensOf(cta);gsap.set(cta,{opacity:0,y:14});const strong=cta.querySelector('strong');if(strong){gsap.killTweensOf(strong);gsap.set(strong,{clearProps:'filter'})}}
+    if(hl){gsap.killTweensOf(hl);gsap.set(hl,{clearProps:'filter,transform'})}
+  }
+  // S13 — reset symétrique pour replay propre
+  if(s.id==='s13'){
+    const logo=s.querySelector('.logo-big');
+    const logoImg=s.querySelector('.logo-big img');
+    const tagline=s.querySelector('.tagline-final');
+    const wraps=Array.from(s.querySelectorAll('.rolling-wrap'));
+    const closing=s.querySelector('.closing-text');
+    const strongs=Array.from(s.querySelectorAll('.closing-text strong'));
+    const chips=Array.from(s.querySelectorAll('.contact-row .chip'));
+    const finalTag=s.querySelector('.final-tag');
+    if(logo){gsap.killTweensOf(logo);gsap.set(logo,{opacity:0,scale:.86,y:18})}
+    if(logoImg){gsap.killTweensOf(logoImg);gsap.set(logoImg,{clearProps:'filter'})}
+    if(tagline){gsap.killTweensOf(tagline);gsap.set(tagline,{opacity:0,y:10})}
+    wraps.forEach(w=>{gsap.killTweensOf(w);gsap.set(w,{clearProps:'filter,transform'})});
+    if(closing){gsap.killTweensOf(closing);gsap.set(closing,{opacity:0,y:14})}
+    strongs.forEach(st=>{gsap.killTweensOf(st);gsap.set(st,{clearProps:'filter'})});
+    chips.forEach(c=>{gsap.killTweensOf(c);gsap.set(c,{opacity:0,y:18,scale:.92})});
+    if(finalTag){gsap.killTweensOf(finalTag);gsap.set(finalTag,{opacity:0});finalTag.textContent='\u00A0';}
   }
 }
 function showSlide(s){
@@ -2163,6 +2179,219 @@ function animateS9(s){
   if(statSub) gsap.to(statSub,{opacity:1,y:0,duration:.5,ease:'power3.out',delay:BIG_STAT_DELAY+1.50});
 }
 
+/* ═══ S10 TEAM — orchestration premium (mirror S2/S7/S8/S9) ═══ */
+function animateS10(s){
+  const founders = s.querySelector('.team-row');
+  const mentors = s.querySelector('.team-mentors');
+  const connector = s.querySelector('.team-connector');
+  const connectorPath = s.querySelector('.team-connector path');
+  const founderCards = Array.from(s.querySelectorAll('.team-member'));
+  const mentorCards = Array.from(s.querySelectorAll('.mentor-card'));
+  if(!founders||!mentors) return;
+
+  // RESET
+  gsap.set(founders,{opacity:0,y:18,scale:.97});
+  gsap.set(mentors,{opacity:0,y:18,scale:.97});
+  if(connector) gsap.set(connector,{opacity:0});
+  founderCards.forEach(c=>{
+    gsap.set(c,{opacity:0,y:22,scale:.9});
+    const img=c.querySelector('img');if(img){gsap.set(img,{filter:'grayscale(.85)',clearProps:'boxShadow'})}
+    const name=c.querySelector('.name');if(name){gsap.set(name,{opacity:0,y:8})}
+    const role=c.querySelector('.role');if(role){gsap.set(role,{opacity:0,y:8})}
+  });
+  mentorCards.forEach(c=>{
+    gsap.set(c,{opacity:0,y:18,scale:.92});
+    const av=c.querySelector('.mentor-avatar');if(av){gsap.set(av,{clearProps:'filter'})}
+    const img=c.querySelector('.mentor-avatar img');if(img){gsap.set(img,{filter:'grayscale(.85)'})}
+    const name=c.querySelector('.name');if(name){gsap.set(name,{opacity:0,y:8})}
+    const role=c.querySelector('.role');if(role){gsap.set(role,{opacity:0,y:8})}
+  });
+  if(connectorPath){
+    const L=connectorPath.getTotalLength();
+    gsap.set(connectorPath,{strokeDasharray:'3 4',strokeDashoffset:L,opacity:0});
+  }
+
+  // ── Founders frame entry @ 0.85s
+  gsap.to(founders,{opacity:1,y:0,scale:1,duration:.55,ease:'power3.out',delay:.85});
+
+  // ── 4 photos cascade @ 1.10s+
+  const FOUND_BASE = 1.10;
+  founderCards.forEach((c,i)=>{
+    const d = FOUND_BASE + i*.12;
+    gsap.to(c,{opacity:1,y:0,scale:1,duration:.55,ease:'back.out(1.7)',delay:d});
+    const img=c.querySelector('img');
+    if(img){
+      gsap.to(img,{filter:'grayscale(0)',duration:.7,ease:'power2.out',delay:d+.10});
+      gsap.fromTo(img,
+        {boxShadow:'0 0 0 rgba(142,51,255,0)'},
+        {boxShadow:'0 0 22px rgba(142,51,255,.45)',duration:.55,ease:'sine.out',delay:d+.20,yoyo:true,repeat:1});
+    }
+    const name=c.querySelector('.name');
+    const role=c.querySelector('.role');
+    if(name) gsap.to(name,{opacity:1,y:0,duration:.45,ease:'power3.out',delay:d+.18});
+    if(role) gsap.to(role,{opacity:1,y:0,duration:.45,ease:'power3.out',delay:d+.26});
+  });
+
+  // ── Connector line draws between founders & mentors @ 2.05s
+  if(connector){
+    gsap.to(connector,{opacity:1,duration:.25,ease:'power2.out',delay:2.05});
+  }
+  if(connectorPath){
+    gsap.to(connectorPath,{strokeDashoffset:0,duration:.55,ease:'power2.inOut',delay:2.05});
+  }
+
+  // ── Mentors frame entry @ 2.35s
+  gsap.to(mentors,{opacity:1,y:0,scale:1,duration:.55,ease:'power3.out',delay:2.35});
+
+  // ── 2 mentor cards stagger @ 2.55s+
+  const MENT_BASE = 2.55;
+  mentorCards.forEach((c,i)=>{
+    const d = MENT_BASE + i*.18;
+    gsap.to(c,{opacity:1,y:0,scale:1,duration:.55,ease:'back.out(1.6)',delay:d});
+    const av=c.querySelector('.mentor-avatar');
+    const img=c.querySelector('.mentor-avatar img');
+    if(img){gsap.to(img,{filter:'grayscale(0)',duration:.7,ease:'power2.out',delay:d+.15})}
+    if(av){
+      gsap.fromTo(av,
+        {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+        {filter:'drop-shadow(0 0 18px rgba(142,51,255,.55))',duration:.6,ease:'sine.out',delay:d+.25,yoyo:true,repeat:1});
+    }
+    const name=c.querySelector('.name');
+    const role=c.querySelector('.role');
+    if(name) gsap.to(name,{opacity:1,y:0,duration:.45,ease:'power3.out',delay:d+.22});
+    if(role) gsap.to(role,{opacity:1,y:0,duration:.45,ease:'power3.out',delay:d+.30});
+  });
+}
+
+/* ═══ S12 ASK — orchestration premium (mirror S2/S7/S8/S9/S10) ═══ */
+function animateS12(s){
+  const frame = s.querySelector('.ask-row');
+  const cards = Array.from(s.querySelectorAll('.ask-card'));
+  const cta = s.querySelector('.s12-cta');
+  const hl = s.querySelector('.s12-hl');
+  if(!frame||!cards.length) return;
+
+  // RESET
+  gsap.set(frame,{opacity:0,y:18,scale:.97});
+  cards.forEach(c=>{
+    gsap.set(c,{opacity:0,y:24,scale:.92});
+    const ic=c.querySelector('.ask-icon');if(ic){gsap.set(ic,{opacity:0,scale:.5,clearProps:'filter'})}
+    const t=c.querySelector('.ask-title');if(t){gsap.set(t,{opacity:0,y:10})}
+    const d=c.querySelector('.ask-desc');if(d){gsap.set(d,{opacity:0,y:10})}
+  });
+  if(cta){gsap.set(cta,{opacity:0,y:14})}
+  if(hl){gsap.set(hl,{clearProps:'filter,transform'})}
+
+  // ── Highlight subtle swell sur "connexions concretes" @ 0.75s
+  if(hl){
+    gsap.fromTo(hl,
+      {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+      {filter:'drop-shadow(0 0 14px rgba(142,51,255,.55))',duration:.6,ease:'sine.out',delay:.75,yoyo:true,repeat:1});
+  }
+
+  // ── Frame entry @ 1.10s
+  gsap.to(frame,{opacity:1,y:0,scale:1,duration:.55,ease:'power3.out',delay:1.10});
+
+  // ── 3 cards stagger @ 1.40s+
+  const BASE = 1.40;
+  cards.forEach((c,i)=>{
+    const dl = BASE + i*.16;
+    gsap.to(c,{opacity:1,y:0,scale:1,duration:.6,ease:'back.out(1.6)',delay:dl});
+    const ic=c.querySelector('.ask-icon');
+    const t=c.querySelector('.ask-title');
+    const d=c.querySelector('.ask-desc');
+    if(ic){
+      gsap.to(ic,{opacity:1,scale:1,duration:.55,ease:'back.out(2)',delay:dl+.10});
+      gsap.fromTo(ic,
+        {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+        {filter:'drop-shadow(0 0 18px rgba(142,51,255,.6))',duration:.55,ease:'sine.out',delay:dl+.20,yoyo:true,repeat:1});
+    }
+    if(t) gsap.to(t,{opacity:1,y:0,duration:.45,ease:'power3.out',delay:dl+.22});
+    if(d) gsap.to(d,{opacity:1,y:0,duration:.45,ease:'power3.out',delay:dl+.32});
+  });
+
+  // ── CTA finale @ 2.45s — moment fort, scintillement violet
+  if(cta){
+    gsap.to(cta,{opacity:1,y:0,duration:.6,ease:'power3.out',delay:2.45});
+    const strong = cta.querySelector('strong');
+    if(strong){
+      gsap.fromTo(strong,
+        {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+        {filter:'drop-shadow(0 0 16px rgba(142,51,255,.65))',duration:.6,ease:'sine.out',delay:2.85,yoyo:true,repeat:1});
+    }
+  }
+}
+
+/* ═══ S13 CLOSING — finale premium Apple Keynote ═══ */
+function animateS13(s){
+  const logo = s.querySelector('.logo-big');
+  const logoImg = s.querySelector('.logo-big img');
+  const tagline = s.querySelector('.tagline-final');
+  const wraps = Array.from(s.querySelectorAll('.rolling-wrap'));
+  const closing = s.querySelector('.closing-text');
+  const strongs = Array.from(s.querySelectorAll('.closing-text strong'));
+  const contactRow = s.querySelector('.contact-row');
+  const chips = Array.from(s.querySelectorAll('.contact-row .chip'));
+  const finalTag = s.querySelector('.final-tag');
+  if(!logo) return;
+
+  // RESET
+  gsap.set(logo,{opacity:0,scale:.86,y:18});
+  if(logoImg){gsap.set(logoImg,{clearProps:'filter'})}
+  if(tagline){gsap.set(tagline,{opacity:0,y:10})}
+  wraps.forEach(w=>{gsap.set(w,{clearProps:'filter,transform'})});
+  if(closing){gsap.set(closing,{opacity:0,y:14})}
+  strongs.forEach(st=>{gsap.set(st,{clearProps:'filter'})});
+  if(contactRow){gsap.set(contactRow,{opacity:1})}
+  chips.forEach(c=>{gsap.set(c,{opacity:0,y:18,scale:.92})});
+  if(finalTag){gsap.set(finalTag,{opacity:0})}
+
+  // ── Logo entry @ 0.20s — grandit avec ease puissant
+  gsap.to(logo,{opacity:1,scale:1,y:0,duration:1.0,ease:'expo.out',delay:.20});
+  // Halo violet swell sur le logo (drop-shadow grandit puis settle)
+  if(logoImg){
+    gsap.fromTo(logoImg,
+      {filter:'drop-shadow(0 0 0 rgba(112,83,254,0))'},
+      {filter:'drop-shadow(0 0 80px rgba(112,83,254,.55))',duration:1.0,ease:'sine.out',delay:.40});
+    gsap.to(logoImg,{filter:'drop-shadow(0 0 50px rgba(112,83,254,.25))',duration:.8,ease:'sine.inOut',delay:1.40});
+  }
+
+  // ── Tagline fade-up @ 1.20s
+  if(tagline){
+    gsap.to(tagline,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:1.20});
+  }
+  // Pulse mauve sur chaque rolling-wrap, en cascade — chaque mot "respire"
+  wraps.forEach((w,i)=>{
+    gsap.fromTo(w,
+      {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+      {filter:'drop-shadow(0 0 14px rgba(142,51,255,.6))',duration:.55,ease:'sine.out',delay:1.40+i*.18,yoyo:true,repeat:1});
+  });
+
+  // ── Closing text fade-up @ 2.10s
+  if(closing){
+    gsap.to(closing,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:2.10});
+  }
+  // Glow sur les 2 strong en cascade
+  strongs.forEach((st,i)=>{
+    gsap.fromTo(st,
+      {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+      {filter:'drop-shadow(0 0 14px rgba(142,51,255,.55))',duration:.6,ease:'sine.out',delay:2.40+i*.30,yoyo:true,repeat:1});
+  });
+
+  // ── Contact chips stagger @ 3.10s — back.out signature
+  chips.forEach((c,i)=>{
+    const dl = 3.10 + i*.12;
+    gsap.to(c,{opacity:1,y:0,scale:1,duration:.55,ease:'back.out(1.7)',delay:dl});
+  });
+
+  // ── Final tag scramble @ 3.80s — signature mémorable
+  if(finalTag){
+    gsap.to(finalTag,{opacity:1,duration:.5,ease:'power2.out',delay:3.80,onStart:()=>{
+      try{ scramble(finalTag, finalTag.dataset.text||'', 1.2); }catch(e){ finalTag.textContent = finalTag.dataset.text||''; }
+    }});
+  }
+}
+
 /* ═══ S8 BUSINESS MODEL — orchestration premium (mirror S2/S7) ═══ */
 function animateS8(s){
   const card1 = s.querySelector('[data-s8="card-1"]');
@@ -2249,17 +2478,6 @@ function animateS7(s){
   const num1 = card1.querySelector('.num');
   const num2 = card2.querySelector('.num');
   const num3 = card3.querySelector('.num');
-  const grProgress = card2.querySelector('.s7-bars-trend');
-  const grDot = null;
-  const planet = card1.querySelector('.s7-planet');
-  const continents = card1.querySelector('.s7-planet-continents');
-  const networkSvg = card3.querySelector('.s7-network');
-  const bePulse = card3.querySelector('.s7-be-pulse');
-  const beShape = card3.querySelector('.s7-be-shape');
-  const netLinks = card3.querySelectorAll('.s7-net-link');
-  const netNodes = card3.querySelectorAll('.s7-net-node');
-  const bars = card2.querySelectorAll('.s7-bar');
-  const barsArrow = card2.querySelector('.s7-bars-arrow');
   const statRow = s.querySelector('.s7-stat-row');
 
   // Helper: ensure num has the val/suf span structure
@@ -2277,35 +2495,15 @@ function animateS7(s){
   // RESET — all three cards hidden, frame hidden
   gsap.set([card1,card2,card3],{opacity:0,y:24,scale:.96});
   if(statRow) gsap.set(statRow,{opacity:0,scale:.96});
-  // Trend curve length — measure for stroke-dasharray
-  if(grProgress){
-    const L = grProgress.getTotalLength();
-    gsap.set(grProgress,{strokeDasharray:L,strokeDashoffset:L});
-    grProgress._len = L;
-  }
-  // Bars hidden (scaleY 0)
-  bars.forEach(b=>gsap.set(b,{scaleY:0}));
-  if(barsArrow) gsap.set(barsArrow,{opacity:0,scale:0,transformOrigin:'50% 50%'});
-  // Network: links hidden, nodes hidden, BE shape hidden
-  netLinks.forEach(l=>{
-    const L=l.getTotalLength();
-    gsap.set(l,{strokeDasharray:L,strokeDashoffset:L,opacity:.6});
-  });
-  netNodes.forEach(n=>gsap.set(n,{opacity:0,scale:0,transformOrigin:'center'}));
-  if(beShape){
-    const L=beShape.getTotalLength();
-    gsap.set(beShape,{strokeDasharray:L,strokeDashoffset:L,fillOpacity:0});
-  }
-  if(bePulse) gsap.set(bePulse,{scale:.6,opacity:0,transformOrigin:'100px 46px'});
 
   const ENTRY_EASE = 'power3.out';
 
-  // ── Frame entry
+  // ── Frame entry @ 1.85s (cohérent avec S2)
   if(statRow){
     gsap.to(statRow,{opacity:1,scale:1,duration:.35,ease:'power3.out',delay:1.85});
   }
 
-  // ── Card 1 ($16 Mds + planet) — entry @ 2.2s
+  // ── Card 1 ($16 Mds) — entry @ 2.2s + counter
   gsap.to(card1,{opacity:1,y:0,scale:1,duration:.6,ease:ENTRY_EASE,delay:2.2});
   const o1={v:0};
   gsap.to(o1,{v:16,duration:1.6,ease:'power2.out',delay:2.45,
@@ -2313,65 +2511,24 @@ function animateS7(s){
   });
   gsap.fromTo(num1,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
     {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:4.05,yoyo:true,repeat:1});
-  // Planet continents scroll horizontally — illusion of rotation
-  if(continents){
-    gsap.set(continents,{x:0});
-    const rotTw=gsap.to(continents,{x:-30,duration:6,ease:'none',repeat:-1,delay:2.2});
-    s7AnimIds.push(rotTw);
-  }
 
-  // ── Card 2 (12%/an + bars) — entry @ 4.6s
+  // ── Card 2 (12%/an) — entry @ 4.6s + counter
   gsap.to(card2,{opacity:1,y:0,scale:1,duration:.6,ease:ENTRY_EASE,delay:4.6});
   const o2={v:0};
   gsap.to(o2,{v:12,duration:2.0,ease:'power2.out',delay:4.9,
     onUpdate(){val2.textContent=Math.round(o2.v);if(window.OPSEE_SOUND&&Math.random()<.14)window.OPSEE_SOUND.play('tick');}
   });
-  // Bars rise sequentially with stagger
-  bars.forEach((b,i)=>{
-    gsap.to(b,{scaleY:1,duration:.45,ease:'back.out(1.6)',delay:5.0+i*.15});
-  });
-  // Trend curve traces over the bar tops
-  if(grProgress){
-    gsap.to(grProgress,{strokeDashoffset:0,duration:1.0,ease:'power2.inOut',delay:5.6});
-  }
-  if(barsArrow){
-    gsap.to(barsArrow,{opacity:1,scale:1,duration:.3,ease:'back.out(2.5)',delay:6.6});
-  }
-  // Card 2 — scintillement mauve
   gsap.fromTo(num2,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
     {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:6.95,yoyo:true,repeat:1});
 
-  // ── Card 3 (160k+ + network) — entry @ 7.4s
+  // ── Card 3 (160k+) — entry @ 7.4s + counter
   gsap.to(card3,{opacity:1,y:0,scale:1,duration:.6,ease:ENTRY_EASE,delay:7.4});
   const o3={v:0};
   gsap.to(o3,{v:160,duration:1.6,ease:'power2.out',delay:7.65,
     onUpdate(){val3.textContent=Math.round(o3.v);if(window.OPSEE_SOUND&&Math.random()<.18)window.OPSEE_SOUND.play('tick');}
   });
-  // Belgium shape draws first (stroke trace + fill fade)
-  if(beShape){
-    gsap.to(beShape,{strokeDashoffset:0,duration:.9,ease:'power2.inOut',delay:7.5});
-    gsap.to(beShape,{fillOpacity:1,duration:.5,ease:'power2.out',delay:8.1});
-  }
-  // BE pulse: perpetual radiating ring
-  if(bePulse){
-    const pulseTw=gsap.timeline({repeat:-1,delay:8.4});
-    pulseTw.fromTo(bePulse,{scale:.6,opacity:.7},{scale:3,opacity:0,duration:1.6,ease:'power2.out'});
-    s7AnimIds.push(pulseTw);
-  }
-  // Links trace outward (haut, droite, gauche, bas-droite) in cascade
-  netLinks.forEach((l,i)=>{
-    gsap.to(l,{strokeDashoffset:0,duration:.55,ease:'power2.inOut',delay:8.5+i*.15});
-  });
-  // Target nodes pop at end of each link
-  netNodes.forEach((n,i)=>{
-    gsap.to(n,{opacity:1,scale:1,duration:.3,ease:'back.out(2.5)',delay:9.0+i*.15});
-  });
-  // Card 3 — scintillement mauve
-  const lbl3 = card3.querySelector('.label');
-  if(lbl3){
-    gsap.fromTo(lbl3,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
-      {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:9.8,yoyo:true,repeat:1});
-  }
+  gsap.fromTo(num3,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
+    {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:9.25,yoyo:true,repeat:1});
 }
 
 /* ═══ ANIMATE CHILDREN ═══ */
@@ -2437,6 +2594,9 @@ function animateIn(s){
   if(s.id==='s7') animateS7(s);
   if(s.id==='s8') animateS8(s);
   if(s.id==='s9') animateS9(s);
+  if(s.id==='s10') animateS10(s);
+  if(s.id==='s12') animateS12(s);
+  if(s.id==='s13') animateS13(s);
 
   // ROLLING
   s.querySelectorAll('[data-a="rolling"]').forEach(el=>{el.style.opacity='1';gsap.set(el,{y:0});setTimeout(()=>startRolling(el),1800)});
