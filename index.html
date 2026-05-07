@@ -876,6 +876,7 @@ function animateS2(s){
   const shackle = card3.querySelector('.s2-lock-shackle');
   const body = card3.querySelector('.s2-lock-body');
   const pct = s.querySelector('.s2-pct');
+  const statRow = s.querySelector('.s2-stat-row');
 
   // Helper: ensure num has the val/suf span structure (idempotent with the counter handler patch)
   function setupNum(el){
@@ -888,14 +889,23 @@ function animateS2(s){
   const val1 = setupNum(num1);
   const val2 = setupNum(num2);
 
-  // RESET — all three cards hidden, % not yet hot
+  // RESET — all three cards hidden, % not yet hot, frame (stat-row) hidden
   gsap.set([card1,card2,card3],{opacity:0,y:24,scale:.96});
+  if(statRow) gsap.set(statRow,{opacity:0,scale:.96});
   gsap.set(tlProgress,{strokeDashoffset:188});
   gsap.set(tlDot,{attr:{cx:6}});
   gsap.set(shackle,{y:-9,rotate:-8,opacity:1});
   if(pct){pct.classList.remove('is-hot');gsap.set(pct,{scale:1})}
 
   const ENTRY_EASE = 'power3.out';
+
+  // ── Frame entry — apparaît APRÈS la mise en avant du 99.8% (underline finit
+  // de se dessiner à t≈1.85s, glow se calme jusqu'à t≈2.10s). Le cadre fade-in
+  // entre 1.85 et 2.20s, c'est-à-dire juste avant que la card 1 (500k€) entre à 2.2s.
+  // Narrative : constat 99.8% → cadre apparaît → chiffres se révèlent dedans.
+  if(statRow){
+    gsap.to(statRow,{opacity:1,scale:1,duration:.35,ease:'power3.out',delay:1.85});
+  }
 
   // ── Subtitle 99.8% — entrée premium : lift + glow + coup de crayon
   const pctPath = pct && pct.querySelector('.s2-pct-underline path');
@@ -1464,6 +1474,9 @@ function freezeContents(s){
     s.querySelectorAll('[data-s2]').forEach(c=>{
       gsap.set(c,{opacity:0,y:24,scale:.96,clearProps:'filter'});
     });
+    // Pre-hide du cadre (.s2-stat-row) — sinon visible pendant le slide fade-in
+    // alors que les cartes à l'intérieur sont déjà cachées : spoil narratif.
+    const sr=s.querySelector('.s2-stat-row');if(sr){gsap.set(sr,{opacity:0,scale:.96})}
     const tlP=s.querySelector('.s2-tl-progress');if(tlP){gsap.set(tlP,{strokeDashoffset:188})}
     const tlD=s.querySelector('.s2-tl-dot');if(tlD){gsap.set(tlD,{attr:{cx:6},scale:1})}
     const sh=s.querySelector('.s2-lock-shackle');if(sh){gsap.set(sh,{y:-9,rotate:-8,opacity:1})}
@@ -1490,6 +1503,23 @@ function freezeContents(s){
     }
   });
   stopAllRolling();stopAllMesAnims();stopAllS3Anims();stopAllS4Anims();
+
+  // ── PRE-HIDE custom-animated elements (no data-a) to prevent FOUC ──
+  // Sans ça, ces éléments sont visibles à opacity:1 (CSS default) pendant le fade-in
+  // du slide (0.5s) jusqu'à ce qu'animateSX les passe à opacity:0. Spoil visible.
+  // On les pré-cache APRÈS les stopAll* (qui font clearProps:'all' et écraseraient).
+  if(s.id==='s3'){
+    s.querySelectorAll('.s3-pill').forEach(p=>{
+      gsap.set(p,{opacity:0});
+    });
+  }
+  if(s.id==='s4'){
+    s.querySelectorAll('.demo-item').forEach(it=>{
+      gsap.set(it,{opacity:0});
+      const lbl=it.querySelector('.demo-label');
+      if(lbl) gsap.set(lbl,{opacity:0});
+    });
+  }
 }
 function showSlide(s){
   freezeContents(s);s.style.opacity='1';s.style.visibility='visible';s.classList.add('on');
