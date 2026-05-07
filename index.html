@@ -272,12 +272,67 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .demo-stat{background:var(--surface);border:1px solid var(--border-light);border-radius:100px;padding:7px 18px;font-family:'Space Mono',monospace;font-size:13px;color:var(--text-muted)}
 .demo-stat strong{color:var(--purple-light);font-weight:700}
 
-/* ═══ S5 IA ═══ */
-#s5 .ai-wrap{display:flex;flex-direction:column;align-items:center;gap:24px;width:100%;max-width:1000px;margin-top:28px}
-#s5 .ai-text{display:flex;gap:24px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
-#s5 .ai-quote{font-size:17px;font-style:italic;color:var(--text-muted);line-height:1.7;border-left:2px solid var(--purple);padding-left:20px;max-width:420px}
-#s5 .ai-desc{font-size:16px;color:var(--text-muted);line-height:1.7;max-width:420px}
-#s5 .ai-screen{width:100%;max-width:860px;max-height:45vh;object-fit:contain;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.12);border:1px solid var(--border-light)}
+/* S5 — titre une ligne */
+#s5 .sec-title-s5{font-size:clamp(38px,5.4vw,64px);white-space:nowrap}
+
+/* S5 — badge IA integree remonté en haut */
+#s5{justify-content:flex-start;padding-top:60px}
+/* La pastille .tag est en position:absolute (top:7% par défaut). Override
+   uniquement pour #s5 → tout en haut, sans toucher au titre qui est dans le flow. */
+#s5 .tag{margin-bottom:18px;top:2.5%}
+
+/* ─── S5 IA — Conversation cinematique avec capture produit ─── */
+#s5 .ai-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:920px;margin-top:18px}
+#s5 .ai-conv{display:flex;flex-direction:column;align-items:stretch;gap:14px;width:100%;position:relative}
+
+/* Bubble USER */
+#s5 .ai-bubble{position:relative;border-radius:18px;padding:16px 22px 14px;font-size:17px;line-height:1.55;max-width:560px;will-change:opacity,transform;backface-visibility:hidden}
+#s5 .ai-bubble-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2.5px;font-weight:700;text-transform:uppercase;margin-bottom:5px;opacity:.72}
+#s5 .ai-bubble-user{align-self:flex-start;background:var(--surface);border:1px solid var(--border-light);box-shadow:0 4px 24px rgba(0,0,0,.04);color:var(--text)}
+#s5 .ai-bubble-user .ai-bubble-tag{color:var(--text-muted)}
+#s5 .ai-bubble-user::after{content:'';position:absolute;left:24px;bottom:-7px;width:14px;height:14px;background:var(--surface);border-right:1px solid var(--border-light);border-bottom:1px solid var(--border-light);transform:rotate(45deg)}
+#s5 .ai-quote{margin:0;font-style:italic;color:var(--text);font-weight:500}
+#s5 .ai-quote-text{display:inline}
+#s5 .ai-caret{display:inline-block;color:var(--purple);margin-left:1px;transform:translateY(-1px);font-style:normal;font-weight:400}
+
+/* Particules de transit user → window */
+#s5 .ai-particles{position:absolute;left:80px;right:80px;top:calc(50% - 12px);height:24px;pointer-events:none;overflow:visible;z-index:5}
+#s5 .ai-particle{fill:var(--purple);filter:drop-shadow(0 0 6px rgba(142,51,255,.7));opacity:0}
+
+/* OPSEE WINDOW — fenetre produit avec capture chatbot */
+#s5 .ai-window{align-self:stretch;width:100%;max-width:880px;margin:6px auto 0;background:var(--surface);border:1.5px solid rgba(142,51,255,.3);border-radius:14px;box-shadow:0 0 0 1px rgba(142,51,255,.08),0 12px 50px rgba(142,51,255,.18),0 4px 24px rgba(0,0,0,.06);overflow:hidden;will-change:opacity,transform;transform-origin:50% 0}
+#s5 .ai-window-chrome{display:flex;align-items:center;gap:14px;padding:10px 16px;background:linear-gradient(180deg,rgba(142,51,255,.05),rgba(142,51,255,.02));border-bottom:1px solid rgba(142,51,255,.14)}
+#s5 .ai-window-dots{display:flex;gap:6px;flex-shrink:0}
+#s5 .ai-window-dots span{width:10px;height:10px;border-radius:50%;background:rgba(28,37,46,.18)}
+#s5 .ai-window-dots span:first-child{background:#FF5F57}
+#s5 .ai-window-dots span:nth-child(2){background:#FEBC2E}
+#s5 .ai-window-dots span:last-child{background:#28C840}
+#s5 .ai-window-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2.5px;font-weight:700;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;flex-shrink:0}
+#s5 .ai-window-spacer{flex:1}
+
+/* Live badge dans la chrome */
+#s5 .ai-window-live{display:flex;align-items:center;gap:8px;flex-shrink:0;padding:5px 12px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.28);border-radius:100px;opacity:0}
+#s5 .ai-live-dot{width:7px;height:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 8px rgba(34,197,94,.7);position:relative;flex-shrink:0}
+#s5 .ai-live-dot::after{content:'';position:absolute;inset:-3px;border-radius:50%;background:rgba(34,197,94,.4);animation:s5LivePulse 1.6s ease-out infinite;z-index:-1}
+@keyframes s5LivePulse{0%{transform:scale(.8);opacity:.7}100%{transform:scale(2.2);opacity:0}}
+#s5 .ai-live-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.8px;font-weight:500;text-transform:uppercase;color:var(--text);display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+#s5 .ai-live-label strong{font-weight:700;color:#16803a;letter-spacing:2px}
+#s5 .ai-live-sep{opacity:.5;font-weight:400}
+
+#s5 .ai-window-body{position:relative;background:var(--surface);min-height:80px;display:flex;align-items:center;justify-content:center}
+
+/* Loader trois points (dans la fenetre, pendant la reflexion) */
+#s5 .ai-loader{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:7px;align-items:center;padding:24px 0;z-index:3}
+#s5 .ai-dot{width:8px;height:8px;border-radius:50%;background:var(--purple);box-shadow:0 0 10px rgba(142,51,255,.5);opacity:.35}
+
+/* Capture chatbot dans la fenetre */
+#s5 .ai-shot-wrap{position:relative;width:100%;display:block;line-height:0;overflow:hidden}
+#s5 .ai-shot{display:block;width:100%;max-height:46vh;object-fit:contain;object-position:center top;background:#fff}
+#s5 .ai-shot-sweep{position:absolute;top:0;bottom:0;left:-30%;width:35%;background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,0) 30%,rgba(168,85,247,.18) 50%,rgba(255,255,255,0) 70%,transparent 100%);pointer-events:none;mix-blend-mode:screen;opacity:0}
+
+/* Description finale */
+#s5 .ai-desc{margin:14px 0 0;font-size:28px;font-weight:600;color:var(--text-muted);line-height:1.5;text-align:center;align-self:center;max-width:780px}
+#s5 .ai-desc-hl{position:relative;display:inline-block}
 
 /* ═══ S6 ARCHITECTURE ═══ */
 .arch-layers{display:flex;flex-direction:column;gap:8px;width:100%;max-width:720px;margin-top:32px}
@@ -414,7 +469,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 
 /* ═══ STANDBY SLIDE ═══ */
 #s0{background:#050208;z-index:1}
-#s0 video{width:100vw;height:100vh;object-fit:contain}
+#s0 video{width:100vw;height:100vh;object-fit:cover}
 .standby-on #fixed-logo,.standby-on #slide-num,.standby-on #nav,.standby-on #hint,.standby-on #progress-wrap,.standby-on .nav-arrow{opacity:0!important;pointer-events:none}
 .closing-on #fixed-logo{opacity:0!important;pointer-events:none}
 
@@ -622,13 +677,39 @@ a.data-source-card{cursor:pointer}
 <!-- ═══ 5. IA ═══ -->
 <div class="slide" id="s5">
   <div class="tag" data-a="scramble" data-text="IA integree">&nbsp;</div>
-  <h2 class="sec-title" data-a="lines">Parlez<br>a <em>votre usine</em>.</h2>
+  <h2 class="sec-title sec-title-s5" data-a="lines">Parlez a <em>votre usine</em>.</h2>
   <div class="ai-wrap">
-    <div class="ai-text" data-a="stagger">
-      <p class="ai-quote">"Quel equipement a eu le plus d'arrets cette semaine ?"<br><br>→ Reponse instantanee, avec donnees temps reel.</p>
-      <p class="ai-desc">Chatbot IA integre, capable d'interroger les donnees de production en <strong style="color:var(--text)">langage naturel</strong>.</p>
+    <div class="ai-conv">
+      <!-- USER bubble : la question, frappée caractère par caractère -->
+      <div class="ai-bubble ai-bubble-user">
+        <div class="ai-bubble-tag">VOUS</div>
+        <p class="ai-quote"><span class="ai-quote-text">"Quel equipement a eu le plus d'arrets cette semaine ?"</span><span class="ai-caret">▍</span></p>
+      </div>
+
+      <!-- Reponse OpSee : fenetre produit avec capture chatbot -->
+      <div class="ai-window">
+        <div class="ai-window-chrome">
+          <div class="ai-window-dots"><span></span><span></span><span></span></div>
+          <div class="ai-window-tag">OPSEE · ASSISTANT IA</div>
+          <div class="ai-window-spacer"></div>
+          <div class="ai-window-live">
+            <span class="ai-live-dot" aria-hidden="true"></span>
+            <span class="ai-live-label"><strong>Réponse instantanée</strong><span class="ai-live-sep">·</span>données en temps réel</span>
+          </div>
+        </div>
+        <div class="ai-window-body">
+          <div class="ai-loader" aria-hidden="true">
+            <span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span>
+          </div>
+          <div class="ai-shot-wrap">
+            <img src="img/chatbot.jpeg" alt="Capture chatbot OpSee" class="ai-shot">
+            <div class="ai-shot-sweep" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="ai-desc">Chatbot IA integre, capable d'interroger les donnees de production en <strong class="ai-desc-hl" style="color:var(--text)">langage naturel</strong>.</p>
     </div>
-    <div data-a="scale"><img src="img/chatbot.jpeg" alt="Chatbot IA" class="ai-screen"></div>
   </div>
 </div>
 
@@ -1502,7 +1583,7 @@ function freezeContents(s){
       el.querySelectorAll('.mes-flow-dot').forEach(d=>{gsap.set(d,{opacity:0,y:0})});
     }
   });
-  stopAllRolling();stopAllMesAnims();stopAllS3Anims();stopAllS4Anims();
+  stopAllRolling();stopAllMesAnims();stopAllS3Anims();stopAllS4Anims();stopAllS5Anims();
 
   // ── PRE-HIDE custom-animated elements (no data-a) to prevent FOUC ──
   // Sans ça, ces éléments sont visibles à opacity:1 (CSS default) pendant le fade-in
@@ -1519,6 +1600,25 @@ function freezeContents(s){
       const lbl=it.querySelector('.demo-label');
       if(lbl) gsap.set(lbl,{opacity:0});
     });
+  }
+  if(s.id==='s5'){
+    const u=s.querySelector('.ai-bubble-user');
+    const w=s.querySelector('.ai-window');
+    const d=s.querySelector('.ai-desc');
+    const qt=s.querySelector('.ai-quote-text');
+    const ld=s.querySelector('.ai-loader');
+    const sw=s.querySelector('.ai-shot-wrap');
+    const sweep=s.querySelector('.ai-shot-sweep');
+    const c=s.querySelector('.ai-caret');
+    if(u) gsap.set(u,{opacity:0,y:18});
+    if(w) gsap.set(w,{opacity:0,y:24,scale:.96});
+    if(d) gsap.set(d,{opacity:0,y:14});
+    if(qt) qt.textContent='';
+    if(ld) gsap.set(ld,{opacity:0});
+    if(sw) gsap.set(sw,{opacity:0,clipPath:'inset(0 0 100% 0)'});
+    if(sweep) gsap.set(sweep,{opacity:0,x:0});
+    if(c) gsap.set(c,{opacity:0});
+    s.querySelectorAll('.ai-particle').forEach(p=>gsap.set(p,{opacity:0,attr:{cx:30}}));
   }
 }
 function showSlide(s){
@@ -1650,6 +1750,113 @@ function startMesFlow(stack){
   // MES stays visually calm between receptions — only the act of receiving lights it up.
 }
 
+/* ═══ S5 IA — Conversation cinematique ═══ */
+const s5AnimIds=[];
+function stopAllS5Anims(){
+  s5AnimIds.forEach(t=>{
+    if(typeof t==='number'){clearInterval(t);clearTimeout(t);}
+    else if(t&&t.kill) t.kill();
+  });
+  s5AnimIds.length=0;
+  document.querySelectorAll('#s5 .ai-bubble,#s5 .ai-desc,#s5 .ai-particle,#s5 .ai-caret,#s5 .ai-loader,#s5 .ai-answer,#s5 .ai-answer-text,#s5 .ai-arrow-path').forEach(el=>{
+    gsap.killTweensOf(el);
+  });
+}
+function animateS5(s){
+  const userBubble=s.querySelector('.ai-bubble-user');
+  const win=s.querySelector('.ai-window');
+  const desc=s.querySelector('.ai-desc');
+  const quoteText=s.querySelector('.ai-quote-text');
+  const caret=s.querySelector('.ai-caret');
+  const loader=s.querySelector('.ai-loader');
+  const dots=s.querySelectorAll('.ai-dot');
+  const shotWrap=s.querySelector('.ai-shot-wrap');
+  const sweep=s.querySelector('.ai-shot-sweep');
+  const liveBadge=s.querySelector('.ai-window-live');
+  const particles=s.querySelectorAll('.ai-particle');
+  const descHl=s.querySelector('.ai-desc-hl');
+  const fullQuote=`"Quel equipement a eu le plus d'arrets cette semaine ?"`;
+
+  const tl=gsap.timeline({delay:.15});
+
+  // 1 — USER bubble apparaît
+  tl.to(userBubble,{opacity:1,y:0,duration:.5,ease:'power3.out'},0);
+  tl.to(caret,{opacity:1,duration:.2,ease:'power1.out'},.25);
+
+  // Caret blink
+  const caretBlinkId=setInterval(()=>{
+    if(!caret) return;
+    caret.style.opacity=caret.style.opacity==='0.2'?'1':'0.2';
+  },520);
+  s5AnimIds.push(caretBlinkId);
+
+  // 2 — typing
+  const typeStart=.55;
+  const typeDur=2.45;
+  const typeObj={i:0};
+  tl.to(typeObj,{
+    i:fullQuote.length,
+    duration:typeDur,
+    ease:'none',
+    onUpdate(){
+      if(!quoteText)return;
+      quoteText.textContent=fullQuote.slice(0,Math.floor(typeObj.i));
+    }
+  },typeStart);
+
+  // 3 — fenetre OPSEE apparaît + loader pulse pendant la "reflexion"
+  const winAppear=typeStart+typeDur+.25; // ~3.25s
+  tl.to(win,{opacity:1,y:0,scale:1,duration:.65,ease:'back.out(1.3)'},winAppear);
+  tl.to(loader,{opacity:1,duration:.3,ease:'power1.out'},winAppear+.15);
+  dots.forEach((d,i)=>{
+    tl.to(d,{opacity:1,duration:.18,ease:'sine.inOut',yoyo:true,repeat:5,delay:i*.13},winAppear+.25);
+  });
+
+  // 5 — caret USER s'éteint (la conversation a basculé côté produit)
+  tl.to(caret,{opacity:0,duration:.3,ease:'power1.out',onComplete(){clearInterval(caretBlinkId);}},winAppear+.4);
+
+  // 6 — REVEAL de la capture chatbot dans la fenetre (clip-path top→bottom)
+  const revealStart=winAppear+1.5; // ~4.75s
+  tl.to(loader,{opacity:0,duration:.3,ease:'power2.out'},revealStart);
+  tl.to(shotWrap,{opacity:1,duration:.2,ease:'none'},revealStart);
+  tl.to(shotWrap,{clipPath:'inset(0 0 0% 0)',duration:1.0,ease:'power3.inOut'},revealStart+.05);
+
+  // 6b — live badge apparaît en même temps que la capture
+  if(liveBadge){
+    tl.fromTo(liveBadge,
+      {opacity:0,x:8,scale:.92},
+      {opacity:1,x:0,scale:1,duration:.5,ease:'back.out(1.6)'},
+      revealStart+.35);
+  }
+
+  // 7 — light sweep diagonal sur la capture (renforce le côté "live data")
+  if(sweep){
+    tl.fromTo(sweep,
+      {opacity:0,x:0},
+      {opacity:1,x:'320%',duration:1.2,ease:'power2.inOut'},
+      revealStart+.5);
+    tl.to(sweep,{opacity:0,duration:.3,ease:'power1.out'},revealStart+1.6);
+  }
+
+  // 8 — pulse final glow violet sur toute la fenetre (signature "réponse temps réel")
+  tl.fromTo(win,
+    {boxShadow:'0 0 0 1px rgba(142,51,255,.08),0 12px 50px rgba(142,51,255,.18),0 4px 24px rgba(0,0,0,.06)'},
+    {boxShadow:'0 0 0 1px rgba(142,51,255,.25),0 16px 70px rgba(142,51,255,.45),0 4px 24px rgba(0,0,0,.06)',duration:.6,yoyo:true,repeat:1,ease:'sine.inOut'},
+    revealStart+.7);
+
+  // 9 — description finale + highlight "langage naturel"
+  const descStart=revealStart+1.5; // ~6.25s
+  tl.to(desc,{opacity:1,y:0,duration:.55,ease:'power2.out'},descStart);
+  if(descHl){
+    tl.fromTo(descHl,
+      {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+      {filter:'drop-shadow(0 0 14px rgba(142,51,255,.6))',duration:.55,yoyo:true,repeat:1,ease:'sine.inOut'},
+      descStart+.7);
+  }
+
+  s5AnimIds.push(tl);
+}
+
 /* ═══ ANIMATE CHILDREN ═══ */
 function animateIn(s){
   const tl=gsap.timeline({delay:.05});
@@ -1709,6 +1916,7 @@ function animateIn(s){
   if(s.id==='s2') animateS2(s);
   if(s.id==='s3') animateS3(s);
   if(s.id==='s4') animateS4(s);
+  if(s.id==='s5') animateS5(s);
 
   // ROLLING
   s.querySelectorAll('[data-a="rolling"]').forEach(el=>{el.style.opacity='1';gsap.set(el,{y:0});setTimeout(()=>startRolling(el),1800)});
