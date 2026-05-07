@@ -93,14 +93,14 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .s7-net-node{fill:var(--purple);filter:drop-shadow(0 0 4px rgba(142,51,255,.5))}
 
 /* S8 — Business Model */
-#s8 .sec-title              { margin-top: 20px; }
-#s8 > .subtitle             { margin-top: 12px; }
+#s8 .sec-title              { margin-top: 0; }
+#s8 > .subtitle             { margin-top: 28px; font-size: 23px; font-weight: 600; }
 
 /* S9 — Traction */
 #s9                         { justify-content: flex-start; padding-top: 12vh; }
-#s9 .sec-title              { margin-top: 0; font-size: clamp(34px,4.5vw,54px); }
+#s9 .sec-title              { margin-top: 0; font-size: clamp(47px,6vw,72px); white-space: nowrap; }
 #s9 > .subtitle             { margin-top: 8px; }
-#s9 .traction-wrap          { margin-top: 14px; }
+#s9 .traction-wrap          { margin-top: 44px; }
 #s9 .s2-consequence         { margin-top: 16px; }
 #s9 .traction-right .screenshot { max-width: 260px; border-radius: 12px; }
 #s9 .commit-stats           { margin-top: 10px; }
@@ -406,9 +406,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .bm-name{font-size:28px;font-weight:800;color:var(--text)}
 .bm-price{font-size:20px;color:var(--purple-light);font-weight:600;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px}
 .bm-price-main{font-weight:700}
-.bm-price-sub{font-size:15px;color:var(--text-muted);font-weight:500;letter-spacing:.2px}
+.bm-price-sub{font-size:18px;color:var(--text-muted);font-weight:500;letter-spacing:.2px}
 .bm-list{list-style:none;display:flex;flex-direction:column;gap:10px}
-.bm-list li{font-size:17px;color:var(--text-muted);display:flex;gap:8px;line-height:1.5;will-change:transform,opacity}
+.bm-list li{font-size:18px;font-weight:500;color:var(--text-muted);display:flex;gap:8px;line-height:1.5;will-change:transform,opacity}
 .bm-list li::before{content:'—';color:var(--purple-light);font-weight:400;flex-shrink:0;opacity:.6}
 /* Odoo highlight — sobre : gras + mauve */
 .s8-odoo{display:inline-block;color:var(--purple);font-weight:800}
@@ -426,17 +426,17 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .tl-dot{width:40px;height:40px;border-radius:50%;background:var(--surface);border:1.5px solid rgba(142,51,255,.3);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;z-index:1;color:var(--text-muted);font-weight:700;font-family:'Space Mono',monospace;will-change:transform,filter}
 .tl-dot.done{background:var(--purple);border-color:var(--purple);color:#fff;box-shadow:0 0 20px var(--purple-glow)}
 .tl-dot svg polyline{stroke-dasharray:30;stroke-dashoffset:30}
-.tl-content .tl-date{font-family:'Space Mono',monospace;font-size:15px;letter-spacing:2px;color:var(--purple-light);text-transform:uppercase;font-weight:700}
-.tl-content .tl-text{font-size:18px;color:var(--text-muted);margin-top:4px;line-height:1.5}
+.tl-content .tl-date{font-family:'Space Mono',monospace;font-size:17px;letter-spacing:2px;color:var(--purple-light);text-transform:uppercase;font-weight:700}
+.tl-content .tl-text{font-size:20px;font-weight:500;color:var(--text-muted);margin-top:4px;line-height:1.5}
 .tl-item.tl-now{position:relative}
 .tl-item.tl-now .tl-dot{box-shadow:0 0 0 6px rgba(142,51,255,.15),0 0 24px var(--purple-glow);animation:nowPulse 2.4s ease-in-out infinite}
 .tl-item.tl-now .tl-content{position:relative;padding-top:6px}
 .tl-item.tl-now .tl-content::before{content:'NOW';position:absolute;left:0;top:-14px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;font-weight:700;background:var(--purple);color:#fff;padding:3px 9px;border-radius:100px;box-shadow:0 0 12px var(--purple-glow)}
 @keyframes nowPulse{0%,100%{box-shadow:0 0 0 6px rgba(142,51,255,.15),0 0 24px var(--purple-glow)}50%{box-shadow:0 0 0 10px rgba(142,51,255,.05),0 0 32px rgba(142,51,255,.5)}}
-.traction-highlight{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:14px 12px;text-align:center;width:100%;max-width:240px}
-.traction-highlight .big-stat{font-size:clamp(72px,9vw,110px);font-weight:900;background:linear-gradient(135deg,var(--purple-light) 0%,var(--purple) 60%,var(--purple-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;letter-spacing:-3px;filter:drop-shadow(0 0 30px rgba(142,51,255,.25))}
-.traction-highlight .stat-label{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--text);font-weight:700;margin-top:2px}
-.traction-highlight .stat-sub{font-size:14px;color:var(--text-muted);font-weight:300;margin-top:10px;padding-top:10px;border-top:1px solid var(--border-light);width:100%}
+.traction-highlight{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px;text-align:center;width:100%;max-width:320px}
+.traction-highlight .big-stat{font-size:clamp(96px,12vw,150px);font-weight:900;background:linear-gradient(135deg,var(--purple-light) 0%,var(--purple) 60%,var(--purple-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;letter-spacing:-3px;filter:drop-shadow(0 0 30px rgba(142,51,255,.25))}
+.traction-highlight .stat-label{font-family:'Space Mono',monospace;font-size:17px;letter-spacing:3px;text-transform:uppercase;color:var(--text);font-weight:700;margin-top:2px}
+.traction-highlight .stat-sub{font-size:19px;color:var(--text-muted);font-weight:500;line-height:1.5;margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);width:100%}
 .traction-highlight .stat-sub strong{color:var(--purple-light);font-weight:700}
 
 /* ═══ S10 TEAM ═══ */
@@ -855,8 +855,7 @@ a.data-source-card{cursor:pointer}
 <!-- ═══ 9. TRACTION ═══ -->
 <div class="slide" id="s9">
   <div class="tag" data-a="scramble" data-text="Traction & Roadmap">&nbsp;</div>
-  <h2 class="sec-title" data-a="lines">De zero a un produit<br><em>en 1 an</em></h2>
-  <p class="subtitle" data-a="fade">8 mois de developpement. <strong style="color:var(--text)">5 early adopters signes</strong>. Premier deploiement en juin.</p>
+  <h2 class="sec-title" data-a="lines">De zero a un produit <em>en 1 an</em></h2>
   <div class="traction-wrap">
     <div class="traction-left">
       <div class="timeline">
