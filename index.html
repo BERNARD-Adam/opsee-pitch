@@ -53,6 +53,44 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 /* S7 — Marché */
 #s7 .sec-title              { margin-top: 20px; }
 #s7 > .subtitle             { margin-top: 12px; }
+/* Allow growth chart + globe icon to render below the cards without being clipped by stat-row's overflow:hidden */
+.s7-stat-row{overflow:visible}
+.s7-stat-row .s7-card{overflow:visible}
+
+/* S7 — single-line subtitle (mirror S2) */
+.s7-subtitle{white-space:nowrap}
+/* S7 — highlight premium (mirror S2 .s2-pct) */
+.s7-highlight{position:relative;display:inline-block;color:var(--text)!important;font-weight:800;letter-spacing:-.01em;padding:0 2px;will-change:transform,filter}
+.s7-highlight .s7-highlight-underline{position:absolute;left:-3%;right:-3%;bottom:-10px;width:106%;height:18px;pointer-events:none;overflow:visible}
+.s7-highlight .s7-highlight-underline path{fill:none;stroke:var(--purple);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;opacity:.95;filter:drop-shadow(0 0 8px rgba(142,51,255,.55))}
+
+/* S7 — growth chart (mirror S2 timeline) */
+.s7-growth{display:block;width:80%;max-width:200px;height:14px;margin:10px auto 0;overflow:visible}
+.s7-gr-rail{stroke:rgba(142,51,255,.18);stroke-width:1.5;stroke-linecap:round}
+.s7-gr-tick{stroke:rgba(142,51,255,.22);stroke-width:1.2;stroke-linecap:round}
+.s7-gr-progress{fill:none;stroke:var(--purple);stroke-width:2.2;stroke-linecap:round}
+.s7-gr-dot{fill:var(--purple);filter:drop-shadow(0 0 6px rgba(142,51,255,.45))}
+
+/* S7 — planet (card 1) */
+.s7-planet{display:block;width:60px;height:60px;margin:0 auto 4px;color:var(--purple);overflow:visible}
+.s7-planet-orbit{fill:none;stroke:rgba(142,51,255,.35);stroke-width:.8;stroke-dasharray:2 2}
+.s7-planet-sphere{fill:rgba(142,51,255,.06);stroke:var(--purple);stroke-width:1.2}
+.s7-planet-eq{fill:none;stroke:rgba(142,51,255,.4);stroke-width:.8}
+.s7-planet-continents path{fill:rgba(142,51,255,.45);stroke:none}
+
+/* S7 — bars (card 2) */
+.s7-bars{display:block;width:80%;max-width:140px;height:42px;margin:6px auto 0;color:var(--purple);overflow:visible}
+.s7-bars-axis{stroke:rgba(142,51,255,.25);stroke-width:1}
+.s7-bar{fill:rgba(142,51,255,.55);transform-origin:50% 100%;transform-box:fill-box}
+.s7-bars-trend{fill:none;stroke:var(--purple);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.s7-bars-arrow{fill:var(--purple)}
+
+/* S7 — network (card 3) */
+.s7-network{display:block;width:90%;max-width:180px;height:62px;margin:0 auto 2px;color:var(--purple);overflow:visible}
+.s7-be-shape{fill:rgba(142,51,255,.55);stroke:var(--purple);stroke-width:1;stroke-linejoin:round}
+.s7-be-pulse{fill:none;stroke:var(--purple);stroke-width:1.2;transform-origin:100px 46px}
+.s7-net-link{stroke:var(--purple);stroke-width:1;stroke-linecap:round}
+.s7-net-node{fill:var(--purple);filter:drop-shadow(0 0 4px rgba(142,51,255,.5))}
 
 /* S8 — Business Model */
 #s8 .sec-title              { margin-top: 20px; }
@@ -717,11 +755,67 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s7">
   <div class="tag" data-a="scramble" data-text="Opportunite">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Un marche de <em>$16 Mds</em><br>domine par des acteurs trop chers</h2>
-  <p class="subtitle" data-a="fade">Le MES est le prochain domaine B2B a etre disrupte par l'open source.</p>
-  <div class="stat-row" data-a="stagger">
-    <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="16" data-suffix=" Mds$">0</div><div class="label">Marche mondial<br>du MES en 2025</div></div>
-    <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="12" data-suffix="%/an">0</div><div class="label">Croissance<br>annuelle</div></div>
-    <div class="glow-card stat-card"><div class="num" data-a="counter" data-count="160" data-suffix="k+">0</div><div class="label">PME industrielles cibles<br>BE · FR · pays germanophones</div></div>
+  <p class="subtitle s7-subtitle" data-a="fade" style="font-weight: 600">Le MES est le prochain domaine B2B a etre open source.</p>
+  <div class="stat-row s7-stat-row">
+    <div class="glow-card stat-card s7-card" data-s7="card-1">
+      <svg class="s7-planet" viewBox="0 0 60 60" aria-hidden="true">
+        <defs>
+          <clipPath id="s7-planet-clip"><circle cx="30" cy="30" r="14"/></clipPath>
+        </defs>
+        <!-- Outer orbit ring (decorative) -->
+        <ellipse class="s7-planet-orbit" cx="30" cy="30" rx="22" ry="7" transform="rotate(-18 30 30)"/>
+        <!-- Globe sphere -->
+        <circle class="s7-planet-sphere" cx="30" cy="30" r="14"/>
+        <!-- Continents that scroll horizontally inside the sphere (illusion of rotation) -->
+        <g clip-path="url(#s7-planet-clip)">
+          <g class="s7-planet-continents">
+            <!-- group repeated x2 for seamless scroll -->
+            <path d="M18 26 q3 -3 7 -1 q4 2 6 -1 q3 -3 6 0 q2 3 -1 5 q-3 2 -7 1 q-4 -1 -6 1 q-2 3 -5 1 z"/>
+            <path d="M22 36 q4 -2 7 0 q3 2 7 -1"/>
+            <path d="M44 26 q3 -3 7 -1 q4 2 6 -1 q3 -3 6 0 q2 3 -1 5 q-3 2 -7 1 q-4 -1 -6 1 q-2 3 -5 1 z"/>
+            <path d="M48 36 q4 -2 7 0 q3 2 7 -1"/>
+          </g>
+        </g>
+        <!-- Equator highlight -->
+        <ellipse class="s7-planet-eq" cx="30" cy="30" rx="14" ry="3.4"/>
+      </svg>
+      <div class="num" data-count="16" data-suffix=" Mds$">0</div>
+      <div class="label" style="font-weight: 600">Marche mondial<br>du MES en 2025</div>
+    </div>
+    <div class="glow-card stat-card s7-card" data-s7="card-2">
+      <svg class="s7-bars" viewBox="0 0 120 50" aria-hidden="true">
+        <line class="s7-bars-axis" x1="6" y1="44" x2="114" y2="44"/>
+        <rect class="s7-bar" x="14"  y="38" width="10" height="6"/>
+        <rect class="s7-bar" x="32"  y="34" width="10" height="10"/>
+        <rect class="s7-bar" x="50"  y="28" width="10" height="16"/>
+        <rect class="s7-bar" x="68"  y="22" width="10" height="22"/>
+        <rect class="s7-bar" x="86"  y="14" width="10" height="30"/>
+        <path class="s7-bars-trend" d="M 19 38 L 37 32 L 55 25 L 73 17 L 91 9"/>
+        <polygon class="s7-bars-arrow" points="91,9 86,11 89,14"/>
+      </svg>
+      <div class="num" data-count="12" data-suffix="%/an">0</div>
+      <div class="label" style="font-weight: 600">Croissance<br>annuelle</div>
+    </div>
+    <div class="glow-card stat-card s7-card" data-s7="card-3">
+      <svg class="s7-network" viewBox="0 0 200 80" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <!-- Network links from BE outward -->
+        <line class="s7-net-link" x1="100" y1="48" x2="60" y2="20"/>
+        <line class="s7-net-link" x1="100" y1="48" x2="140" y2="20"/>
+        <line class="s7-net-link" x1="100" y1="48" x2="40" y2="60"/>
+        <line class="s7-net-link" x1="100" y1="48" x2="160" y2="60"/>
+        <!-- Belgium silhouette (simplified, centered) -->
+        <path class="s7-be-shape" d="M93 38 L98 34 L104 35 L108 38 L110 42 L108 47 L110 51 L107 55 L102 56 L97 54 L93 50 L91 45 Z"/>
+        <!-- BE anchor pulse -->
+        <circle class="s7-be-pulse" cx="100" cy="46" r="3"/>
+        <!-- Target nodes -->
+        <circle class="s7-net-node" cx="60" cy="20" r="2.4"/>
+        <circle class="s7-net-node" cx="140" cy="20" r="2.4"/>
+        <circle class="s7-net-node" cx="40" cy="60" r="2.4"/>
+        <circle class="s7-net-node" cx="160" cy="60" r="2.4"/>
+      </svg>
+      <div class="num" data-count="160" data-suffix="k+">0</div>
+      <div class="label" style="font-weight: 600">PME industrielles cibles<br>BE · FR · pays germanophones</div>
+    </div>
   </div>
 </div>
 
@@ -731,9 +825,9 @@ a.data-source-card{cursor:pointer}
   <h2 class="sec-title" data-a="lines">Gratuit pour entrer.<br><em>Payant pour scaler.</em></h2>
   <p class="subtitle" data-a="fade">Le meme modele qu'<strong style="color:var(--purple-light)">Odoo</strong>, applique au MES.</p>
   <div class="bm-grid" data-a="stagger">
-    <div class="glow-card bm-card"><div class="bm-name">Open Source</div><div class="bm-price">Gratuit · Toujours</div><ul class="bm-list"><li>Auto-hebergeable</li><li>Code source complet</li></ul></div>
-    <div class="glow-card bm-card featured"><div class="bm-name">Premium</div><div class="bm-price">59 €/mois/equipement</div><ul class="bm-list"><li>Modules avances : IA, integration ERP, production par lots</li><li>Connecteurs industriels</li></ul></div>
-    <div class="glow-card bm-card"><div class="bm-name">Enterprise</div><div class="bm-price">95 €/mois/equipement</div><ul class="bm-list"><li>Tout Premium inclus</li><li>Support + installation cle en main</li></ul></div>
+    <div class="glow-card bm-card"><div class="bm-name">Open Source</div><div class="bm-price">Gratuit · Toujours</div><ul class="bm-list"><li>Data logging & trending</li><li>Cockpit limite aux fonctions gratuites</li></ul></div>
+    <div class="glow-card bm-card featured"><div class="bm-name">Premium</div><div class="bm-price">59 €/mois/equipement</div><ul class="bm-list"><li>Licence prioritaire</li><li>1 fonction premium au choix par equipement (IA integree, production par lot, reporting...)</li></ul></div>
+    <div class="glow-card bm-card"><div class="bm-name">Enterprise</div><div class="bm-price">95 €/mois/equipement</div><ul class="bm-list"><li>Licence prioritaire</li><li>Fonctions premium illimitees par equipement</li></ul></div>
   </div>
 </div>
 
@@ -1583,7 +1677,7 @@ function freezeContents(s){
       el.querySelectorAll('.mes-flow-dot').forEach(d=>{gsap.set(d,{opacity:0,y:0})});
     }
   });
-  stopAllRolling();stopAllMesAnims();stopAllS3Anims();stopAllS4Anims();stopAllS5Anims();
+  stopAllRolling();stopAllMesAnims();stopAllS3Anims();stopAllS4Anims();stopAllS5Anims();stopAllS7Anims();
 
   // ── PRE-HIDE custom-animated elements (no data-a) to prevent FOUC ──
   // Sans ça, ces éléments sont visibles à opacity:1 (CSS default) pendant le fade-in
@@ -1619,6 +1713,27 @@ function freezeContents(s){
     if(sweep) gsap.set(sweep,{opacity:0,x:0});
     if(c) gsap.set(c,{opacity:0});
     s.querySelectorAll('.ai-particle').forEach(p=>gsap.set(p,{opacity:0,attr:{cx:30}}));
+  }
+  if(s.id==='s7'){
+    const row=s.querySelector('.s7-stat-row');
+    if(row){gsap.set(row,{opacity:0,y:24,scale:.96})}
+    s.querySelectorAll('.s7-card').forEach(c=>{
+      gsap.killTweensOf(c);
+      gsap.set(c,{opacity:0,y:24,scale:.96,clearProps:'filter'});
+    });
+    const grP=s.querySelector('.s7-bars-trend');
+    if(grP){const L=grP.getTotalLength();gsap.set(grP,{strokeDasharray:L,strokeDashoffset:L})}
+    s.querySelectorAll('.s7-bar').forEach(b=>gsap.set(b,{scaleY:0}));
+    const ar=s.querySelector('.s7-bars-arrow');if(ar){gsap.set(ar,{opacity:0,scale:0})}
+    const cont=s.querySelector('.s7-planet-continents');if(cont){gsap.killTweensOf(cont);gsap.set(cont,{x:0})}
+    const beS=s.querySelector('.s7-be-shape');
+    if(beS){const L=beS.getTotalLength();gsap.set(beS,{strokeDasharray:L,strokeDashoffset:L,fillOpacity:0})}
+    const beP=s.querySelector('.s7-be-pulse');if(beP){gsap.killTweensOf(beP);gsap.set(beP,{scale:.6,opacity:0})}
+    s.querySelectorAll('.s7-net-link').forEach(l=>{const L=l.getTotalLength();gsap.set(l,{strokeDasharray:L,strokeDashoffset:L})});
+    s.querySelectorAll('.s7-net-node').forEach(n=>gsap.set(n,{opacity:0,scale:0}));
+    const v1=s.querySelector('[data-s7="card-1"] .num-val');if(v1){v1.textContent='0'}
+    const v2=s.querySelector('[data-s7="card-2"] .num-val');if(v2){v2.textContent='0'}
+    const v3=s.querySelector('[data-s7="card-3"] .num-val');if(v3){v3.textContent='0'}
   }
 }
 function showSlide(s){
@@ -1857,6 +1972,146 @@ function animateS5(s){
   s5AnimIds.push(tl);
 }
 
+/* ═══ S7 MARCHE — mirror de S2 ═══ */
+const s7AnimIds=[];
+function stopAllS7Anims(){
+  s7AnimIds.forEach(t=>{if(t&&t.kill)t.kill();else if(typeof t==='number'){clearTimeout(t);clearInterval(t);}});
+  s7AnimIds.length=0;
+  document.querySelectorAll('#s7 .s7-stat-row,#s7 .s7-card,#s7 .num,#s7 .s7-gr-progress,#s7 .s7-gr-dot,#s7 .s7-globe-icon,#s7 .s7-highlight,#s7 .s7-highlight-underline path,#s7 .s7-globe-edge,#s7 .s7-globe-eq,#s7 .s7-globe-mer,#s7 .s7-globe-axis').forEach(el=>{gsap.killTweensOf(el)});
+}
+function animateS7(s){
+  const card1 = s.querySelector('[data-s7="card-1"]');
+  const card2 = s.querySelector('[data-s7="card-2"]');
+  const card3 = s.querySelector('[data-s7="card-3"]');
+  if(!card1||!card2||!card3) return;
+  const num1 = card1.querySelector('.num');
+  const num2 = card2.querySelector('.num');
+  const num3 = card3.querySelector('.num');
+  const grProgress = card2.querySelector('.s7-bars-trend');
+  const grDot = null;
+  const planet = card1.querySelector('.s7-planet');
+  const continents = card1.querySelector('.s7-planet-continents');
+  const networkSvg = card3.querySelector('.s7-network');
+  const bePulse = card3.querySelector('.s7-be-pulse');
+  const beShape = card3.querySelector('.s7-be-shape');
+  const netLinks = card3.querySelectorAll('.s7-net-link');
+  const netNodes = card3.querySelectorAll('.s7-net-node');
+  const bars = card2.querySelectorAll('.s7-bar');
+  const barsArrow = card2.querySelector('.s7-bars-arrow');
+  const statRow = s.querySelector('.s7-stat-row');
+
+  // Helper: ensure num has the val/suf span structure
+  function setupNum(el){
+    let v=el.querySelector('.num-val'),sf=el.querySelector('.num-suf');
+    if(!v){el.textContent='';v=document.createElement('span');v.className='num-val';el.appendChild(v);}
+    if(!sf){sf=document.createElement('span');sf.className='num-suf';el.appendChild(sf);}
+    v.textContent='0';sf.textContent=el.dataset.suffix||'';
+    return v;
+  }
+  const val1 = setupNum(num1);
+  const val2 = setupNum(num2);
+  const val3 = setupNum(num3);
+
+  // RESET — all three cards hidden, frame hidden
+  gsap.set([card1,card2,card3],{opacity:0,y:24,scale:.96});
+  if(statRow) gsap.set(statRow,{opacity:0,scale:.96});
+  // Trend curve length — measure for stroke-dasharray
+  if(grProgress){
+    const L = grProgress.getTotalLength();
+    gsap.set(grProgress,{strokeDasharray:L,strokeDashoffset:L});
+    grProgress._len = L;
+  }
+  // Bars hidden (scaleY 0)
+  bars.forEach(b=>gsap.set(b,{scaleY:0}));
+  if(barsArrow) gsap.set(barsArrow,{opacity:0,scale:0,transformOrigin:'50% 50%'});
+  // Network: links hidden, nodes hidden, BE shape hidden
+  netLinks.forEach(l=>{
+    const L=l.getTotalLength();
+    gsap.set(l,{strokeDasharray:L,strokeDashoffset:L,opacity:.6});
+  });
+  netNodes.forEach(n=>gsap.set(n,{opacity:0,scale:0,transformOrigin:'center'}));
+  if(beShape){
+    const L=beShape.getTotalLength();
+    gsap.set(beShape,{strokeDasharray:L,strokeDashoffset:L,fillOpacity:0});
+  }
+  if(bePulse) gsap.set(bePulse,{scale:.6,opacity:0,transformOrigin:'100px 46px'});
+
+  const ENTRY_EASE = 'power3.out';
+
+  // ── Frame entry
+  if(statRow){
+    gsap.to(statRow,{opacity:1,scale:1,duration:.35,ease:'power3.out',delay:1.85});
+  }
+
+  // ── Card 1 ($16 Mds + planet) — entry @ 2.2s
+  gsap.to(card1,{opacity:1,y:0,scale:1,duration:.6,ease:ENTRY_EASE,delay:2.2});
+  const o1={v:0};
+  gsap.to(o1,{v:16,duration:1.6,ease:'power2.out',delay:2.45,
+    onUpdate(){val1.textContent=Math.round(o1.v);if(window.OPSEE_SOUND&&Math.random()<.18)window.OPSEE_SOUND.play('tick');}
+  });
+  gsap.fromTo(num1,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
+    {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:4.05,yoyo:true,repeat:1});
+  // Planet continents scroll horizontally — illusion of rotation
+  if(continents){
+    gsap.set(continents,{x:0});
+    const rotTw=gsap.to(continents,{x:-30,duration:6,ease:'none',repeat:-1,delay:2.2});
+    s7AnimIds.push(rotTw);
+  }
+
+  // ── Card 2 (12%/an + bars) — entry @ 4.6s
+  gsap.to(card2,{opacity:1,y:0,scale:1,duration:.6,ease:ENTRY_EASE,delay:4.6});
+  const o2={v:0};
+  gsap.to(o2,{v:12,duration:2.0,ease:'power2.out',delay:4.9,
+    onUpdate(){val2.textContent=Math.round(o2.v);if(window.OPSEE_SOUND&&Math.random()<.14)window.OPSEE_SOUND.play('tick');}
+  });
+  // Bars rise sequentially with stagger
+  bars.forEach((b,i)=>{
+    gsap.to(b,{scaleY:1,duration:.45,ease:'back.out(1.6)',delay:5.0+i*.15});
+  });
+  // Trend curve traces over the bar tops
+  if(grProgress){
+    gsap.to(grProgress,{strokeDashoffset:0,duration:1.0,ease:'power2.inOut',delay:5.6});
+  }
+  if(barsArrow){
+    gsap.to(barsArrow,{opacity:1,scale:1,duration:.3,ease:'back.out(2.5)',delay:6.6});
+  }
+  // Card 2 — scintillement mauve
+  gsap.fromTo(num2,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
+    {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:6.95,yoyo:true,repeat:1});
+
+  // ── Card 3 (160k+ + network) — entry @ 7.4s
+  gsap.to(card3,{opacity:1,y:0,scale:1,duration:.6,ease:ENTRY_EASE,delay:7.4});
+  const o3={v:0};
+  gsap.to(o3,{v:160,duration:1.6,ease:'power2.out',delay:7.65,
+    onUpdate(){val3.textContent=Math.round(o3.v);if(window.OPSEE_SOUND&&Math.random()<.18)window.OPSEE_SOUND.play('tick');}
+  });
+  // Belgium shape draws first (stroke trace + fill fade)
+  if(beShape){
+    gsap.to(beShape,{strokeDashoffset:0,duration:.9,ease:'power2.inOut',delay:7.5});
+    gsap.to(beShape,{fillOpacity:1,duration:.5,ease:'power2.out',delay:8.1});
+  }
+  // BE pulse: perpetual radiating ring
+  if(bePulse){
+    const pulseTw=gsap.timeline({repeat:-1,delay:8.4});
+    pulseTw.fromTo(bePulse,{scale:.6,opacity:.7},{scale:3,opacity:0,duration:1.6,ease:'power2.out'});
+    s7AnimIds.push(pulseTw);
+  }
+  // Links trace outward (haut, droite, gauche, bas-droite) in cascade
+  netLinks.forEach((l,i)=>{
+    gsap.to(l,{strokeDashoffset:0,duration:.55,ease:'power2.inOut',delay:8.5+i*.15});
+  });
+  // Target nodes pop at end of each link
+  netNodes.forEach((n,i)=>{
+    gsap.to(n,{opacity:1,scale:1,duration:.3,ease:'back.out(2.5)',delay:9.0+i*.15});
+  });
+  // Card 3 — scintillement mauve
+  const lbl3 = card3.querySelector('.label');
+  if(lbl3){
+    gsap.fromTo(lbl3,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
+      {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:9.8,yoyo:true,repeat:1});
+  }
+}
+
 /* ═══ ANIMATE CHILDREN ═══ */
 function animateIn(s){
   const tl=gsap.timeline({delay:.05});
@@ -1917,6 +2172,7 @@ function animateIn(s){
   if(s.id==='s3') animateS3(s);
   if(s.id==='s4') animateS4(s);
   if(s.id==='s5') animateS5(s);
+  if(s.id==='s7') animateS7(s);
 
   // ROLLING
   s.querySelectorAll('[data-a="rolling"]').forEach(el=>{el.style.opacity='1';gsap.set(el,{y:0});setTimeout(()=>startRolling(el),1800)});
