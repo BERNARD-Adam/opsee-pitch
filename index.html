@@ -394,30 +394,38 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .market-card .label{font-size:17px;color:var(--text-muted);margin-top:10px;line-height:1.5}
 
 /* ═══ S8 BUSINESS MODEL ═══ */
-.bm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1060px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
+.bm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1060px;margin-top:36px;border-radius:24px;overflow:visible;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
 .bm-grid .glow-card{background:transparent;border:none;border-radius:0;overflow:visible}
 .bm-grid .glow-card::before{display:none}
-.bm-card{padding:32px 24px;display:flex;flex-direction:column;gap:14px;position:relative;border-right:1px solid rgba(142,51,255,.1);transition:all .4s cubic-bezier(.22,1,.36,1)}
-.bm-card:last-child{border-right:none}
-.bm-card:hover{background:rgba(142,51,255,.04)}
-.bm-card.featured{background:rgba(142,51,255,.05)}
-.bm-card.featured::before{content:'PRINCIPAL';position:absolute;top:14px;right:14px;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;font-weight:700;background:var(--purple);color:#fff;padding:4px 10px;border-radius:100px}
+.bm-card{padding:32px 24px;display:flex;flex-direction:column;gap:14px;position:relative;border-right:1px solid rgba(142,51,255,.1);transition:none}
+.bm-card:first-child{border-radius:24px 0 0 24px}
+.bm-card:last-child{border-right:none;border-radius:0 24px 24px 0}
+.bm-card.featured{background:rgba(142,51,255,.05);border-radius:24px;z-index:2}
+.bm-badge{position:absolute;top:14px;right:14px;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;font-weight:700;background:var(--purple);color:#fff;padding:4px 10px;border-radius:100px;display:inline-block;transform-origin:50% 50%;will-change:transform,opacity}
 .bm-tier{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted)}
 .bm-name{font-size:28px;font-weight:800;color:var(--text)}
-.bm-price{font-size:20px;color:var(--purple-light);font-weight:600}
+.bm-price{font-size:20px;color:var(--purple-light);font-weight:600;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px}
+.bm-price-main{font-weight:700}
+.bm-price-sub{font-size:15px;color:var(--text-muted);font-weight:500;letter-spacing:.2px}
 .bm-list{list-style:none;display:flex;flex-direction:column;gap:10px}
-.bm-list li{font-size:17px;color:var(--text-muted);display:flex;gap:8px;line-height:1.5}
+.bm-list li{font-size:17px;color:var(--text-muted);display:flex;gap:8px;line-height:1.5;will-change:transform,opacity}
 .bm-list li::before{content:'—';color:var(--purple-light);font-weight:400;flex-shrink:0;opacity:.6}
+/* Odoo highlight — sobre : gras + mauve */
+.s8-odoo{display:inline-block;color:var(--purple);font-weight:800}
 
 /* ═══ S9 TRACTION ═══ */
 .traction-wrap{display:grid;grid-template-columns:1fr auto;gap:0;width:100%;max-width:960px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
 .traction-left{padding:32px 28px;border-right:1px solid rgba(142,51,255,.1)}
 .traction-right{padding:32px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .timeline{display:flex;flex-direction:column;gap:0;width:100%;max-width:800px;position:relative}
-.timeline::before{content:'';position:absolute;left:19px;top:0;bottom:0;width:1.5px;background:linear-gradient(180deg,var(--purple),var(--purple-light) 60%,rgba(112,83,254,.1))}
-.tl-item{display:flex;gap:20px;align-items:flex-start;padding:10px 0}
-.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--surface);border:1.5px solid rgba(142,51,255,.3);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;z-index:1;color:var(--text-muted);font-weight:700;font-family:'Space Mono',monospace}
+.tl-spine{position:absolute;left:19px;top:0;bottom:0;width:2px;pointer-events:none;overflow:visible}
+.tl-spine svg{position:absolute;left:50%;top:0;width:2px;height:100%;transform:translateX(-50%);overflow:visible}
+.tl-spine path{stroke:var(--purple);stroke-width:1.6;fill:none;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(142,51,255,.35))}
+.tl-spine .tl-spine-glow{position:absolute;left:50%;top:0;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle,rgba(142,51,255,.55) 0%,rgba(142,51,255,.15) 45%,rgba(142,51,255,0) 70%);transform:translate(-50%,-50%);opacity:0;will-change:transform,opacity}
+.tl-item{display:flex;gap:20px;align-items:flex-start;padding:10px 0;will-change:transform,opacity}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--surface);border:1.5px solid rgba(142,51,255,.3);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;z-index:1;color:var(--text-muted);font-weight:700;font-family:'Space Mono',monospace;will-change:transform,filter}
 .tl-dot.done{background:var(--purple);border-color:var(--purple);color:#fff;box-shadow:0 0 20px var(--purple-glow)}
+.tl-dot svg polyline{stroke-dasharray:30;stroke-dashoffset:30}
 .tl-content .tl-date{font-family:'Space Mono',monospace;font-size:15px;letter-spacing:2px;color:var(--purple-light);text-transform:uppercase;font-weight:700}
 .tl-content .tl-text{font-size:18px;color:var(--text-muted);margin-top:4px;line-height:1.5}
 .tl-item.tl-now{position:relative}
@@ -823,11 +831,24 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s8">
   <div class="tag" data-a="scramble" data-text="Business Model">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Gratuit pour entrer.<br><em>Payant pour scaler.</em></h2>
-  <p class="subtitle" data-a="fade">Le meme modele qu'<strong style="color:var(--purple-light)">Odoo</strong>, applique au MES.</p>
-  <div class="bm-grid" data-a="stagger">
-    <div class="glow-card bm-card"><div class="bm-name">Open Source</div><div class="bm-price">Gratuit · Toujours</div><ul class="bm-list"><li>Data logging & trending</li><li>Cockpit limite aux fonctions gratuites</li></ul></div>
-    <div class="glow-card bm-card featured"><div class="bm-name">Premium</div><div class="bm-price">59 €/mois/equipement</div><ul class="bm-list"><li>Licence proprietaire</li><li>1 fonction premium au choix par equipement (OEE, IA integree, production par lot, reporting...)</li></ul></div>
-    <div class="glow-card bm-card"><div class="bm-name">Enterprise</div><div class="bm-price">95 €/mois/equipement</div><ul class="bm-list"><li>Licence proprietaire</li><li>Fonctions premium illimitees par equipement</li></ul></div>
+  <p class="subtitle">Le meme modele qu'<span class="s8-odoo"><span class="s8-odoo-text">Odoo</span></span>, applique au MES.</p>
+  <div class="bm-grid">
+    <div class="glow-card bm-card" data-s8="card-1">
+      <div class="bm-name">Open Source</div>
+      <div class="bm-price"><span class="bm-price-main">Gratuit</span><span class="bm-price-sub"> · Toujours</span></div>
+      <ul class="bm-list"><li>Data logging &amp; trending</li><li>Cockpit limite aux fonctions gratuites</li></ul>
+    </div>
+    <div class="glow-card bm-card" data-s8="card-2">
+      <div class="bm-name">Premium</div>
+      <div class="bm-price"><span class="bm-price-main"><span class="bm-price-num">59</span> €</span><span class="bm-price-sub">/mois/equipement</span></div>
+      <ul class="bm-list"><li>Licence prioritaire</li><li>1 fonction premium au choix par equipement (IA integree, production par lot, reporting...)</li></ul>
+    </div>
+    <div class="glow-card bm-card featured" data-s8="card-3">
+      <span class="bm-badge">PRINCIPAL</span>
+      <div class="bm-name">Enterprise</div>
+      <div class="bm-price"><span class="bm-price-main"><span class="bm-price-num">95</span> €</span><span class="bm-price-sub">/mois/equipement</span></div>
+      <ul class="bm-list"><li>Licence prioritaire</li><li>Fonctions premium illimitees par equipement</li></ul>
+    </div>
   </div>
 </div>
 
@@ -836,20 +857,21 @@ a.data-source-card{cursor:pointer}
   <div class="tag" data-a="scramble" data-text="Traction & Roadmap">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">De zero a un produit<br><em>en 1 an</em></h2>
   <p class="subtitle" data-a="fade">8 mois de developpement. <strong style="color:var(--text)">5 early adopters signes</strong>. Premier deploiement en juin.</p>
-  <div class="traction-wrap" data-a="stagger">
+  <div class="traction-wrap">
     <div class="traction-left">
       <div class="timeline">
-        <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Sept 2025</div><div class="tl-text">Premier MVP operationnel</div></div></div>
-        <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Oct – Dec 2025</div><div class="tl-text">Productivite (OEE) complete, cockpit, connexion aux machines</div></div></div>
-        <div class="tl-item"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Jan – Avr 2026</div><div class="tl-text">39 widgets, historique des arrets, chatbot IA, interface en 10 langues</div></div></div>
-        <div class="tl-item tl-now"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Mai 2026 · maintenant</div><div class="tl-text"><strong style="color:var(--text)">5 early adopters ont signe</strong></div></div></div>
-        <div class="tl-item"><div class="tl-dot" style="border-color:var(--amber);color:var(--amber)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div><div class="tl-content"><div class="tl-date">Juin 2026</div><div class="tl-text"><strong style="color:var(--text)">Premier deploiement</strong> — version commercialisable</div></div></div>
-        <div class="tl-item"><div class="tl-dot">Q4</div><div class="tl-content"><div class="tl-date">Q3 – Q4 2026</div><div class="tl-text">Production par lots, partenaires integrateurs, lancement en Belgique</div></div></div>
+        <div class="tl-spine"><svg viewBox="0 0 2 100" preserveAspectRatio="none"><path d="M1 0 L1 100"/></svg><span class="tl-spine-glow"></span></div>
+        <div class="tl-item" data-s9="item-1"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Sept 2025</div><div class="tl-text">Premier MVP operationnel</div></div></div>
+        <div class="tl-item" data-s9="item-2"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Oct – Dec 2025</div><div class="tl-text">Productivite (OEE) complete, cockpit, connexion aux machines</div></div></div>
+        <div class="tl-item" data-s9="item-3"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Jan – Avr 2026</div><div class="tl-text">39 widgets, historique des arrets, chatbot IA, interface en 10 langues</div></div></div>
+        <div class="tl-item tl-now" data-s9="item-now"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Mai 2026 · maintenant</div><div class="tl-text"><strong style="color:var(--text)">5 early adopters ont signe</strong></div></div></div>
+        <div class="tl-item" data-s9="item-jun"><div class="tl-dot" style="border-color:var(--amber);color:var(--amber)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div><div class="tl-content"><div class="tl-date">Juin 2026</div><div class="tl-text"><strong style="color:var(--text)">Premier deploiement</strong> — version commercialisable</div></div></div>
+        <div class="tl-item" data-s9="item-q4"><div class="tl-dot">Q4</div><div class="tl-content"><div class="tl-date">Q3 – Q4 2026</div><div class="tl-text">Production par lots, partenaires integrateurs, lancement en Belgique</div></div></div>
       </div>
     </div>
-    <div class="traction-right" data-a="scale">
+    <div class="traction-right">
       <div class="traction-highlight">
-        <div class="big-stat" data-a="counter" data-count="5">0</div>
+        <div class="big-stat" data-s9="big-stat">0</div>
         <div class="stat-label">Early adopters signes</div>
         <div class="stat-sub">Premier deploiement<br><strong>Juin 2026</strong></div>
       </div>
@@ -1735,6 +1757,47 @@ function freezeContents(s){
     const v2=s.querySelector('[data-s7="card-2"] .num-val');if(v2){v2.textContent='0'}
     const v3=s.querySelector('[data-s7="card-3"] .num-val');if(v3){v3.textContent='0'}
   }
+  // S8 — reset symétrique pour replay propre
+  if(s.id==='s8'){
+    const c1=s.querySelector('[data-s8="card-1"]');
+    const c2=s.querySelector('[data-s8="card-2"]');
+    const c3=s.querySelector('[data-s8="card-3"]');
+    if(c1) gsap.set(c1,{opacity:0,y:24,scale:.96,clearProps:'filter'});
+    if(c2) gsap.set(c2,{opacity:0,y:24,scale:.96,clearProps:'filter'});
+    if(c3) gsap.set(c3,{opacity:0,y:32,scale:.92,clearProps:'filter'});
+    const grid=s.querySelector('.bm-grid');if(grid){gsap.set(grid,{opacity:0,scale:.97})}
+    const sub=s.querySelector('.subtitle');if(sub){gsap.set(sub,{opacity:0,y:16})}
+    const badge=s.querySelector('.bm-badge');if(badge){gsap.killTweensOf(badge);gsap.set(badge,{opacity:0,scale:.6,y:-4,clearProps:'filter'})}
+    [c1,c2,c3].forEach(c=>{if(!c)return;c.querySelectorAll('.bm-name,.bm-price,.bm-list li').forEach(el=>gsap.set(el,{opacity:0,y:14,clearProps:'filter'}))});
+    const n2=s.querySelector('[data-s8="card-2"] .bm-price-num');if(n2){n2.textContent='0'}
+    const n3=s.querySelector('[data-s8="card-3"] .bm-price-num');if(n3){n3.textContent='0'}
+  }
+  // S9 — reset symétrique pour replay propre
+  if(s.id==='s9'){
+    const wrap=s.querySelector('.traction-wrap');
+    const spinePath=s.querySelector('.tl-spine path');
+    const spineGlow=s.querySelector('.tl-spine-glow');
+    const items=Array.from(s.querySelectorAll('.tl-item'));
+    const highlight=s.querySelector('.traction-highlight');
+    const bigStat=s.querySelector('[data-s9="big-stat"]');
+    const statLabel=s.querySelector('.traction-highlight .stat-label');
+    const statSub=s.querySelector('.traction-highlight .stat-sub');
+    if(wrap){gsap.killTweensOf(wrap);gsap.set(wrap,{opacity:0,y:24,scale:.97})}
+    if(spinePath){const L=spinePath.getTotalLength();gsap.killTweensOf(spinePath);gsap.set(spinePath,{strokeDasharray:L,strokeDashoffset:L})}
+    if(spineGlow){gsap.killTweensOf(spineGlow);gsap.set(spineGlow,{opacity:0,top:'0%'})}
+    items.forEach(it=>{
+      gsap.killTweensOf(it);gsap.set(it,{opacity:0,x:-14});
+      const dot=it.querySelector('.tl-dot');if(dot){gsap.killTweensOf(dot);gsap.set(dot,{scale:0,opacity:0,clearProps:'filter'})}
+      const check=it.querySelector('.tl-dot svg polyline');if(check){gsap.set(check,{strokeDashoffset:30})}
+      const date=it.querySelector('.tl-date');if(date){gsap.set(date,{opacity:0,y:6})}
+      const text=it.querySelector('.tl-text');if(text){gsap.set(text,{opacity:0,y:6})}
+      const content=it.querySelector('.tl-content');if(content){gsap.killTweensOf(content);gsap.set(content,{scale:1})}
+    });
+    if(highlight){gsap.killTweensOf(highlight);gsap.set(highlight,{opacity:0,scale:.92})}
+    if(bigStat){bigStat.textContent='0';gsap.killTweensOf(bigStat);gsap.set(bigStat,{scale:.7,opacity:0,clearProps:'filter'})}
+    if(statLabel){gsap.set(statLabel,{opacity:0,y:8})}
+    if(statSub){gsap.set(statSub,{opacity:0,y:8})}
+  }
 }
 function showSlide(s){
   freezeContents(s);s.style.opacity='1';s.style.visibility='visible';s.classList.add('on');
@@ -1979,6 +2042,206 @@ function stopAllS7Anims(){
   s7AnimIds.length=0;
   document.querySelectorAll('#s7 .s7-stat-row,#s7 .s7-card,#s7 .num,#s7 .s7-gr-progress,#s7 .s7-gr-dot,#s7 .s7-globe-icon,#s7 .s7-highlight,#s7 .s7-highlight-underline path,#s7 .s7-globe-edge,#s7 .s7-globe-eq,#s7 .s7-globe-mer,#s7 .s7-globe-axis').forEach(el=>{gsap.killTweensOf(el)});
 }
+/* ═══ S9 TRACTION — orchestration premium (mirror S2/S7/S8) ═══ */
+function animateS9(s){
+  const wrap = s.querySelector('.traction-wrap');
+  const spinePath = s.querySelector('.tl-spine path');
+  const spineGlow = s.querySelector('.tl-spine-glow');
+  const items = Array.from(s.querySelectorAll('.tl-item'));
+  const itemNow = s.querySelector('[data-s9="item-now"]');
+  const highlight = s.querySelector('.traction-highlight');
+  const bigStat = s.querySelector('[data-s9="big-stat"]');
+  const statLabel = s.querySelector('.traction-highlight .stat-label');
+  const statSub = s.querySelector('.traction-highlight .stat-sub');
+  if(!wrap||!spinePath) return;
+
+  // Spine length
+  const L = spinePath.getTotalLength();
+  gsap.set(spinePath,{strokeDasharray:L,strokeDashoffset:L});
+  if(spineGlow) gsap.set(spineGlow,{opacity:0,top:'0%'});
+
+  // RESET — frame, items, big-stat
+  gsap.set(wrap,{opacity:0,y:24,scale:.97});
+  items.forEach(it=>{
+    gsap.set(it,{opacity:0,x:-14});
+    const dot=it.querySelector('.tl-dot');
+    if(dot){gsap.set(dot,{scale:0,opacity:0,clearProps:'filter'})}
+    const check=it.querySelector('.tl-dot svg polyline');
+    if(check){gsap.set(check,{strokeDashoffset:30})}
+    const date=it.querySelector('.tl-date');
+    const text=it.querySelector('.tl-text');
+    if(date) gsap.set(date,{opacity:0,y:6});
+    if(text) gsap.set(text,{opacity:0,y:6});
+  });
+  if(highlight) gsap.set(highlight,{opacity:0,scale:.92});
+  if(bigStat){bigStat.textContent='0';gsap.set(bigStat,{scale:.7,opacity:0,clearProps:'filter'})}
+  if(statLabel) gsap.set(statLabel,{opacity:0,y:8});
+  if(statSub) gsap.set(statSub,{opacity:0,y:8});
+
+  // ── Frame entry @ 0.85s
+  gsap.to(wrap,{opacity:1,y:0,scale:1,duration:.55,ease:'power3.out',delay:.85});
+
+  // ── Spine draws from top to bottom over the cascade duration
+  const SPINE_START = 1.10;
+  const SPINE_DUR   = 2.4;
+  gsap.to(spinePath,{strokeDashoffset:0,duration:SPINE_DUR,ease:'power2.inOut',delay:SPINE_START});
+  if(spineGlow){
+    gsap.fromTo(spineGlow,{opacity:0,top:'0%'},{opacity:.95,duration:.25,ease:'power2.out',delay:SPINE_START});
+    gsap.to(spineGlow,{top:'100%',duration:SPINE_DUR,ease:'power2.inOut',delay:SPINE_START});
+    gsap.to(spineGlow,{opacity:0,duration:.4,ease:'power2.in',delay:SPINE_START+SPINE_DUR-.1});
+  }
+
+  // ── Items in cascade — each timed to align with the glow's vertical position
+  // Glow goes 0→100% over SPINE_DUR; trigger each item slightly before glow reaches it
+  const ITEM_DELAYS = [
+    SPINE_START + 0.05,  // item-1 (Sept 2025)
+    SPINE_START + 0.40,  // item-2 (Oct-Dec 2025)
+    SPINE_START + 0.75,  // item-3 (Jan-Avr 2026)
+    SPINE_START + 1.20,  // item-now (Mai — moment fort, beat plus marqué)
+    SPINE_START + 1.75,  // item-jun (futur amber)
+    SPINE_START + 2.10,  // item-q4
+  ];
+
+  items.forEach((it,i)=>{
+    const d = ITEM_DELAYS[i] || (SPINE_START + i*.35);
+    const isNow = it.classList.contains('tl-now');
+    const dot = it.querySelector('.tl-dot');
+    const check = it.querySelector('.tl-dot svg polyline');
+    const date = it.querySelector('.tl-date');
+    const text = it.querySelector('.tl-text');
+
+    // Item slides in from the left
+    gsap.to(it,{opacity:1,x:0,duration:.55,ease:'power3.out',delay:d});
+
+    // Dot pops with back ease — slight delay so the glow "lights" it
+    if(dot){
+      gsap.to(dot,{opacity:1,scale:isNow?1.08:1,duration:.5,ease:'back.out(2.2)',delay:d+.05});
+    }
+    // Checkmark draws after dot pops
+    if(check){
+      gsap.to(check,{strokeDashoffset:0,duration:.35,ease:'power2.out',delay:d+.28});
+    }
+    // Content reveal
+    if(date) gsap.to(date,{opacity:1,y:0,duration:.45,ease:'power3.out',delay:d+.10});
+    if(text) gsap.to(text,{opacity:1,y:0,duration:.5,ease:'power3.out',delay:d+.18});
+
+    // Dot glow swell on entry
+    if(dot){
+      gsap.fromTo(dot,
+        {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+        {filter:isNow?'drop-shadow(0 0 22px rgba(142,51,255,.7))':'drop-shadow(0 0 12px rgba(142,51,255,.45))',
+         duration:.6,ease:'sine.out',delay:d+.15,yoyo:true,repeat:1});
+    }
+
+    // NOW item — extra beat: scale pulse on the content
+    if(isNow){
+      const content = it.querySelector('.tl-content');
+      if(content){
+        gsap.fromTo(content,{scale:1},{scale:1.03,duration:.35,ease:'power2.inOut',delay:d+.20,yoyo:true,repeat:1});
+      }
+    }
+  });
+
+  // ── Big-stat "5" — sync exact avec le moment NOW (item-now @ ITEM_DELAYS[3])
+  const BIG_STAT_DELAY = ITEM_DELAYS[3] + 0.10;
+  if(highlight){
+    gsap.to(highlight,{opacity:1,scale:1,duration:.55,ease:'back.out(1.6)',delay:BIG_STAT_DELAY});
+  }
+  if(bigStat){
+    gsap.to(bigStat,{opacity:1,scale:1,duration:.55,ease:'back.out(1.8)',delay:BIG_STAT_DELAY+.05});
+    const o={v:0};
+    gsap.to(o,{v:5,duration:1.0,ease:'power2.out',delay:BIG_STAT_DELAY+.20,
+      onUpdate(){bigStat.textContent=Math.round(o.v);}
+    });
+    // Glow swell at lock-in
+    gsap.fromTo(bigStat,
+      {filter:'drop-shadow(0 0 30px rgba(142,51,255,.25))'},
+      {filter:'drop-shadow(0 0 50px rgba(142,51,255,.7))',duration:.6,ease:'sine.out',delay:BIG_STAT_DELAY+1.15,yoyo:true,repeat:1});
+    // Final scale beat
+    gsap.fromTo(bigStat,{scale:1},{scale:1.06,duration:.32,ease:'power2.out',delay:BIG_STAT_DELAY+1.20,yoyo:true,repeat:1});
+  }
+  if(statLabel) gsap.to(statLabel,{opacity:1,y:0,duration:.45,ease:'power3.out',delay:BIG_STAT_DELAY+1.30});
+  if(statSub) gsap.to(statSub,{opacity:1,y:0,duration:.5,ease:'power3.out',delay:BIG_STAT_DELAY+1.50});
+}
+
+/* ═══ S8 BUSINESS MODEL — orchestration premium (mirror S2/S7) ═══ */
+function animateS8(s){
+  const card1 = s.querySelector('[data-s8="card-1"]');
+  const card2 = s.querySelector('[data-s8="card-2"]');
+  const card3 = s.querySelector('[data-s8="card-3"]');
+  if(!card1||!card2||!card3) return;
+  const odoo = s.querySelector('.s8-odoo');
+  const grid = s.querySelector('.bm-grid');
+  const badge = card3.querySelector('.bm-badge');
+  const num2 = card2.querySelector('.bm-price-num');
+  const num3 = card3.querySelector('.bm-price-num');
+  const subtitle = s.querySelector('.subtitle');
+
+  // RESET
+  gsap.set([card1,card2],{opacity:0,y:24,scale:.96,clearProps:'filter'});
+  gsap.set(card3,{opacity:0,y:32,scale:.92,clearProps:'filter'});
+  if(grid) gsap.set(grid,{opacity:0,scale:.97});
+  if(subtitle) gsap.set(subtitle,{opacity:0,y:16});
+  if(badge) gsap.set(badge,{opacity:0,scale:.6,y:-4});
+  [card1,card2,card3].forEach(c=>{
+    c.querySelectorAll('.bm-name,.bm-price,.bm-list li').forEach(el=>gsap.set(el,{opacity:0,y:14}));
+  });
+  if(num2) num2.textContent='0';
+  if(num3) num3.textContent='0';
+
+  const ENTRY_EASE='power3.out';
+
+  // ── Subtitle (Odoo highlight = sobre, gras + mauve, pas d'anim)
+  if(subtitle) gsap.to(subtitle,{opacity:1,y:0,duration:.5,ease:'power2.out',delay:.5});
+
+  // ── Frame entry
+  if(grid) gsap.to(grid,{opacity:1,scale:1,duration:.45,ease:'power3.out',delay:1.0});
+
+  // ── Helper: animate a card's contents (name, price, bullets)
+  function animateCardContents(card, baseDelay, opts={}){
+    const name = card.querySelector('.bm-name');
+    const price = card.querySelector('.bm-price');
+    const bullets = card.querySelectorAll('.bm-list li');
+    if(name) gsap.to(name,{opacity:1,y:0,duration:.5,ease:'power3.out',delay:baseDelay+.05});
+    if(price) gsap.to(price,{opacity:1,y:0,duration:.5,ease:'power3.out',delay:baseDelay+.18});
+    bullets.forEach((li,i)=>gsap.to(li,{opacity:1,y:0,duration:.45,ease:'power2.out',delay:baseDelay+.42+i*.10}));
+    // Counter
+    if(opts.counter){
+      const o={v:0};
+      gsap.to(o,{v:opts.target,duration:1.0,ease:'power2.out',delay:baseDelay+.30,
+        onUpdate(){opts.el.textContent=Math.round(o.v);if(window.OPSEE_SOUND&&Math.random()<.16)window.OPSEE_SOUND.play('tick');}});
+    }
+    if(opts.glow){
+      gsap.fromTo(name,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
+        {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:baseDelay+.55,yoyo:true,repeat:1});
+    }
+  }
+
+  // ── Card 1 (Open Source) — entry @ 1.35s
+  gsap.to(card1,{opacity:1,y:0,scale:1,duration:.55,ease:ENTRY_EASE,delay:1.35});
+  animateCardContents(card1,1.35,{glow:true});
+
+  // ── Card 2 (Premium) — entry @ 2.00s
+  gsap.to(card2,{opacity:1,y:0,scale:1,duration:.55,ease:ENTRY_EASE,delay:2.00});
+  animateCardContents(card2,2.00,{counter:true,target:59,el:num2,glow:true});
+
+  // ── Card 3 (Enterprise — featured) — entry @ 3.00s, dominates with scale 1.04
+  gsap.to(card3,{opacity:1,y:0,scale:1.04,duration:.7,ease:'back.out(1.6)',delay:3.00});
+  animateCardContents(card3,3.00,{counter:true,target:95,el:num3,glow:true});
+
+  // Badge PRINCIPAL — appears just after card3 entry
+  if(badge){
+    gsap.to(badge,{opacity:1,scale:1,y:0,duration:.45,ease:'back.out(2.4)',delay:3.25});
+    gsap.fromTo(badge,{filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+      {filter:'drop-shadow(0 0 14px rgba(142,51,255,.65))',duration:.5,ease:'sine.out',delay:3.50,yoyo:true,repeat:1});
+  }
+
+  // Glow swell on Enterprise card — confirms hierarchy
+  gsap.fromTo(card3,
+    {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
+    {filter:'drop-shadow(0 12px 40px rgba(142,51,255,.45))',duration:.7,ease:'sine.inOut',delay:4.00,yoyo:true,repeat:1});
+}
+
 function animateS7(s){
   const card1 = s.querySelector('[data-s7="card-1"]');
   const card2 = s.querySelector('[data-s7="card-2"]');
@@ -2173,6 +2436,8 @@ function animateIn(s){
   if(s.id==='s4') animateS4(s);
   if(s.id==='s5') animateS5(s);
   if(s.id==='s7') animateS7(s);
+  if(s.id==='s8') animateS8(s);
+  if(s.id==='s9') animateS9(s);
 
   // ROLLING
   s.querySelectorAll('[data-a="rolling"]').forEach(el=>{el.style.opacity='1';gsap.set(el,{y:0});setTimeout(()=>startRolling(el),1800)});
