@@ -828,9 +828,9 @@ a.data-source-card{cursor:pointer}
         <div class="tl-item" data-s9="item-1"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Sept 2025</div><div class="tl-text">Premier MVP opérationnel</div></div></div>
         <div class="tl-item" data-s9="item-2"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Oct – Dec 2025</div><div class="tl-text">Productivité (OEE) complète, cockpit, connexion aux machines</div></div></div>
         <div class="tl-item" data-s9="item-3"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Jan – Avr 2026</div><div class="tl-text">24 widgets, historique des arrêts, chatbot IA, interface en 10 langues</div></div></div>
-        <div class="tl-item tl-now" data-s9="item-now"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Mai 2026 · maintenant</div><div class="tl-text"><strong style="color:var(--text)">5 early adopters ont signé</strong></div></div></div>
+        <div class="tl-item tl-now" data-s9="item-now"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Mai 2026 · maintenant</div><div class="tl-text"><strong style="color:var(--text)">4 early adopters ont signé</strong></div></div></div>
         <div class="tl-item" data-s9="item-jun"><div class="tl-dot" style="border-color:var(--amber);color:var(--amber)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div><div class="tl-content"><div class="tl-date">Juin 2026</div><div class="tl-text"><strong style="color:var(--text)">Premier déploiement</strong> — version commercialisable</div></div></div>
-        <div class="tl-item" data-s9="item-q4"><div class="tl-dot">Q4</div><div class="tl-content"><div class="tl-date">Q3 – Q4 2026</div><div class="tl-text">Production par lots, partenaires intégrateurs, lancement en Belgique</div></div></div>
+        <div class="tl-item" data-s9="item-q4"><div class="tl-dot">Q4</div><div class="tl-content"><div class="tl-date">Q3 – Q4 2026</div><div class="tl-text">Production par lot, tracking & tracing, partenaires intégrateurs, lancement en Europe</div></div></div>
       </div>
     </div>
     <div class="traction-right">
@@ -855,8 +855,8 @@ a.data-source-card{cursor:pointer}
   </div>
   <svg class="team-connector" viewBox="0 0 2 24" preserveAspectRatio="none"><path d="M1 0 L1 24"/></svg>
   <div class="team-mentors">
-    <div class="card mentor-card" data-s10="mentor-1"><div class="mentor-avatar"><img src="img/mentor_christophe.jpeg" alt="Christophe"></div><div><div class="name">Christophe Camerlynck</div><div class="role">CEO AgiNtech<br>20+ ans en industrie</div></div></div>
-    <div class="card mentor-card" data-s10="mentor-2"><div class="mentor-avatar"><img src="img/mentor_peter.jpeg" alt="Peter"></div><div><div class="name">Peter Mees</div><div class="role">Expert MES<br>AgiNtech</div></div></div>
+    <div class="card mentor-card" data-s10="mentor-1"><div class="mentor-avatar"><img src="img/mentor_christophe.jpeg" alt="Christophe"></div><div><div class="name">Christophe Camerlynck</div><div class="role">CEO AgiNtech<br>30+ ans en industrie</div></div></div>
+    <div class="card mentor-card" data-s10="mentor-2"><div class="mentor-avatar"><img src="img/mentor_peter.jpeg" alt="Peter"></div><div><div class="name">Peter Mees</div><div class="role">Expert MES pour AgiNtech<br>20+ ans en industrie</div></div></div>
   </div>
 </div>
 
@@ -2165,7 +2165,7 @@ function animateS9(s){
   if(bigStat){
     gsap.to(bigStat,{opacity:1,scale:1,duration:.55,ease:'back.out(1.8)',delay:BIG_STAT_DELAY+.05});
     const o={v:0};
-    gsap.to(o,{v:5,duration:1.0,ease:'power2.out',delay:BIG_STAT_DELAY+.20,
+    gsap.to(o,{v:4,duration:1.0,ease:'power2.out',delay:BIG_STAT_DELAY+.20,
       onUpdate(){bigStat.textContent=Math.round(o.v);}
     });
     // Glow swell at lock-in
