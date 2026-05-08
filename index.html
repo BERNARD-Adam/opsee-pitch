@@ -257,7 +257,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .s2-tl-progress{stroke:url(#s2-tl-grad);stroke:var(--purple);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:188;stroke-dashoffset:188}
 .s2-tl-dot{fill:var(--purple);filter:drop-shadow(0 0 6px rgba(142,51,255,.45))}
 /* S2 — single-line subtitle */
-.s2-subtitle{white-space:nowrap}
+.s2-subtitle{white-space:nowrap;max-width:none}
 /* S2 — % highlight premium */
 .s2-pct{position:relative;display:inline-block;color:var(--text)!important;font-weight:800;letter-spacing:-.01em;padding:0 2px;will-change:transform,filter}
 .s2-pct .s2-pct-spark{display:inline-block;color:var(--purple);font-size:.62em;vertical-align:.35em;margin-right:.18em;opacity:0;transform:scale(.4) rotate(-90deg);transform-origin:50% 50%;filter:drop-shadow(0 0 6px rgba(142,51,255,.55))}
@@ -655,7 +655,7 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s2">
   <div class="tag" data-a="scramble" data-text="Le problème">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Le MES est réservé<br><em>aux grands</em></h2>
-  <p class="subtitle s2-subtitle" data-a="fade" style="font-weight: 600">Les PME représentent <strong class="s2-pct" style="color:var(--text)">99.8%<svg class="s2-pct-underline" viewBox="0 0 120 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3,11 C 22,8 48,6 72,7 C 92,7.8 108,9.5 117,11.5" /></svg></strong> des entreprises EU, mais n'ont pas accès au MES.</p>
+  <p class="subtitle s2-subtitle" data-a="fade" style="font-weight: 600; font-size: 26px">Les PME représentent <strong class="s2-pct" style="color:var(--text)">99.8%<svg class="s2-pct-underline" viewBox="0 0 120 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3,11 C 22,8 48,6 72,7 C 92,7.8 108,9.5 117,11.5" /></svg></strong> des entreprises EU, mais n'ont pas accès au MES.</p>
   <div class="stat-row s2-stat-row">
     <div class="glow-card stat-card s2-card" data-s2="card-1">
       <div class="num" data-count="500" data-suffix="k€+">0</div>
