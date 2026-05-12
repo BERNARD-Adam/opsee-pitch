@@ -36,7 +36,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s2 > .subtitle             { margin-top: 44px; }
 
 /* S3 — Solution */
-#s3 .sec-title              { margin-top: 0px; }
+#s3 .sec-title              { margin-top: 0px; font-size: clamp(48px,6.8vw,82px); }
 #s3 > .subtitle             { margin-top: 36px; }
 
 /* S4 — Produit */
@@ -52,7 +52,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 
 /* S7 — Marché */
 #s7 .sec-title              { margin-top: 0; position: relative; top: -50px; }
-#s7 > .subtitle             { margin-top: 22px; font-size: 28px; max-width: none; }
+#s7 > .subtitle             { margin-top: 22px; font-size: 32px; max-width: none; }
 /* Allow growth chart + globe icon to render below the cards without being clipped by stat-row's overflow:hidden */
 .s7-stat-row{overflow:visible}
 .s7-stat-row .s7-card{overflow:visible}
@@ -94,7 +94,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 
 /* S8 — Business Model */
 #s8 .sec-title              { margin-top: 0; }
-#s8 > .subtitle             { margin-top: 28px; font-size: 23px; font-weight: 600; }
+#s8 > .subtitle             { margin-top: 28px; font-size: 33px; font-weight: 600; color: #7C8D95; max-width: none; }
 
 /* S9 — Traction */
 #s9                         { justify-content: flex-start; padding-top: 12vh; }
@@ -114,15 +114,16 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s11 > .subtitle            { margin-top: 12px; }
 
 /* S12 — Ask */
-#s12 .sec-title             { margin-top: 0; position: relative; top: -30px; }
-#s12 > .subtitle            { margin-top: 18px; font-size: 32px; font-weight: 500; max-width: none; }
+#s12 .tag                   { top: 3.5%; }
+#s12 .sec-title             { margin-top: 0; position: relative; top: 10px; }
+#s12 > .subtitle            { margin-top: 18px; font-size: 34px; font-weight: 600; color: #7C8D95; max-width: none; position: relative; top: 18px; }
 
 /* S13 — Closing */
 #s13                        { justify-content: flex-start; padding-top: 6vh; }
 #s13 .logo-big img          { height: 320px; }
 #s13 .logo-big              { margin-bottom: 0; }
 #s13 .tagline-final         { margin-top: 1vh; }
-#s13 .closing-text          { margin-top: 5vh; max-width: 880px; font-size: 30px; font-weight: 500; }
+#s13 .closing-text          { margin-top: 5vh; max-width: 980px; font-size: 36px; font-weight: 600; }
 #s13 .contact-row           { margin-top: 4vh; }
 #s13 .final-tag             { margin-top: 3vh; }
 
@@ -171,7 +172,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 /* ═══ TYPOGRAPHY ═══ */
 .sec-title{font-size:clamp(42px,6vw,72px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;color:var(--text);text-align:center}
 .sec-title em{background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
-.subtitle{font-size:20px;font-weight:300;color:var(--text-muted);max-width:680px;line-height:1.7;text-align:center}
+.subtitle{font-size:26px;font-weight:600;color:#7C8D95;max-width:780px;line-height:1.5;text-align:center}
 .reveal-text{overflow:hidden}.reveal-text .line{display:block;transform:translateY(110%)}
 
 /* ═══ CARDS ═══ */
@@ -216,7 +217,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s1 .big-suffix strong{font-weight:500;color:var(--text)}
 
 /* HOOK — exact V1 styling */
-#s1 .hook-text{font-size:clamp(19px,2.5vw,26px);font-weight:300;color:#333333;max-width:700px;line-height:1.7;margin-top:3.5vh;text-align:center;padding:20px 32px;border-radius:16px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08);opacity:0}
+#s1 .hook-text{font-size:clamp(22px,2.9vw,30px);font-weight:600;color:#7C8D95;max-width:1120px;line-height:1.55;margin-top:3.5vh;text-align:center;padding:22px 44px;border-radius:16px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08);opacity:0;white-space:nowrap}
 #s1 .hook-text strong{color:var(--text);font-weight:600}
 
 /* ═══ S1B MES EXPLAINER (pause pedago) ═══ */
@@ -224,7 +225,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .mes-stack{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:560px;position:relative}
 .mes-tier{width:100%;background:var(--surface);border:1px solid var(--border-light);border-radius:16px;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;position:relative}
 .mes-tier .mes-tier-name{font-weight:800;font-size:18px;letter-spacing:.5px;color:var(--text);font-family:'Outfit',sans-serif}
-.mes-tier .mes-tier-verbs{font-family:'Space Mono',monospace;font-size:15px;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase}
+.mes-tier .mes-tier-verbs{font-family:'Space Mono',monospace;font-size:19px;font-weight:700;letter-spacing:1.5px;color:#7C8D95;text-transform:uppercase}
 .mes-tier.tier-edge{opacity:.85}
 .mes-tier.tier-mes{background:linear-gradient(135deg,rgba(142,51,255,.06),rgba(142,51,255,.12));border:1.5px solid rgba(142,51,255,.35);box-shadow:0 0 40px rgba(142,51,255,.18),inset 0 0 0 1px rgba(255,255,255,.4);padding:20px 26px}
 .mes-tier.tier-mes .mes-tier-name{font-size:22px;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -236,19 +237,19 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .mes-flow-dot{position:absolute;left:50%;top:-4px;border-radius:50%;transform:translateX(-50%);opacity:0;pointer-events:none;will-change:transform,opacity}
 .mes-flow-dot.dir-down{width:7px;height:7px;background:#B47BFF;box-shadow:0 0 10px rgba(180,123,255,.55),0 0 18px rgba(142,51,255,.35)}
 .mes-flow-dot.dir-up{width:8px;height:8px;background:var(--purple);box-shadow:0 0 12px rgba(142,51,255,.7),0 0 24px rgba(142,51,255,.5)}
-.mes-punch{padding:12px 26px;border-radius:14px;background:rgba(142,51,255,.04);border:1px solid rgba(142,51,255,.1)}
-.mes-punch p{font-size:18px;color:var(--text-muted);text-align:center;margin:0;font-weight:300}
+.mes-punch{padding:16px 30px;border-radius:14px;background:rgba(142,51,255,.04);border:1px solid rgba(142,51,255,.1)}
+.mes-punch p{font-size:26px;color:#7C8D95;text-align:center;margin:0;font-weight:600}
 .mes-punch p strong{color:var(--text);font-weight:600}
 
 /* ═══ S2 PROBLEME ═══ */
-.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1000px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1120px;margin-top:44px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
 .stat-row .glow-card{background:transparent;border:none;border-radius:0;overflow:visible}
 .stat-row .glow-card::before{display:none}
-.stat-card{text-align:center;padding:32px 24px;border-right:1px solid rgba(142,51,255,.1);transition:all .4s cubic-bezier(.22,1,.36,1)}
+.stat-card{text-align:center;padding:42px 28px;border-right:1px solid rgba(142,51,255,.1);transition:all .4s cubic-bezier(.22,1,.36,1)}
 .stat-card:last-child{border-right:none}
 .stat-card:hover{background:rgba(142,51,255,.04)}
 .stat-card .num{font-size:58px;font-weight:900;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;letter-spacing:-2px}
-.stat-card .label{font-size:17px;color:var(--text-muted);margin-top:10px;line-height:1.5}
+.stat-card .label{font-size:28px;font-weight:600;color:#7C8D95;margin-top:20px;line-height:1.45}
 .lock-icon{width:48px;height:48px;margin:0 auto;color:var(--purple);opacity:1}
 /* S2 — timeline 18 mois */
 .s2-timeline{display:block;width:80%;max-width:200px;height:14px;margin:14px auto 0;overflow:visible}
@@ -270,7 +271,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .s2-lock-shackle{transform-box:fill-box;transform-origin:50% 100%}
 .s2-lock-keyhole{opacity:0}
 .s2-consequence{margin-top:24px;padding:14px 28px;border-radius:14px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08)}
-.s2-consequence .subtitle{font-size:20px;margin:0}
+.s2-consequence .subtitle{font-size:26px;font-weight:600;color:#7C8D95;margin:0;max-width:none}
 
 /* ═══ S3 SOLUTION ═══ */
 #s3::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 50% 58%,rgba(142,51,255,.06),transparent);pointer-events:none}
@@ -324,7 +325,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s5 .ai-conv{display:flex;flex-direction:column;align-items:stretch;gap:14px;width:100%;position:relative}
 
 /* Bubble USER */
-#s5 .ai-bubble{position:relative;border-radius:18px;padding:16px 22px 14px;font-size:17px;line-height:1.55;max-width:560px;will-change:opacity,transform;backface-visibility:hidden}
+#s5 .ai-bubble{position:relative;border-radius:18px;padding:18px 26px 16px;font-size:22px;line-height:1.5;max-width:700px;will-change:opacity,transform;backface-visibility:hidden}
 #s5 .ai-bubble-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2.5px;font-weight:700;text-transform:uppercase;margin-bottom:5px;opacity:.72}
 #s5 .ai-bubble-user{align-self:flex-start;background:var(--surface);border:1px solid var(--border-light);box-shadow:0 4px 24px rgba(0,0,0,.04);color:var(--text)}
 #s5 .ai-bubble-user .ai-bubble-tag{color:var(--text-muted)}
@@ -369,7 +370,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s5 .ai-shot-sweep{position:absolute;top:0;bottom:0;left:-30%;width:35%;background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,0) 30%,rgba(168,85,247,.18) 50%,rgba(255,255,255,0) 70%,transparent 100%);pointer-events:none;mix-blend-mode:screen;opacity:0}
 
 /* Description finale */
-#s5 .ai-desc{margin:14px 0 0;font-size:28px;font-weight:600;color:var(--text-muted);line-height:1.5;text-align:center;align-self:center;max-width:780px}
+#s5 .ai-desc{margin:-6px 0 0;font-size:28px;font-weight:600;color:var(--text-muted);line-height:1.5;text-align:center;align-self:center;max-width:780px}
 #s5 .ai-desc-hl{position:relative;display:inline-block}
 
 /* ═══ S6 ARCHITECTURE ═══ */
@@ -391,7 +392,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .market-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%;max-width:1000px;margin-top:36px}
 .market-card{text-align:center;padding:32px 20px}
 .market-card .num{font-size:56px;font-weight:900;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.market-card .label{font-size:17px;color:var(--text-muted);margin-top:10px;line-height:1.5}
+.market-card .label{font-size:24px;font-weight:600;color:#7C8D95;margin-top:14px;line-height:1.4}
 
 /* ═══ S8 BUSINESS MODEL ═══ */
 .bm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1060px;margin-top:36px;border-radius:24px;overflow:visible;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
@@ -406,15 +407,15 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .bm-name{font-size:28px;font-weight:800;color:var(--text)}
 .bm-price{font-size:20px;color:var(--purple-light);font-weight:600;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px}
 .bm-price-main{font-weight:700}
-.bm-price-sub{font-size:18px;color:var(--text-muted);font-weight:500;letter-spacing:.2px}
+.bm-price-sub{font-size:22px;color:#7C8D95;font-weight:600;letter-spacing:.2px}
 .bm-list{list-style:none;display:flex;flex-direction:column;gap:10px}
-.bm-list li{font-size:18px;font-weight:500;color:var(--text-muted);display:flex;gap:8px;line-height:1.5;will-change:transform,opacity}
+.bm-list li{font-size:22px;font-weight:600;color:#7C8D95;display:flex;gap:8px;line-height:1.45;will-change:transform,opacity}
 .bm-list li::before{content:'—';color:var(--purple-light);font-weight:400;flex-shrink:0;opacity:.6}
 /* Odoo highlight — sobre : gras + mauve */
 .s8-odoo{display:inline-block;color:var(--purple);font-weight:800}
 
 /* ═══ S9 TRACTION ═══ */
-.traction-wrap{display:grid;grid-template-columns:1fr auto;gap:0;width:100%;max-width:960px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
+.traction-wrap{display:grid;grid-template-columns:1fr auto;gap:0;width:100%;max-width:1240px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
 .traction-left{padding:32px 28px;border-right:1px solid rgba(142,51,255,.1)}
 .traction-right{padding:32px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .timeline{display:flex;flex-direction:column;gap:0;width:100%;max-width:800px;position:relative}
@@ -427,7 +428,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .tl-dot.done{background:var(--purple);border-color:var(--purple);color:#fff;box-shadow:0 0 20px var(--purple-glow)}
 .tl-dot svg polyline{stroke-dasharray:30;stroke-dashoffset:30}
 .tl-content .tl-date{font-family:'Space Mono',monospace;font-size:17px;letter-spacing:2px;color:var(--purple-light);text-transform:uppercase;font-weight:700}
-.tl-content .tl-text{font-size:20px;font-weight:500;color:var(--text-muted);margin-top:4px;line-height:1.5}
+.tl-content .tl-text{font-size:24px;font-weight:600;color:#7C8D95;margin-top:4px;line-height:1.45}
 .tl-item.tl-now{position:relative}
 .tl-item.tl-now .tl-dot{box-shadow:0 0 0 6px rgba(142,51,255,.15),0 0 24px var(--purple-glow);animation:nowPulse 2.4s ease-in-out infinite}
 .tl-item.tl-now .tl-content{position:relative;padding-top:6px}
@@ -436,7 +437,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .traction-highlight{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px;text-align:center;width:100%;max-width:320px}
 .traction-highlight .big-stat{font-size:clamp(96px,12vw,150px);font-weight:900;background:linear-gradient(135deg,var(--purple-light) 0%,var(--purple) 60%,var(--purple-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;letter-spacing:-3px;filter:drop-shadow(0 0 30px rgba(142,51,255,.25))}
 .traction-highlight .stat-label{font-family:'Space Mono',monospace;font-size:17px;letter-spacing:3px;text-transform:uppercase;color:var(--text);font-weight:700;margin-top:2px}
-.traction-highlight .stat-sub{font-size:19px;color:var(--text-muted);font-weight:500;line-height:1.5;margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);width:100%}
+.traction-highlight .stat-sub{font-size:23px;color:#7C8D95;font-weight:600;line-height:1.45;margin-top:14px;padding-top:14px;border-top:1px solid var(--border-light);width:100%}
 .traction-highlight .stat-sub strong{color:var(--purple-light);font-weight:700}
 
 /* ═══ S10 TEAM ═══ */
@@ -448,14 +449,14 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .team-member img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--border-light);margin-bottom:14px;filter:grayscale(.3);transition:all .5s}
 .team-member:hover img{border-color:var(--purple);box-shadow:0 0 24px var(--purple-glow);filter:grayscale(0)}
 .team-member .name{font-weight:700;font-size:22px;color:var(--text)}
-.team-member .role{font-size:17px;font-weight:500;color:var(--text-muted);margin-top:6px}
-.team-mentors{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;max-width:660px;margin-top:20px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
+.team-member .role{font-size:24px;font-weight:600;color:#7C8D95;margin-top:10px;line-height:1.4}
+.team-mentors{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;max-width:900px;margin-top:20px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
 .team-mentors .card{background:transparent;border:none;border-radius:0;transition:all .4s cubic-bezier(.22,1,.36,1)}
 .team-mentors .card:first-child{border-right:1px solid rgba(142,51,255,.1)}
 .team-mentors .card:hover{background:rgba(142,51,255,.04)}
 .mentor-card{padding:22px;display:flex;gap:16px;align-items:center}
 .mentor-card .name{font-weight:700;font-size:18px;color:var(--text);white-space:nowrap}
-.mentor-card .role{font-size:16px;font-weight:500;color:var(--text-muted);line-height:1.45}
+.mentor-card .role{font-size:23px;font-weight:600;color:#7C8D95;line-height:1.4;white-space:nowrap}
 .mentor-avatar{width:60px;height:60px;border-radius:50%;background:var(--surface2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--purple-light);overflow:hidden;border:2px solid var(--border-light);transition:all .5s;will-change:transform,filter}
 .mentor-avatar img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.85);transition:filter .7s ease}
 .team-mentors .card:hover .mentor-avatar{border-color:var(--purple);box-shadow:0 0 18px var(--purple-glow)}
@@ -476,7 +477,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .adv-icon{width:52px;height:52px;border-radius:14px;background:var(--purple);display:flex;align-items:center;justify-content:center;margin:0 auto 4px;color:#fff;transition:all .4s}
 .adv-card:hover .adv-icon{box-shadow:0 0 24px var(--purple-glow);transform:scale(1.1)}
 .adv-card .adv-title{font-weight:700;font-size:19px;color:var(--text)}
-.adv-card .adv-desc{font-size:16px;color:var(--text-muted);line-height:1.5}
+.adv-card .adv-desc{font-size:21px;font-weight:600;color:#7C8D95;line-height:1.45}
 
 /* ═══ S12 ASK ═══ */
 .ask-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1000px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
@@ -487,10 +488,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .ask-card:hover{background:rgba(142,51,255,.04)}
 .ask-card .ask-icon{margin-bottom:16px;color:var(--purple)}
 .ask-card .ask-title{font-weight:700;font-size:24px;color:var(--text)}
-.ask-card .ask-desc{font-size:19px;font-weight:500;color:var(--text-muted);margin-top:10px;line-height:1.6}
+.ask-card .ask-desc{font-size:23px;font-weight:600;color:#7C8D95;margin-top:14px;line-height:1.5}
 .s12-hl{color:var(--purple-light);font-weight:700;position:relative;display:inline-block;will-change:transform,filter}
 .ask-row,.ask-card,.ask-icon,.ask-title,.ask-desc,.s12-cta{will-change:transform,opacity,filter}
-#s12 .s12-cta .subtitle{font-size:23px;font-weight:500}
+#s12 .s12-cta .subtitle{font-size:26px;font-weight:600;color:#7C8D95}
 
 /* ═══ S13 CLOSING ═══ */
 #s13{text-align:center;position:relative}
@@ -501,12 +502,15 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .rolling-wrap{display:inline-block;height:1.3em;overflow:hidden;vertical-align:bottom;position:relative;min-width:2ch}
 .rolling-track{display:flex;flex-direction:column}.rolling-track span{display:block;height:1.3em;line-height:1.3em}
 .contact-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.chip{padding:14px 28px;border:1px solid var(--border-light);border-radius:100px;font-size:17px;font-weight:400;color:var(--text-muted);background:var(--surface);display:flex;align-items:center;gap:8px;transition:all .3s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.chip:hover{border-color:var(--purple);color:var(--purple-light);transform:translateY(-2px)}
+.chip{padding:16px 32px;border:1px solid var(--border-light);border-radius:100px;font-size:24px;font-weight:600;color:#7C8D95;background:var(--surface);display:flex;align-items:center;gap:10px;transition:all .3s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.chip:hover,.chip.is-active{border-color:var(--purple);color:var(--purple-light);transform:translateY(-3px);box-shadow:0 8px 28px rgba(142,51,255,.22),0 0 0 1px rgba(142,51,255,.35)}
+.chip.is-active .ico{color:var(--purple-light)}
+#s13 .virtual-cursor{position:absolute;top:0;left:0;width:30px;height:30px;pointer-events:none;opacity:0;z-index:30;filter:drop-shadow(0 3px 6px rgba(0,0,0,.25));transform-origin:6% 6%;will-change:transform,opacity}
+#s13 .virtual-cursor-ripple{position:absolute;top:0;left:0;width:14px;height:14px;border-radius:50%;border:2px solid var(--purple);opacity:0;pointer-events:none;z-index:29;transform:translate(-50%,-50%) scale(.4);will-change:transform,opacity}
 .chip .ico{width:14px;height:14px}
 .commit-stats{font-family:'Space Mono',monospace;font-size:11px;color:var(--text-muted);text-align:center}
-.closing-text{font-size:24px;color:var(--text-muted);line-height:1.6;font-weight:300}
-.final-tag{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:6px;text-transform:uppercase;color:rgba(28,37,46,.15)}
+.closing-text{font-size:28px;color:#7C8D95;line-height:1.5;font-weight:600}
+.final-tag{font-family:'Space Mono',monospace;font-size:16px;letter-spacing:7px;text-transform:uppercase;color:rgba(28,37,46,.2)}
 #s13 .logo-big,#s13 .tagline-final,#s13 .closing-text,#s13 .contact-row,#s13 .chip,#s13 .final-tag{will-change:transform,opacity,filter}
 #s13 .rolling-wrap{will-change:transform,filter}
 
@@ -631,7 +635,7 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s1b">
   <div class="tag" data-a="scramble" data-text="30 secondes pour comprendre">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">C'est quoi <em>un MES</em> ?</h2>
-  <p class="subtitle" data-a="fade" style="font-weight: 600; color: rgb(51, 51, 51); font-size: 26px">La tour de contrôle de l'usine.</p>
+  <p class="subtitle" data-a="fade" style="font-weight: 600; color: #7C8D95; font-size: 30px">La tour de contrôle de l'usine.</p>
   <div class="mes-stack" data-a="mes-stack">
     <div class="mes-tier tier-edge tier-erp">
       <div class="mes-tier-name">ERP</div>
@@ -648,14 +652,14 @@ a.data-source-card{cursor:pointer}
       <div class="mes-tier-verbs" style="font-weight: 600">Produisent</div>
     </div>
   </div>
-  <div class="mes-punch" data-a="fade" style="border-width: 1px; box-shadow: 0 12px 32px rgba(15,23,42,.12), 0 4px 12px rgba(15,23,42,.08)"><p style="color: #333333; font-weight: 500; font-size: 23px">Sans MES, l'usine vole <strong style="color: #9944fa; font-weight: 700">à l'aveugle</strong>.</p></div>
+  <div class="mes-punch" data-a="fade" style="border-width: 1px; box-shadow: 0 12px 32px rgba(15,23,42,.12), 0 4px 12px rgba(15,23,42,.08)"><p style="color: #7C8D95; font-weight: 600; font-size: 28px">Sans MES, l'usine vole <strong style="color: #9944fa; font-weight: 700">à l'aveugle</strong>.</p></div>
 </div>
 
 <!-- ═══ 2. PROBLEME ═══ -->
 <div class="slide" id="s2">
   <div class="tag" data-a="scramble" data-text="Le problème">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Le MES est réservé<br><em>aux grands</em></h2>
-  <p class="subtitle s2-subtitle" data-a="fade" style="font-weight: 600; font-size: 26px">Les PME représentent <strong class="s2-pct" style="color:var(--text)">99.8%<svg class="s2-pct-underline" viewBox="0 0 120 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3,11 C 22,8 48,6 72,7 C 92,7.8 108,9.5 117,11.5" /></svg></strong> des entreprises EU, mais n'ont pas accès au MES.</p>
+  <p class="subtitle s2-subtitle" data-a="fade" style="font-weight: 600; font-size: 30px; color: #7C8D95">Les PME représentent <strong class="s2-pct" style="color:var(--text)">99.8%<svg class="s2-pct-underline" viewBox="0 0 120 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3,11 C 22,8 48,6 72,7 C 92,7.8 108,9.5 117,11.5" /></svg></strong> des entreprises EU, mais n'ont pas accès au MES.</p>
   <div class="stat-row s2-stat-row">
     <div class="glow-card stat-card s2-card" data-s2="card-1">
       <div class="num" data-count="500" data-suffix="k€+">0</div>
@@ -689,7 +693,7 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s3">
   <div class="tag" data-a="scramble" data-text="Notre solution">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Le premier MES<br><em>open core et accessible</em></h2>
-  <p class="subtitle" data-a="fade"><strong style="color:#8b9096;font-weight:600;font-size:26px">MES de grand compte. Coût de PME.</strong></p>
+  <p class="subtitle" data-a="fade"><strong style="color:#7C8D95;font-weight:600;font-size:36px">MES de grand compte. Coût de PME.</strong></p>
   <div class="pill-row s3-pill-row">
     <div class="pill s3-pill" data-s3pill="0">
       <svg class="ico s3-ico s3-ico-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -775,7 +779,7 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s7">
   <div class="tag" data-a="scramble" data-text="Opportunité">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Un marché de <em>$16 Mds</em><br>dominé par des acteurs trop chers</h2>
-  <p class="subtitle s7-subtitle" data-a="fade" style="font-weight: 600">Le MES est le prochain domaine B2B à être disrupté par l'open core.</p>
+  <p class="subtitle s7-subtitle" data-a="fade" style="font-weight: 600; color: #7C8D95">Le MES est le prochain domaine B2B à être disrupté par l'open core.</p>
   <div class="stat-row s7-stat-row">
     <div class="glow-card stat-card s7-card" data-s7="card-1">
       <div class="num" data-count="16" data-suffix=" Mds$">0</div>
@@ -875,6 +879,7 @@ a.data-source-card{cursor:pointer}
 
 <!-- ═══ 13. CLOSING ═══ -->
 <div class="slide" id="s13">
+  <div class="tag" data-a="scramble" data-text="Turn complexity into clarity">&nbsp;</div>
   <div class="logo-big"><img src="img/logo_texte.svg" alt="OpSee"></div>
   <div class="tagline-final"><span class="rolling-wrap"><span class="rolling-track" data-a="rolling"><span>Open</span><span>Smart</span><span>Scalable</span></span></span> · <span class="rolling-wrap"><span class="rolling-track" data-a="rolling" data-offset="1"><span>Smart</span><span>Scalable</span><span>Open</span></span></span> · <span class="rolling-wrap"><span class="rolling-track" data-a="rolling" data-offset="2"><span>Scalable</span><span>Open</span><span>Smart</span></span></span></div>
   <p class="closing-text">Le seul MES <strong style="color:var(--text)">open core, modulaire, avec IA intégrée</strong>.<br><strong style="color:var(--text)">Plus jamais une PME laissée à l'aveugle.</strong></p>
@@ -883,7 +888,8 @@ a.data-source-card{cursor:pointer}
     <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="mailto:performance@opsee.io" style="color:inherit;text-decoration:none">performance@opsee.io</a></div>
     <div class="chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg> +32 71 256 280</div>
   </div>
-  <div class="final-tag" data-a="scramble" data-text="Turn complexity into clarity">&nbsp;</div>
+  <svg class="virtual-cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 2.2l8.6 19.4 2.2-7.6 7.6-2.2L3.5 2.2z" fill="#1C252E" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/></svg>
+  <span class="virtual-cursor-ripple" aria-hidden="true"></span>
 </div>
 
 <!-- ═══ BACKUP — INTRO Q&A (Q&A jury) ═══ -->
@@ -2389,6 +2395,49 @@ function animateS13(s){
     gsap.to(finalTag,{opacity:1,duration:.5,ease:'power2.out',delay:3.80,onStart:()=>{
       try{ scramble(finalTag, finalTag.dataset.text||'', 1.2); }catch(e){ finalTag.textContent = finalTag.dataset.text||''; }
     }});
+  }
+
+  // ── Virtual cursor pass on chips @ 4.6s — souris qui clique sur chaque pilule
+  const cursor = s.querySelector('.virtual-cursor');
+  const ripple = s.querySelector('.virtual-cursor-ripple');
+  if(cursor && chips.length){
+    gsap.set(cursor,{opacity:0,scale:1});
+    if(ripple) gsap.set(ripple,{opacity:0});
+    gsap.delayedCall(4.6, ()=>{
+      const slideRect = s.getBoundingClientRect();
+      const targets = chips.map(c=>{
+        const r = c.getBoundingClientRect();
+        return {
+          x: r.left - slideRect.left + r.width*0.62,
+          y: r.top - slideRect.top + r.height*0.55,
+          chip: c
+        };
+      });
+      // Start the cursor below-left of the first chip
+      gsap.set(cursor,{x:targets[0].x-90,y:targets[0].y+70,opacity:0,scale:1.1});
+      gsap.to(cursor,{opacity:1,duration:.35,ease:'power2.out'});
+      targets.forEach((t,i)=>{
+        const dl = i*1.6;
+        // Move (plus lent et fluide)
+        gsap.to(cursor,{x:t.x,y:t.y,duration:1.05,ease:'power2.inOut',delay:dl});
+        // Click compress
+        gsap.to(cursor,{scale:0.78,duration:.14,ease:'power2.in',delay:dl+1.10});
+        gsap.to(cursor,{scale:1,duration:.22,ease:'back.out(2)',delay:dl+1.26});
+        // Ripple
+        if(ripple){
+          gsap.set(ripple,{x:t.x,y:t.y,delay:dl+1.14});
+          gsap.fromTo(ripple,
+            {opacity:.65,scale:.4},
+            {opacity:0,scale:2.4,duration:.7,ease:'power2.out',delay:dl+1.14});
+        }
+        // Chip highlight (plus long pour être bien vu)
+        gsap.delayedCall(dl+1.16, ()=>t.chip.classList.add('is-active'));
+        gsap.delayedCall(dl+1.16+.95, ()=>t.chip.classList.remove('is-active'));
+      });
+      // Fade out cursor after last chip
+      const endDelay = (targets.length-1)*1.6 + 2.3;
+      gsap.to(cursor,{opacity:0,duration:.6,ease:'power2.out',delay:endDelay});
+    });
   }
 }
 

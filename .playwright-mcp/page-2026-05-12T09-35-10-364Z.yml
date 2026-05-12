@@ -1,0 +1,48 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e8]: 11 — 12
+  - img "OpSee" [ref=e10]
+  - button [ref=e11] [cursor=pointer]:
+    - img [ref=e12]
+  - button [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+  - generic [ref=e17]: fleches · espace · molette
+  - generic [ref=e18]:
+    - generic [ref=e19]: Ce qu'on cherche
+    - heading "On ne cherche pas des applaudissements" [level=2] [ref=e20]:
+      - generic [ref=e22]: On ne cherche pas
+      - emphasis [ref=e25]: des applaudissements
+    - paragraph [ref=e26]:
+      - text: Mais des
+      - generic [ref=e27]: connexions concrètes
+      - text: pour passer à l'échelle.
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - img [ref=e31]
+        - generic [ref=e34]: Clients pilotes
+        - generic [ref=e35]: PME industrielles européennes pour valider en conditions réelles. Déploiement gratuit.
+      - generic [ref=e36]:
+        - img [ref=e38]
+        - generic [ref=e43]: Partenaires intégrateurs
+        - generic [ref=e44]: Sociétés d'automatisation industrielle pour distribuer OpSee.
+      - generic [ref=e45]:
+        - img [ref=e47]
+        - generic [ref=e50]: Visibilité & réseau
+        - generic [ref=e51]: Connexions dans l'écosystème industriel belge et européen.
+    - paragraph [ref=e53]:
+      - strong [ref=e54]: Vous connaissez une PME industrielle ?
+      - text: Présentez-nous. On fait le reste.
+  - generic [ref=e55]:
+    - button [ref=e56] [cursor=pointer]
+    - button [ref=e57] [cursor=pointer]
+    - button [ref=e58] [cursor=pointer]
+    - button [ref=e59] [cursor=pointer]
+    - button [ref=e60] [cursor=pointer]
+    - button [ref=e61] [cursor=pointer]
+    - button [ref=e62] [cursor=pointer]
+    - button [ref=e63] [cursor=pointer]
+    - button [ref=e64] [cursor=pointer]
+    - button [ref=e65] [cursor=pointer]
+    - button [ref=e66] [cursor=pointer]
+    - button [ref=e67] [cursor=pointer]
+    - button [ref=e68] [cursor=pointer]

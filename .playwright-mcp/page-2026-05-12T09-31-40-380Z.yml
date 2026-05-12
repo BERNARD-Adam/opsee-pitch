@@ -1,0 +1,63 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e8]: 10 — 12
+  - img "OpSee" [ref=e10]
+  - button [ref=e11] [cursor=pointer]:
+    - img [ref=e12]
+  - button [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+  - generic [ref=e17]: fleches · espace · molette
+  - generic [ref=e18]:
+    - generic [ref=e19]: L'équipe
+    - heading "Expertise industrielle + énergie académique" [level=2] [ref=e20]:
+      - generic [ref=e22]:
+        - text: Expertise
+        - emphasis [ref=e23]: industrielle
+      - generic [ref=e25]: + énergie académique
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - img "Adam" [ref=e28]
+        - generic [ref=e29]: Adam Bernard
+        - generic [ref=e30]: Frontend / UX
+      - generic [ref=e31]:
+        - img "Nathan" [ref=e32]
+        - generic [ref=e33]: Nathan Moreau
+        - generic [ref=e34]: Backend / Architecture
+      - generic [ref=e35]:
+        - img "Juliette" [ref=e36]
+        - generic [ref=e37]: Juliette Marchand
+        - generic [ref=e38]: Commercial / Stratégie
+      - generic [ref=e39]:
+        - img "Louis" [ref=e40]
+        - generic [ref=e41]: Louis Verbeeren
+        - generic [ref=e42]: Finance / Juridique
+    - img [ref=e43]
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - img "Christophe" [ref=e47]
+        - generic [ref=e48]:
+          - generic [ref=e49]: Christophe Camerlynck
+          - generic [ref=e50]:
+            - text: CEO AgiNtech
+            - text: 30+ ans en industrie
+      - generic [ref=e51]:
+        - img "Peter" [ref=e53]
+        - generic [ref=e54]:
+          - generic [ref=e55]: Peter Mees
+          - generic [ref=e56]:
+            - text: Expert MES pour AgiNtech
+            - text: 20+ ans en industrie
+  - generic [ref=e57]:
+    - button [ref=e58] [cursor=pointer]
+    - button [ref=e59] [cursor=pointer]
+    - button [ref=e60] [cursor=pointer]
+    - button [ref=e61] [cursor=pointer]
+    - button [ref=e62] [cursor=pointer]
+    - button [ref=e63] [cursor=pointer]
+    - button [ref=e64] [cursor=pointer]
+    - button [ref=e65] [cursor=pointer]
+    - button [ref=e66] [cursor=pointer]
+    - button [ref=e67] [cursor=pointer]
+    - button [ref=e68] [cursor=pointer]
+    - button [ref=e69] [cursor=pointer]
+    - button [ref=e70] [cursor=pointer]

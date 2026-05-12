@@ -1,0 +1,24 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic: 01 — 12
+  - generic:
+    - img "OpSee"
+  - button:
+    - img
+  - button:
+    - img
+  - generic: fleches · espace · molette
+  - generic:
+    - button
+    - button
+    - button
+    - button
+    - button
+    - button
+    - button
+    - button
+    - button
+    - button
+    - button
+    - button
+    - button

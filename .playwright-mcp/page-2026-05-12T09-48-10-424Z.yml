@@ -1,0 +1,59 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e8]: 12 — 12
+  - generic:
+    - img "OpSee"
+  - button [ref=e9] [cursor=pointer]:
+    - img [ref=e10]
+  - button [ref=e12] [cursor=pointer]:
+    - img [ref=e13]
+  - generic [ref=e15]: fleches · espace · molette
+  - generic [ref=e16]:
+    - generic [ref=e17]: Turn complexity into clarity
+    - img "OpSee" [ref=e19]
+    - generic [ref=e20]:
+      - generic [ref=e22]:
+        - generic [ref=e23]: Open
+        - generic [ref=e24]: Smart
+        - generic [ref=e25]: Scalable
+      - text: ·
+      - generic [ref=e27]:
+        - generic [ref=e28]: Smart
+        - generic [ref=e29]: Scalable
+        - generic [ref=e30]: Open
+      - text: ·
+      - generic [ref=e32]:
+        - generic [ref=e33]: Scalable
+        - generic [ref=e34]: Open
+        - generic [ref=e35]: Smart
+    - paragraph [ref=e36]:
+      - text: Le seul MES
+      - strong [ref=e37]: open core, modulaire, avec IA intégrée
+      - text: .
+      - strong [ref=e38]: Plus jamais une PME laissée à l'aveugle.
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - img [ref=e41]
+        - text: www.opsee.io
+      - generic [ref=e44]:
+        - img [ref=e45]
+        - link "performance@opsee.io" [ref=e48] [cursor=pointer]:
+          - /url: mailto:performance@opsee.io
+      - generic [ref=e49]:
+        - img [ref=e50]
+        - text: +32 71 256 280
+    - img
+  - generic [ref=e52]:
+    - button [ref=e53] [cursor=pointer]
+    - button [ref=e54] [cursor=pointer]
+    - button [ref=e55] [cursor=pointer]
+    - button [ref=e56] [cursor=pointer]
+    - button [ref=e57] [cursor=pointer]
+    - button [ref=e58] [cursor=pointer]
+    - button [ref=e59] [cursor=pointer]
+    - button [ref=e60] [cursor=pointer]
+    - button [ref=e61] [cursor=pointer]
+    - button [ref=e62] [cursor=pointer]
+    - button [ref=e63] [cursor=pointer]
+    - button [ref=e64] [cursor=pointer]
+    - button [ref=e65] [cursor=pointer]

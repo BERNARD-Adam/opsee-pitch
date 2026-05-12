@@ -1,0 +1,48 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e8]: 06 — 12
+  - img "OpSee" [ref=e10]
+  - button [ref=e11] [cursor=pointer]:
+    - img [ref=e12]
+  - button [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+  - generic [ref=e17]: fleches · espace · molette
+  - generic [ref=e18]:
+    - generic [ref=e19]: IA intégrée
+    - heading "Parlez à votre usine." [level=2] [ref=e20]:
+      - generic [ref=e22]:
+        - text: Parlez à
+        - emphasis [ref=e23]: votre usine
+        - text: .
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]: VOUS
+        - paragraph [ref=e28]:
+          - text: "\"Quel équipement a eu le plus d'arrêts cette semaine ?\""
+          - generic [ref=e29]: ▍
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e36]: OPSEE · ASSISTANT IA
+          - generic [ref=e39]:
+            - strong [ref=e40]: Réponse instantanée
+            - generic [ref=e41]: ·
+            - text: données en temps réel
+        - img "Capture chatbot OpSee" [ref=e48]
+      - paragraph [ref=e49]:
+        - text: Chatbot IA intégré, capable d'interroger les données de production en
+        - strong [ref=e50]: langage naturel
+        - text: .
+  - generic [ref=e51]:
+    - button [ref=e52] [cursor=pointer]
+    - button [ref=e53] [cursor=pointer]
+    - button [ref=e54] [cursor=pointer]
+    - button [ref=e55] [cursor=pointer]
+    - button [ref=e56] [cursor=pointer]
+    - button [ref=e57] [cursor=pointer]
+    - button [ref=e58] [cursor=pointer]
+    - button [ref=e59] [cursor=pointer]
+    - button [ref=e60] [cursor=pointer]
+    - button [ref=e61] [cursor=pointer]
+    - button [ref=e62] [cursor=pointer]
+    - button [ref=e63] [cursor=pointer]
+    - button [ref=e64] [cursor=pointer]

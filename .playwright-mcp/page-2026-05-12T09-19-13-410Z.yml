@@ -1,0 +1,40 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e35]: 04 — 12
+  - img "OpSee" [ref=e37]
+  - button [ref=e38] [cursor=pointer]:
+    - img [ref=e39]
+  - button [ref=e41] [cursor=pointer]:
+    - img [ref=e42]
+  - generic [ref=e44]: fleches · espace · molette
+  - generic [ref=e6]:
+    - generic [ref=e7]: Notre solution
+    - heading "Le premier MES open core et accessible" [level=2] [ref=e8]:
+      - generic [ref=e46]: Le premier MES
+      - emphasis [ref=e49]: open core et accessible
+    - paragraph [ref=e10]:
+      - strong [ref=e11]: MES de grand compte. Coût de PME.
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - img [ref=e14]
+        - generic [ref=e17]: Open Core
+      - generic [ref=e18]:
+        - img [ref=e19]
+        - generic [ref=e24]: Modulaire
+      - generic [ref=e25]:
+        - img [ref=e26]
+        - generic [ref=e32]: Sans internet
+  - generic [ref=e50]:
+    - button [ref=e51] [cursor=pointer]
+    - button [ref=e52] [cursor=pointer]
+    - button [ref=e53] [cursor=pointer]
+    - button [ref=e54] [cursor=pointer]
+    - button [ref=e55] [cursor=pointer]
+    - button [ref=e56] [cursor=pointer]
+    - button [ref=e57] [cursor=pointer]
+    - button [ref=e58] [cursor=pointer]
+    - button [ref=e59] [cursor=pointer]
+    - button [ref=e60] [cursor=pointer]
+    - button [ref=e61] [cursor=pointer]
+    - button [ref=e62] [cursor=pointer]
+    - button [ref=e63] [cursor=pointer]

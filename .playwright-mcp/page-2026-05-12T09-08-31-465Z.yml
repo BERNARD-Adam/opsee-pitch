@@ -1,0 +1,63 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e8]: 10 — 12
+  - img "OpSee" [ref=e10]
+  - button [ref=e11] [cursor=pointer]:
+    - img [ref=e12]
+  - button [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+  - generic [ref=e17]: fleches · espace · molette
+  - generic [ref=e284]:
+    - generic [ref=e285]: L'équipe
+    - heading "Expertise industrielle + énergie académique" [level=2] [ref=e286]:
+      - generic [ref=e288]:
+        - text: Expertise
+        - emphasis [ref=e289]: industrielle
+      - generic [ref=e291]: + énergie académique
+    - generic [ref=e292]:
+      - generic [ref=e293]:
+        - img "Adam" [ref=e294]
+        - generic [ref=e295]: Adam Bernard
+        - generic [ref=e296]: Frontend / UX
+      - generic [ref=e297]:
+        - img "Nathan" [ref=e298]
+        - generic [ref=e299]: Nathan Moreau
+        - generic [ref=e300]: Backend / Architecture
+      - generic [ref=e301]:
+        - img "Juliette" [ref=e302]
+        - generic [ref=e303]: Juliette Marchand
+        - generic [ref=e304]: Commercial / Stratégie
+      - generic [ref=e305]:
+        - img "Louis" [ref=e306]
+        - generic [ref=e307]: Louis Verbeeren
+        - generic [ref=e308]: Finance / Juridique
+    - img [ref=e309]
+    - generic [ref=e310]:
+      - generic [ref=e311]:
+        - img "Christophe" [ref=e313]
+        - generic [ref=e314]:
+          - generic [ref=e315]: Christophe Camerlynck
+          - generic [ref=e316]:
+            - text: CEO AgiNtech
+            - text: 30+ ans en industrie
+      - generic [ref=e317]:
+        - img "Peter" [ref=e319]
+        - generic [ref=e320]:
+          - generic [ref=e321]: Peter Mees
+          - generic [ref=e322]:
+            - text: Expert MES pour AgiNtech
+            - text: 20+ ans en industrie
+  - generic [ref=e26]:
+    - button [ref=e27] [cursor=pointer]
+    - button [ref=e28] [cursor=pointer]
+    - button [ref=e29] [cursor=pointer]
+    - button [ref=e30] [cursor=pointer]
+    - button [ref=e31] [cursor=pointer]
+    - button [ref=e32] [cursor=pointer]
+    - button [ref=e33] [cursor=pointer]
+    - button [ref=e34] [cursor=pointer]
+    - button [ref=e35] [cursor=pointer]
+    - button [ref=e36] [cursor=pointer]
+    - button [ref=e37] [cursor=pointer]
+    - button [ref=e38] [cursor=pointer]
+    - button [ref=e39] [cursor=pointer]

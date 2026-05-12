@@ -1,0 +1,72 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e8]: 09 — 12
+  - img "OpSee" [ref=e10]
+  - button [ref=e11] [cursor=pointer]:
+    - img [ref=e12]
+  - button [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+  - generic [ref=e17]: fleches · espace · molette
+  - generic [ref=e227]:
+    - generic [ref=e228]: Traction & Roadmap
+    - heading "De zéro à un produit en 1 an" [level=2] [ref=e229]:
+      - generic [ref=e231]:
+        - text: De zéro à un produit
+        - emphasis [ref=e232]: en 1 an
+    - generic [ref=e233]:
+      - generic [ref=e235]:
+        - generic:
+          - img
+        - generic [ref=e236]:
+          - img [ref=e238]
+          - generic [ref=e240]:
+            - generic [ref=e241]: Sept 2025
+            - generic [ref=e242]: Premier MVP opérationnel
+        - generic [ref=e243]:
+          - img [ref=e245]
+          - generic [ref=e247]:
+            - generic [ref=e248]: Oct – Dec 2025
+            - generic [ref=e249]: Productivité (OEE) complète, cockpit, connexion aux machines
+        - generic [ref=e250]:
+          - img [ref=e252]
+          - generic [ref=e254]:
+            - generic [ref=e255]: Jan – Avr 2026
+            - generic [ref=e256]: 24 widgets, historique des arrêts, chatbot IA, interface en 10 langues
+        - generic [ref=e257]:
+          - img [ref=e259]
+          - generic [ref=e261]:
+            - text: NOW
+            - generic [ref=e262]: Mai 2026 · maintenant
+            - strong [ref=e264]: 4 early adopters ont signé
+        - generic [ref=e265]:
+          - img [ref=e267]
+          - generic [ref=e269]:
+            - generic [ref=e270]: Juin 2026
+            - generic [ref=e271]:
+              - strong [ref=e272]: Premier déploiement
+              - text: — version commercialisable
+        - generic [ref=e273]:
+          - generic [ref=e274]: Q4
+          - generic [ref=e275]:
+            - generic [ref=e276]: Q3 – Q4 2026
+            - generic [ref=e277]: Production par lot, tracking & tracing, partenaires intégrateurs, lancement en Europe
+      - generic [ref=e279]:
+        - generic [ref=e280]: "4"
+        - generic [ref=e281]: Early adopters signés
+        - generic [ref=e282]:
+          - text: Premier déploiement
+          - strong [ref=e283]: Juin 2026
+  - generic [ref=e26]:
+    - button [ref=e27] [cursor=pointer]
+    - button [ref=e28] [cursor=pointer]
+    - button [ref=e29] [cursor=pointer]
+    - button [ref=e30] [cursor=pointer]
+    - button [ref=e31] [cursor=pointer]
+    - button [ref=e32] [cursor=pointer]
+    - button [ref=e33] [cursor=pointer]
+    - button [ref=e34] [cursor=pointer]
+    - button [ref=e35] [cursor=pointer]
+    - button [ref=e36] [cursor=pointer]
+    - button [ref=e37] [cursor=pointer]
+    - button [ref=e38] [cursor=pointer]
+    - button [ref=e39] [cursor=pointer]
