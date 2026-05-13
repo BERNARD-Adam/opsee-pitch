@@ -1,0 +1,47 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e8]: 07 — 12
+  - img "OpSee" [ref=e10]
+  - button [ref=e11] [cursor=pointer]:
+    - img [ref=e12]
+  - button [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+  - generic [ref=e17]: fleches · espace · molette
+  - generic [ref=e18]:
+    - generic [ref=e19]: Opportunité
+    - heading "Un marché européen de $4 Mds dominé par des acteurs trop chers" [level=2] [ref=e20]:
+      - generic [ref=e22]:
+        - text: Un marché européen de
+        - emphasis [ref=e23]: $4 Mds
+      - generic [ref=e25]: dominé par des acteurs trop chers
+    - paragraph [ref=e26]: Le MES est le prochain domaine B2B à être disrupté par l'open core.
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - generic [ref=e29]: 4 Mds$
+        - generic [ref=e30]:
+          - text: Marché européen
+          - text: du MES en 2025
+      - generic [ref=e31]:
+        - generic [ref=e32]: 10%/an
+        - generic [ref=e33]:
+          - text: Croissance annuelle
+          - text: du marché européen
+      - generic [ref=e34]:
+        - generic [ref=e35]: 160k+
+        - generic [ref=e36]:
+          - text: PME industrielles cibles
+          - text: BE · FR · DE
+  - generic [ref=e37]:
+    - button [ref=e38] [cursor=pointer]
+    - button [ref=e39] [cursor=pointer]
+    - button [ref=e40] [cursor=pointer]
+    - button [ref=e41] [cursor=pointer]
+    - button [ref=e42] [cursor=pointer]
+    - button [ref=e43] [cursor=pointer]
+    - button [ref=e44] [cursor=pointer]
+    - button [ref=e45] [cursor=pointer]
+    - button [ref=e46] [cursor=pointer]
+    - button [ref=e47] [cursor=pointer]
+    - button [ref=e48] [cursor=pointer]
+    - button [ref=e49] [cursor=pointer]
+    - button [ref=e50] [cursor=pointer]

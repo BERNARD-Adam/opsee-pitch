@@ -14,7 +14,7 @@
   --bg:#F9FAFB;--bg2:#F4F6F8;
   --surface:#FFFFFF;--surface2:rgba(142,51,255,.06);
   --border:rgba(142,51,255,.18);--border-light:rgba(0,0,0,.08);
-  --text:#1C252E;--text-muted:rgba(28,37,46,.5);--white:#FFF;
+  --text:#1C252E;--text-muted:#5F6E76;--white:#FFF;
   --green:#22C55E;--amber:#F59E0B;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -94,7 +94,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 
 /* S8 — Business Model */
 #s8 .sec-title              { margin-top: 0; }
-#s8 > .subtitle             { margin-top: 28px; font-size: 33px; font-weight: 600; color: #7C8D95; max-width: none; }
+#s8 > .subtitle             { margin-top: 28px; font-size: 33px; font-weight: 600; color: #5F6E76; max-width: none; }
+
 
 /* S9 — Traction */
 #s9                         { justify-content: flex-start; padding-top: 12vh; }
@@ -116,7 +117,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 /* S12 — Ask */
 #s12 .tag                   { top: 3.5%; }
 #s12 .sec-title             { margin-top: 0; position: relative; top: 10px; }
-#s12 > .subtitle            { margin-top: 18px; font-size: 34px; font-weight: 600; color: #7C8D95; max-width: none; position: relative; top: 18px; }
+#s12 > .subtitle            { margin-top: 18px; font-size: 34px; font-weight: 600; color: #5F6E76; max-width: none; position: relative; top: 18px; }
 
 /* S13 — Closing */
 #s13                        { justify-content: flex-start; padding-top: 6vh; }
@@ -172,7 +173,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 /* ═══ TYPOGRAPHY ═══ */
 .sec-title{font-size:clamp(42px,6vw,72px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;color:var(--text);text-align:center}
 .sec-title em{background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
-.subtitle{font-size:26px;font-weight:600;color:#7C8D95;max-width:780px;line-height:1.5;text-align:center}
+.subtitle{font-size:26px;font-weight:600;color:#5F6E76;max-width:780px;line-height:1.5;text-align:center}
 .reveal-text{overflow:hidden}.reveal-text .line{display:block;transform:translateY(110%)}
 
 /* ═══ CARDS ═══ */
@@ -217,7 +218,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 #s1 .big-suffix strong{font-weight:500;color:var(--text)}
 
 /* HOOK — exact V1 styling */
-#s1 .hook-text{font-size:clamp(22px,2.9vw,30px);font-weight:600;color:#7C8D95;max-width:1120px;line-height:1.55;margin-top:3.5vh;text-align:center;padding:22px 44px;border-radius:16px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08);opacity:0;white-space:nowrap}
+#s1 .hook-text{font-size:clamp(22px,2.9vw,30px);font-weight:600;color:#5F6E76;max-width:1120px;line-height:1.55;margin-top:3.5vh;text-align:center;padding:22px 44px;border-radius:16px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08);opacity:0;white-space:nowrap}
 #s1 .hook-text strong{color:var(--text);font-weight:600}
 
 /* ═══ S1B MES EXPLAINER (pause pedago) ═══ */
@@ -225,7 +226,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .mes-stack{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:560px;position:relative}
 .mes-tier{width:100%;background:var(--surface);border:1px solid var(--border-light);border-radius:16px;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;position:relative}
 .mes-tier .mes-tier-name{font-weight:800;font-size:18px;letter-spacing:.5px;color:var(--text);font-family:'Outfit',sans-serif}
-.mes-tier .mes-tier-verbs{font-family:'Space Mono',monospace;font-size:19px;font-weight:700;letter-spacing:1.5px;color:#7C8D95;text-transform:uppercase}
+.mes-tier .mes-tier-verbs{font-family:'Space Mono',monospace;font-size:19px;font-weight:700;letter-spacing:1.5px;color:#5F6E76;text-transform:uppercase}
 .mes-tier.tier-edge{opacity:.85}
 .mes-tier.tier-mes{background:linear-gradient(135deg,rgba(142,51,255,.06),rgba(142,51,255,.12));border:1.5px solid rgba(142,51,255,.35);box-shadow:0 0 40px rgba(142,51,255,.18),inset 0 0 0 1px rgba(255,255,255,.4);padding:20px 26px}
 .mes-tier.tier-mes .mes-tier-name{font-size:22px;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -238,7 +239,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .mes-flow-dot.dir-down{width:7px;height:7px;background:#B47BFF;box-shadow:0 0 10px rgba(180,123,255,.55),0 0 18px rgba(142,51,255,.35)}
 .mes-flow-dot.dir-up{width:8px;height:8px;background:var(--purple);box-shadow:0 0 12px rgba(142,51,255,.7),0 0 24px rgba(142,51,255,.5)}
 .mes-punch{padding:16px 30px;border-radius:14px;background:rgba(142,51,255,.04);border:1px solid rgba(142,51,255,.1)}
-.mes-punch p{font-size:26px;color:#7C8D95;text-align:center;margin:0;font-weight:600}
+.mes-punch p{font-size:26px;color:#5F6E76;text-align:center;margin:0;font-weight:600}
 .mes-punch p strong{color:var(--text);font-weight:600}
 
 /* ═══ S2 PROBLEME ═══ */
@@ -249,7 +250,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .stat-card:last-child{border-right:none}
 .stat-card:hover{background:rgba(142,51,255,.04)}
 .stat-card .num{font-size:58px;font-weight:900;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;letter-spacing:-2px}
-.stat-card .label{font-size:28px;font-weight:600;color:#7C8D95;margin-top:20px;line-height:1.45}
+.stat-card .label{font-size:28px;font-weight:600;color:#5F6E76;margin-top:20px;line-height:1.45}
 .lock-icon{width:48px;height:48px;margin:0 auto;color:var(--purple);opacity:1}
 /* S2 — timeline 18 mois */
 .s2-timeline{display:block;width:80%;max-width:200px;height:14px;margin:14px auto 0;overflow:visible}
@@ -271,7 +272,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .s2-lock-shackle{transform-box:fill-box;transform-origin:50% 100%}
 .s2-lock-keyhole{opacity:0}
 .s2-consequence{margin-top:24px;padding:14px 28px;border-radius:14px;background:rgba(142,51,255,.03);border:1px solid rgba(142,51,255,.08)}
-.s2-consequence .subtitle{font-size:26px;font-weight:600;color:#7C8D95;margin:0;max-width:none}
+.s2-consequence .subtitle{font-size:26px;font-weight:600;color:#5F6E76;margin:0;max-width:none}
 
 /* ═══ S3 SOLUTION ═══ */
 #s3::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 50% 58%,rgba(142,51,255,.06),transparent);pointer-events:none}
@@ -392,7 +393,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .market-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%;max-width:1000px;margin-top:36px}
 .market-card{text-align:center;padding:32px 20px}
 .market-card .num{font-size:56px;font-weight:900;background:linear-gradient(135deg,var(--purple-light),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.market-card .label{font-size:24px;font-weight:600;color:#7C8D95;margin-top:14px;line-height:1.4}
+.market-card .label{font-size:24px;font-weight:600;color:#5F6E76;margin-top:14px;line-height:1.4}
 
 /* ═══ S8 BUSINESS MODEL ═══ */
 .bm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1060px;margin-top:36px;border-radius:24px;overflow:visible;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
@@ -407,9 +408,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .bm-name{font-size:28px;font-weight:800;color:var(--text)}
 .bm-price{font-size:20px;color:var(--purple-light);font-weight:600;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px}
 .bm-price-main{font-weight:700}
-.bm-price-sub{font-size:22px;color:#7C8D95;font-weight:600;letter-spacing:.2px}
+.bm-price-sub{font-size:22px;color:#5F6E76;font-weight:600;letter-spacing:.2px}
 .bm-list{list-style:none;display:flex;flex-direction:column;gap:10px}
-.bm-list li{font-size:22px;font-weight:600;color:#7C8D95;display:flex;gap:8px;line-height:1.45;will-change:transform,opacity}
+.bm-list li{font-size:22px;font-weight:600;color:#5F6E76;display:flex;gap:8px;line-height:1.45;will-change:transform,opacity}
 .bm-list li::before{content:'—';color:var(--purple-light);font-weight:400;flex-shrink:0;opacity:.6}
 /* Odoo highlight — sobre : gras + mauve */
 .s8-odoo{display:inline-block;color:var(--purple);font-weight:800}
@@ -428,7 +429,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .tl-dot.done{background:var(--purple);border-color:var(--purple);color:#fff;box-shadow:0 0 20px var(--purple-glow)}
 .tl-dot svg polyline{stroke-dasharray:30;stroke-dashoffset:30}
 .tl-content .tl-date{font-family:'Space Mono',monospace;font-size:17px;letter-spacing:2px;color:var(--purple-light);text-transform:uppercase;font-weight:700}
-.tl-content .tl-text{font-size:24px;font-weight:600;color:#7C8D95;margin-top:4px;line-height:1.45}
+.tl-content .tl-text{font-size:24px;font-weight:600;color:#5F6E76;margin-top:4px;line-height:1.45}
 .tl-item.tl-now{position:relative}
 .tl-item.tl-now .tl-dot{box-shadow:0 0 0 6px rgba(142,51,255,.15),0 0 24px var(--purple-glow);animation:nowPulse 2.4s ease-in-out infinite}
 .tl-item.tl-now .tl-content{position:relative;padding-top:6px}
@@ -437,7 +438,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .traction-highlight{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px;text-align:center;width:100%;max-width:320px}
 .traction-highlight .big-stat{font-size:clamp(96px,12vw,150px);font-weight:900;background:linear-gradient(135deg,var(--purple-light) 0%,var(--purple) 60%,var(--purple-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;letter-spacing:-3px;filter:drop-shadow(0 0 30px rgba(142,51,255,.25))}
 .traction-highlight .stat-label{font-family:'Space Mono',monospace;font-size:17px;letter-spacing:3px;text-transform:uppercase;color:var(--text);font-weight:700;margin-top:2px}
-.traction-highlight .stat-sub{font-size:23px;color:#7C8D95;font-weight:600;line-height:1.45;margin-top:14px;padding-top:14px;border-top:1px solid var(--border-light);width:100%}
+.traction-highlight .stat-sub{font-size:23px;color:#5F6E76;font-weight:600;line-height:1.45;margin-top:14px;padding-top:14px;border-top:1px solid var(--border-light);width:100%}
 .traction-highlight .stat-sub strong{color:var(--purple-light);font-weight:700}
 
 /* ═══ S10 TEAM ═══ */
@@ -449,14 +450,14 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .team-member img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--border-light);margin-bottom:14px;filter:grayscale(.3);transition:all .5s}
 .team-member:hover img{border-color:var(--purple);box-shadow:0 0 24px var(--purple-glow);filter:grayscale(0)}
 .team-member .name{font-weight:700;font-size:22px;color:var(--text)}
-.team-member .role{font-size:24px;font-weight:600;color:#7C8D95;margin-top:10px;line-height:1.4}
+.team-member .role{font-size:24px;font-weight:600;color:#5F6E76;margin-top:10px;line-height:1.4}
 .team-mentors{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;max-width:900px;margin-top:20px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
 .team-mentors .card{background:transparent;border:none;border-radius:0;transition:all .4s cubic-bezier(.22,1,.36,1)}
 .team-mentors .card:first-child{border-right:1px solid rgba(142,51,255,.1)}
 .team-mentors .card:hover{background:rgba(142,51,255,.04)}
 .mentor-card{padding:22px;display:flex;gap:16px;align-items:center}
 .mentor-card .name{font-weight:700;font-size:18px;color:var(--text);white-space:nowrap}
-.mentor-card .role{font-size:23px;font-weight:600;color:#7C8D95;line-height:1.4;white-space:nowrap}
+.mentor-card .role{font-size:23px;font-weight:600;color:#5F6E76;line-height:1.4;white-space:nowrap}
 .mentor-avatar{width:60px;height:60px;border-radius:50%;background:var(--surface2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--purple-light);overflow:hidden;border:2px solid var(--border-light);transition:all .5s;will-change:transform,filter}
 .mentor-avatar img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.85);transition:filter .7s ease}
 .team-mentors .card:hover .mentor-avatar{border-color:var(--purple);box-shadow:0 0 18px var(--purple-glow)}
@@ -477,7 +478,29 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .adv-icon{width:52px;height:52px;border-radius:14px;background:var(--purple);display:flex;align-items:center;justify-content:center;margin:0 auto 4px;color:#fff;transition:all .4s}
 .adv-card:hover .adv-icon{box-shadow:0 0 24px var(--purple-glow);transform:scale(1.1)}
 .adv-card .adv-title{font-weight:700;font-size:19px;color:var(--text)}
-.adv-card .adv-desc{font-size:21px;font-weight:600;color:#7C8D95;line-height:1.45}
+.adv-card .adv-desc{font-size:21px;font-weight:600;color:#5F6E76;line-height:1.45}
+
+/* ═══ BACKUPS Q&A — compact layout pour éviter le débordement ═══ */
+#s-backup-ia, #s-backup-pricing, #s-backup-traction, #s-backup-team        { padding: 28px 60px 60px; }
+#s-backup-ia .sec-title, #s-backup-pricing .sec-title,
+#s-backup-traction .sec-title, #s-backup-team .sec-title                   { font-size: clamp(36px, 4.4vw, 56px); margin-top: 10px; }
+#s-backup-ia > .subtitle, #s-backup-pricing > .subtitle,
+#s-backup-traction > .subtitle, #s-backup-team > .subtitle                 { font-size: 20px; margin-top: 8px; }
+#s-backup-ia .adv-grid, #s-backup-pricing .adv-grid,
+#s-backup-traction .adv-grid, #s-backup-team .adv-grid                     { margin-top: 22px; max-width: 1180px; }
+#s-backup-ia .adv-card, #s-backup-pricing .adv-card,
+#s-backup-traction .adv-card, #s-backup-team .adv-card                     { padding: 18px 18px; gap: 8px; }
+#s-backup-ia .adv-icon, #s-backup-pricing .adv-icon,
+#s-backup-traction .adv-icon, #s-backup-team .adv-icon                     { width: 40px; height: 40px; border-radius: 10px; margin-bottom: 2px; }
+#s-backup-ia .adv-icon .ico-lg, #s-backup-pricing .adv-icon .ico-lg,
+#s-backup-traction .adv-icon .ico-lg, #s-backup-team .adv-icon .ico-lg     { width: 22px; height: 22px; }
+#s-backup-ia .adv-title, #s-backup-pricing .adv-title,
+#s-backup-traction .adv-title, #s-backup-team .adv-title                   { font-size: 16px; }
+#s-backup-ia .adv-desc, #s-backup-pricing .adv-desc,
+#s-backup-traction .adv-desc, #s-backup-team .adv-desc                     { font-size: 14px; font-weight: 500; line-height: 1.45; }
+#s-backup-traction .s2-consequence, #s-backup-team .s2-consequence         { margin-top: 16px; padding: 10px 22px; }
+#s-backup-traction .s2-consequence .subtitle,
+#s-backup-team .s2-consequence .subtitle                                   { font-size: 16px; font-weight: 500; }
 
 /* ═══ S12 ASK ═══ */
 .ask-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;max-width:1000px;margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(142,51,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(142,51,255,.03))}
@@ -488,10 +511,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .ask-card:hover{background:rgba(142,51,255,.04)}
 .ask-card .ask-icon{margin-bottom:16px;color:var(--purple)}
 .ask-card .ask-title{font-weight:700;font-size:24px;color:var(--text)}
-.ask-card .ask-desc{font-size:23px;font-weight:600;color:#7C8D95;margin-top:14px;line-height:1.5}
+.ask-card .ask-desc{font-size:23px;font-weight:600;color:#5F6E76;margin-top:14px;line-height:1.5}
 .s12-hl{color:var(--purple-light);font-weight:700;position:relative;display:inline-block;will-change:transform,filter}
 .ask-row,.ask-card,.ask-icon,.ask-title,.ask-desc,.s12-cta{will-change:transform,opacity,filter}
-#s12 .s12-cta .subtitle{font-size:26px;font-weight:600;color:#7C8D95}
+#s12 .s12-cta .subtitle{font-size:26px;font-weight:600;color:#5F6E76}
 
 /* ═══ S13 CLOSING ═══ */
 #s13{text-align:center;position:relative}
@@ -502,14 +525,14 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .rolling-wrap{display:inline-block;height:1.3em;overflow:hidden;vertical-align:bottom;position:relative;min-width:2ch}
 .rolling-track{display:flex;flex-direction:column}.rolling-track span{display:block;height:1.3em;line-height:1.3em}
 .contact-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.chip{padding:16px 32px;border:1px solid var(--border-light);border-radius:100px;font-size:24px;font-weight:600;color:#7C8D95;background:var(--surface);display:flex;align-items:center;gap:10px;transition:all .3s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.chip{padding:16px 32px;border:1px solid var(--border-light);border-radius:100px;font-size:24px;font-weight:600;color:#5F6E76;background:var(--surface);display:flex;align-items:center;gap:10px;transition:all .3s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .chip:hover,.chip.is-active{border-color:var(--purple);color:var(--purple-light);transform:translateY(-3px);box-shadow:0 8px 28px rgba(142,51,255,.22),0 0 0 1px rgba(142,51,255,.35)}
 .chip.is-active .ico{color:var(--purple-light)}
 #s13 .virtual-cursor{position:absolute;top:0;left:0;width:30px;height:30px;pointer-events:none;opacity:0;z-index:30;filter:drop-shadow(0 3px 6px rgba(0,0,0,.25));transform-origin:6% 6%;will-change:transform,opacity}
 #s13 .virtual-cursor-ripple{position:absolute;top:0;left:0;width:14px;height:14px;border-radius:50%;border:2px solid var(--purple);opacity:0;pointer-events:none;z-index:29;transform:translate(-50%,-50%) scale(.4);will-change:transform,opacity}
 .chip .ico{width:14px;height:14px}
 .commit-stats{font-family:'Space Mono',monospace;font-size:11px;color:var(--text-muted);text-align:center}
-.closing-text{font-size:28px;color:#7C8D95;line-height:1.5;font-weight:600}
+.closing-text{font-size:28px;color:#5F6E76;line-height:1.5;font-weight:600}
 .final-tag{font-family:'Space Mono',monospace;font-size:16px;letter-spacing:7px;text-transform:uppercase;color:rgba(28,37,46,.2)}
 #s13 .logo-big,#s13 .tagline-final,#s13 .closing-text,#s13 .contact-row,#s13 .chip,#s13 .final-tag{will-change:transform,opacity,filter}
 #s13 .rolling-wrap{will-change:transform,filter}
@@ -626,8 +649,8 @@ a.data-source-card{cursor:pointer}
     <span class="big-num-pct">%</span>
   </div>
   <div class="s1-subtitle">
-    <span class="big-suffix" style="color: rgb(51, 51, 51)"><span style="color: #7C8D95; font-weight: 500">des</span> <strong style="color: rgb(51, 51, 51); font-weight: 700">PME européennes</strong></span>
-    <p class="hook-text" style="border-width: 1px; font-weight: 600; color: #7C8D95; box-shadow: 0 12px 32px rgba(15, 23, 42, .12), 0 4px 12px rgba(15, 23, 42, .08)">ont un niveau <strong style="color: rgb(134, 47, 232); font-weight: 800">bas ou très bas</strong> de digitalisation.<br>Elles gèrent leur usine avec <strong style="color: rgb(135, 48, 233); font-weight: 800">Excel, du papier, ou rien</strong>.</p>
+    <span class="big-suffix" style="color: rgb(51, 51, 51)"><span style="color: #5F6E76; font-weight: 500">des</span> <strong style="color: rgb(51, 51, 51); font-weight: 700">PME européennes</strong></span>
+    <p class="hook-text" style="border-width: 1px; font-weight: 600; color: #5F6E76; box-shadow: 0 12px 32px rgba(15, 23, 42, .12), 0 4px 12px rgba(15, 23, 42, .08)">ont un niveau <strong style="color: rgb(134, 47, 232); font-weight: 800">bas ou très bas</strong> de digitalisation.<br>Elles gèrent leur usine avec <strong style="color: rgb(135, 48, 233); font-weight: 800">Excel, du papier, ou rien</strong>.</p>
   </div>
 </div>
 
@@ -635,7 +658,7 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s1b">
   <div class="tag" data-a="scramble" data-text="30 secondes pour comprendre">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">C'est quoi <em>un MES</em> ?</h2>
-  <p class="subtitle" data-a="fade" style="font-weight: 600; color: #7C8D95; font-size: 30px">La tour de contrôle de l'usine.</p>
+  <p class="subtitle" data-a="fade" style="font-weight: 600; color: #5F6E76; font-size: 30px">La tour de contrôle de l'usine.</p>
   <div class="mes-stack" data-a="mes-stack">
     <div class="mes-tier tier-edge tier-erp">
       <div class="mes-tier-name">ERP</div>
@@ -652,14 +675,14 @@ a.data-source-card{cursor:pointer}
       <div class="mes-tier-verbs" style="font-weight: 600">Produisent</div>
     </div>
   </div>
-  <div class="mes-punch" data-a="fade" style="border-width: 1px; box-shadow: 0 12px 32px rgba(15,23,42,.12), 0 4px 12px rgba(15,23,42,.08)"><p style="color: #7C8D95; font-weight: 600; font-size: 28px">Sans MES, l'usine vole <strong style="color: #9944fa; font-weight: 700">à l'aveugle</strong>.</p></div>
+  <div class="mes-punch" data-a="fade" style="border-width: 1px; box-shadow: 0 12px 32px rgba(15,23,42,.12), 0 4px 12px rgba(15,23,42,.08)"><p style="color: #5F6E76; font-weight: 600; font-size: 28px">Sans MES, l'usine vole <strong style="color: #9944fa; font-weight: 700">à l'aveugle</strong>.</p></div>
 </div>
 
 <!-- ═══ 2. PROBLEME ═══ -->
 <div class="slide" id="s2">
   <div class="tag" data-a="scramble" data-text="Le problème">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Le MES est réservé<br><em>aux grands</em></h2>
-  <p class="subtitle s2-subtitle" data-a="fade" style="font-weight: 600; font-size: 30px; color: #7C8D95">Les PME représentent <strong class="s2-pct" style="color:var(--text)">99.8%<svg class="s2-pct-underline" viewBox="0 0 120 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3,11 C 22,8 48,6 72,7 C 92,7.8 108,9.5 117,11.5" /></svg></strong> des entreprises EU, mais n'ont pas accès au MES.</p>
+  <p class="subtitle s2-subtitle" data-a="fade" style="font-weight: 600; font-size: 30px; color: #5F6E76">Les PME représentent <strong class="s2-pct" style="color:var(--text)">99%<svg class="s2-pct-underline" viewBox="0 0 120 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3,11 C 22,8 48,6 72,7 C 92,7.8 108,9.5 117,11.5" /></svg></strong> des entreprises industrielles EU, mais n'ont pas accès au MES.</p>
   <div class="stat-row s2-stat-row">
     <div class="glow-card stat-card s2-card" data-s2="card-1">
       <div class="num" data-count="500" data-suffix="k€+">0</div>
@@ -693,7 +716,7 @@ a.data-source-card{cursor:pointer}
 <div class="slide" id="s3">
   <div class="tag" data-a="scramble" data-text="Notre solution">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Le premier MES<br><em>open core et accessible</em></h2>
-  <p class="subtitle" data-a="fade"><strong style="color:#7C8D95;font-weight:600;font-size:36px">MES de grand compte. Coût de PME.</strong></p>
+  <p class="subtitle" data-a="fade"><strong style="color:#5F6E76;font-weight:600;font-size:36px">MES de grand compte. Coût de PME.</strong></p>
   <div class="pill-row s3-pill-row">
     <div class="pill s3-pill" data-s3pill="0">
       <svg class="ico s3-ico s3-ico-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -729,7 +752,7 @@ a.data-source-card{cursor:pointer}
   <div class="tag" data-a="scramble" data-text="Le produit">&nbsp;</div>
   <h2 class="sec-title" data-a="lines">Ce n'est pas un prototype.<br><em>C'est un produit.</em></h2>
   <div class="demo-grid">
-    <div class="demo-item"><img src="img/cockpit.png" alt="Cockpit"><div class="demo-label">Cockpit personnalisable — 24 widgets</div></div>
+    <div class="demo-item"><img src="img/cockpit.png" alt="Dashboard"><div class="demo-label">Dashboard personnalisable — 24 widgets</div></div>
     <div class="demo-item"><img src="img/OEE.png" alt="OEE"><div class="demo-label">Productivité temps réel (OEE)</div></div>
     <div class="demo-item"><img src="img/timeline.png" alt="Timeline"><div class="demo-label">Historique des arrêts machines</div></div>
     <div class="demo-item"><img src="img/Arbre_equipment.png" alt="Equipements"><div class="demo-label">Gestion équipements (normes ISA-95/88)</div></div>
@@ -778,16 +801,16 @@ a.data-source-card{cursor:pointer}
 <!-- ═══ 6. MARCHE (was 7) ═══ -->
 <div class="slide" id="s7">
   <div class="tag" data-a="scramble" data-text="Opportunité">&nbsp;</div>
-  <h2 class="sec-title" data-a="lines">Un marché de <em>$16 Mds</em><br>dominé par des acteurs trop chers</h2>
-  <p class="subtitle s7-subtitle" data-a="fade" style="font-weight: 600; color: #7C8D95">Le MES est le prochain domaine B2B à être disrupté par l'open core.</p>
+  <h2 class="sec-title" data-a="lines">Un marché européen de <em>$4 Mds</em><br>dominé par des acteurs trop chers</h2>
+  <p class="subtitle s7-subtitle" data-a="fade" style="font-weight: 600; color: #5F6E76">Le MES est le prochain domaine B2B à être disrupté par l'open core.</p>
   <div class="stat-row s7-stat-row">
     <div class="glow-card stat-card s7-card" data-s7="card-1">
-      <div class="num" data-count="16" data-suffix=" Mds$">0</div>
-      <div class="label" style="font-weight: 600">Marché mondial<br>du MES en 2025</div>
+      <div class="num" data-count="4" data-suffix=" Mds$">0</div>
+      <div class="label" style="font-weight: 600">Marché européen<br>du MES en 2025</div>
     </div>
     <div class="glow-card stat-card s7-card" data-s7="card-2">
-      <div class="num" data-count="12" data-suffix="%/an">0</div>
-      <div class="label" style="font-weight: 600">Croissance<br>annuelle</div>
+      <div class="num" data-count="10" data-suffix="%/an">0</div>
+      <div class="label" style="font-weight: 600">Croissance annuelle<br>du marché européen</div>
     </div>
     <div class="glow-card stat-card s7-card" data-s7="card-3">
       <div class="num" data-count="160" data-suffix="k+">0</div>
@@ -805,12 +828,12 @@ a.data-source-card{cursor:pointer}
     <div class="glow-card bm-card" data-s8="card-1">
       <div class="bm-name">Open Core</div>
       <div class="bm-price"><span class="bm-price-main">Gratuit</span><span class="bm-price-sub"> · Toujours</span></div>
-      <ul class="bm-list"><li>Data logging &amp; trending</li><li>Cockpit limité aux fonctions gratuites</li></ul>
+      <ul class="bm-list"><li>Data logging &amp; trending</li><li>Dashboard limité aux fonctions gratuites</li></ul>
     </div>
     <div class="glow-card bm-card" data-s8="card-2">
       <div class="bm-name">Premium</div>
       <div class="bm-price"><span class="bm-price-main"><span class="bm-price-num">59</span> €</span><span class="bm-price-sub">/mois/équipement</span></div>
-      <ul class="bm-list"><li>Licence propriétaire</li><li>1 fonction premium au choix par équipement (OEE, IA intégrée, production par lot, reporting...)</li></ul>
+      <ul class="bm-list"><li>Licence propriétaire</li><li>1 fonction premium au choix par équipement (indicateur de performance, IA intégrée, production par lot, reporting...)</li></ul>
     </div>
     <div class="glow-card bm-card featured" data-s8="card-3">
       <span class="bm-badge">PRINCIPAL</span>
@@ -830,7 +853,7 @@ a.data-source-card{cursor:pointer}
       <div class="timeline">
         <div class="tl-spine"><svg viewBox="0 0 2 100" preserveAspectRatio="none"><path d="M1 0 L1 100"/></svg><span class="tl-spine-glow"></span></div>
         <div class="tl-item" data-s9="item-1"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Sept 2025</div><div class="tl-text">Premier MVP opérationnel</div></div></div>
-        <div class="tl-item" data-s9="item-2"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Oct – Dec 2025</div><div class="tl-text">Productivité (OEE) complète, cockpit, connexion aux machines</div></div></div>
+        <div class="tl-item" data-s9="item-2"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Oct – Dec 2025</div><div class="tl-text">Indicateurs de performance complets, dashboard, connexion aux machines</div></div></div>
         <div class="tl-item" data-s9="item-3"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Jan – Avr 2026</div><div class="tl-text">24 widgets, historique des arrêts, chatbot IA, interface en 10 langues</div></div></div>
         <div class="tl-item tl-now" data-s9="item-now"><div class="tl-dot done"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="tl-content"><div class="tl-date">Mai 2026 · maintenant</div><div class="tl-text"><strong style="color:var(--text)">4 early adopters ont signé</strong></div></div></div>
         <div class="tl-item" data-s9="item-jun"><div class="tl-dot" style="border-color:var(--amber);color:var(--amber)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div><div class="tl-content"><div class="tl-date">Juin 2026</div><div class="tl-text"><strong style="color:var(--text)">Premier déploiement</strong> — version commercialisable</div></div></div>
@@ -928,11 +951,11 @@ a.data-source-card{cursor:pointer}
       <div class="ds-source">Eurostat — Digitalisation in Europe 2025 (data 2024)</div>
       <div class="ds-detail">40% au niveau "low" + 27% au niveau "very low" = 67% des PME EU sous le seuil "basic" du DII.</div>
     </a>
-    <a class="data-source-card" href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Structural_business_statistics_overview" target="_blank" rel="noopener">
-      <div class="ds-stat">99.8%</div>
-      <div class="ds-claim">Des entreprises EU sont des PME</div>
-      <div class="ds-source">Eurostat — Structural Business Statistics 2023-24</div>
-      <div class="ds-detail">~25M entreprises actives en EU, dont 99.8% &lt; 250 employés. Représentent 63.5% de l'emploi.</div>
+    <a class="data-source-card" href="https://single-market-economy.ec.europa.eu/system/files/2023-08/Annual%20Report%20on%20European%20SMEs%202023_FINAL.pdf" target="_blank" rel="noopener">
+      <div class="ds-stat">99%</div>
+      <div class="ds-claim">Des entreprises industrielles EU sont des PME</div>
+      <div class="ds-source">Commission EU — Annual Report on European SMEs 2022/2023 · Eurostat SBS 2023</div>
+      <div class="ds-detail">"SMEs account for more than 99% of all enterprises in each of the 14 industrial ecosystems" (Commission EU, 2023). Soit 2,2M d'entreprises manufacturières en EU dont 99%+ sont des PME — qui pèsent 51,7% de l'emploi industriel et 33,9% de la valeur ajoutée manufacturière (Eurostat SBS 2023).</div>
     </a>
     <a class="data-source-card" href="https://shoplogix.com/total-cost-of-ownership-for-mes/" target="_blank" rel="noopener">
       <div class="ds-stat">500 k€+</div>
@@ -955,17 +978,17 @@ a.data-source-card{cursor:pointer}
   <h2 class="sec-title" data-a="lines">D'où viennent <em>ces chiffres</em> ?</h2>
   <p class="subtitle" data-a="fade">Cliquez sur un chiffre pour voir la source.</p>
   <div class="data-source-grid cols-3" data-a="stagger">
-    <a class="data-source-card" href="https://www.marketsandmarkets.com/Market-Reports/manufacturing-execution-systems-mes-market-536.html" target="_blank" rel="noopener">
-      <div class="ds-stat">$16 Mds</div>
-      <div class="ds-claim">Marché mondial du MES en 2025</div>
-      <div class="ds-source">MarketsandMarkets · Fortune Business Insights</div>
-      <div class="ds-detail">M&M : $15,95B en 2025 → $25,78B en 2030. Fortune : $16,57B en 2025. Notre $16 Mds = médiane.</div>
+    <a class="data-source-card" href="https://www.marketsandmarkets.com/PressReleases/europe-manufacturing-execution-system%20.asp" target="_blank" rel="noopener">
+      <div class="ds-stat">$4 Mds</div>
+      <div class="ds-claim">Marché européen du MES en 2025</div>
+      <div class="ds-source">MarketsandMarkets (mai 2026) · The Insight Partners</div>
+      <div class="ds-detail">M&M Europe : $3,80B en 2025 → $5,88B en 2030. Insight Partners : $4,85B en 2024 → $10,45B en 2031. Notre $4 Mds = médiane conservatrice. Marché mondial pour info : ~$16 Mds.</div>
     </a>
-    <a class="data-source-card" href="https://www.fortunebusinessinsights.com/manufacturing-execution-systems-market-110827" target="_blank" rel="noopener">
-      <div class="ds-stat">12%/an</div>
-      <div class="ds-claim">Croissance annuelle (CAGR)</div>
-      <div class="ds-source">MarketsandMarkets · Fortune · Mordor Intelligence</div>
-      <div class="ds-detail">CAGR entre 10,1% (M&M, 2025-2030) et 14,9% (Fortune, 2026-2034). Notre 12% = milieu de fourchette.</div>
+    <a class="data-source-card" href="https://www.marketsandmarkets.com/Market-Reports/europe-manufacturing-execution-system-mes-market-258685760.html" target="_blank" rel="noopener">
+      <div class="ds-stat">10%/an</div>
+      <div class="ds-claim">Croissance annuelle Europe (CAGR)</div>
+      <div class="ds-source">MarketsandMarkets · The Insight Partners</div>
+      <div class="ds-detail">CAGR Europe : 9,1% (M&M, 2025-2030) à 11,7% (Insight Partners, 2025-2031). Notre 10%/an = milieu de fourchette. Allemagne leader avec CAGR 11,2%.</div>
     </a>
     <a class="data-source-card" href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Businesses_in_the_manufacturing_sector" target="_blank" rel="noopener">
       <div class="ds-stat">160k+</div>
@@ -976,6 +999,164 @@ a.data-source-card{cursor:pointer}
   </div>
 </div>
 
+<!-- ═══ BACKUP — IA & SECURITE (Q&A jury) ═══ -->
+<div class="slide backup" id="s-backup-ia">
+  <div class="tag" data-a="scramble" data-text="Backup — IA & sécurité">&nbsp;</div>
+  <h2 class="sec-title" data-a="lines">Comment fonctionne<br><em>notre IA</em> ?</h2>
+  <p class="subtitle" data-a="fade">Architecture · données · sécurité · RGPD.</p>
+  <div class="adv-grid" data-a="grid">
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 00-4 4v1H6a2 2 0 00-2 2v3a2 2 0 002 2h.5"/><path d="M12 2a4 4 0 014 4v1h2a2 2 0 012 2v3a2 2 0 01-2 2h-.5"/><path d="M6.5 14L8 22h8l1.5-8"/><circle cx="12" cy="10" r="1.5"/></svg></div>
+      <div class="adv-title">LLM + RAG</div>
+      <div class="adv-desc">LLM dernière génération + couche RAG qui interroge en temps réel la base de production. Génération automatique de requêtes SQL à partir de la question en langage naturel.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+      <div class="adv-title">Données locales</div>
+      <div class="adv-desc">Les données usine ne quittent jamais le mini-PC sur site. Seule la question utilisateur transite, chiffrée TLS. Aucun stockage côté fournisseur LLM.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="adv-title">Latence < 3s</div>
+      <div class="adv-desc">Temps de réponse moyen 2-3 secondes (question → SQL → résultat → narration). L'usine continue à enregistrer pendant la requête, aucun impact production.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="adv-title">RGPD natif</div>
+      <div class="adv-desc">Mode "fully-offline" disponible (LLM local sur mini-PC, sans appel cloud) pour les usines à données sensibles. Conforme RGPD, audit possible.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+      <div class="adv-title">Multilingue</div>
+      <div class="adv-desc">L'opérateur pose sa question en français, anglais, néerlandais, allemand… 10 langues supportées. Pas de formation SQL ni de syntaxe spécifique à apprendre.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+      <div class="adv-title">Coût inclus</div>
+      <div class="adv-desc">Coût LLM négligeable par requête (~0,01€). Inclus dans la licence Premium/Enterprise, pas de surfacturation à l'usage.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ BACKUP — BUSINESS MODEL (Q&A jury) ═══ -->
+<div class="slide backup" id="s-backup-pricing">
+  <div class="tag" data-a="scramble" data-text="Backup — Pricing">&nbsp;</div>
+  <h2 class="sec-title" data-a="lines">Pourquoi<br><em>59€ / 95€</em> ?</h2>
+  <p class="subtitle" data-a="fade">Benchmark concurrents · précédents Open Core · économie unitaire.</p>
+  <div class="adv-grid" data-a="grid">
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></div>
+      <div class="adv-title">Tier 1 propriétaire</div>
+      <div class="adv-desc"><strong>Siemens Opcenter · SAP MII · Rockwell</strong> : 1-3 M€ par site. Soit ≈150-300€/équipement/mois amorti sur 5 ans. Verrouillage éditeur, intégration 18-36 mois.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+      <div class="adv-title">Tier 2 propriétaire</div>
+      <div class="adv-desc"><strong>Plex · AVEVA · Iconics</strong> : 50-100k€ initial + 50-120€/équipement/mois. SaaS propriétaire fermé, contrat 3-5 ans. Toujours hors de portée PME.</div>
+    </div>
+    <div class="glow-card adv-card" style="background:rgba(142,51,255,.06)">
+      <div class="adv-icon" style="background:linear-gradient(135deg,var(--purple-light),var(--purple));color:#fff"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <div class="adv-title">OpSee</div>
+      <div class="adv-desc"><strong>0€ Open Core · 59€ Premium · 95€ Enterprise</strong> par équipement/mois. Pas d'investissement initial. ARPU cible : ~50k€/usine/an (50 équipements en Enterprise).</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
+      <div class="adv-title">Précédent Odoo</div>
+      <div class="adv-desc">Open Core ERP pour PME. <strong>13M utilisateurs · valorisation $5,26 Md</strong> (2024). Modèle freemium → premium prouvé sur 15 ans dans le B2B PME européen.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.7 6.3a4.16 4.16 0 00-4.4-4.4L11 5l-7.6 6.6 9 9 6.6-7.6 3.7-7.3z"/><line x1="7" y1="17" x2="3" y2="21"/></svg></div>
+      <div class="adv-title">Précédent GitLab</div>
+      <div class="adv-desc">Open Core DevOps. IPO 2021, <strong>valorisation $10 Md</strong>. Démontre la viabilité à grande échelle de l'Open Core en B2B critique.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0018 0V5"/><path d="M3 12a9 3 0 0018 0"/></svg></div>
+      <div class="adv-title">Précédent Elastic</div>
+      <div class="adv-desc">Open Core search & analytics. NYSE listing, <strong>valorisation $10 Md</strong>. Confirme le modèle dans la donnée d'entreprise et le SaaS B2B.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ BACKUP — TRACTION & EARLY ADOPTERS (Q&A jury) ═══ -->
+<div class="slide backup" id="s-backup-traction">
+  <div class="tag" data-a="scramble" data-text="Backup — Early adopters">&nbsp;</div>
+  <h2 class="sec-title" data-a="lines">Qui sont nos<br><em>4 early adopters</em> ?</h2>
+  <p class="subtitle" data-a="fade">Profils sectoriels · engagement · roadmap de déploiement.</p>
+  <div class="adv-grid" data-a="grid">
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22h20"/><path d="M3 22V11l7-5v16"/><path d="M21 22V11l-7-5"/><circle cx="7" cy="14" r="1"/><circle cx="7" cy="18" r="1"/><circle cx="17" cy="14" r="1"/><circle cx="17" cy="18" r="1"/></svg></div>
+      <div class="adv-title">Adopter 1 · Métallurgie</div>
+      <div class="adv-desc">PME wallonne · ~80 employés · ligne d'usinage 6 machines CNC. Objectif : suivi OEE temps réel & historique arrêts.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+      <div class="adv-title">Adopter 2 · Plasturgie</div>
+      <div class="adv-desc">PME wallonne · ~120 employés · multi-lignes d'injection. Objectif : OEE en continu, alertes arrêts, dashboard chef de prod.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="15" x2="23" y2="15"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="15" x2="4" y2="15"/></svg></div>
+      <div class="adv-title">Adopter 3 · Composants industriels</div>
+      <div class="adv-desc">PME bruxelloise · ~50 employés · process discret, production par lot. Objectif : traçabilité lots, conformité ISA-88.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+      <div class="adv-title">Adopter 4 · Agro / packaging</div>
+      <div class="adv-desc">PME flamande · ~150 employés · lignes continues. Objectif : reporting production, tracking & tracing, suivi qualité.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><polyline points="9 14 11 16 15 12"/></svg></div>
+      <div class="adv-title">Engagement signé</div>
+      <div class="adv-desc"><strong>Déploiement gratuit</strong> en échange du feedback produit + témoignage client. LOI (Letter of Intent) signée par les 4. Pas de coût ni d'engagement long pour le pilote.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <div class="adv-title">Calendrier</div>
+      <div class="adv-desc"><strong>Juin 2026</strong> : premier déploiement (Adopter 1). <strong>Q3 2026</strong> : 3 autres adopters. <strong>Q4 2026</strong> : retours d'expérience consolidés → version commerciale.</div>
+    </div>
+  </div>
+  <div class="s2-consequence" data-a="fade"><p class="subtitle" style="text-align:center;font-size:20px;margin:0">Profils confidentiels — détails complets disponibles sur demande sous NDA.</p></div>
+</div>
+
+<!-- ═══ BACKUP — EQUIPE & AGINTECH (Q&A jury) ═══ -->
+<div class="slide backup" id="s-backup-team">
+  <div class="tag" data-a="scramble" data-text="Backup — Équipe & partenaires">&nbsp;</div>
+  <h2 class="sec-title" data-a="lines">Pourquoi<br><em>cette équipe</em> ?</h2>
+  <p class="subtitle" data-a="fade">Compétences complémentaires · partenariat AgiNtech · 50+ ans d'expérience MES.</p>
+  <div class="adv-grid" data-a="grid">
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div class="adv-title">Adam · Frontend / UX</div>
+      <div class="adv-desc">Design system, interface industrielle, intégration GSAP. Responsable de l'expérience opérateur sur le terrain et de la cohérence visuelle produit.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      <div class="adv-title">Nathan · Backend / Architecture</div>
+      <div class="adv-desc">Architecture serveur, intégration machines (OPC UA, MQTT), choix stack technique. Garantit la robustesse et l'évolutivité du cœur produit.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+      <div class="adv-title">Juliette · Commercial / Stratégie</div>
+      <div class="adv-desc">Go-to-market, prospection PME, gestion comptes pilotes. Pilote la stratégie de pénétration BE → FR → DE/AT/CH.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      <div class="adv-title">Louis · Finance / Juridique</div>
+      <div class="adv-desc">Structuration société, contrats clients & partenaires, propriété intellectuelle (Open Core), levée de fonds. Sécurise les fondations légales.</div>
+    </div>
+    <div class="glow-card adv-card" style="background:rgba(142,51,255,.06)">
+      <div class="adv-icon" style="background:linear-gradient(135deg,var(--purple-light),var(--purple));color:#fff"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg></div>
+      <div class="adv-title">AgiNtech · Partenaire</div>
+      <div class="adv-desc">Cabinet de conseil belge spécialisé en <strong>automatisation industrielle & MES</strong>. Apport : carnet d'adresses PME industrielles, validation produit terrain, accès aux décideurs usine.</div>
+    </div>
+    <div class="glow-card adv-card">
+      <div class="adv-icon"><svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div class="adv-title">Mentors AgiNtech</div>
+      <div class="adv-desc"><strong>Christophe Camerlynck</strong> (CEO AgiNtech, 30+ ans industrie) + <strong>Peter Mees</strong> (expert MES senior, 20+ ans). Mentorat hebdomadaire, validation roadmap, intro clients.</div>
+    </div>
+  </div>
+  <div class="s2-consequence" data-a="fade"><p class="subtitle" style="text-align:center;font-size:20px;margin:0">Aucune équipe MES Open Core sur le marché européen ne combine compétences produit + expertise terrain industrielle.</p></div>
+</div>
+
 <!-- ═══ BACKUP — SOURCES (Q&A jury) ═══ -->
 <div class="slide backup" id="s-sources">
   <div class="tag src-tag" data-a="scramble" data-text="Sources">&nbsp;</div>
@@ -983,9 +1164,9 @@ a.data-source-card{cursor:pointer}
     <h2 class="sec-title" data-a="lines">Nos<br><em>sources</em></h2>
     <div class="src-list" data-a="stagger">
       <div class="src-item"><span class="src-num">[1]</span><span>Eurostat, <em>Digital Intensity Index — How digitalised have the EU's enterprises become?</em>, Aug. 2024. 40% des PME EU au niveau "low" + 27% "very low" = <strong>67%</strong> sous le seuil basic.</span></div>
-      <div class="src-item"><span class="src-num">[2]</span><span>Eurostat, <em>Structural Business Statistics</em>, 2023-2024. <strong>99.8%</strong> des entreprises EU sont des PME (~25M entreprises actives).</span></div>
-      <div class="src-item"><span class="src-num">[3]</span><span>Fortune Business Insights, <em>Manufacturing Execution Systems Market 2024-2034</em>. Marché MES <strong>~$16 Mds</strong> en 2024, CAGR 14.9%.</span></div>
-      <div class="src-item"><span class="src-num">[4]</span><span>MarketsandMarkets, <em>MES Market Report 2025-2030</em>. $15.95 Mds en 2025 → $25.78 Mds en 2030, CAGR <strong>10.1%</strong> (notre 12% = milieu de fourchette).</span></div>
+      <div class="src-item"><span class="src-num">[2]</span><span>Commission Européenne, <em>Annual Report on European SMEs 2022/2023</em> (SME Performance Review) · Eurostat SBS 2023. <strong>«&nbsp;SMEs account for more than 99% of all enterprises in each of the 14 industrial ecosystems&nbsp;»</strong> — confirmé par les 2,2M d'entreprises manufacturières EU (Eurostat). PME industrielles = 51,7% de l'emploi et 33,9% de la valeur ajoutée du secteur.</span></div>
+      <div class="src-item"><span class="src-num">[3]</span><span>MarketsandMarkets, <em>Europe Manufacturing Execution System (MES) Market</em> (rapport mai 2026, code SE 9651). Marché européen <strong>$3,80 Md en 2025</strong> → $5,88 Md en 2030, CAGR <strong>9,1%</strong>. Allemagne en tête (CAGR 11,2%).</span></div>
+      <div class="src-item"><span class="src-num">[4]</span><span>The Insight Partners / ResearchAndMarkets, <em>Europe Manufacturing Execution System Market Report 2024-2031</em>. <strong>$4,85 Md en 2024 → $10,45 Md en 2031</strong>, CAGR <strong>11,7%</strong>. Notre $4 Md + 10%/an = médiane entre M&M et Insight Partners. Pour info marché mondial : ~$16 Md (M&M global, Fortune).</span></div>
       <div class="src-item"><span class="src-num">[5]</span><span>Shoplogix · TeepTrak <em>(2026 MES Buyer's Guide)</em> · f7i.ai · iBASEt. <strong>500k€+</strong> investissement initial : plage réelle 375k€-1,2M€. Tier 1 (Siemens, SAP) : 1-3 M€/site.</span></div>
       <div class="src-item"><span class="src-num">[6]</span><span>Symestic <em>(MES FAQ)</em> · TeepTrak · IgniteSAP <em>(SAP implementation timelines)</em>. <strong>18 mois</strong> = standard MES propriétaire (12-18). Tier 1 : 18-36 mois.</span></div>
       <div class="src-item"><span class="src-num">[7]</span><span>Eurostat, <em>Businesses in the manufacturing sector</em>, 2023. <strong>~2,2M entreprises manufacturières EU</strong> · 15,4M emplois en SMEs manufacturing. Cible OpSee BE+FR+DE+AT+CH : ~160k+.</span></div>
@@ -2362,15 +2543,15 @@ function animateS13(s){
     gsap.to(logoImg,{filter:'drop-shadow(0 0 50px rgba(112,83,254,.25))',duration:.8,ease:'sine.inOut',delay:1.40});
   }
 
-  // ── Tagline fade-up @ 1.20s
+  // ── Tagline fade-up @ 0.55s (accéléré)
   if(tagline){
-    gsap.to(tagline,{opacity:1,y:0,duration:.7,ease:'power3.out',delay:1.20});
+    gsap.to(tagline,{opacity:1,y:0,duration:.55,ease:'power3.out',delay:.55});
   }
   // Pulse mauve sur chaque rolling-wrap, en cascade — chaque mot "respire"
   wraps.forEach((w,i)=>{
     gsap.fromTo(w,
       {filter:'drop-shadow(0 0 0 rgba(142,51,255,0))'},
-      {filter:'drop-shadow(0 0 14px rgba(142,51,255,.6))',duration:.55,ease:'sine.out',delay:1.40+i*.18,yoyo:true,repeat:1});
+      {filter:'drop-shadow(0 0 14px rgba(142,51,255,.6))',duration:.55,ease:'sine.out',delay:.75+i*.14,yoyo:true,repeat:1});
   });
 
   // ── Closing text fade-up @ 2.10s
@@ -2552,19 +2733,19 @@ function animateS7(s){
     gsap.to(statRow,{opacity:1,scale:1,duration:.35,ease:'power3.out',delay:1.85});
   }
 
-  // ── Card 1 ($16 Mds) — entry @ 2.2s + counter
+  // ── Card 1 ($4 Mds Europe) — entry @ 2.2s + counter
   gsap.to(card1,{opacity:1,y:0,scale:1,duration:.6,ease:ENTRY_EASE,delay:2.2});
   const o1={v:0};
-  gsap.to(o1,{v:16,duration:1.6,ease:'power2.out',delay:2.45,
+  gsap.to(o1,{v:parseInt(num1.dataset.count)||4,duration:1.4,ease:'power2.out',delay:2.45,
     onUpdate(){val1.textContent=Math.round(o1.v);if(window.OPSEE_SOUND&&Math.random()<.18)window.OPSEE_SOUND.play('tick');}
   });
   gsap.fromTo(num1,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
     {filter:'drop-shadow(0 0 14px rgba(142,51,255,.45))',duration:.4,ease:'power2.out',delay:4.05,yoyo:true,repeat:1});
 
-  // ── Card 2 (12%/an) — entry @ 4.6s + counter
+  // ── Card 2 (10%/an Europe CAGR) — entry @ 4.6s + counter
   gsap.to(card2,{opacity:1,y:0,scale:1,duration:.6,ease:ENTRY_EASE,delay:4.6});
   const o2={v:0};
-  gsap.to(o2,{v:12,duration:2.0,ease:'power2.out',delay:4.9,
+  gsap.to(o2,{v:parseInt(num2.dataset.count)||10,duration:1.8,ease:'power2.out',delay:4.9,
     onUpdate(){val2.textContent=Math.round(o2.v);if(window.OPSEE_SOUND&&Math.random()<.14)window.OPSEE_SOUND.play('tick');}
   });
   gsap.fromTo(num2,{filter:'drop-shadow(0 0 0px rgba(142,51,255,0))'},
@@ -2648,7 +2829,7 @@ function animateIn(s){
   if(s.id==='s13') animateS13(s);
 
   // ROLLING
-  s.querySelectorAll('[data-a="rolling"]').forEach(el=>{el.style.opacity='1';gsap.set(el,{y:0});setTimeout(()=>startRolling(el),1800)});
+  s.querySelectorAll('[data-a="rolling"]').forEach(el=>{el.style.opacity='1';gsap.set(el,{y:0});setTimeout(()=>startRolling(el),900)});
 
   // MES STACK (S1B — pause pedago)
   s.querySelectorAll('[data-a="mes-stack"]').forEach(stack=>{

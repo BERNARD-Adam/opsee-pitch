@@ -1,0 +1,58 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e8]: 08 — 12
+  - img "OpSee" [ref=e10]
+  - button [ref=e11] [cursor=pointer]:
+    - img [ref=e12]
+  - button [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+  - generic [ref=e17]: fleches · espace · molette
+  - generic [ref=e64]:
+    - generic [ref=e65]: Business Model
+    - heading "Gratuit pour entrer. Payant pour scaler." [level=2] [ref=e66]:
+      - generic [ref=e68]: Gratuit pour entrer.
+      - emphasis [ref=e71]: Payant pour scaler.
+    - paragraph [ref=e72]:
+      - text: La même inspiration qu'
+      - generic [ref=e73]: Odoo
+      - text: ", appliquée au MES."
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]: Open Core
+        - generic [ref=e77]:
+          - generic [ref=e78]: Gratuit
+          - generic [ref=e79]: · Toujours
+        - list [ref=e80]:
+          - listitem [ref=e81]: — Data logging & trending
+          - listitem [ref=e82]: — Cockpit limité aux fonctions gratuites
+      - generic [ref=e83]:
+        - generic [ref=e84]: Premium
+        - generic [ref=e85]:
+          - generic [ref=e86]: 59 €
+          - generic [ref=e87]: /mois/équipement
+        - list [ref=e88]:
+          - listitem [ref=e89]: — Licence propriétaire
+          - listitem [ref=e90]: — 1 fonction premium au choix par équipement (OEE, IA intégrée, production par lot, reporting...)
+      - generic [ref=e91]:
+        - generic [ref=e92]: PRINCIPAL
+        - generic [ref=e93]: Enterprise
+        - generic [ref=e94]:
+          - generic [ref=e95]: 95 €
+          - generic [ref=e96]: /mois/équipement
+        - list [ref=e97]:
+          - listitem [ref=e98]: — Licence propriétaire
+          - listitem [ref=e99]: — Fonctions premium illimitées par équipement
+  - generic [ref=e26]:
+    - button [ref=e27] [cursor=pointer]
+    - button [ref=e28] [cursor=pointer]
+    - button [ref=e29] [cursor=pointer]
+    - button [ref=e30] [cursor=pointer]
+    - button [ref=e31] [cursor=pointer]
+    - button [ref=e32] [cursor=pointer]
+    - button [ref=e33] [cursor=pointer]
+    - button [ref=e34] [cursor=pointer]
+    - button [ref=e35] [cursor=pointer]
+    - button [ref=e36] [cursor=pointer]
+    - button [ref=e37] [cursor=pointer]
+    - button [ref=e38] [cursor=pointer]
+    - button [ref=e39] [cursor=pointer]
